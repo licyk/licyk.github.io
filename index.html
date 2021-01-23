@@ -59,7 +59,25 @@
 			</div>
 
 		<!-- BG -->
-			<div id="bg"></div>
+			<div id="bg">
+				#bg:after {
+			-moz-transform: scale(1.125);
+			-webkit-transform: scale(1.125);
+			-ms-transform: scale(1.125);
+			transform: scale(1.125);
+			-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
+			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
+			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
+			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
+			background-image: url("https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php")
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: 1;}
+				
+				
+				
+				</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js" ></script>
