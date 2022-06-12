@@ -279,7 +279,9 @@ slmgr /ato
 win10家庭版用户依次输入：
 slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
 slmgr /skms kms.03k.org
-slmgr /ato-----------------------------------
+slmgr /ato
+
+-----------------------------------
 
 ●Windows：
 ●快捷键（部分快捷键在其他系统上可用）：
