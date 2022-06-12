@@ -1,3 +1,286 @@
+专业工具分享:
+https://mp.weixin.qq.com/s?__biz=MzIyNjU2NzIxNQ==&mid=2247493698&idx=3&sn=a8a559fad39b630c2ee107befb748922&chksm=e86cdd02df1b541482485e3c789ea91d6a9ee52d143fd0a44562e34ef3406b2b29121a63e37b&token=248331323&lang=zh_CN#rd
+
+-----------------------------
+
+win10企业版ltsc激活密钥：
+
+
+M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+
+MBQRK-FNDW8-B7GF4-V9PCW-6MV77
+
+G76DK-34N4B-RRFK3-HWP26-XQCRH
+ 
+
+首先 WIN+X 打开”PowerShell 管理员版本”
+
+逐条输入以下代码：
+
+slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+
+slmgr -skms kms.03k.org
+
+slmgr -ato
+
+slmgr -dlv
+
+之后就可以愉快地使用了。
+
+
+--------------------------------------------------------------------
+
+Win10神key：
+
+Win10神key：W269N-WFGWX-YVC9B-4J6C9-T83GX
+
+Win10神key：P7N43-7CKCH-8DJ7T-3Y6RV-G6PJR
+
+Win10神key：P9C2R-NM3BW-JR7DG-2R38J-D9MPF
+
+Win10神key：KH2J9-PC326-T44D4-39H6V-TVPBY
+
+Win10神key：TFP9Y-VCY3P-VVpT-8XXCC-MF4YK
+
+Win10神key：236TW-X778T-8MV9F-937GT-QVKBB
+
+Win10神key：87VT2-FY2XW-F7K39-W3T8R-XMFGF
+
+Win10神key：6K2KY-BFH24-PJW6W-9GK29-TMPWP
+
+Win10神key：RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289
+
+win10激活码神Key:
+
+神Key之六：C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
+
+神Key之七：2VCGQ-pVJ4-2HGJ2-K36X9-J66JG
+
+神Key之八：MGX79-TPQB9win10企业版ltsc激活密钥：
+
+M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+
+MBQRK-FNDW8-B7GF4-V9PCW-6MV77
+
+G76DK-34N4B-RRFK3-HWP26-XQCRH
+ 
+
+首先 WIN+X 打开”PowerShell 管理员版本”
+
+逐条输入以下代码：
+
+slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+
+slmgr -skms kms.03k.org
+
+slmgr -ato
+
+slmgr -dlv
+
+之后就可以愉快地使用了。
+
+
+--------------------------------------------------------------------
+
+Win10神key：
+
+Win10神key：W269N-WFGWX-YVC9B-4J6C9-T83GX
+
+Win10神key：P7N43-7CKCH-8DJ7T-3Y6RV-G6PJR
+
+Win10神key：P9C2R-NM3BW-JR7DG-2R38J-D9MPF
+
+Win10神key：KH2J9-PC326-T44D4-39H6V-TVPBY
+
+Win10神key：TFP9Y-VCY3P-VVpT-8XXCC-MF4YK
+
+Win10神key：236TW-X778T-8MV9F-937GT-QVKBB
+
+Win10神key：87VT2-FY2XW-F7K39-W3T8R-XMFGF
+
+Win10神key：6K2KY-BFH24-PJW6W-9GK29-TMPWP
+
+Win10神key：RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289
+
+win10激活码神Key:
+
+神Key之六：C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
+
+神Key之七：2VCGQ-pVJ4-2HGJ2-K36X9-J66JG
+
+神Key之八：MGX79-TPQB9DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+
+win10激活方法：
+
+系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
+
+说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org。
+
+win10专业版用户请依次输入：
+
+slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+
+slmgr /skms kms.03k.org
+
+slmgr /ato
+
+win10企业版用户请依次输入：
+
+slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
+
+slmgr /skms kms.03k.org
+
+slmgr /ato
+
+win10家庭版用户依次输入：
+
+slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+
+slmgr /skms kms.03k.org
+
+slmgr /ato
+
+
+--------------------------------------------------
+
+Win7旗舰、企业、专业版的激活密钥(32位、64位均可用)：
+
+　　FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
+
+　　VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
+
+　　2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
+
+　　342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
+
+　　9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
+
+　　MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
+
+　　6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
+
+　　49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
+
+　　YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
+
+　　76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
+
+　　4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
+
+　　2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
+
+　　.FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
+
+　　TG664-TJ7YK-2VY3K-4YFY6-BCXF4
+
+　　MVG64-RQDVY-KB9RM-MX9WT-MW824
+
+　　TDTY2-6HJ49-46PCK-6HY88-KQXXX
+
+　　FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
+
+　　H67R8-4HCH4-WGVKX-GV888-8D79B
+
+　　J4M92-42VH8-M9JWJ-BR7H6-KTFP6
+
+　　76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
+
+　　P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
+
+　　C2236-JBPWG-TGWVG-GC2WV-D6V6Q
+
+　　482XP-6J9WR-4JXT3-VBPP6-FQF4M
+
+　　KH2J9-PC326-T44D4-39H6V-TVPBY
+
+　　TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
+
+　　J783Y-JKQWR-677Q8-KCXTF-BHWGC
+
+　　C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
+
+　　2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
+
+　　MGX79-TPQB9-KQ248-KXR2V-DHRTD
+
+　　FJHWT-KDGHY-K2384-93CT7-323RC
+
+-----------------------------------------------------------
+Windows 10 Pro(win10专业版激活密钥)
+TPYNC-4J6KF-4B4GP-2HD89-7XMP6
+2BXNW-6CGWX-9BXPV-YJ996-GMT6T
+NRTT2-86GJM-T969G-8BCBH-BDWXG
+XC88X-9N9QX-CDRVP-4XV22-RVV26
+TNM78-FJKXR-P26YV-GP8MB-JK8XG
+TR8NX-K7KPD-YTRW3-XTHKX-KQBP6
+
+VK7JG-NPHTM-C97JM-9MPGT-3V66T
+NPPR9-FWDCX-D2C8J-H872K-2YT43
+W269N-WFGWX-YVC9B-4J6C9-T83GX
+NYW94-47Q7H-7X9TT-W7TXD-JTYPM
+NJ4MX-VQQ7Q-FP3DB-VDGHX-7XM87
+MH37W-N47XK-V7XM9-C7227-GCQG9
+
+windows10 Home（win10家庭版激活码）：
+TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+3KHY7-WNT83-DGQKR-F7HPR-844BM
+7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH
+PVMJN-6DFY6-9CCP6-7BKTT-D3WVR
+PPBK3-M92CH-MRR9X-34Y9P-7CH2F
+(OA 3.0版)
+Win10家庭版 37GNV-YCQVD-38XP9-T848R-FC2HD
+Win10家庭版N 33C4Y-NPKCC-V98JP-42G8W-VH636
+(非OA 3.0版)
+Win10家庭版 46J3N-RY6B3-BJFDY-VBFT9-V22HG
+Win10家庭版N PGGM7-N77TC-KVR98-D82KJ-DGPHV
+
+Windows 10系统
+企业版：XGVPP-NMH47-7TTHJ-W3FW7-8HV2C
+教育版：YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY
+专业版N：2B87N-8KFHP-DKV6R-Y2C8J-PKCKT
+企业版N：WGGHN-J84D6-QYCPR-T7PJ7-X766F
+教育版N：84NGF-MHBT6-FXBX8-QWJK7-DRR8H
+企业版S：FWN7H-PF93Q-4GGP8-M8RF3-MDWWW
+单语言版：BT79Q-G7N6G-PGBYW-4YWX6-6F4BT
+
+Windows 10 Core Single Language:JPYNJ-XTFCR-372YJ-YJJ4Q-G83YB
+Windows 10 Core 中文版 Language Edition:R3BYW-CBNWT-F3JTP-FM942-BTDXY
+Windows 10 Core :KTNPV-KTRK4-3RRR8-39X6W-W44T3
+Windows 10 Pro:8N67H-M3CY9-QT7C4-2TR7M-TXYCV
+Windows 10 Enterprise:CKFK9-QNGF2-D34FM-99QX3-8XC4K
+Windows 10 Core Single Language :JPYNH-XTFCR-372YJ-YJJ3Q-G83YB
+Windows 10 Core Chinese Languange Edition:R3BYW-CBNWT-F3JTP-FM942-BTDXY
+
+win10企业版：
+Windows 10 Enterprise : NPPR9-FWDCX-D2C8J-H872K-2YT43
+Windows 10 Enterprise N: DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+Windows 10 Enterprise 2015 LTSB :WNMTR-4C88C-JK8YV-HQ7T2-76DF9
+Windows 10 Enterprise 2015 LTSB N : 2F77B-TNFGY-69QQF-B8YKP-D69TJ
+
+win10预览版密钥：
+Win10企业版密钥：PBHCJ-Q2NYD-2PX34-T2TD6-233PK
+Win10专业版密钥：NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
+
+ 
+
+激活方法：
+系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
+说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org，参考可用的kms激活服务器有哪些
+win10专业版用户请依次输入：
+slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+slmgr /skms kms.03k.org
+slmgr /ato
+
+win10企业版用户请依次输入：
+slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
+slmgr /skms kms.03k.org
+slmgr /ato
+
+win10家庭版用户依次输入：
+slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+slmgr /skms kms.03k.org
+slmgr /ato-----------------------------------
+
 ●Windows：
 ●快捷键（部分快捷键在其他系统上可用）：
 全选ctrl+a
