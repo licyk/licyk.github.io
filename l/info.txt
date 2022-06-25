@@ -313,6 +313,7 @@ slmgr /ato
 撤回 ctrl+z
 重做 ctrl+shift+z
 切换桌面Ctrl+Alt+方向键
+输入大写或标点shift+键盘上的按键
 
 ●Windows程序：
 策略管理services.msc
@@ -752,3 +753,8 @@ b : reBoot 重启
 切换桌面Ctrl+Alt+方向左右键
 虚拟桌面管理Ctrl+Alt+方向上键
 在当前桌面切换应用trl+Alt+方向下键
+
+●Linux设置文件默认打开程序：
+格式：gio mime 文件类型 处理程序
+例：gio mime application/x-blender blender.desktop
+（blender.desktop为/usr/share/applications的图标文件）
