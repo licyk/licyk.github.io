@@ -760,3 +760,33 @@ b : reBoot 重启
 格式：gio mime 文件类型 处理程序
 例：gio mime application/x-blender blender.desktop
 （blender.desktop为/usr/share/applications的图标文件）
+
+●Linux设置开机自动登录：
+lightdm：
+修改/etc/lightdm/lightdm.conf
+找到#autologin-user=这一行
+
+#autologin-user=
+
+将前面的#去掉，等号后加用户名
+
+autologin-user=用户名
+
+这样lightdm配置完毕，重启后生效
+gdm：
+修改/etc/gdm/custom.conf
+
+
+[daemon]
+
+AutomaticLoginEnable=True #这里的True的T是大写，有的gnome环境可能是true小写的
+
+AutomaticLogin=用户名
+
+TimedLoginEnable=True
+
+[security]
+
+AllowRoot=True
+
+gdm配置完毕，重启后生效
