@@ -480,6 +480,7 @@ vlc（视频播放器）
 pulseeffects（音频均衡器）
 dconf-editor（类似注册表编辑器）
 Remmina（远程桌面连接）
+stacer（系统管理优化）
 
 ●安装WineHQ:
 如果您使用的是 64 位系统，请开启 32 bit 架构支持（如果您之前没有开启的话）：
