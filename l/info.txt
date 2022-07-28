@@ -72,22 +72,6 @@ MBQRK-FNDW8-B7GF4-V9PCW-6MV77
 
 G76DK-34N4B-RRFK3-HWP26-XQCRH
  
-
-首先 WIN+X 打开”PowerShell 管理员版本”
-
-逐条输入以下代码：
-
-slmgr -ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D
-
-slmgr -skms kms.03k.org
-
-slmgr -ato
-
-slmgr -dlv
-
-之后就可以愉快地使用了。
-
-
 --------------------------------------------------------------------
 
 Win10神key：
@@ -152,67 +136,34 @@ slmgr /ato
 --------------------------------------------------
 
 Win7旗舰、企业、专业版的激活密钥(32位、64位均可用)：
-
 　　FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
-
 　　VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
-
 　　2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
-
 　　342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
-
 　　9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
-
 　　MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
-
 　　6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
-
 　　49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
-
 　　YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
-
 　　76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
-
 　　4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
-
 　　2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
-
 　　.FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
-
 　　TG664-TJ7YK-2VY3K-4YFY6-BCXF4
-
-　　MVG64-RQDVY-KB9RM-MX9WT-MW824
-
 　　TDTY2-6HJ49-46PCK-6HY88-KQXXX
-
 　　FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
-
 　　H67R8-4HCH4-WGVKX-GV888-8D79B
-
 　　J4M92-42VH8-M9JWJ-BR7H6-KTFP6
-
 　　76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
-
 　　P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
-
 　　C2236-JBPWG-TGWVG-GC2WV-D6V6Q
-
 　　482XP-6J9WR-4JXT3-VBPP6-FQF4M
-
 　　KH2J9-PC326-T44D4-39H6V-TVPBY
-
 　　TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
-
 　　J783Y-JKQWR-677Q8-KCXTF-BHWGC
-
 　　C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
-
 　　2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
-
-　　MGX79-TPQB9-KQ248-KXR2V-DHRTD
-
 　　FJHWT-KDGHY-K2384-93CT7-323RC
-
 -----------------------------------------------------------
 Windows 10 Pro(win10专业版激活密钥)
 TPYNC-4J6KF-4B4GP-2HD89-7XMP6
@@ -221,7 +172,6 @@ NRTT2-86GJM-T969G-8BCBH-BDWXG
 XC88X-9N9QX-CDRVP-4XV22-RVV26
 TNM78-FJKXR-P26YV-GP8MB-JK8XG
 TR8NX-K7KPD-YTRW3-XTHKX-KQBP6
-
 VK7JG-NPHTM-C97JM-9MPGT-3V66T
 NPPR9-FWDCX-D2C8J-H872K-2YT43
 W269N-WFGWX-YVC9B-4J6C9-T83GX
@@ -268,9 +218,7 @@ Windows 10 Enterprise 2015 LTSB N : 2F77B-TNFGY-69QQF-B8YKP-D69TJ
 win10预览版密钥：
 Win10企业版密钥：PBHCJ-Q2NYD-2PX34-T2TD6-233PK
 Win10专业版密钥：NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
-
  
-
 激活方法：
 系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
 说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org，参考可用的kms激活服务器有哪些
@@ -446,6 +394,27 @@ https://addons.mozilla.org/zh-CN/firefox/
 写好后，回车，文件已经成功隐藏
 如果想去掉刚刚附上的属性，只需要将+换为-，即可恢复隐藏。
 关于查看的方法也很简单，在文件夹选项里，取消隐藏系统文件，然后按确定，即可查看隐藏的系统文件
+
+●解决parsec国内无法使用方法：
+1、下载v2rayN（https://github.com/2dust/v2rayN/releases/）
+2、在v2rayN中添加节点（节点可从网上寻找），并启用
+3、打开“设置—>参数设置—>core:基础设置",勾选"允许来自局域网的连接"，确定保存设置
+4、在文件管理器中打开C:\Users\用户名\AppData\Roaming\Parsec，找到config.txt，在文本的最后添加下列参数
+
+app_proxy_address=127.0.0.1
+app_proxy_scheme=http
+app_proxy=true
+app_proxy_port=10809
+
+5、重新打开parsec即可正常使用
+//
+注：
+1、
+app_proxy_address为代理的地址
+app_proxy_scheme为代理协议
+app_proxy_port为代理的端口
+2、v2rayN的参数可在软件所在目录中"config.json"查看，socks代理默认端口为10808，http代理默认端口为10809
+//
 
 ●Linux:
 ●快捷键：
