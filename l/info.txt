@@ -245,6 +245,19 @@ wmic process where name='进程名.exe' call terminate
 
 ●在OBS Studio中可按住Alt键裁剪窗口
 
+●firefox推荐插件：
+Translate Web Pages(网页实时翻译)
+AdBlock(广告拦截)
+AdGuard(广告拦截，拦截效果比adblock好)
+Global Speed(视频速度控制)
+Image Search Options(网页识图)
+Infinity(自定义标签页)
+Tampermonkey(可添加脚本)
+To Google Translate(网页翻译)
+User-Agent Switcher and Manager(浏览器UA修改)
+Video DownloadHelper(视频下载)
+bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
+
 ●电脑优化方法（低配机可尝试）：
 固态硬盘禁用休眠文件
 禁用系统7G预留
