@@ -258,6 +258,14 @@ User-Agent Switcher and Manager(浏览器UA修改)
 Video DownloadHelper(视频下载)
 bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
 
+●edge浏览器进入高级设置：
+在地址栏输入edge://flags
+回车后进入
+
+●firefox浏览器进入高级设置：
+在地址栏输入about:config
+回车后进入
+
 ●电脑优化方法（低配机可尝试）：
 固态硬盘禁用休眠文件
 禁用系统7G预留
