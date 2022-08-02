@@ -266,6 +266,10 @@ bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
 在地址栏输入about:config
 回车后进入
 
+●edge浏览器关闭“使用推荐的浏览器设置”弹窗：
+在地址栏输入edge://flags/#edge-show-feature-recommendations
+将下面第一个选项的“Default”改成“Disable”，并重启浏览器
+
 ●电脑优化方法（低配机可尝试）：
 固态硬盘禁用休眠文件
 禁用系统7G预留
