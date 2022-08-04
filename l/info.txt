@@ -9,6 +9,9 @@ http://www.aichunjing.com/
 异星软件空间：
 https://www.yxssp.com/
 
+机场推荐：
+https://9.234456.xyz/abc.html
+
 -----------------------------
 
 win10企业版ltsc激活密钥：
@@ -649,6 +652,14 @@ input-menthod=fcitx-fbterm  #修改输入法
 ●Linux mint Cinnamon推荐装的任务栏插件：
 Network Data Usage Monitor
 Simple CPU Monitor
+
+●gnome桌面推荐插件：
+dash to panel
+network stats
+openweather
+removable drive menu
+simple system monitor
+topicons plus
 
 ●Linux安装v2ray：
 安装和更新 V2Ray
