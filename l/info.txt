@@ -661,6 +661,9 @@ removable drive menu
 simple system monitor
 topicons plus
 
+●安装gnome桌面管理插件：
+在终端中输入sudo apt install gnome-tweaks gnome-extensions-app
+
 ●Linux安装v2ray：
 安装和更新 V2Ray
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
