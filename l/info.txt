@@ -388,6 +388,11 @@ app_proxy_port为代理的端口
 2、v2rayN的参数可在软件所在目录中"config.json"查看，socks代理默认端口为10808，http代理默认端口为10809
 //
 
+●window创建软链接：
+mklink /d "虚拟文件路径" "真实文件路径"
+删除软连接：
+rmdir "虚拟文件路径"
+
 ●Linux:
 ●快捷键：
 进入tty界面：Ctrl+Alt+F2/F3/…F6
@@ -744,3 +749,9 @@ TimedLoginEnable=True
 AllowRoot=True
 
 gdm配置完毕，重启后生效
+
+●linux创建软链接：
+ln -s 源文件 目标文件
+例：
+ln -s /home/用户名/下载/文件/test /home/用户名/下载/
+此时会在"/home/用户名/下载/"生成“test”快捷方式，并链接到真实路径“/home/用户名/下载/文件/test”
