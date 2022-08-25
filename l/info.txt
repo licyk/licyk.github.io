@@ -410,6 +410,8 @@ sudo apt update
 sudo apt upgrade
 安装软件:
 sudo apt install 软件名
+sudo apt install --no-install-recommends 软件名(不安装推荐软件)
+sudo apt remove 软件名 --purge(彻底卸载软件包)
 sudo dpkg -i xxx.deb(安装本地安装包)
 sudo dpkg -i *.deb(安装所在目录下全部安装包)
 关闭某个窗口:
