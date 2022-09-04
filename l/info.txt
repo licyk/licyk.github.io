@@ -214,6 +214,9 @@ slmgr /ato
 重做 ctrl+shift+z
 切换桌面Ctrl+Alt+方向键
 输入大写或标点shift+键盘上的按键
+任务管理器关闭任务 delete
+显示顶栏菜单对应键盘字母 Alt
+选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
 
 ●Windows程序：
 策略管理services.msc
@@ -396,6 +399,12 @@ mklink /d "虚拟文件路径" "真实文件路径"
 删除软连接：
 rmdir "虚拟文件路径"
 
+●bios核显设置优化：
+GFX Boost 意思是GPU动态加速，默认是关闭的，我们要开启，方法是按方向键选中此项回车，再选择Enabled开启，而选择Disabled关闭
+DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，也不是越大越好因为会减小系统内存，推荐调到128。
+DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
+Aperture Size 这个是最大图形缓冲区，默认256我选的512。
+
 ●Linux:
 ●快捷键：
 进入tty界面：Ctrl+Alt+F2/F3/…F6
@@ -414,6 +423,7 @@ sudo apt install --no-install-recommends 软件名(不安装推荐软件)
 sudo apt remove 软件名 --purge(彻底卸载软件包)
 sudo dpkg -i xxx.deb(安装本地安装包)
 sudo dpkg -i *.deb(安装所在目录下全部安装包)
+sudo apt --fix-broken install（修复依赖）
 关闭某个窗口:
 sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
 
