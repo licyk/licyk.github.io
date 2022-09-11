@@ -217,6 +217,7 @@ slmgr /ato
 任务管理器关闭任务 delete
 显示顶栏菜单对应键盘字母 Alt
 选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
+切换输入法win+space或Ctrl+shift
 
 ●Windows程序：
 策略管理services.msc
@@ -249,6 +250,8 @@ PasswordLessBuildVersion把3改为0
 wmic process where name='进程名.exe' call terminate
 
 ●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
+
+●QQ电脑版可以通过鼠标拖动聊天内容的文件下载到指定文件夹
 
 ●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
 
@@ -443,6 +446,9 @@ dconf-editor（类似注册表编辑器）
 Remmina（远程桌面连接）
 stacer（系统管理优化）
 hardinfo（硬件信息检测）
+handbrake（视频压制）
+krita（绘画工具）
+inkscape（矢量图制作工具）
 
 ●安装WineHQ:
 如果您使用的是 64 位系统，请开启 32 bit 架构支持（如果您之前没有开启的话）：
