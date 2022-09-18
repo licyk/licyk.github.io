@@ -15,6 +15,7 @@ https://9.234456.xyz/abc.html
 TrafficMonitor(网速监控)下载:
 https://github.com/zhongyang219/TrafficMonitor
 
+steam官网：https://s.team/或https://store.steampowered.com/
 -----------------------------
 
 win10企业版ltsc激活密钥：
@@ -408,6 +409,9 @@ DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，�
 DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
 Aperture Size 这个是最大图形缓冲区，默认256我选的512。
 
+●windows修复分区:
+在cmd中输入chkdsk 盘符: /F
+
 ●Linux:
 ●快捷键：
 进入tty界面：Ctrl+Alt+F2/F3/…F6
@@ -429,6 +433,8 @@ sudo dpkg -i *.deb(安装所在目录下全部安装包)
 sudo apt --fix-broken install（修复依赖）
 关闭某个窗口:
 sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
+Linux自动编译:(需安装debhelper build-dep cmake make)
+dpkg-buildpackage -us -uc -nc
 
 ●linux mint解决中文不全:
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
@@ -449,6 +455,7 @@ hardinfo（硬件信息检测）
 handbrake（视频压制）
 krita（绘画工具）
 inkscape（矢量图制作工具）
+obs-studio(屏幕录像)
 
 ●安装WineHQ:
 如果您使用的是 64 位系统，请开启 32 bit 架构支持（如果您之前没有开启的话）：
