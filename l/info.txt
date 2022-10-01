@@ -252,8 +252,6 @@ wmic process where name='进程名.exe' call terminate
 
 ●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 
-●QQ电脑版可以通过鼠标拖动聊天内容的文件下载到指定文件夹
-
 ●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
 
 ●在OBS Studio中可按住Alt键裁剪窗口
@@ -435,6 +433,12 @@ sudo apt --fix-broken install（修复依赖）
 sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
 Linux自动编译:(需安装debhelper build-dep cmake make)
 dpkg-buildpackage -us -uc -nc
+检查硬盘：
+lsblk
+启动硬盘分区编辑：
+cfdisk
+格式分区为指定文件系统(ext3可以替换成fat32,ntfs,ext4等):
+mkfs -t ext3 /dev/sda4  
 
 ●linux mint解决中文不全:
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
@@ -456,32 +460,7 @@ handbrake（视频压制）
 krita（绘画工具）
 inkscape（矢量图制作工具）
 obs-studio(屏幕录像)
-
-●安装WineHQ:
-如果您使用的是 64 位系统，请开启 32 bit 架构支持（如果您之前没有开启的话）：
-sudo dpkg --add-architecture i386 
-下载添加仓库密钥：
-wget -nc https://dl.winehq.org/wine-builds/winehq.key
-sudo apt-key add winehq.key
-并添加仓库：
-For this version:	Use this command:
-1，Ubuntu 20.10
-sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main'
-2，Ubuntu 20.04
-sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
-3，Ubuntu 18.04
-     Linux Mint 19.x
-sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-更新安装包：
-sudo apt update
-然后安装 以下任一一个安装包：
-稳定分支	
-sudo apt install --install-recommends winehq-stable
-开发分支	
-sudo apt install --install-recommends winehq-devel
-Staging 分支	
-sudo apt install --install-recommends winehq-staging
-如果 apt-get 提示缺少依赖，请先安装缺少的依赖，然后重复以上两步（update 和 install）
+gparted(分区编辑工具)
 
 ●wine安装字体:
 1：先从Windows系统中把微软雅黑字体提取出来（在系统分区的Win。dows/Fonts目录下），搜索msyh关键字能找到3个文件，分别是msyh.ttc，msyhbd.ttc，msyhl.ttc，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的**.wine/drive_c/windows/Fonts**目录下面，.wine是隐藏文件夹，在主目录文件夹里按Ctrl+H即可显示。
@@ -700,6 +679,8 @@ topicons plus
 ●Linux安装v2ray：
 安装和更新 V2Ray
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+如果为Debian系的版本可以从仓库中安装
+sudo apt install v2ray
 安装最新发行的 geoip.dat 和 geosite.dat
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh
 移除 V2Ray
@@ -799,7 +780,9 @@ writeable =yes
 3、设置账户samba密码
 sudo smbpasswd -a 用户名
 重复输入两次密码，完成
-4、打开nemo文件管理器，右键将要共享的文件夹，，选择"共享选项",启用"共享此文件夹"，此时文件共享成功
+4、添加用户到sambashare组
+usermod -a -G sambashare 用户名
+5、打开nemo文件管理器，右键将要共享的文件夹，，选择"共享选项",启用"共享此文件夹"，此时文件共享成功
 在Windows文件管理器中输入\\ip 即可访问
 ●在原基础上添加新的用户进行访问：
 1、添加新的Linux系统用户：
@@ -813,3 +796,219 @@ sudo smbpasswd -a 用户名
 但无法令每个用户单独访问各自文件夹
 所以有局限性
 想实现完整功能需使用纯samba配置法
+
+●Linux用户和用户组：
+命令;
+groupadd 添加用户组
+useradd 增加一个新用户或者更新默认新用户信息
+usermod 更改用户帐户属性
+说明;
+在 Linux 用户系统中存在两类组。
+第一类是主要用户组（主组），第二类是附加用户组（附属组）。
+主组：也被称为primary group、first group或initial login group，用户的默认组，用户的gid所标识的组。
+附属组：也被称为Secondary group或supplementary group，用户的附加组。
+存储文件:
+用户帐户及相关信息都存储在 /etc/passwd 文件中，
+用户组信息存储在/etc/shadow 和 /etc/group 文件。
+通过id命令查看用户的主组和附属组:
+
+[root@localhost ~]# id root
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
+[root@localhost ~]# id gg
+uid=503(gg) gid=503(gg) groups=503(gg)
+[root@localhost ~]# id mm
+uid=502(mm) gid=500(jww) groups=500(jww)
+
+gid标识主组，groups表示用户所属的全部组（主组和附属组）
+用户必须有且只能有一个主组，可以有0个、1个或多个附属组
+新增一个用户并添加到指定用户组:
+
+#检查用户组是否存在，如果组存在则会输出组信息，否则没有任何输出
+grep <用户组名称> /etc/group
+#如果用户组不存在则使用如下命令新建用户组：
+groupadd <用户组名称>
+ 
+#新建用户并将其加入指定用户组,作为其主用户组（每个用户有且只有一个主用户组）
+useradd -g <用户组名称> <用户名称>
+#或者 新建用户并将其加入指定附属用户组，附属用户组可以有多个，多个附属组名称用逗号分隔即可
+useradd -G <用户组名称> <用户名称>
+ 
+#设置用户密码
+passwd <用户名称>
+#查看用户属性，检查是否添加到正确的用户组
+id <用户名称>
+
+常用添加用户命令（添加用户并添加到主组）：useradd -g <用户组名称> <用户名称>
+将已有用户添加到指定用户组:
+
+#将已有用户添加到指定用户组，作为其附属用户组
+# -a 代表append，和 -G 一起使用，将用户添加到新用户组中而不必来开原有的其他用户组
+usermod -a -G <用户组名称> <用户名称>
+ 
+#将已有用户的主用户组改为新的用户组
+usermod -g <新的用户组名称> <用户名称>
+
+添加用户，并指定家目录、所在组、登录shell等信息:
+
+# -m 自动建立用户家目录
+# -g 指定用户所在的组
+# -s 指定用户登录的shell
+usermod -m -s /bin/bash -g <用户组名称> <用户名称>
+
+将一个用户从某个用户组删除:
+
+#将用户从该用户的附属组中删除
+gpasswd -d <用户名称> <用户组名称>
+
+删除用户:
+
+#永久性删除用户账号
+userdel <用户名称>
+
+●Linux使用gdebi安装deb包
+安装gdebi
+sudo apt install gdebi
+用法：
+sudo gdebi 软件.deb
+gdebi会自动寻找软件依赖并安装
+启动gdebi图形界面可运行gdebi-gtk
+
+●Linux手动关联文件扩展名和打开程序:
+当Linux不认识某种扩展名的时候，需要为此扩展名创建一个MIME类型。
+Linux是依据MIME类型而不是扩展名来决定打开程序的，
+再将此种MIME类型与某程序菜单项关联
+1、为扩展名建造一个MIME类型：
+(如果你的Linux已经认得这种扩展名，不需要做这一步。在你的文件管理器中，看看这种扩展名的文件有没有被正确识别。或使用file命令查看。)
+创建 application-x-扩展名.xml 内容：
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/x-扩展名">
+        <comment>此种文件类型的描述</comment>
+        <icon name="application-x-扩展名"/>
+        <glob-deleteall/>
+        <glob pattern="*.扩展名"/>
+    </mime-type>
+</mime-info> 
+
+放 application-x-扩展名.xml 到 ~/.local/share/mime/packages/。
+刷新系统MIME数据库
+
+$ update-mime-database ~/.local/share/mime
+
+2、为程序建造一个菜单项：
+(如果此程序已经有菜单项，略过这一步。)
+创建程序.desktop ， 内容：
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=显示的程序名
+Icon="/path-to/图标文件"
+Exec="/path-to/执行程序" %f
+Path="/path-to/" （可选）
+NoDisplay=false （true则不会在系统菜单中出现）
+Categories=Utility;
+StartupNotify=false
+Terminal=false
+
+其关键在于Exec=行中的%f将文件路径传递给执行程序。
+Exec=也可以没有绝对路径直接使用命令，Icon=也可以不用路径而直接写系统认可的图标名称。
+放 程序.desktop 文件到 ~/.local/share/applications/
+3、设置用某程序打开MIME类型文件：
+修改 ~/.config/mimeapps.list 或 ~/.local/share/applications/mimeapps.list(废弃)
+
+[Added Associations]
+application/x-扩展名=程序.desktop;其他程序.desktop;其他程序2.desktop;
+
+其中application/x-扩展名是你刚刚所创建的MIME类型。如果MIME类型是原有的不是刚刚创建的，替换为原有的MIME类型名称。
+
+●Linux关联文件扩展名的打开程序(根据 MIME 类型关联)：
+1、查看文件 MIME 类型：
+mimetype 文件
+2、查询打开某类文件的默认程序：
+gio mime MIME类型
+3、设置打开某类文件的默认程序：
+gio mime MIME类型 程序.desktop
+
+●将Linux程序打包成 .deb 格式的安装包：
+1、创建一个文件夹：
+mkdir app
+2、在新建的文件夹中创建标准的目录结构：
+
+./DEBIAN
+./opt/app
+./usr/share/applications
+
+在linux中, " . "可表示为当前目录
+DEBIAN文件夹包含了安装包的信息和安装、卸载时的脚本文件
+"/opt/app/"存放可执行文件
+"/usr/share/applications"存放应用菜单的启动图标
+该文件夹中的"opt","usr"对应Linux根目录的"opt","usr"
+3、将可执行文件放入"/opt/app"文件夹
+4、在"/usr/share/applications"创建应用图标：
+vim ./app//usr/share/applications/应用.desktop
+填入以下内容:
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4                          #软件版本
+Name=xxxx                              #xxxx为软件名称，可根据自己喜好进行编辑，可中文也可英文 # 软件名字
+Comment=xxxx IDE                  #软件介绍说明
+Icon="/opt/app/图标名称.png"   #显示出的图标
+Exec="/opt/app/可执行文件名称" %f            # 安装包中的可执行文件
+Terminal=false //# 是否启用终端
+startupNotify=true
+Type=Application # 快捷方式类型
+MimeType=application/x-blender   #应用相关的文件的mime类型
+
+5、在DEBIAN文件夹新建"control","postinst","postrm"文件：
+control填入以下内容：
+
+Package: app #软件包名
+Version: 2.83.20  #软件版本
+Maintainer: 303663454754@qq.com #维护者名字
+Section: utils
+Homepage: https://www.blender.org/ #软件主页网站（可不填）
+Architecture: amd64
+Priority: optional
+Description: blender2.83.20 for linux #描述
+
+postinst填入以下内容：
+
+#!/bin/sh
+
+update-icon-caches /usr/share/icons/hicolor || true
+update-desktop-database /usr/share/applications || true
+update-mime-database /usr/share/mime || true
+
+# postinst脚本将会在软件安装结束后运行
+
+# 以上为刷新图标缓存，桌面数据库和mime类型数据库，防止安装后desktop文件不出现在软件列表/没有图标
+
+# 如果需要把可执行文件软链接到/usr/bin,请修改以下命令并删除前面的#
+#ln -s -f /opt/app/可执行文件 /usr/local/bin/app
+
+#如果需要把可执行文件关联文件类型(修改文件打开方式)请修改以下命令并删除前面的#
+#gio mime MIME类型 软件.desktop
+
+postrm填入以下内容：
+
+#!/bin/sh
+sudo rm -rf /opt/app
+update-icon-caches /usr/share/icons/hicolor || true
+update-desktop-database /usr/share/applications || true
+update-mime-database /usr/share/mime || true
+
+# 再刷新一遍数据库防止残留
+# postrm脚本将会在软件卸载后运行
+
+#如果你在postinst文件中指定了软链接，请修改以下命令并删除前方的#
+rm /usr/local/bin/app
+
+6、打包文件;
+dpkg -b ./app 软件名.deb
+
+●Linux修复分区：
+fdisk -l        (查询需要修复的磁盘盘符)
+fsck -a /dev/sdc1   (进行修复)
