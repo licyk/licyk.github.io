@@ -1012,3 +1012,13 @@ dpkg -b ./app 软件名.deb
 ●Linux修复分区：
 fdisk -l        (查询需要修复的磁盘盘符)
 fsck -a /dev/sdc1   (进行修复)
+
+●Debian系Linux发行版解决依赖问题：
+当使用apt安装某个软件包时出现
+”无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系“
+这是因为这些依赖的软件包，系统已经安装过而且是更高的版本，而需要的是较低版本，所以会报错。
+解决办法，使用 aptitute 代替 apt
+sudo apt install aptitude
+sudo aptitute install <package>
+首先建议 保持这些软件包的版本，选择 n
+然后建议 降级软件包，选择 y
