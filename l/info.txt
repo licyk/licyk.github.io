@@ -1022,3 +1022,11 @@ sudo apt install aptitude
 sudo aptitute install <package>
 首先建议 保持这些软件包的版本，选择 n
 然后建议 降级软件包，选择 y
+
+●解决Linux提示【输入密码以解锁您的登录密钥环】问题：
+打开terminal，输入seahorse
+若提示没安装则输入sudo apt install seahorse
+点击左上角➕号，新建一个钥匙环
+密码为空
+建立完成后设置为默认
+再打开opera或者chrome将不会有【输入密码以解锁您的登录密钥环】这个提示
