@@ -453,7 +453,7 @@ thunderbird（邮件管理）
 vlc（视频播放器）
 pulseeffects（音频均衡器）
 dconf-editor（类似注册表编辑器）
-Remmina（远程桌面连接）
+remmina（远程桌面连接）
 stacer（系统管理优化）
 hardinfo（硬件信息检测）
 handbrake（视频压制）
@@ -461,6 +461,7 @@ krita（绘画工具）
 inkscape（矢量图制作工具）
 obs-studio(屏幕录像)
 gparted(分区编辑工具)
+refind(uefi引导管理器)
 
 ●wine安装字体:
 1：先从Windows系统中把微软雅黑字体提取出来（在系统分区的Win。dows/Fonts目录下），搜索msyh关键字能找到3个文件，分别是msyh.ttc，msyhbd.ttc，msyhl.ttc，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的**.wine/drive_c/windows/Fonts**目录下面，.wine是隐藏文件夹，在主目录文件夹里按Ctrl+H即可显示。
