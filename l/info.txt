@@ -220,6 +220,37 @@ slmgr /ato
 选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
 切换输入法win+space或Ctrl+shift
 
+●Windows：
+●快捷键（部分快捷键在其他系统上可用）：
+全选ctrl+a
+剪切ctrl+x
+复制ctrl+c
+粘贴ctrl+v
+显示桌面ctrl+d
+截图win+shift+s
+窗口切换ctrl+alt+tab
+安全选项ctrl+alt+del
+运行win+r
+任务视图win+tab
+任务视图(旧)alt+tab
+任务管理器ctrl+shift+esc
+文件管理器win+e
+重命名 选中文件+f2
+选中任务栏软件图标 win+t
+打开搜索 win+q
+打开小组件 win+w
+打开设置 win+i
+打开通知栏 win+n
+撤回 ctrl+z
+重做 ctrl+shift+z
+切换桌面Ctrl+Alt+方向键
+输入大写或标点shift+键盘上的按键
+任务管理器关闭任务 delete
+显示顶栏菜单对应键盘字母 Alt
+选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
+切换输入法win+space或Ctrl+shift
+打开剪贴板win+v
+
 ●Windows程序：
 策略管理services.msc
 系统配置msconfig
