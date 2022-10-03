@@ -1031,3 +1031,7 @@ sudo aptitute install <package>
 密码为空
 建立完成后设置为默认
 再打开opera或者chrome将不会有【输入密码以解锁您的登录密钥环】这个提示
+
+●Debian一些常用指令使用时显示"未找到命令"解决方法：
+该问题原为常用命令所在路径未入到系统环境变量当中
+输入export PATH=$PATH:/sbin/后解决
