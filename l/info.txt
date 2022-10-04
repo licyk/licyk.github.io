@@ -342,158 +342,6 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
 3、打开Firefox开发者网址
 https://addons.mozilla.org/zh-CN/firefox/
-●Windows：
-●快捷键（部分快捷键在其他系统上可用）：
-全选ctrl+a
-剪切ctrl+x
-复制ctrl+c
-粘贴ctrl+v
-显示桌面ctrl+d
-截图win+shift+s
-窗口切换ctrl+alt+tab
-安全选项ctrl+alt+del
-运行win+r
-任务视图win+tab
-任务视图(旧)alt+tab
-任务管理器ctrl+shift+esc
-文件管理器win+e
-重命名 选中文件+f2
-选中任务栏软件图标 win+t
-打开搜索 win+q
-打开小组件 win+w
-打开设置 win+i
-打开通知栏 win+n
-撤回 ctrl+z
-重做 ctrl+shift+z
-切换桌面Ctrl+Alt+方向键
-输入大写或标点shift+键盘上的按键
-任务管理器关闭任务 delete
-显示顶栏菜单对应键盘字母 Alt
-选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
-切换输入法win+space或Ctrl+shift
-打开剪贴板win+v
-
-●Windows程序：
-策略管理services.msc
-系统配置msconfig
-注册表regedit
-用户账户Netplwiz
-"关于Windows" winver
-
-●在用户账户（netplwiz）启用自动登陆复选框：
-注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
-PasswordLessBuildVersion把3改为0
-
-●隐藏Windows10设置中的部分设置：
-运行gpedit.msc（本地组策略编辑器），依次点开计算机配置>管理模板>控制面板，找到设置页面可见性
-编辑，点击已启用
-在选项中的输入框中输入参数
-如隐藏账户设置（hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollment;workplace）
-再点击应用即可
-更多参数信息在https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app#accounts
-
-●隐藏Windows中控制面板的部分设置：
-运行gpedit.msc（本地组策略编辑器），依次点开用户配置→管理模版→控制面板，找到隐藏指定的“控制面板”项
-编辑，点击已启用，在选项中点击显示，在”值“的输入框中输入参数
-如Microsoft.UserAccounts（用户账户），Microsoft.CredentialManager（凭据管理器）
-输入完成后点确定，再点击应用即可
-更多参数信息在https://docs.microsoft.com/zh-cn/windows/win32/shell/controlpanel-canonical-names?redirectedfrom=MSDN#credential-manager
-
-●cmd指令：
-强制关闭进程
-wmic process where name='进程名.exe' call terminate
-
-●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
-
-●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
-
-●在OBS Studio中可按住Alt键裁剪窗口
-
-●firefox推荐插件：
-Translate Web Pages(网页实时翻译)
-AdBlock(广告拦截)
-AdGuard(广告拦截，拦截效果比adblock好)
-Global Speed(视频速度控制)
-Image Search Options(网页识图)
-Infinity(自定义标签页)
-Tampermonkey(可添加脚本)
-To Google Translate(网页翻译)
-User-Agent Switcher and Manager(浏览器UA修改)
-Video DownloadHelper(视频下载)
-bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
-
-●edge浏览器进入高级设置：
-在地址栏输入edge://flags
-回车后进入
-
-●firefox浏览器进入高级设置：
-在地址栏输入about:config
-回车后进入
-
-●edge浏览器关闭“使用推荐的浏览器设置”弹窗：
-在地址栏输入edge://flags/#edge-show-feature-recommendations
-将下面第一个选项的“Default”改成“Disable”，并重启浏览器
-
-●电脑优化方法（低配机可尝试）：
-固态硬盘禁用休眠文件
-禁用系统7G预留
-禁用传递优化
-禁用自带杀毒WD（这个看个人）
-禁用后台应用
-开启存储感知
-更改新内容的保存位置设置到别的盘
-更新系统后清理临时文件
-删除系统还原点并禁用还原点
-用户里的Appdata文件转移到D盘
-用户里的桌面，文档等转移D盘
-索引选项的位置改D盘
-四个缓存变量temp修改到D盘
-绿色版火绒弹窗拦截
-绿色版迅雷（IDM也可以，和绿色版迅雷一起更好）
-dism++进行简单系统设置
-dism++空间回收勾选几个不会影响系统稳定的选项进行清理
-运行库用DirectX4.0打上
-安装net3.5需要打开系统自动更新，不然无法安装。
-新版edge浏览器更新一下，然后到C盘清理更新包和浏览器缓存temp
-新版edge浏览器可以借助第三方软件搬家工具转移到D盘
-office可以通过修改注册表安装到你想要的盘
-微软账号登录一直转圈圈或者报错的，可以通过下载UU加速器，加速微软商店，就可以瞬间登录，吊打修改DNS，修改DNS不一定有效果，UU加速器100%直接登录微软账号，一路畅通无阻
-不玩Xbox的，可以关闭系统自带游戏模式，对非Xbox游戏是负优化
-支持开启GPU硬件加速和可变刷新率的，都开启
-新版edge浏览器下载一个AdGuard广告拦截扩展，可以屏蔽大部分广告内容和高速下载地址这种流氓下载地址，下载东西就没流氓捆绑软件了
-解压软件推荐微软商店的Breezip或者破解版Bandizip或者7-z，或者去广告的winrar.
-配置不低的最好用原版win10，不要用第三方修改版系统。官方的企业版LTSC适合低配机，功能阉割了很多，中配和高配就没必要用精简版了
-安装系统最好用微PE网络版，dism++还原原版镜像，还原后，dism++里对系统进行简单的设置处理OOBE界面不要联网，不要设置PIN，锁屏界面的账号不要用微软账号，用本地账号就行了，软件登录微软账号就行了，谨记禁用一些对自己用不到的服务，比如Windows search服务，打印机服务，预览体验服务，备份服务等你认为自己用不到的服务
-dism++删除预装应用的安装包后，可以对win10全家桶进行转移到别的盘
-最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
-
-●win10彻底关闭自动更新方法步骤：
-由于win10自动更新非常顽固，所以我们要从多个地方下手才能永久关闭其自动更新，别怕麻烦，跟着下面的步骤一步步操作。
-一、禁用Windows Update服务
-1、同时按下键盘 Win + R，打开运行对话框，然后输入命令 services.msc ，点击下方的“确定”打开服务，如下图所示。
-2、找到 Windows Update 这一项，并双击打开，如图所示。
-3、双击打开它，点击“停止”，把启动类型选为“禁用”，最后点击应用，如下图。
-4、接下再切换到“恢复”选项，将默认的“重新启动服务”改为“无操作”，然后点击“应用”“确定”。
-二、在组策略里关闭Win10自动更新相关服务
-1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定，如下图。
-2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新
-3、然后在右侧“配置自动更新”设置中，将其设置为“已禁用”并点击下方的“应用”然后“确定”，如图所示。
-4、之后还需要再找到“删除使用所有Windows更新功能的访问权限”，选择已启用，完成设置后，点击“应用”“确定”，如图所示。
-三、禁用任务计划里边的Win10自动更新
-1、同时按下 Win + R 组合快捷键打开““运行”窗口，然后输入“taskschd.msc”，并点击下方的“确定”打开任务计划程序，如图所示。
-2、在任务计划程序的设置界面，依次展开 任务计划程序库 -> Microsoft -> Windows -> WindowsUpdate，把里面的项目都设置为 [ 禁用 ] 就可以了。（我这里边只有一个任务，你的电脑里可能会有2个或者更多，全部禁用就行了）
-四、在注册表中关闭Win10自动更新
-1、同时按下 Win + R 组合快捷键，打开运行对话框，然后输入命名 regedit，然后点击下方的「 确定 」打开注册表，如下图所示。
-2、在注册表设置中，找到并定位到 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]。然后在右侧找到“Start”键。
-3、点击修改，把start值改成16进制，值改为“4”，然后点击「 确定 」保存数据，如图所示。
-4、继续在右侧找到“FailureActions”键，右键点击修改该键的二进制数据，将“0010”、“0018”行的左起第5个数值由原来的“01”改为“00”，完成后，点击下方的“确定”即可，如下图所示。
-至此彻底关闭win10自动更新的操作步骤就全部完成了
-
-●利用Firefox开发者网站，转换Chrome插件为Firefox插件：
-1、提前准备好Chrome插件。
-2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
-3、打开Firefox开发者网址
-https://addons.mozilla.org/zh-CN/firefox/
 4、点击右上角登录或注册
 5、使用你的Firefox帐号登录网站
 一般会自己链接你的Firefox帐号，如果没有链接，你输入帐号和密码注册为Firefox开发者即可。
@@ -1189,3 +1037,202 @@ sudo aptitute install <package>
 ●Debian一些常用指令使用时显示"未找到命令"解决方法：
 该问题原为常用命令所在路径未入到系统环境变量当中
 输入export PATH=$PATH:/sbin/后解决
+
+●Linux使用sudo显示"用户不在sudoers文件中此事将被报告"解决方法：
+1、第一种解决方法：
+（1）进入root模式，su，再输入正确密码
+（2）通过vim打开sudoers并编辑
+
+vim /etc/sudoers
+
+找到root  ALL=(ALL)   ALL文件，在下方添加自己的账户并:wq!进行强制保存退出
+如：
+
+# User privilege specification  
+root    ALL=(ALL:ALL) ALL  
+用户名    ALL=(ALL:ALL) ALL  
+
+2、另一种解决方法：
+（1）进入root模式，su，再输入正确密码
+（2）将用户添加到sudo组中
+
+usermod -G sudo 用户名
+
+注：
+若没有sudo命令，则进入root模式，安装sudo
+apt install sudo
+(不同Linux发行版的安装命令可能不同，视具体情况而定)
+
+●dpkg-reconfigure命令找不到问题解决方法：
+在非root账户登录之后，且使用su命令成功切换到root账户之后，输入dpkg-reconfigure locale命令，系统提示如下：
+
+user@cloudbool.com:~$ su 
+Password: 
+root@cloudbool.com:/home/user# dpkg-reconfigure locales
+bash: dpkg-reconfigure: command not found
+
+根据官方man的说明，dpkg-reconfigure是一个用来重新配置已经安装好了的包的命令，使用方法很简单
+只需要输入dpkg-reconfigure命令再加上所要重新配置的包的名称即可，比如我上面的命令就是想重新配置locales这个包。
+按照我对Debian系统的了解，至少最新的几个Debian大版本，是默认带了dpkg-reconfigure这个包的，然后我用whereis命令找了下，发现确实有这个包：
+
+root@cloudbool.com:/home/user# whereis dpkg-reconfigure
+dpkg-reconfigure: /usr/sbin/dpkg-reconfigure /usr/share/man/man8/dpkg-reconfigure.8.gz
+
+从输出可见，whereis命令输出了dpkg-reconfigure命令所在的路径，
+证明dpkg-reconfigure这个命令确实存在系统的，只是系统提示不存在，说明当前用户环境，并没有将/usr/sbin/目录添加进PATH。顺便说一下，/usr/sbin这个目录放的是一些需要root权限才能执行的命令。
+解决办法
+一番折腾之后发现，其实解决办法很简单，
+如果只是单纯的需要使用一下dpkg-reconfigure命令，哪直接输入dpkg-reconfigure命令的完整路径即可，
+比如说重新配置locales命令：
+
+/usr/sbin/dpkg-reconfigure locales
+
+但是其实这样在输入其他命令时还是会遇到明明命令存在但是还是提示command not found的情况，
+更好的解决办法就是，退出当前root用户，然后使用su -命令重新切换到root权限，相关命令如下：
+
+root@cloudbool.com:/home/user# exit
+exit
+user@cloudbool.com:~$ su -
+Password: 
+root@cloudbool.com:~# dpkg-reconfigure locales
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+  zh_CN.UTF-8... done
+Generation complete.
+
+也就是su命令后面添加一个连字符或者说减号，
+根据官方man命令的说法，加上后面这个符号相当于使用root账户登录，会初始化对应的环境变量，
+也就是加载上/usr/sbin/目录。
+
+●Debian中设置locale的方法：
+locale的命名规则为<语言>_<地区>.<字符集编码>，如zh_CN.UTF-8，zh代表中文，CN代表大陆地区，UTF-8表示字符集。
+在locale环境中，有一组变量，代表国际化环境中的不同设置：
+
+1.LC_COLLATE
+定义该环境的排序和比较规则
+
+2.LC_CTYPE
+用于字符分类和字符串处理，控制所有字符的处理方式，包括字符编码，字符是单字节还是多字节，如何打印等。是最重要的一个环境变量。
+
+3.LC_MONETARY
+货币格式
+
+4.LC_NUMERIC
+非货币的数字显示格式
+
+5.LC_TIME
+时间和日期格式
+
+6.LC_MESSAGES
+提示信息的语言。另外还有一个LANGUAGE参数，它与LC_MESSAGES相似，但如果该参数一旦设置，则LC_MESSAGES参数就会失效。LANGUAGE参数可同时设置多种语言信息，如LANGUANE="zh_CN.GB18030:zh_CN.GB2312:zh_CN"。
+
+7.LANG
+LC_*的默认值，是最低级别的设置，如果LC_*没有设置，则使用该值。类似于 LC_ALL。
+
+8.LC_ALL
+它是一个宏，如果该值设置了，则该值会覆盖所有LC_*的设置值。注意，LANG的值不受该宏影响。
+
+一个例子：
+设置前，使用默认locale：
+
+debian:~# locale
+LANG="POSIX"
+LC_CTYPE="POSIX"
+LC_NUMERIC="POSIX"
+LC_TIME="POSIX"
+LC_COLLATE="POSIX"
+LC_MONETARY="POSIX"
+LC_MESSAGES="POSIX"
+LC_PAPER="POSIX"
+LC_NAME="POSIX"
+LC_ADDRESS="POSIX"
+LC_TELEPHONE="POSIX"
+LC_MEASUREMENT="POSIX"
+LC_IDENTIFICATION="POSIX"
+LC_ALL= 设置后，使用zh_CN.GDK中文locale： debian:~# export LC_ALL=zh_CN.GBK
+debian:~# locale
+LANG=zh_CN.UTF-8
+LC_CTYPE="zh_CN.GBK"
+LC_NUMERIC="zh_CN.GBK"
+LC_TIME="zh_CN.GBK"
+LC_COLLATE="zh_CN.GBK"
+LC_MONETARY="zh_CN.GBK"
+LC_MESSAGES="zh_CN.GBK"
+LC_PAPER="zh_CN.GBK"
+LC_NAME="zh_CN.GBK"
+LC_ADDRESS="zh_CN.GBK"
+LC_TELEPHONE="zh_CN.GBK"
+LC_MEASUREMENT="zh_CN.GBK"
+LC_IDENTIFICATION="zh_CN.GBK"
+LC_ALL=zh_CN.GBK
+
+"C"是系统默认的locale，"POSIX"是"C"的别名。所以当我们新安装完一个系统时，默认的locale就是C或POSIX。
+
+●在Debian中安装locales的方法如下：
+通过apt-get install locales命令安装locales包
+安装完成locales包后，系统会自动进行locale配置，你只要选择所需的locale，可以多选。
+最后指定一个系统默认的locale。这样系统就会帮你自动生成相应的locale和配置好系统的locale。
+增加新的locale也很简单，用dpkg-reconfigure locales重新配置locale即可。
+我们也可手动增加locale，只要把新的locale增加到/etc/locale.gen文件中，
+再运行locale-gen命令即可生成新的locale。再通过设置上面介绍的LC_*变量就可设置系统的locale了。
+
+下是一个locale.gen文件的样例：
+
+# This file lists locales that you wish to have built. You can find a list
+# of valid supported locales at /usr/share/i18n/SUPPORTED. Other
+# combinations are possible, but may not be well tested. If you change
+# this file, you need to rerun locale-gen.
+#
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+
+●Debian10终端乱码解决办法：
+1.安装字体管理软件：
+# 安装字体管理
+
+apt-get install locales
+
+# 安装文泉驿字体
+
+apt-get install fonts-wqy-zenhei
+
+2.设置字体：
+
+# 选择中文 zh_CN.UTF-8
+
+dpkg-reconfigure locales
+
+# 查看
+
+root@debian10:~# locale
+LANG="zh_CN.UTF-8"
+LC_CTYPE="C"
+LC_NUMERIC="C"
+LC_TIME="C"
+LC_COLLATE="C"
+LC_MONETARY="C"
+LC_MESSAGES="C"
+LC_PAPER="C"
+LC_NAME="C"
+LC_ADDRESS="C"
+LC_TELEPHONE="C"
+LC_MEASUREMENT="C"
+LC_IDENTIFICATION="C"
+LC_ALL=
+
+使用 apt-get update 中文仍是菱形乱码，重启依然不变。locale始终显示不正常。。。
+
+3.解决方法：
+# 临时执行:
+
+export LC_ALL=zh_CN.UTF-8
+
+# 永久添加:
+
+vim /root/.bashrc
+
+在文件中写入：
+
+export LC_ALL=zh_CN.UTF-8
+
+apt-get update 查看终于能够正常显示中文
