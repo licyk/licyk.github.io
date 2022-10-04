@@ -342,6 +342,158 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
 3、打开Firefox开发者网址
 https://addons.mozilla.org/zh-CN/firefox/
+●Windows：
+●快捷键（部分快捷键在其他系统上可用）：
+全选ctrl+a
+剪切ctrl+x
+复制ctrl+c
+粘贴ctrl+v
+显示桌面ctrl+d
+截图win+shift+s
+窗口切换ctrl+alt+tab
+安全选项ctrl+alt+del
+运行win+r
+任务视图win+tab
+任务视图(旧)alt+tab
+任务管理器ctrl+shift+esc
+文件管理器win+e
+重命名 选中文件+f2
+选中任务栏软件图标 win+t
+打开搜索 win+q
+打开小组件 win+w
+打开设置 win+i
+打开通知栏 win+n
+撤回 ctrl+z
+重做 ctrl+shift+z
+切换桌面Ctrl+Alt+方向键
+输入大写或标点shift+键盘上的按键
+任务管理器关闭任务 delete
+显示顶栏菜单对应键盘字母 Alt
+选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
+切换输入法win+space或Ctrl+shift
+打开剪贴板win+v
+
+●Windows程序：
+策略管理services.msc
+系统配置msconfig
+注册表regedit
+用户账户Netplwiz
+"关于Windows" winver
+
+●在用户账户（netplwiz）启用自动登陆复选框：
+注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
+PasswordLessBuildVersion把3改为0
+
+●隐藏Windows10设置中的部分设置：
+运行gpedit.msc（本地组策略编辑器），依次点开计算机配置>管理模板>控制面板，找到设置页面可见性
+编辑，点击已启用
+在选项中的输入框中输入参数
+如隐藏账户设置（hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollment;workplace）
+再点击应用即可
+更多参数信息在https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app#accounts
+
+●隐藏Windows中控制面板的部分设置：
+运行gpedit.msc（本地组策略编辑器），依次点开用户配置→管理模版→控制面板，找到隐藏指定的“控制面板”项
+编辑，点击已启用，在选项中点击显示，在”值“的输入框中输入参数
+如Microsoft.UserAccounts（用户账户），Microsoft.CredentialManager（凭据管理器）
+输入完成后点确定，再点击应用即可
+更多参数信息在https://docs.microsoft.com/zh-cn/windows/win32/shell/controlpanel-canonical-names?redirectedfrom=MSDN#credential-manager
+
+●cmd指令：
+强制关闭进程
+wmic process where name='进程名.exe' call terminate
+
+●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
+
+●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
+
+●在OBS Studio中可按住Alt键裁剪窗口
+
+●firefox推荐插件：
+Translate Web Pages(网页实时翻译)
+AdBlock(广告拦截)
+AdGuard(广告拦截，拦截效果比adblock好)
+Global Speed(视频速度控制)
+Image Search Options(网页识图)
+Infinity(自定义标签页)
+Tampermonkey(可添加脚本)
+To Google Translate(网页翻译)
+User-Agent Switcher and Manager(浏览器UA修改)
+Video DownloadHelper(视频下载)
+bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
+
+●edge浏览器进入高级设置：
+在地址栏输入edge://flags
+回车后进入
+
+●firefox浏览器进入高级设置：
+在地址栏输入about:config
+回车后进入
+
+●edge浏览器关闭“使用推荐的浏览器设置”弹窗：
+在地址栏输入edge://flags/#edge-show-feature-recommendations
+将下面第一个选项的“Default”改成“Disable”，并重启浏览器
+
+●电脑优化方法（低配机可尝试）：
+固态硬盘禁用休眠文件
+禁用系统7G预留
+禁用传递优化
+禁用自带杀毒WD（这个看个人）
+禁用后台应用
+开启存储感知
+更改新内容的保存位置设置到别的盘
+更新系统后清理临时文件
+删除系统还原点并禁用还原点
+用户里的Appdata文件转移到D盘
+用户里的桌面，文档等转移D盘
+索引选项的位置改D盘
+四个缓存变量temp修改到D盘
+绿色版火绒弹窗拦截
+绿色版迅雷（IDM也可以，和绿色版迅雷一起更好）
+dism++进行简单系统设置
+dism++空间回收勾选几个不会影响系统稳定的选项进行清理
+运行库用DirectX4.0打上
+安装net3.5需要打开系统自动更新，不然无法安装。
+新版edge浏览器更新一下，然后到C盘清理更新包和浏览器缓存temp
+新版edge浏览器可以借助第三方软件搬家工具转移到D盘
+office可以通过修改注册表安装到你想要的盘
+微软账号登录一直转圈圈或者报错的，可以通过下载UU加速器，加速微软商店，就可以瞬间登录，吊打修改DNS，修改DNS不一定有效果，UU加速器100%直接登录微软账号，一路畅通无阻
+不玩Xbox的，可以关闭系统自带游戏模式，对非Xbox游戏是负优化
+支持开启GPU硬件加速和可变刷新率的，都开启
+新版edge浏览器下载一个AdGuard广告拦截扩展，可以屏蔽大部分广告内容和高速下载地址这种流氓下载地址，下载东西就没流氓捆绑软件了
+解压软件推荐微软商店的Breezip或者破解版Bandizip或者7-z，或者去广告的winrar.
+配置不低的最好用原版win10，不要用第三方修改版系统。官方的企业版LTSC适合低配机，功能阉割了很多，中配和高配就没必要用精简版了
+安装系统最好用微PE网络版，dism++还原原版镜像，还原后，dism++里对系统进行简单的设置处理OOBE界面不要联网，不要设置PIN，锁屏界面的账号不要用微软账号，用本地账号就行了，软件登录微软账号就行了，谨记禁用一些对自己用不到的服务，比如Windows search服务，打印机服务，预览体验服务，备份服务等你认为自己用不到的服务
+dism++删除预装应用的安装包后，可以对win10全家桶进行转移到别的盘
+最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
+
+●win10彻底关闭自动更新方法步骤：
+由于win10自动更新非常顽固，所以我们要从多个地方下手才能永久关闭其自动更新，别怕麻烦，跟着下面的步骤一步步操作。
+一、禁用Windows Update服务
+1、同时按下键盘 Win + R，打开运行对话框，然后输入命令 services.msc ，点击下方的“确定”打开服务，如下图所示。
+2、找到 Windows Update 这一项，并双击打开，如图所示。
+3、双击打开它，点击“停止”，把启动类型选为“禁用”，最后点击应用，如下图。
+4、接下再切换到“恢复”选项，将默认的“重新启动服务”改为“无操作”，然后点击“应用”“确定”。
+二、在组策略里关闭Win10自动更新相关服务
+1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定，如下图。
+2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新
+3、然后在右侧“配置自动更新”设置中，将其设置为“已禁用”并点击下方的“应用”然后“确定”，如图所示。
+4、之后还需要再找到“删除使用所有Windows更新功能的访问权限”，选择已启用，完成设置后，点击“应用”“确定”，如图所示。
+三、禁用任务计划里边的Win10自动更新
+1、同时按下 Win + R 组合快捷键打开““运行”窗口，然后输入“taskschd.msc”，并点击下方的“确定”打开任务计划程序，如图所示。
+2、在任务计划程序的设置界面，依次展开 任务计划程序库 -> Microsoft -> Windows -> WindowsUpdate，把里面的项目都设置为 [ 禁用 ] 就可以了。（我这里边只有一个任务，你的电脑里可能会有2个或者更多，全部禁用就行了）
+四、在注册表中关闭Win10自动更新
+1、同时按下 Win + R 组合快捷键，打开运行对话框，然后输入命名 regedit，然后点击下方的「 确定 」打开注册表，如下图所示。
+2、在注册表设置中，找到并定位到 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]。然后在右侧找到“Start”键。
+3、点击修改，把start值改成16进制，值改为“4”，然后点击「 确定 」保存数据，如图所示。
+4、继续在右侧找到“FailureActions”键，右键点击修改该键的二进制数据，将“0010”、“0018”行的左起第5个数值由原来的“01”改为“00”，完成后，点击下方的“确定”即可，如下图所示。
+至此彻底关闭win10自动更新的操作步骤就全部完成了
+
+●利用Firefox开发者网站，转换Chrome插件为Firefox插件：
+1、提前准备好Chrome插件。
+2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
+3、打开Firefox开发者网址
+https://addons.mozilla.org/zh-CN/firefox/
 4、点击右上角登录或注册
 5、使用你的Firefox帐号登录网站
 一般会自己链接你的Firefox帐号，如果没有链接，你输入帐号和密码注册为Firefox开发者即可。
@@ -463,6 +615,7 @@ inkscape（矢量图制作工具）
 obs-studio(屏幕录像)
 gparted(分区编辑工具)
 refind(uefi引导管理器)
+grub-customizer(图形化grub编辑器)
 
 ●wine安装字体:
 1：先从Windows系统中把微软雅黑字体提取出来（在系统分区的Win。dows/Fonts目录下），搜索msyh关键字能找到3个文件，分别是msyh.ttc，msyhbd.ttc，msyhl.ttc，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的**.wine/drive_c/windows/Fonts**目录下面，.wine是隐藏文件夹，在主目录文件夹里按Ctrl+H即可显示。
