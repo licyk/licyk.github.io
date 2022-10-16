@@ -440,6 +440,8 @@ lsblk
 cfdisk
 格式分区为指定文件系统(ext3可以替换成fat32,ntfs,ext4等):
 mkfs -t ext3 /dev/sda4  
+修复ntfs分区不能写入文件(sda3为分区)：
+sudo ntfsfix /dev/sda3
 
 ●linux mint解决中文不全:
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
