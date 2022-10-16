@@ -1238,3 +1238,4 @@ vim /root/.bashrc
 export LC_ALL=zh_CN.UTF-8
 
 apt-get update 查看终于能够正常显示中文
+
