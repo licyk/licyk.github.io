@@ -708,6 +708,7 @@ systemctl stop v2raya
 
 ●Linux mint主题路径：
 主题：/home/用户名/.themes/
+或/usr/share/themes/
 鼠标指针：/usr/share/icons/
 
 ●Linux卡死后安全重启方法：
@@ -998,7 +999,6 @@ update-mime-database /usr/share/mime || true
 postrm填入以下内容：
 
 #!/bin/sh
-sudo rm -rf /opt/app
 update-icon-caches /usr/share/icons/hicolor || true
 update-desktop-database /usr/share/applications || true
 update-mime-database /usr/share/mime || true
@@ -1007,7 +1007,7 @@ update-mime-database /usr/share/mime || true
 # postrm脚本将会在软件卸载后运行
 
 #如果你在postinst文件中指定了软链接，请修改以下命令并删除前方的#
-rm /usr/local/bin/app
+#rm  /usr/local/bin/app
 
 6、打包文件;
 dpkg -b ./app 软件名.deb
