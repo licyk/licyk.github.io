@@ -230,6 +230,10 @@ slmgr /ato
 用户账户Netplwiz
 "关于Windows" winver
 
+●Windows开始菜单图标路径：
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+
 ●在用户账户（netplwiz）启用自动登陆复选框：
 注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
 PasswordLessBuildVersion把3改为0
@@ -252,6 +256,8 @@ PasswordLessBuildVersion把3改为0
 ●cmd指令：
 强制关闭进程
 wmic process where name='进程名.exe' call terminate
+wmic process where processid="进程pid" delete
+wmic process 进程pid call terminate
 
 ●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 
@@ -472,7 +478,19 @@ sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffi
  
 ●linux在虚拟机中安装vmtools:
 sudo apt install open-vm-tools open-vm-tools-desktop
- 
+
+●ArchLinux安装教程链接：
+https://zhuanlan.zhihu.com/p/138951848
+
+●Linux安装和配置kvm/qemu教程链接：
+https://blog.csdn.net/weixin_35379749/article/details/116632599
+https://blog.csdn.net/allway2/article/details/122160151
+https://cloud.tencent.com/developer/article/2067416
+https://blog.csdn.net/dwj1979/article/details/85232191
+https://www.bilibili.com/read/cv12760387
+https://zhuanlan.zhihu.com/p/428845384
+https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
+
 ●linux推荐使用软件：
 gimp（图片编辑）
 kdenlive（视频编辑）
@@ -498,6 +516,8 @@ baobab(空间占用分析)
 lutris(基于wine的游戏安装工具)
 playonlinux(基于wine的配置工具)
 winetricks(wine配置工具)
+aptik(系统备份还原工具)
+timeshift(系统快照工具)
 
 ●桌面环境：
 gnome
@@ -1347,3 +1367,8 @@ tab键，方向键进行选择，空格键勾选
 ●Linux桌面卡死解决方法：
 sudo systemctl restart lightdm
 lightdm为桌面管理器，可替换为sddm或gdm
+
+●Linux安装grub2(sda为硬盘，可更换为sda1或其他硬盘分区)：
+sudo grub-install /dev/sda
+
+
