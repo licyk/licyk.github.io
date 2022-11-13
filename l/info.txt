@@ -15,7 +15,12 @@ https://9.234456.xyz/abc.html
 TrafficMonitor(网速监控)下载:
 https://github.com/zhongyang219/TrafficMonitor
 
-steam官网：https://s.team/或https://store.steampowered.com/
+steam官网：
+https://s.team/或https://store.steampowered.com/
+
+google镜像站：
+https://google.icloudnative.io/
+
 -----------------------------
 
 win10企业版ltsc激活密钥：
@@ -464,7 +469,7 @@ sudo apt --fix-broken install（修复依赖）
 sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
 Linux自动编译:(需安装debhelper build-dep cmake make)
 dpkg-buildpackage -us -uc -nc
-检查硬盘：
+列出硬盘与分区：
 lsblk
 启动硬盘分区编辑：
 cfdisk
@@ -490,6 +495,10 @@ https://blog.csdn.net/dwj1979/article/details/85232191
 https://www.bilibili.com/read/cv12760387
 https://zhuanlan.zhihu.com/p/428845384
 https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
+
+●cinnamon主题修改教程：
+https://forums.linuxmint.com/viewtopic.php?f=211&t=155400
+https://forums.linuxmint.com/viewtopic.php?t=156948
 
 ●linux推荐使用软件：
 gimp（图片编辑）
@@ -1370,5 +1379,4 @@ lightdm为桌面管理器，可替换为sddm或gdm
 
 ●Linux安装grub2(sda为硬盘，可更换为sda1或其他硬盘分区)：
 sudo grub-install /dev/sda
-
 
