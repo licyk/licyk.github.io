@@ -270,6 +270,10 @@ wmic process 进程pid call terminate
 
 ●在OBS Studio中可按住Alt键裁剪窗口
 
+●firefox/chrome/其他浏览器快捷键：
+关闭当前标签页 Ctrl+F4
+将鼠标点击的链接在后台打开 Ctrl+鼠标左键
+
 ●firefox推荐插件：
 Translate Web Pages(网页实时翻译)
 AdBlock(广告拦截)
@@ -444,6 +448,50 @@ ipconfig/flushdns
 
 回车后即可
 
+●Windows快捷调整桌面图标大小：
+单击桌面任意区域后，Ctrl+鼠标滚轮 进行调整
+
+●在uefi启动下安装windows后，启动Windows时出现错误提示导致启动失败的解决方法：
+使用笫三方工具（如dism++，Windows NT安装器）安装Windows后，进系统时出现错误，
+可能与windows系统的引导文件残留有关，
+可尝试删除ESP分区中的Windows引导文件（使用diskgenius），windows的引导文件在EFI文件夹中的microsoft文件夹
+BOOT文件夹中的文件
+再删除uefi引导项（使用bootice），Windows的引导项为Windows boot manager
+或者使用Windows官方镜像自带的安装工具进行安装
+注：dism++，window NT安装器可绕过TPM限制来安装Windows11
+
+-------------------------------------------------
+●安卓：
+●列出分区：
+ls -l /dev/block/by-name/*
+
+●提取boot（或recovery）：
+1、查看boot所对应的分区：
+
+ls -l /dev/block/by-name/*
+
+显示对应分区为sdc11
+2、提取：
+dd if=/dev/block/sdc11 of=/手机其他路径/boot.img
+
+●刷入boot：
+1、方法1：
+使用dd指令
+2、方法2：
+fastboot flash boot boot.img
+
+●termux-tools命令：
+termux-change-repo（换源）
+termux-fix-shebang
+termux-info
+termux-open
+termux-open-url
+termux-reload-settings
+termux-reset
+termux-setup-storage
+termux-wake-lock
+termux-wake-unlock
+
 -------------------------------------------------
 
 ●Linux:
@@ -452,7 +500,7 @@ ipconfig/flushdns
 退出tty界面：Ctrl+Alt+F7
 勾选复选框：空格
 命令行中终止程序：Ctrl+C
-命令行中翻页：shift+pageup/pagedown
+命令行中翻页：shift+pageup/pagedown 或pageup/pagedown
 ●debian系linux发行版:
 更新软件包缓存:
 sudo apt update
@@ -478,6 +526,19 @@ mkfs -t ext3 /dev/sda4
 修复ntfs分区不能写入文件(sda3为分区)：
 sudo ntfsfix /dev/sda3
 
+●tty终端快捷键：
+停止屏幕输出 Ctrl+S
+恢复屏幕输出Ctrl+Q
+中断程序 Ctrl+C
+退出终端(相当于输入exit) Ctrl+D
+
+●重新启动x.org：
+Ctrl+Alt+backspace
+
+●在tty终端中启动x.org：
+startx
+（需注意没有其他x.org被启用）
+
 ●linux mint解决中文不全:
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
  
@@ -486,6 +547,9 @@ sudo apt install open-vm-tools open-vm-tools-desktop
 
 ●ArchLinux安装教程链接：
 https://zhuanlan.zhihu.com/p/138951848
+
+●在vmware安装与优化ArchLinux教程链接：
+https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest#VMware_Tools_versus_Open-VM-Tools
 
 ●Linux安装和配置kvm/qemu教程链接：
 https://blog.csdn.net/weixin_35379749/article/details/116632599
@@ -505,6 +569,7 @@ gimp（图片编辑）
 kdenlive（视频编辑）
 thunderbird（邮件管理）
 vlc（视频播放器）
+rhythmbox(音乐播放器)
 pulseeffects（音频均衡器）
 dconf-editor（类似注册表编辑器）
 remmina（远程桌面连接）
@@ -1379,4 +1444,34 @@ lightdm为桌面管理器，可替换为sddm或gdm
 
 ●Linux安装grub2(sda为硬盘，可更换为sda1或其他硬盘分区)：
 sudo grub-install /dev/sda
+
+●更改终端显示语言：
+显示目前所支持语系：
+licyk@licyk-linux:~$ locale
+LANG=zh.CN.utf8
+(省略)
+LC_ALL=
+
+修改语系：
+licyk@licyk-linux:~$ LANG=en.US.utf8
+licyk@licyk-linux:~$ export LC_ALL=en.US.utf8
+
+注：LANG与输出信息有关，若要更改其他不同的信息，要同步更新LC_ALL
+
+●bash环境配置文件：
+全局：
+/etc/profile
+/etc/profile.d/*.sh
+/etc/locale.conf
+/usr/share/bash-completion/completions/*
+
+用户：
+~/.bash-profile
+~/.bash-login
+~/.profile
+~/.bashrc
+（只会读取其中一个）
+
+●安装docker后进行apt upgrade时出现Pending Kernel Upgrade选项的解决方法：
+安装docker时会自动安装needrestart，卸载needrestart后解决
 
