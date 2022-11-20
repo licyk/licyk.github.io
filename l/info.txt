@@ -423,8 +423,9 @@ DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，�
 DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
 Aperture Size 这个是最大图形缓冲区，默认256我选的512。
 
-●windows修复分区:
-在cmd中输入chkdsk 盘符: /F
+●windows修复分区(如修复C盘):
+在cmd中输入
+chkdsk /f C:\
 
 ●windows解决桌面图标发白：
 创建*.bat
