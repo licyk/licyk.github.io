@@ -492,6 +492,15 @@ termux-setup-storage
 termux-wake-lock
 termux-wake-unlock
 
+●termux保持终端运行：
+安装tmux：
+apt install tmux
+运行tmux：
+tmux
+
+●termux安装linux脚本链接：
+https://gitee.com/skymysky/linux#tmoe-linux
+
 -------------------------------------------------
 
 ●Linux:
@@ -1474,4 +1483,3 @@ licyk@licyk-linux:~$ export LC_ALL=en.US.utf8
 
 ●安装docker后进行apt upgrade时出现Pending Kernel Upgrade选项的解决方法：
 安装docker时会自动安装needrestart，卸载needrestart后解决
-
