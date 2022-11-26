@@ -19,6 +19,8 @@ https://s.team/或https://store.steampowered.com/
 google镜像站：
 https://google.icloudnative.io/
 
+获取专业软件：
+微信公众号搜索“Vposy”，关注后回复“软件目录”
 -----------------------------
 
 win10企业版ltsc激活密钥：
@@ -225,6 +227,9 @@ slmgr /ato
 打开剪贴板win+v
 多选 按住Ctrl，鼠标进行选择
 选择一列 按住shift，鼠标选择起点后再选择终点，中间部分会自动勾选
+关闭当前窗口 Alt+F4
+刷新 F5
+全屏/取消全屏 F11
 
 ●Windows程序：
 策略管理services.msc
@@ -500,6 +505,9 @@ tmux
 ●termux安装linux脚本链接：
 https://gitee.com/skymysky/linux#tmoe-linux
 
+●magisk下载：
+https://github.com/topjohnwu/Magisk
+
 -------------------------------------------------
 
 ●Linux:
@@ -539,6 +547,9 @@ sudo ntfsfix /dev/sda3
 恢复屏幕输出Ctrl+Q
 中断程序 Ctrl+C
 退出终端(相当于输入exit) Ctrl+D
+在提示字符下将整列命令删除 Ctrl+U
+暂停目前命令 Ctrl+Z
+命令补全/文件补齐/参数补齐 Tab
 
 ●重新启动x.org：
 Ctrl+Alt+backspace
@@ -1482,3 +1493,269 @@ licyk@licyk-linux:~$ export LC_ALL=en.US.utf8
 
 ●安装docker后进行apt upgrade时出现Pending Kernel Upgrade选项的解决方法：
 安装docker时会自动安装needrestart，卸载needrestart后解决
+
+●Linux查询命令：
+【命令】 --help
+info 【命令】
+man 【命令】
+
+
+●Linux安装中文版man：
+英文不好？没关系，往下看！！！
+原官方下载地址http://code.google.com/p/manpages-zh/
+Githu项目地址https://github.com/man-pages-zh/manpages-zh
+
+安装方法一
+
+1、Debian / Ubuntu安装
+
+sudo apt update
+sudo apt install manpages-zh
+
+2、Arch Linux:
+
+pacman -Syu
+pacman -S man-pages-zh_cn man-pages-zh_tw
+
+3、Red Hat / CentOS:
+
+yum update
+yum install man-pages-zh-CN
+
+4、Fedora:
+
+dnf update
+dnf install man-pages-zh-CN
+
+
+安装方法二
+
+源码网址 https://src.fedoraproject.org/repo/pkgs/man-pages-zh-CN/
+
+1、获取安装包
+
+[root@localhost opt]# wget  https://src.fedoraproject.org/repo/pkgs/man-pages-zh-CN/manpages-zh-1.5.1.tar.gz/13275fd039de8788b15151c896150bc4/manpages-zh-1.5.1.tar.gz
+
+2、解压并安装(最好使用root)
+
+[root@localhost opt]# tar xf manpages-zh-1.5.1.tar.gz
+
+[root@localhost opt]# cd manpages-zh-1.5.1/
+
+[root@localhost manpages-zh-1.5.1]# ./configure --disable-zhtw  --prefix=/usr/local/zhman
+
+[root@localhost manpages-zh-1.5.1]# make && make install
+
+3、 为了不覆盖man，我们新建cman命令作为中文查询
+
+[root@localhost man1]# cd ~
+
+[root@localhost ~]# echo "alias cman='man -M /usr/local/zhman/share/man/zh_CN' " >>.bash_profile
+
+[root@localhost ~]# source .bash_profile
+
+4.使用我们新建的中文cman查询命令
+
+[root@localhost ~]# cman ls
+
+
+
+●CentOS7中使用efibootmgr管理UEFI启动项
+
+导读	UEFI是一种固件接口，在现代机器上已经取代了传统的BIOS。 UEFI固件的一个特性是能够在持久可编辑的NVRAM (Non - Volatile RAM，非易失性内存)中保存启动项。 在UEFI模式下安装Linux操作系统时，通常会将相关的引导项写入NVRAM，在某些情况下，我们可能希望执行手动操作，例如修改启动顺序、创建新的引导或删除旧的启动项。
+
+本文介绍如何在CentOS7.9中使用efibootmgr工具来管理EFI启动项。
+
+安装
+
+CentOS7 默认以UEFI模式安装，会自带>efibootmgr工具，如没有带可以使用下面命令安装：
+
+[root@localhost ~]# yum -y install efibootmgr
+
+列出 UEFI 启动项条目
+
+在使用UEFI固件的系统上，UEFI启动项存储在NVRAM中。 要使用 efibootmgr列出现有的启动项，如果需要列出条目就是不带任何选项或参数地调用efibootmgr。 下面就是输出条目的命令：
+
+ [root@localhost ~]# efibootmgr
+BootCurrent: 0007
+Timeout: 1 seconds
+BootOrder: 000A,0009,0004,0007,0008,0006,0000,0001,0002,0003,0005
+Boot0000* debian
+Boot0001* CD/DVD Rom
+Boot0002* Hard Disk
+Boot0003* Network
+Boot0004* CentOS
+Boot0005* USB Storage
+Boot0006* oVirt Node Next
+Boot0007* CentOS Linux
+Boot0008* proxmox
+Boot0009* Linux
+Boot000A* Linux
+MirrorStatus: Platform does not support address range mirror
+DesiredMirroredPercentageAbove4G: 0.00
+DesiredMirrorMemoryBelow4GB: false
+
+其中有一些是之前安装系统保存下来的启动项，可以删除。
+
+
+在上面的输出中，我们可以注意到与引导变量对应的一系列信息。 首先，我们可以看到BootCurrent:这个键的值为0007，表示当前启动的项目为0007号CentOS Linux。
+
+在输出中发现的第二个条目是Timeout:表示在启动菜单中自动选择条目之后的时间，在本例中是1秒。 接下来是BootOrder:这个键的值是由逗号分隔的条目编号，并显示相关条目在EFI引导菜单中显示的顺序。
+
+efibootmgr命令还显示了可用引导条目的列表。 每个条目显示其编号和名称。 在列表中，激活的条目它们被标记为'*符号。
+
+可以添加 -v 或者 --verbose 选项来获取条目的详细信息：
+
+[root@localhost ~]# efibootmgr -v
+BootCurrent: 0005
+Timeout: 5 seconds
+BootOrder: 0006,0005,0004,0000,0001,0002,0003
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)
+Boot0001* UEFI VBOX CD-ROM VB2-01700376         ACPI(a0341d0,0)PCI(1,1)ATAPI(1,0,0)N.....YM....R,Y.
+Boot0002* UEFI VBOX HARDDISK VB6d6781ff-6793398b        ACPI(a0341d0,0)PCI(d,0)SATA(0,ffff,0)N.....YM....R,Y.
+Boot0003* EFI Internal Shell    FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)
+Boot0004* CentOS Linux  HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File(\EFI\centos\shim.efi)
+Boot0005* Centos7.9-EFI HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File(\EFI\centos\grubx64.efi)
+Boot0006* centos7.9     HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File(\EFI\centos\grubx64.efi)
+
+更改 UEFI 启动项顺序
+
+我们可以使用efibootmgr来更改当前的引导顺序。 使用-o 或者 --bootorder选项，后添加想要排列的顺序。当前本机的引导顺序如下：
+
+BootOrder: 000A,0009,0004,0007,0008,0006,0000,0001,0002,0003,0005
+
+
+可以看到上图汇总，首先启动000A Linux，最后一个条目是0005 USB Storage设备。 假设我们想要交换这些条目，让0003 Network成为第一个条目。 我们所要做的就是运行以下命令:
+
+ [root@localhost ~]# efibootmgr -o 0003,000A,0009,0004,0007,0008,0006,0000,0001,0002,0005
+BootCurrent: 0007
+Timeout: 1 seconds
+BootOrder: 0003,000A,0009,0004,0007,0008,0006,0000,0001,0002,0005
+Boot0000* debian
+Boot0001* CD/DVD Rom
+Boot0002* Hard Disk
+Boot0003* Network
+Boot0004* CentOS
+Boot0005* USB Storage
+Boot0006* oVirt Node Next
+Boot0007* CentOS Linux
+Boot0008* proxmox
+Boot0009* Linux
+Boot000A* Linux
+MirrorStatus: Platform does not support address range mirror
+DesiredMirroredPercentageAbove4G: 0.00
+DesiredMirrorMemoryBelow4GB: false
+
+
+可以看到顺序已经变了。网卡启动变为第一项了。
+
+创建一条引导
+
+可以使用 efibootmgr 在 UEFI 引导管理器中创建新条目。 要创建引导项，我们必须知道EFI系统分区的位置和要引导的EFI映像的路径。
+
+创建新条目时必须使用的选项是-c 或者 --create。 假设EFI分区在/dev/sda磁盘的第一个分区，efi镜像的引导路径是EFI/centos/grubx64.efi，名称为centos7.9，我们将运行以下命令:
+
+[root@localhost ~]# efibootmgr -c -d /dev/sda -p 1 -L centos7.9 -l '\EFI\centos\grubx64.efi'
+BootCurrent: 0005
+Timeout: 0 seconds
+BootOrder: 0006,0005,0004,0000,0001,0002,0003
+Boot0000* UiApp
+Boot0001* UEFI VBOX CD-ROM VB2-01700376
+Boot0002* UEFI VBOX HARDDISK VB6d6781ff-6793398b
+Boot0003* EFI Internal Shell
+Boot0004* CentOS Linux
+Boot0005* Centos7.9-EFI
+Boot0006* centos7.9
+
+
+使用 -c 选项创建一个新条目。 -d (--disk) 来指定EFI系统分区所在的磁盘，使用 -p (--part)来指定该磁盘上的哪个分区是EFI分区(按照标准，EFI分区应该总是第一个，分去格式为FAT32)。
+
+使用 -L (--label) 来提供菜单中条目的名称，最后使用 -l (--loader) 来传递要引导镜像的路径。 需要注意的是，路径应该以单引号形式提供。 创建的引导条目将自动放在引导顺序列表的顶部。
+
+删除一条引导
+
+我们可以使用 efibootmgr 删除现有的引导项。 我们可以删除一个不存在的系统引导条目。 我们使用 -b 或者 --bootnum 传递索引作为参数来选择我们想要删除的引导条目，然后使用 -B 或者 --delete-bootnum 来删除它。
+
+例如，要删除索引为0008 , 我们将运行以下命令：
+
+[root@localhost ~]# efibootmgr -b 8 -B
+Timeout: 1 seconds
+BootOrder: 0007,0003,000A,0009,0004,0006,0000,0001,0002,0005
+Boot0000* debian
+Boot0001* CD/DVD Rom
+Boot0002* Hard Disk
+Boot0003* Network
+Boot0004* CentOS
+Boot0005* USB Storage
+Boot0006* oVirt Node Next
+Boot0007* CentOS Linux
+Boot0009* Linux
+Boot000A* Linux
+MirrorStatus: Platform does not support address range mirror
+DesiredMirroredPercentageAbove4G: 0.00
+DesiredMirrorMemoryBelow4GB: false
+
+
+Tips：在传递引导条目序号时，我们可以不填充前面的0。
+
+激活、取消激活引导条目
+
+如果不想显示某一个启动项可以使用 -A 或者 --inactive 来取消激活该条目：
+
+[root@localhost ~]# efibootmgr -b 000A -A
+Timeout: 1 seconds
+BootOrder: 0007,0003,000A,0009,0004,0006,0001,0002,0005
+Boot0001* CD/DVD Rom
+Boot0002* Hard Disk
+Boot0003* Network
+Boot0004* CentOS
+Boot0005* USB Storage
+Boot0006* oVirt Node Next
+Boot0007* CentOS Linux
+Boot0009* Linux
+Boot000A  Linux
+MirrorStatus: Platform does not support address range mirror
+DesiredMirroredPercentageAbove4G: 0.00
+DesiredMirrorMemoryBelow4GB: false
+
+可以看到 Boot000A Linux这一条前面的*消失了，这就代表不显示该条目了。
+
+
+如果想显示某一个启动项可以使用 -a 或者 --active 来激活该条目：
+
+[root@localhost ~]# efibootmgr -b 000A -a
+Timeout: 1 seconds
+BootOrder: 0007,0003,000A,0009,0004,0006,0001,0002,0005
+Boot0001* CD/DVD Rom
+Boot0002* Hard Disk
+Boot0003* Network
+Boot0004* CentOS
+Boot0005* USB Storage
+Boot0006* oVirt Node Next
+Boot0007* CentOS Linux
+Boot0009* Linux
+Boot000A* Linux
+MirrorStatus: Platform does not support address range mirror
+DesiredMirroredPercentageAbove4G: 0.00
+DesiredMirrorMemoryBelow4GB: false
+
+可以看到 Boot000A Linux这一条前面的*又回来 了。
+
+修改 UEFI 引导管理器超时时间
+
+我们可以设置超时间隔，使用 -t 或者 -timeout 选项来设置，在此之后自动选择EFI引导管理器中的默认条目。 可以看到下图，当前超时为0秒，我们可以设置时间长一点：
+
+[root@localhost ~]# efibootmgr -t 5
+BootCurrent: 0005
+Timeout: 5 seconds
+BootOrder: 0006,0005,0004,0000,0001,0002,0003
+Boot0000* UiApp
+Boot0001* UEFI VBOX CD-ROM VB2-01700376
+Boot0002* UEFI VBOX HARDDISK VB6d6781ff-6793398b
+Boot0003* EFI Internal Shell
+Boot0004* CentOS Linux
+Boot0005* Centos7.9-EFI
+
+总结
+
+支持UEFI固件的机器将引导项存储在称为NVRAM的非易失性RAM中。 当我们安装Linu操作系统时，EFI引导管理器菜单中会自动添加一个对应的条目。
