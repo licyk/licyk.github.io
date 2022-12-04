@@ -21,6 +21,7 @@ https://google.icloudnative.io/
 
 获取专业软件：
 微信公众号搜索“Vposy”，关注后回复“软件目录”
+
 -----------------------------
 
 win10企业版ltsc激活密钥：
@@ -888,6 +889,786 @@ b : reBoot 重启
 切换桌面Ctrl+Alt+方向左右键
 虚拟桌面管理Ctrl+Alt+方向上键
 在当前桌面切换应用trl+Alt+方向下键
+
+●Linux设置文件默认打开程序：
+格式：gio mime 文件类型 处理程序
+例：gio mime application/x-blender blender.desktop
+（blender.desktop为/usr/share/applications的图标文件）
+
+●Linux设置开机自动登录：
+lightdm：
+修改/etc/lightdm/lightdm.conf
+找到#autologin-user=这一行
+
+#autologin-user=
+
+将前面的#去掉，等号后加用户名
+
+autologin-user=用户名
+
+这样lightdm配置完毕，重启后生效
+gdm：
+修改/etc/gdm/custom.conf
+
+
+[daemon]
+
+AutomaticLoginEnable=True #这里的True的T是大写，有的gnome环境可能是true小写的
+
+AutomaticLogin=用户名
+
+TimedLoginEnable=True
+
+[security]
+
+AllowRoot=True
+
+gdm配置完毕，重启后生效
+
+●linux创建软链接：
+ln -s 源文件 目标文件
+例：
+ln -s /home/用户名/下载/文件/test /home/用户名/下载/
+此时会在"/home/用户名/下载/"生成“test”快捷方式，并链接到真实路径“/home/用户名/下载/文件/test”
+
+●linux使用samba共享(基于samba,nemo,nemo-share)：
+1、安装samba
+sudo apt install samba
+2、编辑samba配置文件，添加参数
+sudo vim /etc/samba/smb.conf
+添加以下参数
+usershare owner only =false
+此时可以将用户添加进配置中，参数配置格式如下
+[用户名]
+comment = 用户名 samba
+browseable =yes
+writeable =yes
+3、设置账户samba密码
+sudo smbpasswd -a 用户名
+重复输入两次密码，完成
+4、添加用户到sambashare组
+usermod -a -G sambashare 用户名
+5、打开nemo文件管理器，右键将要共享的文件夹，，选择"共享选项",启用"共享此文件夹"，此时文件共享成功
+在Windows文件管理器中输入\\ip 即可访问
+●在原基础上添加新的用户进行访问：
+1、添加新的Linux系统用户：
+sudo useradd 用户名
+2、设置新用户名密码：
+sudo smbpasswd -a 用户名
+3、设置新samba用户密码：
+●Windows：
+●快捷键（部分快捷键在其他系统上可用）：
+全选ctrl+a
+剪切ctrl+x
+复制ctrl+c
+粘贴ctrl+v
+显示桌面ctrl+d
+截图win+shift+s
+窗口切换ctrl+alt+tab
+安全选项ctrl+alt+del
+运行win+r
+任务视图win+tab
+任务视图(旧)alt+tab
+任务管理器ctrl+shift+esc
+文件管理器win+e
+重命名 选中文件+f2
+选中任务栏软件图标 win+t
+打开搜索 win+q
+打开小组件 win+w
+打开设置 win+i
+打开通知栏 win+n
+撤回 ctrl+z
+重做 ctrl+shift+z
+切换桌面Ctrl+Alt+方向键
+输入大写或标点shift+键盘上的按键
+任务管理器关闭任务 delete
+显示顶栏菜单对应键盘字母 Alt
+选择顶栏菜单按钮 Alt+对应字母（部分为Ctrl+对应字母）
+切换输入法win+space或Ctrl+shift
+打开剪贴板win+v
+多选 按住Ctrl，鼠标进行选择
+选择一列 按住shift，鼠标选择起点后再选择终点，中间部分会自动勾选
+关闭当前窗口 Alt+F4
+刷新 F5
+全屏/取消全屏 F11
+
+●Windows程序：
+策略管理services.msc
+系统配置msconfig
+注册表regedit
+用户账户Netplwiz
+"关于Windows" winver
+
+●v2rayN项目：
+https://github.com/2dust/v2rayN
+
+●Windows开始菜单图标路径：
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+
+●在用户账户（netplwiz）启用自动登陆复选框：
+注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
+PasswordLessBuildVersion把3改为0
+
+●隐藏Windows10设置中的部分设置：
+运行gpedit.msc（本地组策略编辑器），依次点开计算机配置>管理模板>控制面板，找到设置页面可见性
+编辑，点击已启用
+在选项中的输入框中输入参数
+如隐藏账户设置（hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollment;workplace）
+再点击应用即可
+更多参数信息在https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app#accounts
+
+●隐藏Windows中控制面板的部分设置：
+运行gpedit.msc（本地组策略编辑器），依次点开用户配置→管理模版→控制面板，找到隐藏指定的“控制面板”项
+编辑，点击已启用，在选项中点击显示，在”值“的输入框中输入参数
+如Microsoft.UserAccounts（用户账户），Microsoft.CredentialManager（凭据管理器）
+输入完成后点确定，再点击应用即可
+更多参数信息在https://docs.microsoft.com/zh-cn/windows/win32/shell/controlpanel-canonical-names?redirectedfrom=MSDN#credential-manager
+
+●cmd指令：
+强制关闭进程
+wmic process where name='进程名.exe' call terminate
+wmic process where processid="进程pid" delete
+wmic process 进程pid call terminate
+
+●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
+
+●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
+
+●在OBS Studio中可按住Alt键裁剪窗口
+
+●firefox/chrome/其他浏览器快捷键：
+关闭当前标签页 Ctrl+F4
+将鼠标点击的链接在后台打开 Ctrl+鼠标左键
+
+●firefox推荐插件：
+Translate Web Pages(网页实时翻译)
+AdBlock(广告拦截)
+AdGuard(广告拦截，拦截效果比adblock好)
+Global Speed(视频速度控制)
+Image Search Options(网页识图)
+Infinity(自定义标签页)
+Tampermonkey(可添加脚本)
+To Google Translate(网页翻译)
+User-Agent Switcher and Manager(浏览器UA修改)
+Video DownloadHelper(视频下载)
+bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
+
+●edge浏览器进入高级设置：
+在地址栏输入edge://flags
+回车后进入
+
+●firefox浏览器进入高级设置：
+在地址栏输入about:config
+回车后进入
+
+●edge浏览器关闭“使用推荐的浏览器设置”弹窗：
+在地址栏输入edge://flags/#edge-show-feature-recommendations
+将下面第一个选项的“Default”改成“Disable”，并重启浏览器
+
+●电脑优化方法（低配机可尝试）：
+固态硬盘禁用休眠文件
+禁用系统7G预留
+禁用传递优化
+禁用自带杀毒WD（这个看个人）
+禁用后台应用
+开启存储感知
+更改新内容的保存位置设置到别的盘
+更新系统后清理临时文件
+删除系统还原点并禁用还原点
+用户里的Appdata文件转移到D盘
+用户里的桌面，文档等转移D盘
+索引选项的位置改D盘
+四个缓存变量temp修改到D盘
+绿色版火绒弹窗拦截
+绿色版迅雷（IDM也可以，和绿色版迅雷一起更好）
+dism++进行简单系统设置
+dism++空间回收勾选几个不会影响系统稳定的选项进行清理
+运行库用DirectX4.0打上
+安装net3.5需要打开系统自动更新，不然无法安装。
+新版edge浏览器更新一下，然后到C盘清理更新包和浏览器缓存temp
+新版edge浏览器可以借助第三方软件搬家工具转移到D盘
+office可以通过修改注册表安装到你想要的盘
+微软账号登录一直转圈圈或者报错的，可以通过下载UU加速器，加速微软商店，就可以瞬间登录，吊打修改DNS，修改DNS不一定有效果，UU加速器100%直接登录微软账号，一路畅通无阻
+不玩Xbox的，可以关闭系统自带游戏模式，对非Xbox游戏是负优化
+支持开启GPU硬件加速和可变刷新率的，都开启
+新版edge浏览器下载一个AdGuard广告拦截扩展，可以屏蔽大部分广告内容和高速下载地址这种流氓下载地址，下载东西就没流氓捆绑软件了
+解压软件推荐微软商店的Breezip或者破解版Bandizip或者7-z，或者去广告的winrar.
+配置不低的最好用原版win10，不要用第三方修改版系统。官方的企业版LTSC适合低配机，功能阉割了很多，中配和高配就没必要用精简版了
+安装系统最好用微PE网络版，dism++还原原版镜像，还原后，dism++里对系统进行简单的设置处理OOBE界面不要联网，不要设置PIN，锁屏界面的账号不要用微软账号，用本地账号就行了，软件登录微软账号就行了，谨记禁用一些对自己用不到的服务，比如Windows search服务，打印机服务，预览体验服务，备份服务等你认为自己用不到的服务
+dism++删除预装应用的安装包后，可以对win10全家桶进行转移到别的盘
+最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
+
+●win10彻底关闭自动更新方法步骤：
+由于win10自动更新非常顽固，所以我们要从多个地方下手才能永久关闭其自动更新，别怕麻烦，跟着下面的步骤一步步操作。
+一、禁用Windows Update服务
+1、同时按下键盘 Win + R，打开运行对话框，然后输入命令 services.msc ，点击下方的“确定”打开服务，如下图所示。
+2、找到 Windows Update 这一项，并双击打开，如图所示。
+3、双击打开它，点击“停止”，把启动类型选为“禁用”，最后点击应用，如下图。
+4、接下再切换到“恢复”选项，将默认的“重新启动服务”改为“无操作”，然后点击“应用”“确定”。
+二、在组策略里关闭Win10自动更新相关服务
+1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定，如下图。
+2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新
+3、然后在右侧“配置自动更新”设置中，将其设置为“已禁用”并点击下方的“应用”然后“确定”，如图所示。
+4、之后还需要再找到“删除使用所有Windows更新功能的访问权限”，选择已启用，完成设置后，点击“应用”“确定”，如图所示。
+三、禁用任务计划里边的Win10自动更新
+1、同时按下 Win + R 组合快捷键打开““运行”窗口，然后输入“taskschd.msc”，并点击下方的“确定”打开任务计划程序，如图所示。
+2、在任务计划程序的设置界面，依次展开 任务计划程序库 -> Microsoft -> Windows -> WindowsUpdate，把里面的项目都设置为 [ 禁用 ] 就可以了。（我这里边只有一个任务，你的电脑里可能会有2个或者更多，全部禁用就行了）
+四、在注册表中关闭Win10自动更新
+1、同时按下 Win + R 组合快捷键，打开运行对话框，然后输入命名 regedit，然后点击下方的「 确定 」打开注册表，如下图所示。
+2、在注册表设置中，找到并定位到 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]。然后在右侧找到“Start”键。
+3、点击修改，把start值改成16进制，值改为“4”，然后点击「 确定 」保存数据，如图所示。
+4、继续在右侧找到“FailureActions”键，右键点击修改该键的二进制数据，将“0010”、“0018”行的左起第5个数值由原来的“01”改为“00”，完成后，点击下方的“确定”即可，如下图所示。
+至此彻底关闭win10自动更新的操作步骤就全部完成了
+
+●利用Firefox开发者网站，转换Chrome插件为Firefox插件：
+1、提前准备好Chrome插件。
+2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
+3、打开Firefox开发者网址
+https://addons.mozilla.org/zh-CN/firefox/
+4、点击右上角登录或注册
+5、使用你的Firefox帐号登录网站
+一般会自己链接你的Firefox帐号，如果没有链接，你输入帐号和密码注册为Firefox开发者即可。
+是的，注册成功后，你就是Firefox插件开发者的一份子了，哈哈哈哈。
+我使用的是国际版英文界面，所以显示为英文，中文版大同小异！
+6、登录后，点击页面右上角“开发者中心”
+7、点击右下角“提交新附加组件”
+8、选择如何分发此版本。因为我们上传的是别人开发的东西，只是用此方法来转换，所以一定请选“我自己托管”。不这样选，插件会出现在插件库中，全网可以搜索到。当然，大概率是你上传后根本审核不通过……然后点击“继续”
+9、点击“选择文件”，选择刚才你准备好的插件文件。
+10、选定你准备好的插件后，插件会自动上传并进行验证，验证结束后会出现类似如下提示：
+已完成验证：无错误，有10条警告。
+有错误页面会直接提示，有错误提示一般代表插件文件损坏或者不支持（可以尝试去github上找代码文件试试）。
+如显示无错误，再选择下面的程序兼容性（我没用android手机，所以没选）
+再点击“签名附加组件”
+11、出现让你提交源代码的页面
+怎么说呢，这个你根本没有源代码，所以直接点否吧，有源代码也别提交，毕竟真正的开发者并不是我们不是……
+再点“继续”
+12、大功告成！
+点击“转至我的提交”
+13、找到你刚才提交的附加组件并点击
+14、点击左上角“查看全部“
+15、这时你会看到你提交的插件正在审核，等待1分钟，刷新一下页面，一般就会提示已经审核通过。
+当显示已审核后，点击左边的版本号
+16、点击版本后，在出现的页面里点击插件的文件名，这时浏览器会自动下载你刚才上传并签名的插件，下载完后，你点击添加。
+这下，真正大功告成！
+
+●Windows下隐藏文件：
+打开cmd窗口，在弹出的窗口输入  attrib 空格+s 空格+h 空格+r 空格 文件的绝对地址
+例如  attrib +s +h +r D:\test\1.jpg
+其中+s 附上系统文件属性 +h附上隐藏属性 +r附上只读属性
+写好后，回车，文件已经成功隐藏
+如果想去掉刚刚附上的属性，只需要将+换为-，即可恢复隐藏。
+关于查看的方法也很简单，在文件夹选项里，取消隐藏系统文件，然后按确定，即可查看隐藏的系统文件
+
+●解决parsec国内无法使用方法：
+1、下载v2rayN（https://github.com/2dust/v2rayN/releases/）
+2、在v2rayN中添加节点（节点可从网上寻找），并启用
+3、打开“设置—>参数设置—>core:基础设置",勾选"允许来自局域网的连接"，确定保存设置
+4、在文件管理器中打开C:\Users\用户名\AppData\Roaming\Parsec，找到config.txt，在文本的最后添加下列参数
+
+app_proxy_address=127.0.0.1
+app_proxy_scheme=http
+app_proxy=true
+app_proxy_port=10809
+
+5、重新打开parsec即可正常使用
+//
+注：
+1、
+app_proxy_address为代理的地址
+app_proxy_scheme为代理协议
+app_proxy_port为代理的端口
+2、v2rayN的参数可在软件所在目录中"config.json"查看，socks代理默认端口为10808，http代理默认端口为10809
+//
+
+●window创建软链接：
+mklink /d "虚拟文件路径" "真实文件路径"
+删除软连接：
+rmdir "虚拟文件路径"
+
+●bios核显设置优化：
+GFX Boost 意思是GPU动态加速，默认是关闭的，我们要开启，方法是按方向键选中此项回车，再选择Enabled开启，而选择Disabled关闭
+DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，也不是越大越好因为会减小系统内存，推荐调到128。
+DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
+Aperture Size 这个是最大图形缓冲区，默认256我选的512。
+
+●windows修复分区(如修复C盘):
+在cmd中输入
+chkdsk /f C:\
+
+●windows解决桌面图标发白：
+创建*.bat
+填入以下内容：
+
+@echo off
+ taskkill /f /im explorer.exe
+CD /d %userprofile%\AppData\Local
+DEL IconCache.db /a
+start explorer.exe
+echo
+
+运行这个脚本即可解决
+
+●windows刷新dns缓存：
+在cmd输入
+
+ipconfig/flushdns
+
+回车后即可
+
+●Windows快捷调整桌面图标大小：
+单击桌面任意区域后，Ctrl+鼠标滚轮 进行调整
+
+●在uefi启动下安装windows后，启动Windows时出现错误提示导致启动失败的解决方法：
+使用笫三方工具（如dism++，Windows NT安装器）安装Windows后，进系统时出现错误，
+可能与windows系统的引导文件残留有关，
+可尝试删除ESP分区中的Windows引导文件（使用diskgenius），windows的引导文件在EFI文件夹中的microsoft文件夹
+BOOT文件夹中的文件
+再删除uefi引导项（使用bootice），Windows的引导项为Windows boot manager
+或者使用Windows官方镜像自带的安装工具进行安装
+注：dism++，window NT安装器可绕过TPM限制来安装Windows11
+
+●Windows调整虚拟内存设置：
+1、在桌面此电脑图标上点击鼠标右键，然后选择“属性”选项。
+2、打开系统窗口后，点击左上角的“高级系统设置”选项。
+3、在打开的窗口中，点击“高级”选项卡下“性能”选项组的“设置”按钮。
+4、打开性能选项窗口后，点击“高级”选项卡中的“更改”按钮
+5、在打开的窗口中，首先取消勾选“自动管理所有驱动器的分页文件大小”。
+6、接下来选择“自定义大小”，然后手动设置初始大小以及最大值，然后点击确定按钮。
+
+-------------------------------------------------
+
+●安卓：
+●列出分区：
+ls -l /dev/block/by-name/*
+
+●提取boot（或recovery）：
+1、查看boot所对应的分区：
+
+ls -l /dev/block/by-name/*
+
+显示对应分区为sdc11
+2、提取：
+dd if=/dev/block/sdc11 of=/手机其他路径/boot.img
+
+●刷入boot：
+1、方法1：
+使用dd指令
+2、方法2：
+fastboot flash boot boot.img
+
+●termux-tools命令：
+termux-change-repo（换源）
+termux-fix-shebang
+termux-info
+termux-open
+termux-open-url
+termux-reload-settings
+termux-reset
+termux-setup-storage
+termux-wake-lock
+termux-wake-unlock
+
+●termux保持终端运行：
+安装tmux：
+apt install tmux
+运行tmux：
+tmux
+
+●termux安装linux脚本链接：
+https://gitee.com/skymysky/linux#tmoe-linux
+
+●magisk下载：
+https://github.com/topjohnwu/Magisk
+
+●v2rayNG项目：
+https://github.com/2dust/v2rayNG
+
+-------------------------------------------------
+
+●Linux:
+●快捷键：
+进入tty界面：Ctrl+Alt+F2/F3/…F6
+退出tty界面：Ctrl+Alt+F7
+勾选复选框：空格
+命令行中终止程序：Ctrl+C
+命令行中翻页：shift+pageup/pagedown 或pageup/pagedown
+●debian系linux发行版:
+更新软件包缓存:
+sudo apt update
+更新软件:
+sudo apt upgrade
+安装软件:
+sudo apt install 软件名
+sudo apt install --no-install-recommends 软件名(不安装推荐软件)
+sudo apt remove 软件名 --purge(彻底卸载软件包)
+sudo dpkg -i xxx.deb(安装本地安装包)
+sudo dpkg -i *.deb(安装所在目录下全部安装包)
+sudo apt --fix-broken install（修复依赖）
+关闭某个窗口:
+sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
+Linux自动编译:(需安装debhelper build-dep cmake make)
+dpkg-buildpackage -us -uc -nc
+列出硬盘与分区：
+lsblk
+启动硬盘分区编辑：
+cfdisk
+格式分区为指定文件系统(ext3可以替换成fat32,ntfs,ext4等):
+mkfs -t ext3 /dev/sda4  
+修复ntfs分区不能写入文件(sda3为分区)：
+sudo ntfsfix /dev/sda3
+
+●tty终端快捷键：
+停止屏幕输出 Ctrl+S
+恢复屏幕输出Ctrl+Q
+中断程序 Ctrl+C
+退出终端(相当于输入exit) Ctrl+D
+在提示字符下将整列命令删除 Ctrl+U
+暂停目前命令 Ctrl+Z
+命令补全/文件补齐/参数补齐 Tab
+
+●重新启动x.org：
+Ctrl+Alt+backspace
+
+●在tty终端中启动x.org：
+startx
+（需注意没有其他x.org被启用）
+
+●linux mint解决中文不全:
+sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
+ 
+●linux在虚拟机中安装vmtools:
+sudo apt install open-vm-tools open-vm-tools-desktop
+
+●ArchLinux安装教程链接：
+https://zhuanlan.zhihu.com/p/138951848
+
+●在vmware安装与优化ArchLinux教程链接：
+https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest#VMware_Tools_versus_Open-VM-Tools
+
+●Linux安装和配置kvm/qemu教程链接：
+https://blog.csdn.net/weixin_35379749/article/details/116632599
+https://blog.csdn.net/allway2/article/details/122160151
+https://cloud.tencent.com/developer/article/2067416
+https://blog.csdn.net/dwj1979/article/details/85232191
+https://www.bilibili.com/read/cv12760387
+https://zhuanlan.zhihu.com/p/428845384
+https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
+
+●cinnamon主题修改教程：
+https://forums.linuxmint.com/viewtopic.php?f=211&t=155400
+https://forums.linuxmint.com/viewtopic.php?t=156948
+
+●v2rayA项目：
+https://github.com/v2rayA/v2rayA
+
+●linux推荐使用软件：
+gimp（图片编辑）
+kdenlive（视频编辑）
+thunderbird（邮件管理）
+vlc（视频播放器）
+rhythmbox(音乐播放器)
+pulseeffects（音频均衡器）
+dconf-editor（类似注册表编辑器）
+remmina（远程桌面连接）
+stacer（系统管理优化）
+hardinfo（硬件信息检测）
+handbrake（视频压制）
+krita（绘画工具）
+inkscape（矢量图制作工具）
+obs-studio(屏幕录像)
+gparted(分区编辑工具)
+refind(uefi引导管理器)
+grub-customizer(图形化grub编辑器)
+lightdm-settings(lightdm编辑器，需安装slick-greeter)
+software-properties-gtk(软件源编辑器)
+gnome-software(gnome应用市场)
+transmission-gtk(磁力链接下载器)
+baobab(空间占用分析)
+lutris(基于wine的游戏安装工具)
+playonlinux(基于wine的配置工具)
+winetricks(wine配置工具)
+aptik(系统备份还原工具)
+timeshift(系统快照工具)
+v2ray(vpn内核)
+
+●桌面环境：
+gnome
+task-gnome-flashback-desktop
+xfce4
+kde-plasma-desktop
+cinnamon
+mate-desktop-environment
+lxde
+lxqt
+
+●wine安装字体:
+1：先从Windows系统中把微软雅黑字体提取出来（在系统分区的Win。dows/Fonts目录下），搜索msyh关键字能找到3个文件，分别是msyh.ttc，msyhbd.ttc，msyhl.ttc，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的**.wine/drive_c/windows/Fonts**目录下面，.wine是隐藏文件夹，在主目录文件夹里按Ctrl+H即可显示。
+2：然后随便找个地方新建一个空文本，取名为msyh_font.reg（后缀是reg即可，文件名随便取的），终端命令操作：
+sudo gedit msyh_font.reg
+再把下面内容复制进去（注意Tahoma Bold那一行我是对应的之前复制过来的msyh粗体，如果你只复制了常规字体，下面应该全部填msyh.ttc）：
+
+REGEDIT4
+ 
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+"Lucida Sans Unicode"="msyh.ttc"
+"Microsoft Sans Serif"="msyh.ttc"
+"MS Sans Serif"="msyh.ttc"
+"Tahoma"="msyh.ttc"
+"Tahoma Bold"="msyhbd.ttc"
+"msyh"="msyh.ttc"
+"Arial"="msyh.ttc"
+"Arial Black"="msyh.ttc"
+
+保存好之后，终端执行命令才能生效：
+regedit msyh_font.reg
+3：进入wine目录，编辑system.reg配置文件：
+sudo gedit ~/.wine/system.reg
+查找关键词FontSubstitutes，把它下面挨着的“MS Shell Dlg”=”SimSun”改为**“MS Shell Dlg”=“msyh”**
+改完记得保存。
+4：终端执行命令打开wine配置管理：
+winecfg
+选中默认设置，再把系统改成Windows 10或者Win 7，这个随意，只要不是XP什么的就行，因为老系统上没有雅黑这个字体，所以会看不到效果。
+最好是重启下系统或者注销一下，搞定！既能解决乱码问题，又美观。
+
+●linux更改grub主题:
+2.1 创建主题文件夹
+在 /boot/grub 里创建主题目录 themes
+sudo mkdir -p /boot/grub/themes
+2.2 解压
+解压下载的主题压缩包，得到 deepin 文件夹
+2.3 复制
+将 deepin 文件夹复制到 /boot/grub/themes 文件夹下
+sudo cp -r deepin/ /boot/grub/themes/
+2.4 修改配置文件
+修改 /etc/default/grub ，将主题添加到配置文件中
+vim /etc/default/grub
+添加这一行
+
+GRUB_THEME="/boot/grub/themes/deepin/theme.txt"
+
+注意哦，这个引号是英文的
+2.5 更新 grub
+sudo update-grub
+(主题文件夹中包含：
+icons：多种系统的图标
+background.jpg：背景图
+theme.txt：grub 主题样式文件
+其他图片：零散的图片为启动背景需要)
+
+●Linux安装winehq:
+参考此篇方法
+https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
+
+●安装deepin-wine环境与应用在Debian/Ubuntu上的移植仓库（使用deepin官方原版软件包）：
+1.添加仓库
+首次使用时，你需要运行如下一条命令将移植仓库添加到系统中。
+wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
+2.应用安装
+自此以后，你可以像对待普通的软件包一样，使用apt-get系列命令进行各种应用安装、更新和卸载清理了。
+比如安装微信只需要运行下面的命令，
+sudo apt-get install com.qq.weixin.deepin
+将com.qq.weixin.deepin替换为下列包名，可以继续安装其他应用：
+应用 	包名
+微信 	com.qq.weixin.deepin
+QQ 	com.qq.im.deepin
+TIM 	com.qq.office.deepin
+钉钉 	com.dingtalk.deepin
+阿里旺旺 	com.taobao.wangwang.deepin
+QQ音乐 	com.qq.music.deepin
+QQ视频 	com.qq.video.deepin
+爱奇艺 	com.iqiyi.deepin
+完整列表参见https://deepin-wine.i-m.dev。
+
+●linux升级grub,如何更新 grub在 Ubuntu 或其他 Linux 发行版上：
+1，如何更新 grub
+Ubuntu 和很多其它的 Linux 发行版提供一个易使用的称为update-grub命令行实用程序。
+为更新 grub ，你所要的全部工作就是使用sudo在终端中运行这个命令。
+sudo update-grub
+你应该看到一个像这样的输出：
+
+[email protected]:~$ sudo update-grub
+[sudo] password for abhishek:
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.0.0-37-generic
+Found initrd image: /boot/initrd.img-5.0.0-37-generic
+Found linux image: /boot/vmlinuz-5.0.0-36-generic
+Found initrd image: /boot/initrd.img-5.0.0-36-generic
+Found linux image: /boot/vmlinuz-5.0.0-31-generic
+Found initrd image: /boot/initrd.img-5.0.0-31-generic
+Found Ubuntu 19.10 (19.10) on /dev/sda4
+Found MX 19 patito feo (19) on /dev/sdb1
+Adding boot menu entry for EFI firmware configuration
+done
+
+你可能看到一个类似的称为update-grub2的命令。不需要在update-grub和update-grub2之间感到害怕或不知所措。这两个命令执行相同的动作。
+大约在 10 年前，当 grub2 刚刚被引进时，update-grub2命令也被引进。现在，update-grub2只是一个链接到update-grub的符号，它们都更新 grub2 配置(因为 grub2 是默认的)。
+不能找到 update-grub 命令?这里是在这种情况下该做什么
+它可能是，你的 Linux 发行版可能没有可用的update-grub命令。
+在这种情况下你该做什么?你如何在这样一个 Linux 发行版上更新 grub ?
+在这里不需要惊慌。update-grub命令只是一个入口，用于运行grub-mkconfig -o /boot/grub/grub.cfg来生成 grub2 配置文件。
+这意味着你可以在任意 Linux 发行版上使用下面的命令更新 grub ：
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+当然，记住update-grub命令比上面的命令容易很多，这是为什么它在一开始被创建的原因。
+2，update-grub 是如何工作的?
+当你安装一个 Linux 发行版时，它(通常)要求你安装grub 启动引导程序。
+grub 的一部分安装在 MBR/ESP 分区上。grub 的剩余部分保留在 Linux 发行版的/boot/grub目录中。
+依据它的man 页面，update-grub通过查找/boot目录来工作。所有以vmlinuz-开头的文件将被作为内核来对待，并且它们将得到一个 grub 菜单项。它也将为与所找到内核版本相同的ramdisk镜像添加 initrd 行。
+它也使用os-prober为其它操作系统查找所有磁盘分区。如果找到其它操作系统，它添加它们到 grub 菜单。
+为什么你需要更新 grub ?
+在有很多场景下你需要更新 grub。
+假设你修改 grub 配置文件(/etc/default/grub)以更改默认启动顺序或减少默认启动时间。除非你更新 grub ，否则你的修改将不会生效。
+另一种情况是，你在同一个电脑系统上安装多个 Linux 发行版。
+例如，在我的 Intel NUC 上，我有两个磁盘。第一个磁盘有 Ubuntu 19.10 ，并且我在其上面安装了 Ubuntu 18.04 。第二个操作系统(Ubuntu 18.04)安装了其自己的 grub ，现在 grub 启动屏幕由 Ubuntu 18.04 grub 控制。
+在第二个磁盘上，我安装了 MX Linux ，但是这次我没有安装 grub。我希望现有的 grub(由 Ubuntu 18.04 控制)来处理所有的操作系统项目。
+现在，在这种情况中，在 Ubuntu 18.04 上的 grub 需要更新，以便它能够看到MX Linux。
+如上图所示，当我更新 grub 时，它在 18.04 上找到很多安装的 Linux 内核, 以及在不同的分区上 Ubntu 19.10 和 MX Linux 。
+如果你想让 MX Linux 控制 grub ，我可以使用grub-install命令来在 MX Linux 上安装 grub，然后在 MX Linux 上的 grub 将开始控制 grub 启动屏幕。
+
+●Ubuntu下切换桌面管理器：
+以切换到GDM为例，打开终端，使用命令：
+sudo dpkg-reconfigure gdm3
+然后选择GDM，按住Enter选择即可。然后重启计算机生效。同样，可以用其他DM如KDM，SLim，LightDM来替换上述命令中的gdm来进行DM间切换
+
+●linux在tty界面中文乱码解决方案：
+●CentOS:
+1.安装fbterm
+2.安装中文字体
+3.配置fbterm　　
+一、安装FbTerm：
+fbterm所在网址：https://code.google.com/p/fbterm/
+1.首先安装编译fbterm依赖包
+yum -y install freetype-devel fontconfig-devel
+2.下载fbterm压缩包
+wget  http://fbterm.googlecode.com/files/fbterm-1.7.0.tar.gz
+3.将fbterm源代码解压缩至/usr/local/src目录下
+tar -zxvf  fbterm-1.7.0.tar.gz -C /usr/local/src
+4.不解释
+cd  /usr/local/src/fbterm-1.7
+5.建立MakeFile
+./configure
+6.编译安装
+make && make install
+我在运行建立MakeFile命令时，出现了下面的错误：C++ compiler cannot create executables。很明显，C++编译环境没有，执行yum install gcc-c++即可解决该问题。同时，还会有两个警告，gpm is not exict，gpm是鼠标支持，我装了之后感觉没什么用，而且都在终端操作了，要什么鼠标啊，所以后来又卸载了。第二个警告没搞懂，跪求大神指导。反正，同学们请忽略这些警告就好了，错误要解决，警告无视之。
+7.进入fbterm终端
+fbterm
+至此，如果不出意外，你的fbterm已经可以支持中文显示了，但由于fbterm的默认字体mono显示不怎么好看，于是决定换一下字体
+二、安装字体
+1.将自己喜欢的字体文件放到Linux字体目录（/usr/share/fonts）下，博主在fonts目录下又创建一个目录truetype，通过U盘拷贝将自己喜欢的字体放在这个目录。具体操作过程如下：
+(1).cd /usr/share/fonts
+(2).mkdir truetype   ---用来放置从虚拟机外复制过来的字体文件
+(3).mount -t vfat -o iocharset=cp950 /dev/sdb1 /mnt/Udisk    ---U盘挂载操作，不要照抄啊，挂载点和设备名可能不一样
+(4).cd /mnt/Udisk
+(5)cp ./msyh.ttf /usr/share/fonts/truetype    
+cd /usr/share/fonts/truetype
+umount /mnt/Udisk   ---取消挂载，拔掉U盘
+
+2.更改字体文件权限
+chmod 644 ./msyh.ttf 
+3.注册字体
+mkfontscale
+mkfontdir
+fc-cache -fv
+4.查看系统已有字体
+fc-list|less   ---能找到Microsoft YaHei哦，说明字体安装成功了
+说明：看到有的文章说要先创建字体的连接文件之后再注册字体，经博主亲测，连接文件完全没有必要，直接复制进去就可以注册字体使用了。
+●Ubuntu:
+下载命令：sudo apt-get install fbterm
+会自动下载完成，下载完成后运行
+sudo fbterm 即可
+更改字体和字体大小
+vi ~/.fbtermrc
+
+font-names=Ubuntu Mono
+font-size=14
+
+把./fbterm 复制一份到/home/username/目录下     #username为你的用户名
+更改权限chmod 755 ~/.fbtermrc
+使其不在ROOT模式下也可以显示
+Ctrl+Alt+E退出再重新登录输入命令fbterm，即可正常显示
+后续篇：
+新装的tty终端的中文是乱码的，这让人很郁闷，看着“菱形”的未知符号一脸懵，所以搜索了下解决方法，决定让tty界面能显示中文和输入中文。
+参考该处方法：http://fcitx-im.org/wiki/Fbterm,写下自己的操作经历.
+1.下载安装fbterm
+sudo apt-get install fcitx im-config fbterm fcitx-frontend-fbterm
+2.使fbterm可以使用输入法
+sudo setcap 'cap_sys_tty_config+ep' /usr/bin/fbterm
+3.将用户添加到video组
+sudo gpasswd -a <username> video
+4.以上完成后运行一遍fbterm,命令：fbterm
+5.修改~/.fbtermrc,命令：vi ~/.fbtermrc
+修改如下内容
+font_size=17                       #修改界面字体显示大小，可自己定字号
+text-incondings = utf-8         #修改字体编码为utf-8
+input-menthod=fcitx-fbterm  #修改输入法
+修改完后:wq保存退出
+退出tty重登陆，输入fbterm可看到界面内容显示已经变化，Ctrl+空格键切换输入法，若不能出来，可输入一遍fctix后再切换
+
+●Linux mint Cinnamon推荐装的任务栏插件：
+Network Data Usage Monitor
+Simple CPU Monitor
+
+●gnome桌面推荐插件：
+dash to panel
+network stats
+openweather
+removable drive menu
+simple system monitor
+topicons plus
+
+●安装gnome桌面管理插件：
+在终端中输入sudo apt install gnome-tweaks gnome-extensions-app
+
+●Linux安装v2ray：
+安装和更新 V2Ray
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+如果为Debian系的版本可以从仓库中安装
+sudo apt install v2ray
+安装最新发行的 geoip.dat 和 geosite.dat
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh
+移除 V2Ray
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+启动v2ray
+systemctl enable v2ray
+systemctl start v2ray
+systemctl status v2ray
+
+●Linux安装v2rayA：
+添加公钥
+wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
+添加 V2RayA 软件源
+echo "deb https://apt.v2raya.mzz.pub/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
+sudo apt update
+安装 V2RayA
+sudo apt install v2raya
+启动v2rayA
+sudo v2raya
+停止v2rayA
+systemctl stop v2raya
+
+●Linux mint主题路径：
+主题：/home/用户名/.themes/
+或/usr/share/themes/
+鼠标指针：/usr/share/icons/
+
+●Linux卡死后安全重启方法：
+左手一直长按ctrl+alt键，右手先按Print Screen SysRq这个键后松开后，右手依次r,e,i,s,u,b这几个键，每次间隔1秒，会发现桌面依次发生变化，最后重启关机；
+这几个键的含义如下：
+键就是PrintScreen(屏幕截图)按键重合，直接系统请求
+这个时候 reisub 中的每一个字母都是一个独立操作，分别表示：
+r : unRaw 将键盘控制从 X Server 那里抢回来
+e : tErminate 给所有进程发送 SIGTERM 信号，让它们自己解决善后
+i : kIll 给所有进程发送 SIGKILL 信号，强制他们马上关闭
+s : Sync 将所有数据同步至磁盘
+u : Unmount 将所有分区挂载为只读模式
+b : reBoot 重启
+
+●cinnamon切换虚拟桌面：
+切换桌面Ctrl+Alt+方向左右键
+虚拟桌面管理Ctrl+Alt+方向上键
+在当前桌面切换应用trl+Alt+方向下键
+快捷将当前选中窗口移动到其他虚拟桌面 鼠标左键按住窗口+Ctrl+Alt+方向左右键
 
 ●Linux设置文件默认打开程序：
 格式：gio mime 文件类型 处理程序
