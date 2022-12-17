@@ -1,6 +1,9 @@
 专业工具分享:
 https://mp.weixin.qq.com/mp/homepage?__biz=MzIyNjU2NzIxNQ==&hid=2&sn=0d0cb7f7ef080cb1fb6672e01ee632eb
 
+获取专业软件：
+微信公众号搜索“Vposy”，关注后回复“软件目录”
+
 爱纯净：
 http://www.aichunjing.com/
 
@@ -19,8 +22,9 @@ https://s.team/或https://store.steampowered.com/
 google镜像站：
 https://google.icloudnative.io/
 
-获取专业软件：
-微信公众号搜索“Vposy”，关注后回复“软件目录”
+windows镜像下载：
+https://msdn.itellyou.cn/
+https://next.itellyou.cn/
 
 -----------------------------
 
@@ -631,6 +635,8 @@ winetricks(wine配置工具)
 aptik(系统备份还原工具)
 timeshift(系统快照工具)
 v2ray(vpn内核)
+anbox(安卓容器)
+waydroid(安卓容器，性能比anbox强；需要在wayland下运行，在xorg下需通过weston运行)
 
 ●桌面环境：
 gnome
