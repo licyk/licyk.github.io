@@ -551,7 +551,7 @@ sudo dpkg -i *.deb(安装所在目录下全部安装包)
 sudo apt --fix-broken install（修复依赖）
 关闭某个窗口:
 sudo xkill(此时鼠标变为X，点击某个窗口即可关闭)
-Linux自动编译:(需安装debhelper build-dep cmake make)
+Linux自动编译:(需安装debhelper cmake make)
 dpkg-buildpackage -us -uc -nc
 列出硬盘与分区：
 lsblk
