@@ -960,23 +960,23 @@ ln -s 源文件 目标文件
 ln -s /home/用户名/下载/文件/test /home/用户名/下载/
 此时会在"/home/用户名/下载/"生成“test”快捷方式，并链接到真实路径“/home/用户名/下载/文件/test”
 
-●linux使用samba共享(基于samba,nemo,nemo-share)：
+●linux使用samba共享(基于samba,nemo,nemo-share,cinnamon-settings-users)：
 1、安装samba
 sudo apt install samba
 2、编辑samba配置文件，添加参数
 sudo vim /etc/samba/smb.conf
 添加以下参数
 usershare owner only =false
-此时可以将用户添加进配置中，参数配置格式如下
-[用户名]
-comment = 用户名 samba
-browseable =yes
-writeable =yes
 3、设置账户samba密码
 sudo smbpasswd -a 用户名
 重复输入两次密码，完成
 4、添加用户到sambashare组
-usermod -a -G sambashare 用户名
+启动cinnamon-settings-users
+
+sudo cinnamon-settings-users
+
+找到当前的用户，点击组，在弹出的选项中找到sambashare，勾选并确定
+
 5、打开nemo文件管理器，右键将要共享的文件夹，，选择"共享选项",启用"共享此文件夹"，此时文件共享成功
 在Windows文件管理器中输入\\ip 即可访问
 ●在原基础上添加新的用户进行访问：
