@@ -1,0 +1,67 @@
+﻿<!--之所以猫可以遁形于暗巷  是因为旁人选择去忽视猫的存在-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>暗巷QQ消息撤回名片生成</title>
+<meta charset="UTF-8">
+<meta name="Keywords" content="QQ消息,QQ撤回,撤回名片怎么做,之所以猫可以遁形于暗巷  是因为旁人选择去忽视猫的存在">
+<meta name="Description" content="无需任何软件，你只需要一个浏览器！就可以在线生成名片！">	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script async="" src="analytics.js"></script><script>
+        function reverse(s){
+            return s.split("").reverse().join("");
+        }
+        function gentext() {
+            var name = document.querySelector("input[name=name]").value;
+            var suffix = document.querySelector("input[name=suffix]").value;
+            suffix = reverse(suffix);
+
+            var output = document.querySelector("#output");
+            output.value = name+String.fromCharCode(8238)+suffix +String.fromCharCode(8237);
+            // document.write("<h1 style='padding: 100px 100px'>"+name+"&#8238;"+suffix +"&#8237;</h1>")
+            output.setSelectionRange(0, output.value.length);
+            // output.innerHTML = "+name+"&#8238;"+suffix +"&#8237;
+            // output.style.visibility = "visible";
+            // document.write("")
+        }
+    </script>
+</head>
+<!--之所以猫可以遁形于暗巷  是因为旁人选择去忽视猫的存在-->
+<body style="background-image: url(http://desk.fd.zol-img.com.cn/t_s1440x900c5/g5/M00/02/02/ChMkJ1bKxfeIM6dGAAMSAjuQFCAAALHeAKQGloAAxIa903.jpg);background-attachment: fixed;background-repeat: no-repeat;background-size: cover;-moz-background-size: cover;">
+		<div style="width: 400px;margin-left: auto;  margin-right: auto;">
+			<div class="panel panel-primary" style="margin:1% 1% 1% 1%;background: rgba(255, 251, 251, 0.7)">
+				<div class="panel-body" style="text-align: center;">
+					<!--logo-->
+                    <img src="http://7xtgoy.com2.z0.glb.clouddn.com/logo.png">
+				</div>
+			</div>
+			<div class="panel panel-primary" style="margin:1% 1% 1% 1%;background: rgba(255, 251, 251, 0.7)">
+                <div class="panel-heading bk-bg-primary">
+                    <h6><span class="panel-title">QQ消息撤回名片生成</h6>
+                </div>
+                <div class="panel-body" id="XIADAN">
+                    <div class="input-group">
+                    	<span class="input-group-addon">名字前缀：</span><input style="background: rgba(255, 251, 251, 0.7)" name="name" type="text" class="form-control"  placeholder="暗巷">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">名字后缀：</span><input style="background: rgba(255, 251, 251, 0.7)" name="suffix" type="text" class="form-control" placeholder="并上了你">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">生成结果：</span><input style="background: rgba(255, 251, 251, 0.7)" type="text" class="form-control" id="output" onclick="this.setSelectionRange(0, this.value.length);">
+                    </div>
+                    <br>
+                    <input class="btn btn-primary btn-block bk-margin-top-10" type="button" onclick="gentext();" value="生成">
+                </div>
+                <div style="width: 95%; margin-left: auto;  margin-right: auto; text-align: center;">
+					<p class="bg-primary" style="color: #fff;padding:8px;">操作简单快捷</p>
+					<p class="bg-success" style="padding:8px;">无需使用客户端</p>
+					<p class="bg-info" style="padding:8px;"><a href="http://ili.yes1.cn="_blank">极简导航</a></p>
+				</div>
+            </div>
+           
+				</div>
+			</div>
+        </div>
+</body>
+</html>
