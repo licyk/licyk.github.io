@@ -280,7 +280,7 @@ wmic process 进程pid call terminate
 
 ●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 
-●在基于Unity制作的游戏中可以按住Alt+Enter快速进入全屏模式
+●在基于Unity，虚幻等制作的游戏中可以按住Alt+Enter快速进入全屏模式
 
 ●在OBS Studio中可按住Alt键裁剪窗口
 
