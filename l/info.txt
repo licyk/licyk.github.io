@@ -649,6 +649,7 @@ v2ray(vpn内核)
 anbox(安卓容器)
 waydroid(安卓容器，性能比anbox强；需要在wayland下运行，在xorg下需通过weston运行)
 kvm/qemu虚拟机软件包：qemu  virt-viewer virt-manager bridge-utils libvirt-clients qemu qemu-kvm virt-manager bridge-utils libvirt-clients qemu qemu-kvm ovmf 
+plank(dock栏)
 
 ●桌面环境：
 gnome
