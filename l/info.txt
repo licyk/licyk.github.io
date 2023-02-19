@@ -31,6 +31,20 @@ https://msdn.sjjzm.com/
 https://www.microsoft.com/zh-cn/software-download/windows10
 https://www.microsoft.com/zh-cn/software-download/windows11
 
+Windows11绕限制直升教程：
+https://www.bilibili.com/video/BV1jG4y1x7z1/
+
+Windows11跳过登陆教程：
+https://www.bilibili.com/video/BV14v4y1y7jd/
+https://www.bilibili.com/video/BV1r24y1m7Jy/
+
+flatpak镜像站：
+https://mirror.sjtu.edu.cn/docs/flathub
+
+pip镜像站：
+https://mirror.sjtu.edu.cn/docs/pypi/web/simple
+https://mirror.sjtu.edu.cn/docs/pypi-packages
+
 -----------------------------
 
 win10企业版ltsc激活密钥：
