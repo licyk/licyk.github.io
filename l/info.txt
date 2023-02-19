@@ -46,6 +46,9 @@ pip镜像站：
 https://mirror.sjtu.edu.cn/docs/pypi/web/simple
 https://mirror.sjtu.edu.cn/docs/pypi-packages
 
+希沃白板激活方法：
+https://www.bilibili.com/video/BV1254y197da/
+
 -----------------------------
 
 win10企业版ltsc激活密钥：
