@@ -37,6 +37,7 @@ https://www.bilibili.com/video/BV1jG4y1x7z1/
 Windows11跳过登陆教程：
 https://www.bilibili.com/video/BV14v4y1y7jd/
 https://www.bilibili.com/video/BV1r24y1m7Jy/
+https://www.bilibili.com/video/BV14v4y1y7jd/
 
 flatpak镜像站：
 https://mirror.sjtu.edu.cn/docs/flathub
