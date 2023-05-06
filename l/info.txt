@@ -45,6 +45,7 @@ https://mirror.sjtu.edu.cn/docs/flathub
 pip镜像站：
 https://mirror.sjtu.edu.cn/docs/pypi/web/simple
 https://mirror.sjtu.edu.cn/docs/pypi-packages
+https://mirror.sjtu.edu.cn/pytorch-wheels
 
 希沃白板激活方法：
 https://www.bilibili.com/video/BV1254y197da/
@@ -676,6 +677,15 @@ kvm/qemu虚拟机软件包：qemu  virt-viewer virt-manager bridge-utils libvirt
 plank(dock栏)
 blender(3D建模)
 synaptic(图形化包管理器)
+vim(TUI文本编辑器)
+nemo(文件管理器)
+mc(TUI文件管理器)
+libreoffice(文档办公工具)
+onboard(屏幕键盘)
+qt5ct(QT5配置工具)
+transmission-gtk(BT下载器)
+gdebi(deb包安装器)
+aptitude(TUI软件包管理器)
 
 ●桌面环境：
 gnome
