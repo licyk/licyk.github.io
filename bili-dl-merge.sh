@@ -57,22 +57,11 @@ function filemanager()
 function process_methon()
 {
 	#生成一个随机文件名
-	random_str=''
-	for i in {1..16}; do
-	    num=$(($RANDOM % 62))
-	    if [[ $num -lt 10 ]]; then
-	        char=$num
-	    elif [[ $num -lt 36 ]]; then
-        	char=$(echo $(($num-10)) | awk '{print char($0+97)}');
-    	else
-        	char=$(echo $(($num-36)) | awk '{print char($0+97)}');
-   	 fi
-    	random_str+="${char}"
-	done
+output_name=$(echo "$RANDOM" |sha512sum |head -c 10)
 
 	#合并音频和视频
 	echo "处理中……"
-	ffmpeg -i video.m4s -i audio.m4s -c:v copy -strict experimental "$_output_path""$random_str".mp4
+	ffmpeg -i video.m4s -i audio.m4s -c:v copy -strict experimental "$_output_path""$output_name".mp4
 }
 
 #主界面
