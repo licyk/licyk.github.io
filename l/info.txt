@@ -653,7 +653,9 @@ font-names=Ubuntu Mono
 font-size=14
 
 把./fbterm 复制一份到/home/username/目录下     #username为你的用户名
-更改权限chmod 755 ~/.fbtermrc
+更改权限
+chmod 755 ~/.fbtermrc
+sudo setcap 'cap_sys_tty_config+ep' /usr/bin/fbterm
 使其不在ROOT模式下也可以显示
 Ctrl+Alt+E退出再重新登录输入命令fbterm，即可正常显示
 后续篇：
