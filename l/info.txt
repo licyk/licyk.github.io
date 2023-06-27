@@ -2489,3 +2489,13 @@ sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 设置官方镜像源：
 sudo flatpak remote-add --if-not-exists /flathub.flatpakrepo
 
+●Linux启用sysrq：
+编辑/etc/sysctl.conf
+
+sudo vim /etc/sysctl.conf
+
+将kernel.sysrq设置为1
+
+kernel.sysrq=1
+
+如果要禁用则设置为0
