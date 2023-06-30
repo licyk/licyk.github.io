@@ -96,6 +96,32 @@ User-Agent Switcher and Manager(浏览器UA修改)
 Video DownloadHelper(视频下载)
 bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
 Mate Translate(网页翻译)
+SteamDB
+Turbo Download Manager
+Tampermonkey
+OneTab
+New Tab Override
+Tree Style Tab
+iTab
+FoxyTab
+Firefox Multi-Account Containers
+Firefox Color
+Easy Youtube Video Downloader Express
+DuckDuckGo Privacy Essentials
+Download with JDownloader
+Download Manager (S3)
+无追搜索
+图片助手
+腾讯翻译
+浏览器盒子
+关灯看视频
+User-Agent Switcher and Manager
+SuperCopy
+SponsorBlock for YouTube
+I don't care about cookies
+find+
+Dark Reader
+多线程下载管理器
 
 ●edge浏览器进入高级设置：
 在地址栏输入edge://flags
@@ -279,6 +305,26 @@ BOOT文件夹中的文件
 5、在打开的窗口中，首先取消勾选“自动管理所有驱动器的分页文件大小”。
 6、接下来选择“自定义大小”，然后手动设置初始大小以及最大值，然后点击确定按钮。
 
+●Windows安装并配置msys2：
+1、在https://www.msys2.org/下载并安装msys2
+2、记下刚才安装的路径，比如C:\msys64
+3、在桌面此电脑图标上点击鼠标右键，然后选择“属性”选项
+4、打开系统窗口后，点击“高级系统设置”选项。
+5、在打开的窗口中，点击“高级”选项卡下“环境变量”
+6、在“系统变量”部分点双击“Path”，点击新建，输入以下路径
+
+C:\msys64\mingw64\bin
+C:\msys64\usr\bin
+
+(C:\msys64为msys2安装路径，所以msys2安装到哪个路径，上面要输入的值也要修改相应的部分)
+然后一直点确定直至完成
+7、进入msys2终端，输入
+
+sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
+pacman -Sy
+
+此时msys2配置完成
+
 -------------------------------------------------
 
 ●安卓：
@@ -460,6 +506,10 @@ qt5ct(QT5配置工具)
 transmission-gtk(BT下载器)
 gdebi(deb包安装器)
 aptitude(TUI软件包管理器)
+uget(图形化下载器)
+aria2(命令行下载工具)
+curl(命令行下载工具)
+wget(命令行下载工具)
 
 ●桌面环境：
 gnome
