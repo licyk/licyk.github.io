@@ -50,12 +50,8 @@ https://mirror.sjtu.edu.cn/pytorch-wheels
 希沃白板激活方法：
 https://www.bilibili.com/video/BV1254y197da/
 
------------------------------
-
-win10企业版ltsc激活密钥：
-M7XTQ-FN8P6-TTKYV-9D4CC-J462D
-MBQRK-FNDW8-B7GF4-V9PCW-6MV77
-G76DK-34N4B-RRFK3-HWP26-XQCRH
+--------------------------------------------------------------------
+●Windows(win10，win11)激活教程：
 
 首先 WIN+X 打开”PowerShell 管理员版本”
 逐条输入以下代码：
@@ -66,7 +62,16 @@ slmgr -ato
 slmgr -dlv
 
 之后就可以愉快地使用了。
+
 --------------------------------------------------------------------
+●Windows激活码：
+
+
+win10企业版ltsc激活密钥：
+M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+MBQRK-FNDW8-B7GF4-V9PCW-6MV77
+G76DK-34N4B-RRFK3-HWP26-XQCRH
+
 Win10神key：
 Win10神key：W269N-WFGWX-YVC9B-4J6C9-T83GX
 Win10神key：P7N43-7CKCH-8DJ7T-3Y6RV-G6PJR
@@ -121,34 +126,34 @@ slmgr /skms kms.03k.org
 slmgr /ato
 
 Win7旗舰、企业、专业版的激活密钥(32位、64位均可用)：
-　　FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
-　　VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
-　　2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
-　　342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
-　　9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
-　　MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
-　　6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
-　　49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
-　　YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
-　　76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
-　　4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
-　　2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
-　　.FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
-　　TG664-TJ7YK-2VY3K-4YFY6-BCXF4
-　　TDTY2-6HJ49-46PCK-6HY88-KQXXX
-　　FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
-　　H67R8-4HCH4-WGVKX-GV888-8D79B
-　　J4M92-42VH8-M9JWJ-BR7H6-KTFP6
-　　76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
-　　P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
-　　C2236-JBPWG-TGWVG-GC2WV-D6V6Q
-　　482XP-6J9WR-4JXT3-VBPP6-FQF4M
-　　KH2J9-PC326-T44D4-39H6V-TVPBY
-　　TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
-　　J783Y-JKQWR-677Q8-KCXTF-BHWGC
-　　C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
-　　2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
-　　FJHWT-KDGHY-K2384-93CT7-323RC
+FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
+VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
+2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
+342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
+9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
+MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
+6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
+49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
+YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
+76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
+4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
+2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
+FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
+TG664-TJ7YK-2VY3K-4YFY6-BCXF4
+TDTY2-6HJ49-46PCK-6HY88-KQXXX
+FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
+H67R8-4HCH4-WGVKX-GV888-8D79B
+J4M92-42VH8-M9JWJ-BR7H6-KTFP6
+76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
+P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
+C2236-JBPWG-TGWVG-GC2WV-D6V6Q
+482XP-6J9WR-4JXT3-VBPP6-FQF4M
+KH2J9-PC326-T44D4-39H6V-TVPBY
+TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
+J783Y-JKQWR-677Q8-KCXTF-BHWGC
+C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
+2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
+FJHWT-KDGHY-K2384-93CT7-323RC
 
 Windows 10 Pro(win10专业版激活密钥)
 TPYNC-4J6KF-4B4GP-2HD89-7XMP6
@@ -221,3 +226,132 @@ win10家庭版用户依次输入：
 slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
 slmgr /skms kms.03k.org
 slmgr /ato
+
+-------------------------------------------------------------
+●cinnamon(Linux mint)优化：
+
+●系统设置：
+●特效：全部打开，Windows animation speed（动画速度）调成减速
+●主题->设置：在菜单中显示图标：打开
+●窗口：
+行为：窗口移动和调整大小的特殊键：<super>
+Alt-Tab：Alt-Tab切换样式：封面流（3D）
+●窗口平铺：窗口拖到顶部时最大化而不是向上平铺：启用
+●屏幕保护程序：启动屏幕保护程序的延时：永不
+●通知：在底部显示通知：启用
+●小程序：
+
+●菜单：使用菜单动画：启用
+●corner bar：
+click action:显示桌面
+中键单击动作：show the windows selector(scale)
+●可移动磁盘：启用
+●窗口快速列表：启用
+●通知：显示空托盘：启用
+●日历：使用定制日期格式：启用
+日期格式：%H:%M%n%Y/%m/%e
+
+●隐私：记住最近访问的文件：关闭
+●桌面：
+计算机：启用
+主目录：启用
+回收站：启用
+已挂载的驱动器：关闭
+●电源管理：
+在此时间内无操作则关闭屏幕：永不
+按下电源按钮时：立刻关机
+●登陆窗口：
+外观：绘制用户背景：关闭
+设置：激活numlockx：启用
+●文件管理器（nemo）：编辑->首选项：
+视图：查看新文件夹使用：列表视图
+行为：
+清空回收站或删除文件前询问：启用；
+在文件移动到回收站之前询问：启用
+●文本编辑器：首选项：显示行号：启用
+
+
+-------------------------------------------------------------------------------
+●Windows11优化：
+
+●系统设置：
+●系统：
+屏幕--显示卡--更改默认图形设置：
+硬件加速GPU计划：启用
+
+屏幕--多显示器：在显示器断开连接时最小化窗口：关闭
+
+声音：输入：麦克风（droidcam virtual audio）
+
+电源：屏幕和睡眠--电源模式：最佳性能
+
+电源--屏幕和睡眠：
+插入电源时，闲置以下时间后关闭屏幕：从不
+插入电源时，闲置以下时间后将设备置于睡眠状态：从不
+
+存储--储存感知：
+清理临时文件：启用
+自动用户内容清除：启用
+如果回收站中的文件存在超过以下时长：请将其删除：从不
+
+存储--高级存储设置--驱动器优化：优化所有驱动器
+
+系统信息--设备规格--高级系统设置--系统保护：关闭所有
+
+系统信息--设备规格--高级系统设置--性能--高级--虚拟内存--自动管理所有驱动器的分页文件大小：关闭，并手动管理
+
+远程桌面：启用
+
+
+●个性化：
+背景：浏览照片 设置壁纸
+
+锁屏界面-个性化锁屏界面：图片
+浏览照片 设置壁纸
+
+在锁屏界面上获取花絮、提示、技巧等：关闭
+
+开始：
+布局：更多固定项
+显示最近添加的应用：关闭
+显示最常用的应用：关闭
+在“开始”、“跳转列表”和“文件资源管理器”中显示最近打开的项目：关闭
+
+开始--文件夹：启用”设置“、“文件资源管理器”
+
+任务栏--任务栏项：启用“搜索”“任务视图”
+
+任务栏--任务栏行为--任务栏对齐方式：靠左
+
+●应用--启动：管理部分启动项
+
+●账户：
+账户信息：改用microsoft账户登录，登陆微软账号
+
+登陆选项--你希望Windows在你离开多久后要求你重新登陆：从不
+
+●时间和语言--输入--高级键盘设置：替换默认输入法
+
+●游戏：
+摄像--最大录制长度:4小时
+摄像--视频帧速率:60fps
+
+●辅助功能--键盘--粘滞键--粘滞键的键盘快捷方式：关闭
+
+●隐私和安全性：
+活动历史记录--在此设备上储存我的活动历史记录：关闭
+
+搜索权限--历史记录：关闭
+
+搜索权限--更多设置--显示搜索要点：关闭
+
+●禁用Windows更新：
+win+r运行gpedit.msc
+计算机配置--管理模板--Windows组件--Windows更新--管理最终用户体验：
+配置自动更新：禁用
+删除使用所有Windows更新功能的访问权限：启用
+
+
+●在用户账户（netplwiz）启用自动登陆复选框：
+注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
+PasswordLessBuildVersion把3改为0
