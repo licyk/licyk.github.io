@@ -96,32 +96,32 @@ User-Agent Switcher and Manager(浏览器UA修改)
 Video DownloadHelper(视频下载)
 bilibili哔哩哔哩下载助手(可下载哔哩哔哩视频)
 Mate Translate(网页翻译)
-SteamDB
-Turbo Download Manager
-Tampermonkey
-OneTab
-New Tab Override
-Tree Style Tab
-iTab
-FoxyTab
-Firefox Multi-Account Containers
-Firefox Color
-Easy Youtube Video Downloader Express
-DuckDuckGo Privacy Essentials
-Download with JDownloader
-Download Manager (S3)
-无追搜索
-图片助手
-腾讯翻译
-浏览器盒子
-关灯看视频
-User-Agent Switcher and Manager
-SuperCopy
-SponsorBlock for YouTube
-I don't care about cookies
-find+
-Dark Reader
-多线程下载管理器
+SteamDB(第三方steam数据库网站)
+Turbo Download Manager(下载器)
+Tampermonkey(油猴脚本)
+OneTab(标签页整理，省内存)
+New Tab Override(自定义新标签页)
+Tree Style Tab(树形标签页)
+iTab(浏览器标签页)
+FoxyTab(扩展右键菜单)
+Firefox Multi-Account Containers(firefox多用户容器)
+Firefox Color(firefox主题编辑器)
+Easy Youtube Video Downloader Express(YouTube视频下载)
+DuckDuckGo Privacy Essentials(隐私搜索)
+Download with JDownloader(下载器)
+Download Manager (S3)(下载器)
+无追搜索(隐私搜索)
+图片助手(批量图片下载器)
+腾讯翻译(翻译工具)
+浏览器盒子(网页工具)
+关灯看视频(网页黑暗模式)
+User-Agent Switcher and Manager(切换用户UA)
+SuperCopy(解除复制限制)
+SponsorBlock for YouTube(跳过YouTube赞助商广告)
+I don't care about cookies(去除网页cookies提示)
+find+(高级搜索)
+Dark Reader(网页黑暗模式)
+多线程下载管理器(下载器)
 
 ●edge浏览器进入高级设置：
 在地址栏输入edge://flags
@@ -325,6 +325,18 @@ pacman -Sy
 
 此时msys2配置完成
 
+●在Windows终端(win11默认安装)配置msys2：
+1、在安装msys2后会自动添加到Windows终端中
+2、如果没有自动添加，则打开Windows终端设置
+3、点击“添加新配置文件”
+4、在“名称”中填入“MinGW64”
+5、在“命令行”填入“C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64”
+（“C:\msys64”为安装目录，根据具体安装的目录修改）
+6、在“启动目录”勾选“使用父进程目录”
+7、在“图标”填入“C:\msys64\mingw64.ico”
+（“C:\msys64”为安装目录，根据具体安装的目录修改）
+8、保存后生效
+
 -------------------------------------------------
 
 ●安卓：
@@ -462,6 +474,9 @@ https://www.cnblogs.com/nosadness/p/5136652.html
 ●v2rayA项目：
 https://github.com/v2rayA/v2rayA
 
+●Debian系安装fcitx5输入法：
+https://wiki.debian.org/zh_CN/I18n/Fcitx5
+
 ●linux推荐使用软件：
 gimp（图片编辑）
 kdenlive（视频编辑）
@@ -549,6 +564,28 @@ sudo gedit ~/.wine/system.reg
 winecfg
 选中默认设置，再把系统改成Windows 10或者Win 7，这个随意，只要不是XP什么的就行，因为老系统上没有雅黑这个字体，所以会看不到效果。
 最好是重启下系统或者注销一下，搞定！既能解决乱码问题，又美观。
+
+
+●wine手动安装wine-gecko，wine-momo：
+wine在初次安装并在终端输入winecfg后，会自动下载安装wine-mono和wine-gecko两个插件
+但是自动下载会很慢，而且还不一定能下载成功，因此最好选择手动下载
+
+1、在下面找到并下载最新版的wine-gecko和wine-momo安装包(32位和64位都要下载)，格式为msi
+https://mirrors.tuna.tsinghua.edu.cn/winehq/wine/wine-gecko/
+https://mirrors.tuna.tsinghua.edu.cn/winehq/wine/wine-mono/
+
+2、在当前目录打开终端,输入以下指令安装
+wine start /i xxxx.msi
+（xxxx.msi指刚刚下载好的安装包）
+
+3、验证是否安装成功
+运行winetricks（需要手动安装，一般在主流的Linux发行版的仓库中有安装包）
+进入winetricks后，依次选择：【选择默认的wine容器】→【运行卸载程序】，
+在弹出的界面中，如果发现了wine-mono的相关软件，则说明wine-mono安装成功了
+
+●在Debian/ubuntu系的Linux发行版可以参考以下连接安装winehq
+https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
+
 
 ●linux更改grub主题:
 2.1 创建主题文件夹
@@ -1123,6 +1160,7 @@ root@debian:~# vim .bashrc
 
 export PATH=$PATH:/usr/sbin
 
+
 # ~/.bashrc: executed by bash(1) for non-login shells. 
  
 # Note: PS1 and umask are already set in /etc/profile. You should not 
@@ -1356,7 +1394,7 @@ export LC_ALL=zh_CN.UTF-8
 
 apt-get update 查看终于能够正常显示中文
 
-●Debian快捷安装桌面：
+快捷安装桌面：
 sudo tasksel
 tab键，方向键进行选择，空格键勾选
 
@@ -2549,3 +2587,74 @@ sudo vim /etc/sysctl.conf
 kernel.sysrq=1
 
 如果要禁用则设置为0
+
+
+●在Debian启用ssh：
+1、安装ssh
+
+sudo apt install ssh
+
+2、启用ssh服务
+
+sudo /etc/init.d/ssh start
+
+可以输入下面的指令查看ssh运行的状态
+
+sudo /etc/init.d/ssh status
+
+3、备份ssh配置文件
+
+sudo cp /etc/ssh/sshd_config{,.bak}
+
+4、编辑ssh配置文件
+
+vim /etc/ssh/sshd_config
+
+利用命令 more /etc/ssh/sshd_config |grep -v "^#" |grep -v "^$"  查看文件内容是否与下面一致，不一致则改成一致。
+
+Include /etc/ssh/sshd_config.d/*.conf
+Port 22
+PermitRootLogin yes
+PasswordAuthentication yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+
+5、重启ssh服务
+
+/etc/init.d/ssh restart
+
+然后可以利用远程登录软件(SecureCRT SSH)进行相关登录。
+
+
+●Debian系切换桌面管理器：
+当系统安装了gdm，sddm等桌面管理器时，可以输入
+
+sudo dpkg-reconfigure 桌面管理器名
+
+此时会跳出选择界面，选择需要切换成的桌面管理器
+
+
+●Linux清理cache缓存：
+查看缓存：
+free -m
+
+释放缓存区内存的方法：
+1、清理pagecache（页面缓存）
+
+echo 1 > /proc/sys/vm/drop_caches     或者 # sysctl -w vm.drop_caches=1
+
+2、清理dentries（目录缓存）和inodes
+
+echo 2 > /proc/sys/vm/drop_caches     或者 # sysctl -w vm.drop_caches=2
+
+3、清理pagecache、dentries和inodes
+
+echo 3 > /proc/sys/vm/drop_caches     或者 # sysctl -w vm.drop_caches=3
+
+注：上面三种方式都是临时释放缓存的方法，要想永久释放缓存，需要在/etc/sysctl.conf文件中配置：vm.drop_caches=1/2/3，然后sysctl -p生效即可
+
