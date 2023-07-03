@@ -337,6 +337,35 @@ pacman -Sy
 （“C:\msys64”为安装目录，根据具体安装的目录修改）
 8、保存后生效
 
+●Windows删除卸载残留的右键菜单打开方式：
+win+r ，输入regedit打开注册表
+打开"计算机\HKEY_CLASSES_ROOT\Applications"
+找到对应的残留软件并删除
+
+
+●Windows编辑右键菜单工具：
+https://github.com/BluePointLilac/ContextMenuManager
+
+
+●Windows11设置窗口边框毛玻璃效果工具：
+https://github.com/MicaForEveryone/MicaForEveryone
+
+
+●Windows设置任务栏透明效果工具：
+https://github.com/TranslucentTB/TranslucentTB
+
+
+●Windows设置任务栏分段工具：
+https://github.com/Erisa/RoundedTB
+
+
+●Windows设置文件管理器透明工具：
+https://github.com/Maplespe/ExplorerBlurMica
+
+
+●Windows设置右键菜单保护工具：
+https://github.com/HaujetZhao/Protect-Windows-Context-Menu
+
 -------------------------------------------------
 
 ●安卓：
