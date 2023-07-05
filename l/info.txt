@@ -34,12 +34,14 @@
 刷新 F5
 全屏/取消全屏 F11
 
-●Windows程序：
-策略管理services.msc
-系统配置msconfig
-注册表regedit
-用户账户Netplwiz
+●Windows程序(使用win+r运行)：
+策略管理 services.msc
+系统配置 msconfig
+注册表 regedit
+用户账户 Netplwiz
 "关于Windows" winver
+计算机管理 compmgmt.msc
+控制面板 control
 
 ●v2rayN项目：
 https://github.com/2dust/v2rayN
