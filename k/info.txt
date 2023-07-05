@@ -53,6 +53,9 @@ https://mirror.sjtu.edu.cn/pytorch-wheels
 希沃白板激活方法：
 https://www.bilibili.com/video/BV1254y197da/
 
+电脑控制手机工具：
+https://github.com/Genymobile/scrcpy
+
 --------------------------------------------------------------------
 ●Windows(win10，win11)激活教程：
 
