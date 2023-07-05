@@ -46,6 +46,24 @@
 ●v2rayN项目：
 https://github.com/2dust/v2rayN
 
+●Windows编辑右键菜单工具：
+https://github.com/BluePointLilac/ContextMenuManager
+
+●Windows11设置窗口边框毛玻璃效果工具：
+https://github.com/MicaForEveryone/MicaForEveryone
+
+●Windows设置任务栏透明效果工具：
+https://github.com/TranslucentTB/TranslucentTB
+
+●Windows设置任务栏分段工具：
+https://github.com/Erisa/RoundedTB
+
+●Windows设置文件管理器透明工具：
+https://github.com/Maplespe/ExplorerBlurMica
+
+●Windows设置右键菜单保护工具：
+https://github.com/HaujetZhao/Protect-Windows-Context-Menu
+
 ●Windows开始菜单图标路径：
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
@@ -170,27 +188,15 @@ office可以通过修改注册表安装到你想要的盘
 dism++删除预装应用的安装包后，可以对win10全家桶进行转移到别的盘
 最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
 
-●win10彻底关闭自动更新方法步骤：
-由于win10自动更新非常顽固，所以我们要从多个地方下手才能永久关闭其自动更新，别怕麻烦，跟着下面的步骤一步步操作。
-一、禁用Windows Update服务
-1、同时按下键盘 Win + R，打开运行对话框，然后输入命令 services.msc ，点击下方的“确定”打开服务，如下图所示。
-2、找到 Windows Update 这一项，并双击打开，如图所示。
-3、双击打开它，点击“停止”，把启动类型选为“禁用”，最后点击应用，如下图。
-4、接下再切换到“恢复”选项，将默认的“重新启动服务”改为“无操作”，然后点击“应用”“确定”。
-二、在组策略里关闭Win10自动更新相关服务
-1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定，如下图。
-2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新
+●win10关闭自动更新：
+1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定
+2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新 ->管理最终用户体验
+(在Windows11中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新)
 3、然后在右侧“配置自动更新”设置中，将其设置为“已禁用”并点击下方的“应用”然后“确定”，如图所示。
 4、之后还需要再找到“删除使用所有Windows更新功能的访问权限”，选择已启用，完成设置后，点击“应用”“确定”，如图所示。
-三、禁用任务计划里边的Win10自动更新
-1、同时按下 Win + R 组合快捷键打开““运行”窗口，然后输入“taskschd.msc”，并点击下方的“确定”打开任务计划程序，如图所示。
-2、在任务计划程序的设置界面，依次展开 任务计划程序库 -> Microsoft -> Windows -> WindowsUpdate，把里面的项目都设置为 [ 禁用 ] 就可以了。（我这里边只有一个任务，你的电脑里可能会有2个或者更多，全部禁用就行了）
-四、在注册表中关闭Win10自动更新
-1、同时按下 Win + R 组合快捷键，打开运行对话框，然后输入命名 regedit，然后点击下方的「 确定 」打开注册表，如下图所示。
-2、在注册表设置中，找到并定位到 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]。然后在右侧找到“Start”键。
-3、点击修改，把start值改成16进制，值改为“4”，然后点击「 确定 」保存数据，如图所示。
-4、继续在右侧找到“FailureActions”键，右键点击修改该键的二进制数据，将“0010”、“0018”行的左起第5个数值由原来的“01”改为“00”，完成后，点击下方的“确定”即可，如下图所示。
-至此彻底关闭win10自动更新的操作步骤就全部完成了
+(在Windows11中，
+
+
 
 ●利用Firefox开发者网站，转换Chrome插件为Firefox插件：
 1、提前准备好Chrome插件。
@@ -344,29 +350,33 @@ win+r ，输入regedit打开注册表
 打开"计算机\HKEY_CLASSES_ROOT\Applications"
 找到对应的残留软件并删除
 
+●Windows使用手机的代理(windows10同理)：
+1、确保手机和电脑处在同一个局域网中
+2、在手机上下载every proxy
+https://play.google.com/store/apps/details?id=com.gorillasoftware.everyproxy
+或者在百度上搜索every proxy并安装
+4、打开every proxy，启用“HTTP  HTTPS”选项
+5、此时会看到Hosts项和Port项，比如
 
-●Windows编辑右键菜单工具：
-https://github.com/BluePointLilac/ContextMenuManager
+Hosts  0.0.0.0 exposed via 192.168.1.123, 10.10.10.10
+Port   8080
 
+记下ip地址“192.168.1.123”和端口“8080”
+3、打开Windows设置依次打开
+网络和Internet -> 代理 ,编辑“使用代理服务器”，
+启用“使用代理服务器”，在“代理ip地址”和“端口”填写刚刚记下的东西
+保存后生效，此时电脑就可以使用手机的代理了，如果手机使用了科学上网，在电脑上也可以使用
 
-●Windows11设置窗口边框毛玻璃效果工具：
-https://github.com/MicaForEveryone/MicaForEveryone
+注：在使用完后记得禁用“使用代理服务器”
 
-
-●Windows设置任务栏透明效果工具：
-https://github.com/TranslucentTB/TranslucentTB
-
-
-●Windows设置任务栏分段工具：
-https://github.com/Erisa/RoundedTB
-
-
-●Windows设置文件管理器透明工具：
-https://github.com/Maplespe/ExplorerBlurMica
-
-
-●Windows设置右键菜单保护工具：
-https://github.com/HaujetZhao/Protect-Windows-Context-Menu
+●windows安装office(演示安装Microsoft 365方法，其他版本office版本的安装大同小异)：
+1、前往office tool plus官网下载工具
+https://otp.landian.vip/
+2、解压，双击打开“Office Tool Plus.exe”，接受许可条款,然后点击左侧三条横线的图标，展开选项
+3、如果之前有安装过office，则在左侧栏选择“工具箱”，在“office工具”处选择“移除office”
+4、在左侧栏选择“部署”，在“体系结构”选择“64位”，在“更新频道”选择“半年度企业通道”，启用“下载后再部署”，然后选择“添加产品”，在“产品列表”选择“Microsoft 365 企业应用版”，点击确定，在“应用程序”处将不需要的应用取消勾选，然后点击“添加语言”，在“语言列表”选择“简体中文（中国）”，点击确定，选择完后，点击最上方的“开始部署”，在出现的弹窗中选择“是”，等待部署完成,当部署结束后先不要打开office
+4、在左侧栏点击“激活”，在“许可证管理”点击右侧的箭头，在“安装许可证”选择安装，在“许可证列表”选择“office mondo 2016 批量许可证”，点击确定，然后在“kms管理”点击右侧箭头，在“kms主机”选项输入“kms.loli.beer”(这里可以替换成其他kms服务器地址)，再点击“设置主机”，最后点击上方的“激活”，等待激活完成
+5、完成后即可使用office
 
 -------------------------------------------------
 
