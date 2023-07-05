@@ -10,6 +10,9 @@ http://www.aichunjing.com/
 异星软件空间：
 https://www.yxssp.com/
 
+果核剥壳:
+https://www.ghxi.com/
+
 机场推荐：
 https://9.234456.xyz/abc.html
 
@@ -53,19 +56,35 @@ https://www.bilibili.com/video/BV1254y197da/
 --------------------------------------------------------------------
 ●Windows(win10，win11)激活教程：
 
-首先 WIN+X 打开”PowerShell 管理员版本”
-逐条输入以下代码：
+首先 WIN+X 打开”PowerShell(管理员)”在win11中是"终端(管理员)")
+逐条输入以下指令：
 
 slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-slmgr -skms kms.03k.org
+slmgr -skms zh.us.to
 slmgr -ato
 slmgr -dlv
 
 之后就可以愉快地使用了。
 
---------------------------------------------------------------------
-●Windows激活码：
+如果激活失败，更换指令中的kms服务器地址，重新输入上述指令即可
 
+-----------------------------------------------------------------------------
+
+●可用的kms服务器地址：
+zh.us.to
+kms.dwhd.org
+asura.myds.me
+kms.digiboy.ir
+www.zgbs.cc
+cy2617.jios.org
+
+kms服务器地址收录：
+https://www.kms.pub/rank.html
+
+------------------------------------------------------------------------------
+
+●Windows激活码：
+(windows10激活码也适用于Windows11)
 
 win10企业版ltsc激活密钥：
 M7XTQ-FN8P6-TTKYV-9D4CC-J462D
@@ -105,55 +124,6 @@ win10激活码神Key:
 神Key之六：C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
 神Key之七：2VCGQ-pVJ4-2HGJ2-K36X9-J66JG
 神Key之八：MGX79-TPQB9DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
-
-win10激活方法：
-系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
-说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org。
-
-win10专业版用户请依次输入：
-slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-slmgr /skms kms.03k.org
-slmgr /ato
-
-win10企业版用户请依次输入：
-slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
-slmgr /skms kms.03k.org
-slmgr /ato
-
-win10家庭版用户依次输入：
-slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
-slmgr /skms kms.03k.org
-slmgr /ato
-
-Win7旗舰、企业、专业版的激活密钥(32位、64位均可用)：
-FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
-VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
-2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
-342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
-9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
-MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
-6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
-49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
-YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
-76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
-4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
-2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
-FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
-TG664-TJ7YK-2VY3K-4YFY6-BCXF4
-TDTY2-6HJ49-46PCK-6HY88-KQXXX
-FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
-H67R8-4HCH4-WGVKX-GV888-8D79B
-J4M92-42VH8-M9JWJ-BR7H6-KTFP6
-76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
-P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
-C2236-JBPWG-TGWVG-GC2WV-D6V6Q
-482XP-6J9WR-4JXT3-VBPP6-FQF4M
-KH2J9-PC326-T44D4-39H6V-TVPBY
-TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
-J783Y-JKQWR-677Q8-KCXTF-BHWGC
-C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
-2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
-FJHWT-KDGHY-K2384-93CT7-323RC
 
 Windows 10 Pro(win10专业版激活密钥)
 TPYNC-4J6KF-4B4GP-2HD89-7XMP6
@@ -208,26 +178,40 @@ Windows 10 Enterprise 2015 LTSB N : 2F77B-TNFGY-69QQF-B8YKP-D69TJ
 win10预览版密钥：
 Win10企业版密钥：PBHCJ-Q2NYD-2PX34-T2TD6-233PK
 Win10专业版密钥：NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
- 
-激活方法：
-系统安装完毕后，首先以管理员身份打开CMD命令行窗口，按下Win+X，选择命令提示符(管理员)。
-说明：kms.xspace.in是kms服务器地址，可能会失效，如果激活失败，可以自行搜索kms服务器地址，将kms.xspace.in替换成新的地址即可，比如换成kms.03k.org，参考可用的kms激活服务器有哪些
-win10专业版用户请依次输入：
-slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-slmgr /skms kms.03k.org
-slmgr /ato
 
-win10企业版用户请依次输入：
-slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
-slmgr /skms kms.03k.org
-slmgr /ato
+Win7旗舰、企业、专业版的激活密钥(32位、64位均可用)：
+FJGCP-4DFJD-GJY49-VJBQ7-HYRR2 Acer
+VQ3PY-VRX6D-CBG4J-8C6R2-TCVBD Alienware
+2Y4WT-DHTBF-Q6MMK-KYK6X-VKM6G Asus
+342DG-6YJR8-X92GV-V7DCV-P4K27 Dell
+9CW99-79BBF-D4M3X-9BK9M-4RPH9 Fujitsu
+MHFPT-8C8M2-V9488-FGM44-2C9T3 HP
+6K2KY-BFH24-PJW6W-9GK29-TMPWP Lenovo
+49PB6-6BJ6Y-KHGCQ-7DDY6-TF7CD Samsung
+YJJYR-666KV-8T4YH-KM9TB-4PY2W Sony
+76MTG-QMQJQ-46DQR-CHRBB-7K3HD Stone
+4BRY2-6W9VH-9CM6R-GPKRY-HHVCY Tarox
+2XQ63-J3P67-9G3JC-FHQ68-8Q2F3 Toshiba
+FJGCP-4DFJD-GJY49-VJBQ7-HYRR2
+TG664-TJ7YK-2VY3K-4YFY6-BCXF4
+TDTY2-6HJ49-46PCK-6HY88-KQXXX
+FKDJ2-RCXKD-TFW4H-2PTGK-MMMH8
+H67R8-4HCH4-WGVKX-GV888-8D79B
+J4M92-42VH8-M9JWJ-BR7H6-KTFP6
+76RJX-HDXWD-8BYQJ-GRPPQ-8PP92
+P3P9R-3DH3Q-KGD38-DWRR4-RF7BC
+C2236-JBPWG-TGWVG-GC2WV-D6V6Q
+482XP-6J9WR-4JXT3-VBPP6-FQF4M
+KH2J9-PC326-T44D4-39H6V-TVPBY
+TFP9Y-VCY3P-VVH3T-8XXCC-MF4YK
+J783Y-JKQWR-677Q8-KCXTF-BHWGC
+C4M9W-WPRDG-QBB3F-VM9K8-KDQ9Y
+2VCGQ-BRVJ4-2HGJ2-K36X9-J66JG
+FJHWT-KDGHY-K2384-93CT7-323RC
 
-win10家庭版用户依次输入：
-slmgr /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
-slmgr /skms kms.03k.org
-slmgr /ato
 
 -------------------------------------------------------------
+
 ●cinnamon(Linux mint)优化：
 
 ●系统设置：
@@ -272,7 +256,6 @@ click action:显示桌面
 
 
 -------------------------------------------------------------------------------
-●Windows11优化：
 
 ●系统设置：
 ●系统：
@@ -345,6 +328,10 @@ click action:显示桌面
 
 搜索权限--更多设置--显示搜索要点：关闭
 
+●win+R，输入control，运行控制面板
+程序-->启用和关闭Windows功能，勾选".NET Framework 3.5 (包括 .NET 2.0 .)"，确定
+等待加载，然后选择“让Windows更新为你下载文件”，等待安装完成
+
 ●禁用Windows更新：
 win+r运行gpedit.msc
 计算机配置--管理模板--Windows组件--Windows更新--管理最终用户体验：
@@ -353,5 +340,11 @@ win+r运行gpedit.msc
 
 
 ●在用户账户（netplwiz）启用自动登陆复选框：
-注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
-PasswordLessBuildVersion把3改为0
+win+r，输入regedit，运行注册表
+然后在注册表地址栏输入
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
+PasswordLessBuildVersion
+找到PasswordLessBuildVersion，双击，把“数值数据”的内容改为0，确定
+win+r，输入netplwiz，运行用户账户，就可以看到“要使用本计算机，用户必须输入用户名和密码”这个选项了
+可以用来设置Windows自动登陆
+
