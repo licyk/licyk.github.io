@@ -64,6 +64,21 @@ https://github.com/Maplespe/ExplorerBlurMica
 ●Windows设置右键菜单保护工具：
 https://github.com/HaujetZhao/Protect-Windows-Context-Menu
 
+●Windows11 docker栏工具：
+https://chrisandriessen.nl/
+https://github.com/ChrisAnd1998/TaskbarXI
+
+●Windows MacOS风格任务栏工具：
+https://www.droptopfour.com/
+
+●Windows自定义桌面工具：
+https://www.rainmeter.net/
+https://github.com/rainmeter/rainmeter
+
+●Windows自定义桌面组件工具：
+https://jaxcore.app/
+https://github.com/Jax-Core/JaxCore
+
 ●Windows开始菜单图标路径：
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
