@@ -621,6 +621,10 @@ https://github.com/nvm-sh/nvm
 https://github.com/Genymobile/scrcpy
 
 
+●终端浏览器：
+https://github.com/fathyb/carbonyl
+
+
 ●Debian系安装fcitx5输入法：
 https://wiki.debian.org/zh_CN/I18n/Fcitx5
 
