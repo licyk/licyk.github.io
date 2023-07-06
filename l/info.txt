@@ -34,6 +34,7 @@
 刷新 F5
 全屏/取消全屏 F11
 
+
 ●Windows程序(使用win+r运行)：
 策略管理 services.msc
 系统配置 msconfig
@@ -43,49 +44,71 @@
 计算机管理 compmgmt.msc
 控制面板 control
 
+
 ●v2rayN项目：
 https://github.com/2dust/v2rayN
+
 
 ●Windows编辑右键菜单工具：
 https://github.com/BluePointLilac/ContextMenuManager
 
+
+●Windows文件管理器快捷图标管理工具：
+https://github.com/1357310795/MyComputerManager
+
+
 ●Windows11设置窗口边框毛玻璃效果工具：
 https://github.com/MicaForEveryone/MicaForEveryone
+
 
 ●Windows设置任务栏透明效果工具：
 https://github.com/TranslucentTB/TranslucentTB
 
+
 ●Windows设置任务栏分段工具：
 https://github.com/Erisa/RoundedTB
+
 
 ●Windows设置文件管理器透明工具：
 https://github.com/Maplespe/ExplorerBlurMica
 
+
 ●Windows设置右键菜单保护工具：
 https://github.com/HaujetZhao/Protect-Windows-Context-Menu
+
 
 ●Windows11 docker栏工具：
 https://chrisandriessen.nl/
 https://github.com/ChrisAnd1998/TaskbarXI
 
+
 ●Windows MacOS风格任务栏工具：
 https://www.droptopfour.com/
+
 
 ●Windows自定义桌面工具：
 https://www.rainmeter.net/
 https://github.com/rainmeter/rainmeter
 
+
 ●Windows自定义桌面组件工具：
 https://jaxcore.app/
 https://github.com/Jax-Core/JaxCore
+
 
 ●Windows开始菜单图标路径：
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 
+
+●Windows文件管理器界面快捷方式的注册表路径：
+计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace
+
+
 ●在用户账户（netplwiz）启用自动登陆复选框：
 注册表中   计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
 PasswordLessBuildVersion把3改为0
+
 
 ●隐藏Windows10设置中的部分设置：
 运行gpedit.msc（本地组策略编辑器），依次点开计算机配置>管理模板>控制面板，找到设置页面可见性
@@ -95,6 +118,7 @@ PasswordLessBuildVersion把3改为0
 再点击应用即可
 更多参数信息在https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app#accounts
 
+
 ●隐藏Windows中控制面板的部分设置：
 运行gpedit.msc（本地组策略编辑器），依次点开用户配置→管理模版→控制面板，找到隐藏指定的“控制面板”项
 编辑，点击已启用，在选项中点击显示，在”值“的输入框中输入参数
@@ -102,21 +126,27 @@ PasswordLessBuildVersion把3改为0
 输入完成后点确定，再点击应用即可
 更多参数信息在https://docs.microsoft.com/zh-cn/windows/win32/shell/controlpanel-canonical-names?redirectedfrom=MSDN#credential-manager
 
+
 ●cmd指令：
 强制关闭进程
 wmic process where name='进程名.exe' call terminate
 wmic process where processid="进程pid" delete
 wmic process 进程pid call terminate
 
+
 ●bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
+
 
 ●在基于Unity，虚幻等制作的游戏中可以按住Alt+Enter快速进入全屏模式
 
+
 ●在OBS Studio中可按住Alt键裁剪窗口
+
 
 ●firefox/chrome/其他浏览器快捷键：
 关闭当前标签页 Ctrl+F4
 将鼠标点击的链接在后台打开 Ctrl+鼠标左键
+
 
 ●firefox推荐插件：
 Translate Web Pages(网页实时翻译)
@@ -158,17 +188,21 @@ find+(高级搜索)
 Dark Reader(网页黑暗模式)
 多线程下载管理器(下载器)
 
+
 ●edge浏览器进入高级设置：
 在地址栏输入edge://flags
 回车后进入
+
 
 ●firefox浏览器进入高级设置：
 在地址栏输入about:config
 回车后进入
 
+
 ●edge浏览器关闭“使用推荐的浏览器设置”弹窗：
 在地址栏输入edge://flags/#edge-show-feature-recommendations
 将下面第一个选项的“Default”改成“Disable”，并重启浏览器
+
 
 ●电脑优化方法（低配机可尝试）：
 固态硬盘禁用休眠文件
@@ -203,6 +237,7 @@ office可以通过修改注册表安装到你想要的盘
 dism++删除预装应用的安装包后，可以对win10全家桶进行转移到别的盘
 最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
 
+
 ●win10关闭自动更新：
 1、同时按下Win + R 组合快捷键打开运行命令操作框，然后输入“gpedit.msc”，点击确定
 2、在组策略编辑器中，依次展开 计算机配置 -> 管理模板 -> Windows组件 -> Windows更新 ->管理最终用户体验
@@ -210,7 +245,6 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 3、然后在右侧“配置自动更新”设置中，将其设置为“已禁用”并点击下方的“应用”然后“确定”，如图所示。
 4、之后还需要再找到“删除使用所有Windows更新功能的访问权限”，选择已启用，完成设置后，点击“应用”“确定”，如图所示。
 (在Windows11中，
-
 
 
 ●利用Firefox开发者网站，转换Chrome插件为Firefox插件：
@@ -244,6 +278,7 @@ https://addons.mozilla.org/zh-CN/firefox/
 16、点击版本后，在出现的页面里点击插件的文件名，这时浏览器会自动下载你刚才上传并签名的插件，下载完后，你点击添加。
 这下，真正大功告成！
 
+
 ●Windows下隐藏文件：
 打开cmd窗口，在弹出的窗口输入  attrib +s +h +r 文件的绝对地址
 例如  attrib +s +h +r D:\test\1.jpg
@@ -251,6 +286,7 @@ https://addons.mozilla.org/zh-CN/firefox/
 写好后，回车，文件已经成功隐藏
 如果想去掉刚刚附上的属性，只需要将+换为-，即可恢复隐藏。
 关于查看的方法也很简单，在文件夹选项里，取消隐藏系统文件，然后按确定，即可查看隐藏的系统文件
+
 
 ●解决parsec国内无法使用方法：
 1、下载v2rayN（https://github.com/2dust/v2rayN/releases/）
@@ -273,10 +309,12 @@ app_proxy_port为代理的端口
 2、v2rayN的参数可在软件所在目录中"config.json"查看，socks代理默认端口为10808，http代理默认端口为10809
 //
 
+
 ●window创建软链接：
 mklink /d "虚拟文件路径" "真实文件路径"
 删除软连接：
 rmdir "虚拟文件路径"
+
 
 ●bios核显设置优化：
 GFX Boost 意思是GPU动态加速，默认是关闭的，我们要开启，方法是按方向键选中此项回车，再选择Enabled开启，而选择Disabled关闭
@@ -284,9 +322,11 @@ DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，�
 DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
 Aperture Size 这个是最大图形缓冲区，默认256我选的512。
 
+
 ●windows修复分区(如修复C盘):
 在cmd中输入
 chkdsk /f C:\
+
 
 ●windows解决桌面图标发白：
 创建*.bat
@@ -301,6 +341,7 @@ echo
 
 运行这个脚本即可解决
 
+
 ●windows刷新dns缓存：
 在cmd输入
 
@@ -308,8 +349,10 @@ ipconfig/flushdns
 
 回车后即可
 
+
 ●Windows快捷调整桌面图标大小：
 单击桌面任意区域后，Ctrl+鼠标滚轮 进行调整
+
 
 ●在uefi启动下安装windows后，启动Windows时出现错误提示导致启动失败的解决方法：
 使用笫三方工具（如dism++，Windows NT安装器）安装Windows后，进系统时出现错误，
@@ -320,6 +363,7 @@ BOOT文件夹中的文件
 或者使用Windows官方镜像自带的安装工具进行安装
 注：dism++，window NT安装器可绕过TPM限制来安装Windows11
 
+
 ●Windows调整虚拟内存设置：
 1、在桌面此电脑图标上点击鼠标右键，然后选择“属性”选项。
 2、打开系统窗口后，点击左上角的“高级系统设置”选项。
@@ -327,6 +371,7 @@ BOOT文件夹中的文件
 4、打开性能选项窗口后，点击“高级”选项卡中的“更改”按钮
 5、在打开的窗口中，首先取消勾选“自动管理所有驱动器的分页文件大小”。
 6、接下来选择“自定义大小”，然后手动设置初始大小以及最大值，然后点击确定按钮。
+
 
 ●Windows安装并配置msys2：
 1、在https://www.msys2.org/下载并安装msys2
@@ -348,6 +393,7 @@ pacman -Sy
 
 此时msys2配置完成
 
+
 ●在Windows终端(win11默认安装)配置msys2：
 1、在安装msys2后会自动添加到Windows终端中
 2、如果没有自动添加，则打开Windows终端设置
@@ -360,10 +406,12 @@ pacman -Sy
 （“C:\msys64”为安装目录，根据具体安装的目录修改）
 8、保存后生效
 
+
 ●Windows删除卸载残留的右键菜单打开方式：
 win+r ，输入regedit打开注册表
 打开"计算机\HKEY_CLASSES_ROOT\Applications"
 找到对应的残留软件并删除
+
 
 ●Windows使用手机的代理(windows10同理)：
 1、确保手机和电脑处在同一个局域网中
@@ -384,6 +432,7 @@ Port   8080
 
 注：在使用完后记得禁用“使用代理服务器”
 
+
 ●windows安装office(演示安装Microsoft 365方法，其他版本office版本的安装大同小异)：
 1、前往office tool plus官网下载工具
 https://otp.landian.vip/
@@ -393,11 +442,21 @@ https://otp.landian.vip/
 4、在左侧栏点击“激活”，在“许可证管理”点击右侧的箭头，在“安装许可证”选择安装，在“许可证列表”选择“office mondo 2016 批量许可证”，点击确定，然后在“kms管理”点击右侧箭头，在“kms主机”选项输入“kms.loli.beer”(这里可以替换成其他kms服务器地址)，再点击“设置主机”，最后点击上方的“激活”，等待激活完成
 5、完成后即可使用office
 
+
+●Windows家庭版转换成专业版：
+1、打开设置，依次打开
+系统 -> 系统信息 -> 产品密钥和激活 -> 更改激活密钥
+2、输入专业版激活码，然后按提示操作就行
+注：如果失败的话，先断网，再输入激活码，然后下一步，之后再联网进行切换
+
+
 -------------------------------------------------
+
 
 ●安卓：
 ●列出分区：
 ls -l /dev/block/by-name/*
+
 
 ●提取boot（或recovery）：
 1、查看boot所对应的分区：
@@ -408,11 +467,13 @@ ls -l /dev/block/by-name/*
 2、提取：
 dd if=/dev/block/sdc11 of=/手机其他路径/boot.img
 
+
 ●刷入boot：
 1、方法1：
 使用dd指令
 2、方法2：
 fastboot flash boot boot.img
+
 
 ●termux-tools命令：
 termux-change-repo（换源）
@@ -426,22 +487,28 @@ termux-setup-storage
 termux-wake-lock
 termux-wake-unlock
 
+
 ●termux保持终端运行：
 安装tmux：
 apt install tmux
 运行tmux：
 tmux
 
+
 ●termux安装linux脚本链接：
 https://gitee.com/skymysky/linux#tmoe-linux
+
 
 ●magisk下载：
 https://github.com/topjohnwu/Magisk
 
+
 ●v2rayNG项目：
 https://github.com/2dust/v2rayNG
 
+
 -------------------------------------------------
+
 
 ●Linux:
 ●快捷键：
@@ -450,6 +517,8 @@ https://github.com/2dust/v2rayNG
 勾选复选框：空格
 命令行中终止程序：Ctrl+C
 命令行中翻页：shift+pageup/pagedown 或pageup/pagedown
+
+
 ●debian系linux发行版:
 更新软件包缓存:
 sudo apt update
@@ -477,6 +546,7 @@ mkfs -t ext3 /dev/sda4
 sudo ntfsfix /dev/sda3
 关闭软件(会关闭带有该关键词的进程) pkill 程序名
 
+
 ●tty终端快捷键：
 停止屏幕输出 Ctrl+S
 恢复屏幕输出Ctrl+Q
@@ -486,27 +556,35 @@ sudo ntfsfix /dev/sda3
 暂停目前命令 Ctrl+Z
 命令补全/文件补齐/参数补齐 Tab
 
+
 ●重新启动x.org：
 Ctrl+Alt+backspace
+
 
 ●在tty终端中启动x.org：
 startx
 （需注意没有其他x.org被启用）
 
+
 ●终端在后台运行命令：
 nohup 命令 &
 
-●linux mint解决中文不全:
+
+●linux mint(基于ubuntu)解决中文不全:
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
+
  
 ●linux在虚拟机中安装vmtools:
 sudo apt install open-vm-tools open-vm-tools-desktop
 
+
 ●ArchLinux安装教程链接：
 https://zhuanlan.zhihu.com/p/138951848
 
+
 ●在vmware安装与优化ArchLinux教程链接：
 https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest#VMware_Tools_versus_Open-VM-Tools
+
 
 ●Linux安装和配置kvm/qemu教程链接：
 https://blog.csdn.net/weixin_35379749/article/details/116632599
@@ -517,24 +595,35 @@ https://www.bilibili.com/read/cv12760387
 https://zhuanlan.zhihu.com/p/428845384
 https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
 
+
 ●cinnamon主题修改教程：
 https://forums.linuxmint.com/viewtopic.php?f=211&t=155400
 https://forums.linuxmint.com/viewtopic.php?t=156948
 
+
 ●cmake命令教程:
 https://blog.csdn.net/yulesyu/article/details/122200780
+
 
 ●make命令教程:
 https://www.cnblogs.com/nosadness/p/5136652.html
 
+
 ●v2rayA项目：
 https://github.com/v2rayA/v2rayA
+
 
 ●node.js版本管理器：
 https://github.com/nvm-sh/nvm
 
+
+●电脑控制手机工具：
+https://github.com/Genymobile/scrcpy
+
+
 ●Debian系安装fcitx5输入法：
 https://wiki.debian.org/zh_CN/I18n/Fcitx5
+
 
 ●linux推荐使用软件：
 gimp（图片编辑）
@@ -584,6 +673,10 @@ uget(图形化下载器)
 aria2(命令行下载工具)
 curl(命令行下载工具)
 wget(命令行下载工具)
+arch-install-scripts(系统安装脚本，包括arch-chroot，genfstab，pacstrap)
+tmux(终端复用工具)
+scrcpy(电脑控制手机工具)
+
 
 ●桌面环境：
 gnome
@@ -594,6 +687,7 @@ cinnamon
 mate-desktop-environment
 lxde
 lxqt
+
 
 ●wine安装字体:
 1：先从Windows系统中把微软雅黑字体提取出来（在系统分区的Win。dows/Fonts目录下），搜索msyh关键字能找到3个文件，分别是msyh.ttc，msyhbd.ttc，msyhl.ttc，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的**.wine/drive_c/windows/Fonts**目录下面，.wine是隐藏文件夹，在主目录文件夹里按Ctrl+H即可显示。
@@ -642,6 +736,7 @@ wine start /i xxxx.msi
 进入winetricks后，依次选择：【选择默认的wine容器】→【运行卸载程序】，
 在弹出的界面中，如果发现了wine-mono的相关软件，则说明wine-mono安装成功了
 
+
 ●在Debian/ubuntu系的Linux发行版可以参考以下连接安装winehq
 https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
 
@@ -671,9 +766,11 @@ background.jpg：背景图
 theme.txt：grub 主题样式文件
 其他图片：零散的图片为启动背景需要)
 
+
 ●Linux安装winehq:
 参考此篇方法
 https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
+
 
 ●安装deepin-wine环境与应用在Debian/Ubuntu上的移植仓库（使用deepin官方原版软件包）：
 1.添加仓库
@@ -694,6 +791,7 @@ QQ音乐 	com.qq.music.deepin
 QQ视频 	com.qq.video.deepin
 爱奇艺 	com.iqiyi.deepin
 完整列表参见https://deepin-wine.i-m.dev。
+
 
 ●linux升级grub,如何更新 grub在 Ubuntu 或其他 Linux 发行版上：
 1，如何更新 grub
@@ -741,10 +839,12 @@ grub 的一部分安装在 MBR/ESP 分区上。grub 的剩余部分保留在 Lin
 如上图所示，当我更新 grub 时，它在 18.04 上找到很多安装的 Linux 内核, 以及在不同的分区上 Ubntu 19.10 和 MX Linux 。
 如果你想让 MX Linux 控制 grub ，我可以使用grub-install命令来在 MX Linux 上安装 grub，然后在 MX Linux 上的 grub 将开始控制 grub 启动屏幕。
 
+
 ●Ubuntu下切换桌面管理器：
 以切换到GDM为例，打开终端，使用命令：
 sudo dpkg-reconfigure gdm3
 然后选择GDM，按住Enter选择即可。然后重启计算机生效。同样，可以用其他DM如KDM，SLim，LightDM来替换上述命令中的gdm来进行DM间切换
+
 
 ●linux在tty界面中文乱码解决方案：
 ●CentOS:
@@ -822,10 +922,12 @@ input-menthod=fcitx-fbterm  #修改输入法
 修改完后:wq保存退出
 退出tty重登陆，输入fbterm可看到界面内容显示已经变化，Ctrl+空格键切换输入法，若不能出来，可输入一遍fctix后再切换
 
+
 ●Linux mint Cinnamon推荐装的任务栏插件：
 Network Data Usage Monitor
 Simple CPU Monitor
 Download and upload  speed
+
 
 ●gnome桌面推荐插件：
 dash to panel
@@ -835,8 +937,10 @@ removable drive menu
 simple system monitor
 topicons plus
 
+
 ●安装gnome桌面管理插件：
 在终端中输入sudo apt install gnome-tweaks gnome-extensions-app
+
 
 ●Linux安装v2ray：
 安装和更新 V2Ray
@@ -852,6 +956,7 @@ systemctl enable v2ray
 systemctl start v2ray
 systemctl status v2ray
 
+
 ●Linux安装v2rayA：
 添加公钥
 wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
@@ -865,10 +970,12 @@ sudo v2raya
 停止v2rayA
 systemctl stop v2raya
 
+
 ●Linux mint主题路径：
 主题：/home/用户名/.themes/
 或/usr/share/themes/
 鼠标指针：/usr/share/icons/
+
 
 ●Linux卡死后安全重启方法：
 左手一直长按ctrl+alt键，右手先按Print Screen SysRq这个键后松开后，右手依次r,e,i,s,u,b这几个键，每次间隔1秒，会发现桌面依次发生变化，最后重启关机；
@@ -882,16 +989,19 @@ s : Sync 将所有数据同步至磁盘
 u : Unmount 将所有分区挂载为只读模式
 b : reBoot 重启
 
+
 ●cinnamon切换虚拟桌面：
 切换桌面Ctrl+Alt+方向左右键
 虚拟桌面管理Ctrl+Alt+方向上键
 在当前桌面切换应用trl+Alt+方向下键
 快捷将当前选中窗口移动到其他虚拟桌面 鼠标左键按住窗口+Ctrl+Alt+方向左右键
 
+
 ●Linux设置文件默认打开程序：
 格式：gio mime 文件类型 处理程序
 例：gio mime application/x-blender blender.desktop
 （blender.desktop为/usr/share/applications的图标文件）
+
 
 ●Linux设置开机自动登录：
 lightdm：
@@ -923,11 +1033,13 @@ AllowRoot=True
 
 gdm配置完毕，重启后生效
 
+
 ●linux创建软链接：
 ln -s 源文件 目标文件
 例：
 ln -s /home/用户名/下载/文件/test /home/用户名/下载/
 此时会在"/home/用户名/下载/"生成“test”快捷方式，并链接到真实路径“/home/用户名/下载/文件/test”
+
 
 ●linux使用samba共享(基于samba,nemo,nemo-share,cinnamon-settings-users)：
 1、安装samba
@@ -960,6 +1072,7 @@ sudo smbpasswd -a 用户名
 但无法令每个用户单独访问各自文件夹
 所以有局限性
 想实现完整功能需使用纯samba配置法
+
 
 ●Linux用户和用户组：
 命令;
@@ -1029,6 +1142,7 @@ gpasswd -d <用户名称> <用户组名称>
 #永久性删除用户账号
 userdel <用户名称>
 
+
 ●Linux使用gdebi安装deb包
 安装gdebi
 sudo apt install gdebi
@@ -1036,6 +1150,7 @@ sudo apt install gdebi
 sudo gdebi 软件.deb
 gdebi会自动寻找软件依赖并安装
 启动gdebi图形界面可运行gdebi-gtk
+
 
 ●Linux手动关联文件扩展名和打开程序:
 当Linux不认识某种扩展名的时候，需要为此扩展名创建一个MIME类型。
@@ -1087,6 +1202,7 @@ application/x-扩展名=程序.desktop;其他程序.desktop;其他程序2.deskto
 
 其中application/x-扩展名是你刚刚所创建的MIME类型。如果MIME类型是原有的不是刚刚创建的，替换为原有的MIME类型名称。
 
+
 ●Linux关联文件扩展名的打开程序(根据 MIME 类型关联)：
 1、查看文件 MIME 类型：
 mimetype 文件
@@ -1094,6 +1210,7 @@ mimetype 文件
 gio mime MIME类型
 3、设置打开某类文件的默认程序：
 gio mime MIME类型 程序.desktop
+
 
 ●将Linux程序打包成 .deb 格式的安装包：
 1、创建一个文件夹：
@@ -1172,9 +1289,11 @@ update-mime-database /usr/share/mime || true
 6、打包文件;
 dpkg -b ./app 软件名.deb
 
+
 ●Linux修复分区：
 fdisk -l        (查询需要修复的磁盘盘符)
 fsck -a /dev/sdc1   (进行修复)
+
 
 ●Debian系Linux发行版解决依赖问题：
 当使用apt安装某个软件包时出现
@@ -1186,6 +1305,7 @@ sudo aptitude install <package>
 首先建议 保持这些软件包的版本，选择 n
 然后建议 降级软件包，选择 y
 
+
 ●解决Linux提示【输入密码以解锁您的登录密钥环】问题：
 打开terminal，输入seahorse
 若提示没安装则输入sudo apt install seahorse
@@ -1193,6 +1313,7 @@ sudo aptitude install <package>
 密码为空
 建立完成后设置为默认
 再打开opera或者chrome将不会有【输入密码以解锁您的登录密钥环】这个提示
+
 
 ●Debian一些常用指令使用时显示"未找到命令"解决方法：
 该问题原为其实造成这个问题的原因是没有把 /sbin 的目录路径（系统用户目录）添加到＄PATH变量中
@@ -1254,6 +1375,7 @@ root@debian:~# echo $PATH
 
 现在就可以正常的使用reboot、service等命令
 
+
 ●Linux使用sudo显示"用户不在sudoers文件中此事将被报告"解决方法：
 1、第一种解决方法：
 （1）进入root模式，su，再输入正确密码
@@ -1278,6 +1400,7 @@ usermod -G sudo 用户名
 若没有sudo命令，则进入root模式，安装sudo
 apt install sudo
 (不同Linux发行版的安装命令可能不同，视具体情况而定)
+
 
 ●dpkg-reconfigure命令找不到问题解决方法：
 在非root账户登录之后，且使用su命令成功切换到root账户之后，输入dpkg-reconfigure locale命令，系统提示如下：
@@ -1319,6 +1442,7 @@ Generation complete.
 也就是su命令后面添加一个连字符或者说减号，
 根据官方man命令的说法，加上后面这个符号相当于使用root账户登录，会初始化对应的环境变量，
 也就是加载上/usr/sbin/目录。
+
 
 ●Debian中设置locale的方法：
 locale的命名规则为<语言>_<地区>.<字符集编码>，如zh_CN.UTF-8，zh代表中文，CN代表大陆地区，UTF-8表示字符集。
@@ -1384,6 +1508,7 @@ LC_ALL=zh_CN.GBK
 
 "C"是系统默认的locale，"POSIX"是"C"的别名。所以当我们新安装完一个系统时，默认的locale就是C或POSIX。
 
+
 ●在Debian中安装locales的方法如下：
 通过apt-get install locales命令安装locales包
 安装完成locales包后，系统会自动进行locale配置，你只要选择所需的locale，可以多选。
@@ -1401,6 +1526,7 @@ LC_ALL=zh_CN.GBK
 #
 zh_CN.GBK GBK
 zh_CN.UTF-8 UTF-8
+
 
 ●Debian10终端乱码解决办法：
 1.安装字体管理软件：
@@ -1457,12 +1583,15 @@ apt-get update 查看终于能够正常显示中文
 sudo tasksel
 tab键，方向键进行选择，空格键勾选
 
+
 ●Linux桌面卡死解决方法：
 sudo systemctl restart lightdm
 lightdm为桌面管理器，可替换为sddm或gdm
 
+
 ●Linux安装grub2(sda为硬盘，可更换为sda1或其他硬盘分区)：
 sudo grub-install /dev/sda
+
 
 ●更改终端显示语言：
 显示目前所支持语系：
@@ -1476,6 +1605,7 @@ licyk@licyk-linux:~$ LANG=en.US.utf8
 licyk@licyk-linux:~$ export LC_ALL=en.US.utf8
 
 注：LANG与输出信息有关，若要更改其他不同的信息，要同步更新LC_ALL
+
 
 ●bash环境配置文件：
 全局：
@@ -1491,8 +1621,10 @@ licyk@licyk-linux:~$ export LC_ALL=en.US.utf8
 ~/.bashrc
 （只会读取其中一个）
 
+
 ●安装docker后进行apt upgrade时出现Pending Kernel Upgrade选项的解决方法：
 安装docker时会自动安装needrestart，卸载needrestart后解决
+
 
 ●Linux查询命令：
 【命令】 --help
@@ -1557,7 +1689,6 @@ dnf install man-pages-zh-CN
 4.使用我们新建的中文cman查询命令
 
 [root@localhost ~]# cman ls
-
 
 
 ●CentOS7中使用efibootmgr管理UEFI启动项
@@ -1760,6 +1891,7 @@ Boot0005* Centos7.9-EFI
 
 支持UEFI固件的机器将引导项存储在称为NVRAM的非易失性RAM中。 当我们安装Linu操作系统时，EFI引导管理器菜单中会自动添加一个对应的条目。
 
+
 ●Debian安装docker：
 使用 APT 安装
 
@@ -1859,6 +1991,7 @@ $ systemctl cat docker | grep '\-\-registry\-mirror'
 
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
+
 
 ●窗口管理器安装和配置：
 1、所需软件：
@@ -2606,6 +2739,7 @@ mod+shift+数字键 将当前聚焦的窗口移到指定工作区
 mod+shift+e 重载sway
 mod+数字键 切到指定工作区
 
+
 ●python设置pip镜像源：
 设置主要镜像源：
 pip config set global.index-url "镜像源地址"
@@ -2635,6 +2769,7 @@ sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 
 设置官方镜像源：
 sudo flatpak remote-add --if-not-exists /flathub.flatpakrepo
+
 
 ●Linux启用sysrq：
 编辑/etc/sysctl.conf
@@ -2717,3 +2852,276 @@ echo 3 > /proc/sys/vm/drop_caches     或者 # sysctl -w vm.drop_caches=3
 
 注：上面三种方式都是临时释放缓存的方法，要想永久释放缓存，需要在/etc/sysctl.conf文件中配置：vm.drop_caches=1/2/3，然后sysctl -p生效即可
 
+
+●tmux使用和美化：
+●快捷键(默认)：
+Prefix键：Ctrl+b
+(当按下Prefix键并松开后才可以使用tmux的快捷键，Prefix键相当于快捷键激活键，防止误触)
+
+创建新窗口：c
+向左切换窗口：p
+向右切换窗口：n
+切换指定窗口：0~9
+关闭窗口：&
+划分左右的小窗口(Pane)：%
+划分上下的小窗口(Pane)："
+切换小窗口(Pane)：方向键
+切换指定小窗口(Pane)：q+数字 (在按下q时，tmux会显示一个小窗口对应的数字)
+最大化或最小化选中的小窗口：z
+关闭选中的小窗口：x
+(当一个大窗口里的最后一个小窗口被关闭时，大窗口也会被关闭)
+查看tmux所有窗口：w (用方向键和回车键可以选择进入指定的大窗口)
+退出当前tmux工作区(会话)：d (此时tmux的工作区会被保留下来，保持运行)
+进入命令行模式：： (类似vim进入命令行模式的方法，只不过tmux要先按Prefix键)
+
+查看工作区列表：
+$ tmux ls
+
+进入tmux工作区：
+$ tmux attach (如果有多个工作区的话，该指令会优先进入最后一个退出的工作区)
+或进入指定的工作区
+$ tmux attach -t <工作区对应数字>
+$ tmux attach -t <工作区名称>
+
+创建新的工作区：
+$ tmux
+$ tmux new -s <工作区名称>  (创建指定名称的工作区)
+
+关闭工作区：
+$ tmux kill-session -t <工作区数字>
+$ tmux kill-session -t <工作区名称>
+
+●美化tmux：
+工具：
+https://github.com/gpakosz/.tmux
+
+安装oh-my-tmux：
+1、下载项目
+$ git clone https://github.com/gpakosz/.tmux ~/.oh-my-tmux
+2、复制配置文件
+$ cp ~/.oh-my-tmux/.tmux.conf ~/
+(这里复制的是默认的配置)
+或者使用自定义配置
+$ cp ~/.oh-my-tmux/.tmux.conf.local ~/.tmux.conf
+$ vim .tmux.conf
+然后参考github上项目的的说明修改
+
+
+●vim使用：
+1、编辑模式：
+        在一般模式中可以进行删除、复制、粘贴等的操作，但是却无法编辑文件的内容，只有当到你按下【i, I, o, O, a, A, r, R】等任何一个字母之后才会进入编辑模式。这时候屏幕的左下方会出现【INSERT或 REPLACE】的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下【Esc】即可退出编辑模式。
+
+2、命令行模式：
+        输入【 : / ? 】三个中的任何一个，就可以将光标移动到最底下那一行。在这个模式中， 可以提供查找、读取、存盘、替换字符、离开vi、显示行号等的动作则是在此模式中完成的！
+
+3、打开文件
+# vim /path/to/somefile
+    vim +# :打开文件，并定位于第#行 
+    vim +：打开文件，定位至最后一行
+    vim +/PATTERN : 打开文件，定位至第一次被PATTERN匹配到的行的行首
+
+一般模式可用的按钮说明
+4、移动光标
+【h、j、k、l】，分别控制光标左、下、上、右移一格
+
+翻屏
+Ctrl+f: 向下翻一屏
+Ctrl+b: 向上翻一屏
+Ctrl+d: 向下翻半屏
+Ctrl+u: 向上翻半屏
+
+【n<space>】光标向右移动n个字符
+【Home】移动到这一行的最前面字符处:0数字，但不能用数字小键盘上的数字
+【End】 移动到这一行的最后面字符处:$，我测试好像不行
+【w】光标跳到下个字的开头
+【e】光标跳到下个字的字尾
+
+【H】 光标移动到这个屏幕的最上方那一行的第一个字符
+【M】 光标移动到这个屏幕的中间那一行的第一个字符
+【L】光标移动到这个屏幕的最下方那一行的第一个字符
+
+【G】 移动到这个文件的最后一行
+【nG】移动到这个文件的第n行(可配合:set nu)
+【gg】 移动到这个文件的第一行，相当于1G
+【n<Enter>】光标向下移动n行
+
+5、查找与替换
+【/word】 向光标向下寻找一个名称为word的字符串
+【?word】 向光标向上寻找一个名称为word的字符串
+【n】 代表重复前一个查找的动作
+【N】 与n刚好相反，为【反向】进行行前一个查找动作
+
+【:n1,n2s/word1/word2/g】  n1与n2为数字，在第n1与n2行之间查找word1 这个字符串，并将该字符串替换为word2
+
+【:1,$s/word1/word2/g】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2
+【:1,$s/word1/word2/gc】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2 ，且在替换前提示用户确认是否进行替换
+
+6、删除、复制与粘贴
+
+【x】 为向后删除一个字符 (相当于【del】键)
+【X】 为向前删除一个字符(相当于【backspace】键)
+【nx】 连续向后删除n个字符
+
+【dd】 删除光标所在行
+【dn】 删除光标所在的向下n行
+【d1G】 删除光标所在行到第一行的所有数据
+【dG】 删除光标所在到最后一行的所有数据
+
+【d$】 删除光标所在处，到该行的最后一个字符
+【d0】 删除光标所在处，到该行的最前一个字符
+
+【yy】 复制光标所在的那一行
+【nyy】 复制光标所在的向下n列
+
+【y1G】 复制光标所在行到第一行的所有数据
+【yG】 复制光标所在行到最后一行的所有数据
+
+【y0】 复制光标所在的那个字符到该行行首的所有数据
+【y$】 复制光标所在的那个字符到该行行尾的所有数据
+
+【p】将已复制的数据在光标下一行粘贴上
+【P】 则为贴在光标的上一行
+
+【u】 恢复前一个操作
+【Ctrl+r】重做上一个操作
+
+【.】 是重复前一个操作
+
+7、一般模式切换到编辑模式的可用的按钮说明
+【i, I】 进入编辑模式：
+i 为【从目前光标所在处插入】
+I 为【在目前所在行的第一个非空格符处开始插入】
+ 
+【a, A】 进入编辑模式(Insert mode)：
+a 为【从目前光标所在的下一个字符处开始插入】
+A 为【从光标所在行的最后一个字符处开始插入】
+
+【o, O】 进入编辑模式：
+o 为【在目前光标所在的下一行处插入新的一行】
+O 为在目前光标所在处的上一行插入新的一行
+
+【r, R】 进入取代模式：
+r 只会取代光标所在的那一个字符一次
+R会一直取代光标所在的文字，直到按下 ESC 为止；
+
+【Esc】 退出编辑模式，回到一般模式
+
+8、一般模式切换到命令行模式可用的按钮说明
+【:w】 保存编辑的内容
+【:w!】强制写入该文件，但跟你对该文件的权限有关
+【:q】 离开vi
+【:q!】 不想保存修改强制离开
+【:wq】 保存后离开
+【:x】 保存后离开
+【ZZ】 若文件没有更动，则不保存离开，若文件已经被更改过，则保存后离开
+
+【:w filename】 将编辑的数据保存成另一个文件（类似另存）
+【:r filename】 在编辑的数据中，读入另一个文件的数据。即将【filename】 这个文件的内容加到光标所在行后面。
+
+【:n1,n2 w filename】 将n1到n2的内容保存成filename这个文件。
+【:! command】暂时离开vi 到命令行模式下执行command的显示结果！例如 【:! ls /home】即可在 vi 当中察看/home底下以ls输出的文件信息！
+
+【:set nu】 显示行号
+【:set nonu】 与 set nu 相反，为取消行
+
+9、vim的缓存文件、恢复与开启时的警告信息
+我们知道一些常用的编辑软件，都有个恢复的功能，就是说当你的系统因为某些原因而导致类似当机的情况时，还可以利用这个恢复功能将之前未保存的数据找回来。我们的VIM也有这个功能。
+
+当我们在使用vim编辑时，vim会在与被编辑的文件的目录下，再建立一个名为 .filename.swp的文件。如果你的系统因为某些原因断线了， 导致你编辑的文件还没有保存，这个时候 .filenam.swp 就能够发会救援的功能了。
+
+我们来演示一下
+
+在/jiaoben下面出现了一个.bincp.sh.swp  文件，其实这个文件是bincp.sh  文件没有保存，中断系统后出现的恢复文件，在下次编辑bincp.sh文件时，系统会自动提示是否从上次执行处继续执行，还是终止等，根据提示执行就可以，执行完成后，保存文档后记得把 .bincp.sh文件删除。删除命令：rm -f .bincp.sh  ，下次再执行bincp.sh时就不会出现提示。
+
+问题一：可能有其他人或程序同时在编辑这个文件：
+问题二：在前一个vim的环境中，可能因为某些不知名原因导致vim中断 (crashed)：
+
+右下角会出现六个命令项，其作用说明如下：
+(O)pen Read-Only：打开此文件成为只读档， 可以用在你只是想要查阅该文件内容并不想要进行编辑行为时。一般来说，在上课时，如果你是登入到同学的计算机去看他的配置文件， 结果发现其实同学他自己也在编辑时，可以使用这个模式；
+(E)dit anyway：还是用正常的方式打开你要编辑的那个文件， 并不会载入暂存盘的内容。如果说两个人都在编辑这个文件的话，很容易出现互相改变对方的文件等问题。
+(R)ecover：就是加载暂存盘的内容，用在你要救回之前未保存的工作。 不过当你救回来并且储存离开vim后，还是要手动自行删除那个暂存档。
+(D)elete it：你确定那个暂存档是无用的！那么开启文件前会先将这个暂存盘删除
+(Q)uit：按下 q 就离开vim，不会进行任何动作回到命令提示字符。
+(A)bort：忽略这个编辑行为，感觉上与 quit 非常类似！
+
+10、vim的功能
+其实，目前大部分的Linux发行版本都以vim取代了vi。为什么要用vim呢？因为vim具有颜色显示的功能，并且还支持许多的程序语法(syntax)和相应的提示信息。查看自己的VI是不是被VIM代替，可以用
+alias这个命令来查看是不是有alias vi=’vim’这一行。
+
+11、块选择
+【v】字符选择，会将光标经过的地方反白选择
+【V】 行选择，会将光标经过的行反白选择
+【Ctrl+v】 块选择，可以用长方形的方式选择资料 （提制竖列）
+【y】 将反白的地方复制
+【d】 将反白的地方删除
+
+12、分屏显示一个文件
+Ctrl+w, s: 水平拆分窗口 （按住Ctrl+w后松开键盘，按键盘上的s键就可以水平拆分）
+Ctrl+w, v: 垂直拆分窗口 （按住Ctrl+w后松开键盘，按键盘上的v键就可以垂直拆分）
+
+按住Ctrl+w键按两次就可以切换光标的不同的窗口
+
+如果需要突出窗口可以输入exit  。
+
+13、多文件编辑
+大家在使用vim的时候，可能会碰到你需要复制一个文件中的某段到另外一个文件中，而vim不能够在关闭的时候，把这段保留住。或者是用其它的方法复制。
+【vim file1 file2】
+
+【:n】编辑下一个文件
+【:N】编辑上一个文件
+【:files】列出目前这个vim编辑的所有文件
+
+多窗口功能
+有两个需要对照着看的文件
+【:sp filename】开启一个新窗口，如果有加 filename， 表示在新窗口开启一个新文件，否则表示两个窗口为同一个文件内容(同步显示)。
+
+【ctrl+w+j】
+【ctrl+w+↓】按键的按法是：先按下 【ctrl】 不放， 再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。
+
+【ctrl+w+k】
+【ctrl+w+↑】同上，不过光标移动到上面的窗口。
+
+vim 环境设定与记录(~/.vimrc, ~/.viminfo)
+
+14、参数参考文档。  
+
+    设定自动缩进
+    :set autoindent
+    :set ai
+    :set noai
+    查找到的文本高亮显示或取消
+    :set hlsearch
+    :set nohlsearch
+    语法高亮
+    :syntax on
+    :syntax off
+
+    显示忽略或区分字符大小写
+
+    :set ic
+
+    :set noic
+
+    显示或取消显示行号
+
+    :set nu
+
+    :set nonu
+
+    将另外一个文件的内容填充在当前文件中
+
+    :r /path/to/somefile
+
+    将当前文件中部分内容另存为另外一个文件末行模式下使用w命令
+
+    :w   /path/to/somewhere
+    :ADDR1,ADDR2w /path/to/somewhere
+
+    配置文件（保存退出vim后，在下次使用vim的时候，就会有自己的vim操作环境了。）
+
+    /etc/vimrc（全局配置有效）
+    ~/.vimrc   (当前bash)
+
+        注意;上面的参数参考中每一行前面加不加【:】效果都是一样的。
+
+15、如果想自己专研vim  可以执行命令： vimtutor  (此命令可以自己学习vim)
