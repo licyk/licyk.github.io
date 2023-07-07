@@ -807,6 +807,27 @@ wine start /i xxxx.msi
 https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
 
 
+●安装deepin-wine环境与应用在Debian/Ubuntu上的移植仓库（使用deepin官方原版软件包）：
+1.添加仓库
+首次使用时，你需要运行如下一条命令将移植仓库添加到系统中。
+wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
+2.应用安装
+自此以后，你可以像对待普通的软件包一样，使用apt-get系列命令进行各种应用安装、更新和卸载清理了。
+比如安装微信只需要运行下面的命令，
+sudo apt-get install com.qq.weixin.deepin
+将com.qq.weixin.deepin替换为下列包名，可以继续安装其他应用：
+应用 	包名
+微信 	com.qq.weixin.deepin
+QQ 	com.qq.im.deepin
+TIM 	com.qq.office.deepin
+钉钉 	com.dingtalk.deepin
+阿里旺旺 	com.taobao.wangwang.deepin
+QQ音乐 	com.qq.music.deepin
+QQ视频 	com.qq.video.deepin
+爱奇艺 	com.iqiyi.deepin
+完整列表参见https://deepin-wine.i-m.dev。
+
+
 ●linux更改grub主题:
 2.1 创建主题文件夹
 在 /boot/grub 里创建主题目录 themes
@@ -831,32 +852,6 @@ icons：多种系统的图标
 background.jpg：背景图
 theme.txt：grub 主题样式文件
 其他图片：零散的图片为启动背景需要)
-
-
-●Linux安装winehq:
-参考此篇方法
-https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
-
-
-●安装deepin-wine环境与应用在Debian/Ubuntu上的移植仓库（使用deepin官方原版软件包）：
-1.添加仓库
-首次使用时，你需要运行如下一条命令将移植仓库添加到系统中。
-wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
-2.应用安装
-自此以后，你可以像对待普通的软件包一样，使用apt-get系列命令进行各种应用安装、更新和卸载清理了。
-比如安装微信只需要运行下面的命令，
-sudo apt-get install com.qq.weixin.deepin
-将com.qq.weixin.deepin替换为下列包名，可以继续安装其他应用：
-应用 	包名
-微信 	com.qq.weixin.deepin
-QQ 	com.qq.im.deepin
-TIM 	com.qq.office.deepin
-钉钉 	com.dingtalk.deepin
-阿里旺旺 	com.taobao.wangwang.deepin
-QQ音乐 	com.qq.music.deepin
-QQ视频 	com.qq.video.deepin
-爱奇艺 	com.iqiyi.deepin
-完整列表参见https://deepin-wine.i-m.dev。
 
 
 ●linux升级grub,如何更新 grub在 Ubuntu 或其他 Linux 发行版上：
@@ -2745,7 +2740,7 @@ else
                 ${actions[$entry]}
             fi
             exit 0
-        fi
+        fi
         if [ "$selection" = "$(print_selection "${confirmationMessages[cancel]}")" ]
         then
             # Do nothing
