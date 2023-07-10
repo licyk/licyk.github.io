@@ -43,6 +43,7 @@
 "关于Windows" winver
 计算机管理 compmgmt.msc
 控制面板 control
+directx诊断 dxdiag
 
 
 ●v2rayN项目：
