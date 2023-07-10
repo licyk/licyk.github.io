@@ -386,7 +386,7 @@ C:\msys64\usr\bin
 
 (C:\msys64为msys2安装路径，所以msys2安装到哪个路径，上面要输入的值也要修改相应的部分)
 然后一直点确定直至完成
-7、进入msys2终端，输入
+7、在windows的开始菜单里找到MSYS2 MINGW64，打开，输入
 
 sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
 pacman -Sy
@@ -456,7 +456,7 @@ https://otp.landian.vip/
 1、前往scrcpy官网https://github.com/Genymobile/scrcpy/releases/下载scrcpy-win64，并解压
 2此时把解压的文件放在合适的位置，位置可以自己选，只要能找到就行，比如
 C:\scrcpy        
-(文件夹内包括adb.exe和scrcpy.exe)
+(文件夹内包括adb.exe和scrcpy.exe等文件，而且不能放在该文件夹的子文件夹里)
 3、记下刚才的位置，在桌面此电脑图标上点击鼠标右键，然后选择“属性”选项
 4、打开系统窗口后，点击“高级系统设置”选项。
 5、在打开的窗口中，点击“高级”选项卡下“环境变量”
