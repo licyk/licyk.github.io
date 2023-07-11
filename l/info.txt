@@ -44,6 +44,7 @@
 计算机管理 compmgmt.msc
 控制面板 control
 directx诊断 dxdiag
+自启动程序图标 shell:startup
 
 
 ●v2rayN项目：
@@ -100,6 +101,11 @@ https://github.com/Jax-Core/JaxCore
 ●Windows开始菜单图标路径：
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+
+
+●Windows自启动图标路径：
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 
 ●Windows文件管理器界面快捷方式的注册表路径：
@@ -3244,3 +3250,245 @@ $ scrcpy
 此时会弹出一个可以控制手机的窗口，可以通过鼠标和键盘控制手机
 
 注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
+
+
+●Linux设置软件开机自启动：
+一、有界面的程序自启动
+
+利用Linux的 .desktop文件实现开机启动。
+在/etc/xdg/autostart 目录下建立一个 test.desktop文件，并对文件进行以下编辑。
+操作步骤
+
+    打开/etc/xdg/autostart目录
+
+    cd /etc/xdg/autostart
+
+    或者打开~/.config/autostart目录
+
+    cd ~/.config/autostart
+
+    建立test.desktop文件
+
+    touch test.desktop
+
+
+    编写文件并保存
+
+    sudo vim test.desktop
+
+
+添加如下代码：
+
+[Desktop Entry]
+Name=Test	 		#可执行文件名字
+Exec=/root/Test 	#可执行文件路径
+Type=Application	#可执行文件类型
+
+
+桌面条目具体要求和含义可见：https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+
+注意：
+
+    需要root权限
+    此设置开机自启动的方法与rc.local方法不同的是，此方法适合桌面级软件的开机自启动（软件有界面）
+
+二、无界面的程序自启动
+① 方式一
+
+Ubuntu 20.04的服务管理是基于systemd的，因此设置服务自启动最推荐的方法是在/etc/systemd/user目录下创建一个systemd服务文件，配置好要执行的服务。
+
+    该种方式在ExecStart字段中指定开机自启动的程序是可执行文件的时候会管用，但在某些情况下，当ExecStart字段指定为脚本文件时可能会失效，并且此方式貌似需要登录系统后才会启动指定的程序
+
+操作步骤
+
+    创建我们需要开机自启动的脚本，例如test.sh，其内容如下：
+
+    #!/bin/bash
+
+    cd ~/
+    touch 11111111111.txt
+
+    在/etc/systemd/user目录下创建一个systemd服务文件, 命名为user-defined.service（可以命名为以.service结尾的任何名称）, 内容如下：
+
+    [Unit]
+    After=network.service
+    # After表示在哪个服务启动后启动我们的程序，After=network.service 表示网络连接完成后，启动我们的程序
+
+    [Service]
+    ExecStart=/home/hqc/test.sh # 此处只能绝对路径
+    # ExecStart表示我们的脚本（步骤1中的test.sh)的执行路径
+
+    [Install]
+    WantedBy=default.target
+    # WantedBy默认填default.target，表示我们程序所在的服务组。
+
+
+    将systemd服务文件和我们的脚本更改权限，使其可执行。
+
+
+    sudo chmod 744 ~/test.sh
+    sudo chmod 664 /etc/systemd/user/user-defined.service
+
+
+    重新加载系统的systemd服务文件，并启用我们自己写的user-defined.service文件。
+
+
+    sudo systemctl daemon-reload
+    systemctl --user enable user-defined.service
+
+
+取消开机自启动
+
+systemctl --user disable user-defined.service
+cd /etc/systemd/user
+rm user-defined.service
+
+
+② 方式二
+
+现在大部分的Linux发布版本开机第一个程序都从init换成了systemd这中启动方式。systemd是靠管理unit的方式来控制开机服务、开机级别等功能。
+在/usr/lib/systemd/system目录下包含了各种unit文件，有service后缀的服务unit，有target后缀的开机级别unit等，这里介绍关于service后缀的文件。因为systemd在开机要想执行自启动，都是通过这些*.service 的unit控制的，服务又分为系统服务（system）和用户服务（user）。
+
+    系统服务：开机不登录就能运行的程序（常用于开机自启）。
+    用户服务：需要登录以后才能运行的程序。
+
+配置文件说明
+
+（以sshd.service服务为例）
+
+    [Unit]区块：启动顺序与依赖关系
+    Description字段：给出当前服务的简单描述。
+    Documentation字段：给出文档位置。
+    After字段：如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
+    Before字段：定义sshd.service应该在哪些服务之前启动。
+    注：[After和Before字段只涉及启动顺序，不涉及依赖关系]
+    Wants字段：表示sshd.service与sshd-keygen.service之间存在“弱依赖”关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。
+    Requires字段：表示“强依赖”关系，即如果该服务启动失败或异常提出，那么sshd.service也必须退出。
+    注：[Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的]
+
+    [Service]区块：启动行为。
+
+        启动命令
+        ExecStart字段：定义启动进程时执行的命令。
+        ExecReload字段：重启服务时执行的命令。
+        ExecStop字段：停止服务时执行的命令。
+        ExecStartPre字段：启动服务之前执行的命令。
+        ExecStartPost字段：启动服务之后执行的命令。
+        ExecStopPost字段：停止服务之后执行的命令。
+        注：所有的启动设置之前都可以加一个连词号（-），表示“抑制错误”，即发生错误的时候，不影响其他命令的执行。比如EnvironmentFile=-/etc/sysconfig/sshd（注意等号后面的那个连词号），就表示即使/etc/sysconfig/sshd文件不存在，也不会抛出错误。[Service]中的启动、重启、停止命令要求全部使用绝对路径！
+
+        启动类型
+        Type字段定义启动类型。
+        它可以设置的值如下：
+            simple（默认值）：ExecStart字段启动的进程为主进程
+            forking：ExecStart字段将以fork()方式启动，此时父进程将会退出，子进程将成为主进程（后台运行）
+            oneshot：类似于simple，但只执行一次，Systemd 会等它执行完，才启动其他服务
+            dbus：类似于simple，但会等待D-Bus信号后启动
+            notify：类似于simple，启动结束后会发出通知信号，然后 Systemd 再启动其他服务
+            idle：类似于simple，但是要等到其他任务都执行完，才会启动该服务。一种使用场合是为让该服务的输出，不与其他服务的输出相混合。
+
+        重启行为
+        Service区块有一些字段，定义了重启行为。
+
+            KillMode字段：定义 Systemd 如何停止 sshd 服务：
+                control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉
+                process：只杀主进程
+                mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号
+                none：没有进程会被杀掉，只是执行服务的 stop 命令。
+
+            Restart字段：定义了sshd退出后，Systemd 的重启方式
+                no（默认值）：退出后不会重启
+                on-success：只有正常退出时（退出状态码为0），才会重启
+                on-failure：非正常退出时（退出状态码非0），包括被信号终止和超时，才会重启
+                on-abnormal：只有被信号终止和超时，才会重启
+                on-abort：只有在收到没有捕捉到的信号终止时，才会重启
+                on-watchdog：超时退出，才会重启
+                always：不管是什么退出原因，总是重启
+
+            Restart设为on-failure，表示任何意外的失败，就将重启sshd。如果 sshd 正常停止（比如执行systemctl stop命令），它就不会重启。
+            注：[对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal]
+
+            RestartSec字段：表示 Systemd 重启服务之前，需要等待的秒数。
+
+    [Install]区块
+    Install区块定义如何安装这个配置文件，即怎样做到开机启动。
+
+        WantedBy字段：表示该服务所在的 Target。
+
+        Target的含义是服务组，表示一组服务。
+
+        WantedBy=multi-user.target指的是：sshd 所在的 Target 是multi-user.target。
+        这个设置非常重要，因为执行systemctl enable sshd.service命令时，sshd.service的一个符号链接，就会放在/etc/systemd/system目录下面的multi-user.target.wants子目录之中。
+        Systemd 有默认的启动 Target。
+
+        systemctl get-default
+        #输出multi-user.target
+
+
+        上面的结果表示，默认的启动 Target 是multi-user.target。在这个组里的所有服务，都将开机启动。这就是为什么systemctl enable命令能设置开机启动的原因。
+        使用 Target 的时候，systemctl list-dependencies命令和systemctl isolate命令也很有用。
+
+        #查看 multi-user.target 包含的所有服务
+        systemctl list-dependencies multi-user.target
+
+        #切换到另一个 target
+        #shutdown.target 就是关机状态
+        systemctl isolate shutdown.target
+
+
+        一般来说，常用的Target有两个：
+        multi-user.target：表示多用户命令行状态；
+        graphical.target：表示图形用户状态，它依赖于multi-user.target。
+
+注册服务实例
+
+    配置文件目录
+    systemctl脚本目录：/usr/lib/systemd/
+    系统服务目录：/usr/lib/systemd/system/
+    用户服务目录：/usr/lib/systemd/user/
+
+    在/usr/lib/systemd/system目录下新建service-name.service文件：
+
+
+    [Unit]
+    #服务描述
+    #Description=Media wanager Service
+    #指定了在systemd在执行完那些target之后再启动该服务
+    After=network.target
+
+    [Service]
+    #定义Service的运行类型，这种一般是开机自启动文件就是可执行文件
+    Type=simple
+
+    #Type=forking，这种一般是开机自启动文件为shell脚本文件，脚本文件里面可能写了多个需要
+    #开机自启动的程序，forking代表子进程的方式，就是脚本里的程序以子进程后台运行。
+    #WorkingDirectory=工作目录 #该项设置自启动软件的工作目录。
+    #定义systemctl start|stop|reload *.service 的执行方法（具体命令需要写绝对路径）
+    #注：ExecStartPre为启动前执行的命令
+    ExecStartPre=/usr/bin/test "x${NETWORKMANAGER}" = xyes
+    ExecStart=/home/mobileoa/apps/shMediaManager.sh -start#-start加不加都行
+    #创建私有的内存临时空间
+    PrivateTmp=True
+
+    [Install]
+    #多用户
+    WantedBy=multi-user.target
+
+
+重载系统服务：systemctl daemon-reload
+设置开机启动：systemctl enable *.service
+启动服务：systemctl start *.service
+停止服务：systemctl stop *.service
+重启服务：systemctl restart *.service
+注：[修改完配置文件要重载配置文件]
+参考：
+https://www.freedesktop.org/software/systemd/man/systemd.service.html
+https://www.jianshu.com/p/79059b06a121
+https://wiki.archlinux.org/title/systemd/User
+http://www.jinbuguo.com/systemd/systemd.service.html
+三、补充
+
+适用于无界面的程序自启动
+
+对于有/etc/rc.d/rc.local或/etc/rc.local文件的Linux发行版本，开机自启动只需要在/etc/rc.local文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
+注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看/etc/rc.d/rc.local文件是否具有可执行权限（/etc/rc.local只是/etc/rc.d/rc.local的软链接，添加/etc/rc.local文件的可执行权限是不管用的）。
