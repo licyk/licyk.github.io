@@ -1,0 +1,241 @@
+.post-detail {
+  padding: 0;
+  .post-title {
+    font-size: 32px;
+    margin: 24px 0;
+    color: var(--c-base-black);
+  }
+  .post-detail-info {
+    padding: 0 0 32px;
+  }
+  .feature-container {
+    padding-top: 56.25%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    box-shadow: 0 0 30px #eee;
+  }
+}
+
+.next-post {
+  text-align: center;
+  .post-title {
+    display: inline-block;
+    font-size: 22px;
+  }
+}
+
+.post-content {
+  flex-shrink: 0;
+  width: 100%;
+  h1, h2, h3, h4, h5, h6 {
+    padding: 16px 0;
+    color: #0C1E29;
+  }
+
+  a {
+    word-break: break-all;
+    color: #0e78db;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  a:hover {
+    color: #0081f9;
+    text-decoration: underline;
+  }
+  img {
+    display: block;
+    box-shadow: 0 0 30px #eee;
+    max-width: 100%;
+    border-radius: 2px;
+    margin: 16px auto;
+  }
+
+  p {
+    line-height: 1.725;
+    margin-bottom: 16px;
+    color: var(--c-base-blacklight);
+
+    code {
+      color: #858080;
+      padding: 0 3px;
+      margin: 2px 2px;
+      background-color: #f9fafa;
+      border: 1px solid #e4e4e4;
+      font-size: 0.9em;
+      display: inline-block;
+      border-radius: 4px;
+      max-width: 740px;
+    }
+  }
+
+  code {
+    color: #476582;
+    padding: .16rem .5rem;
+    margin: 0.25rem 0;
+    font-size: .85em;
+    background-color: rgba(27,31,35,.05);
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  blockquote {
+    background: #f3f5f7;
+    padding: 16px;
+    border-left: 2px solid var(--c-base-purple);
+    margin-bottom: 16px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  pre {
+    margin-bottom: 16px;
+    code {
+      font-size: 14px;
+      font-family: 'Source Code Pro', Consolas, Menlo, Monaco, 'Courier New', monospace;
+      padding: 2em 1em 1em;
+      border-radius: 5px;
+      line-height: 1.375;
+      position: relative;
+      background: #fafafa;
+      display: block;
+      &:after {
+        content: attr(data-content-after);
+        display: block;
+        position: absolute;
+        left: 8px;
+        top: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #ccc;
+      }
+
+    }
+
+    &:hover .copy-code {
+      display: block;
+    }
+    .copy-code {
+      cursor: pointer;
+      display: none;
+      position: absolute;
+      right: 8px;
+      top: 4px;
+      font-size: 22px;
+      color: #9a9a9a;
+      .copy-success {
+        font-size: 16px;
+      }
+    }
+
+  }
+
+  pre[class*=language-].line-numbers {
+    position: relative;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    display: block;
+    overflow-x: auto;
+  }
+  tr {
+    border-top: 1px solid #dfe2e5;
+    transition: 500ms;
+  }
+  td, th {
+    border: 1px solid #dfe2e5;
+    padding: .4em;
+    line-height: 1.2em;
+  }
+  tr:hover {
+    background-color: #f8f8f8;
+  }
+
+  ul, ol {
+    color: var(--c-base-blacklight);
+    padding-left: 24px;
+    line-height: 1.725;
+    margin-bottom: 16px;
+  }
+
+  strong {
+    font-weight: bolder;
+  }
+}
+
+.post-content-wrapper {
+  display: flex;
+}
+
+@media (max-width: 1200px) {
+  .top-box {
+    display: none;
+  }
+  #gitalk-container {
+    width: 94%;
+    margin: 0 auto;
+  }
+  #twikoo {
+    width: 94%;
+    margin: 0 auto;
+  }
+}
+#twikoo {
+  .tk-content {
+    overflow-y hidden
+  }
+  p {
+    margin: revert;
+  }
+}
+
+@media (min-width: 1200px) {
+  .top-div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .top-box {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8px;
+      bottom: 0;
+      width: 1px;
+      background-color: #ebedef;
+      opacity: 0.5;
+    }
+    .top-box-child {
+      list-style: none;
+      padding-left: 16px;
+    }
+    li {
+      a {
+        display: block;
+        color: #868e96;
+        padding: 4px;
+        transition: all 0.3s;
+        font-size: .9em;
+      }
+    }
+    li a.current {
+      color: #006CFF;
+      background: #fafafa;
+    }
+    li a:hover {
+      background: #fafafa;
+    }
+    list-style: none;
+    width: 200px;
+    position: sticky;
+    top: 80px;
+    right: 0;
+    padding-left: 20px;
+  }
+}
+
+.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }
