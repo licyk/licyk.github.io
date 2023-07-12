@@ -1,5 +1,10 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+description: 
+tags: 
+  - 
+categories: 
+  - 
+mathjax: true
 ---
