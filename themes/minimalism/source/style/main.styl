@@ -1,0 +1,34 @@
+@import "_core/colors";
+@import "_core/base";
+@import "_core/hljs" if hexo-config('highlight.enable');
+@import "prism.css" if hexo-config('prismjs.enable');
+@import "_core/footnotes";
+
+@import "_blocks/fonts";
+@import "_blocks/footer";
+@import "_blocks/header";
+@import "_blocks/link";
+@import "_blocks/list";
+@import "_blocks/pagination";
+@import "_blocks/post";
+@import "_blocks/tag";
+@import "_blocks/archives";
+@import "_blocks/tags";
+@import "_blocks/figure";
+
+@import "_core/night-node" if hexo-config('dark_theme.enable');
+
+if hexo-config('highlight') == 'prismjs'
+  pre[class*=language-] {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  pre[class*=language-] code {
+    color: #476582;
+  }
+  pre[class*=language-].line-numbers {
+    background: #fafafa;
+  }
+  :not(pre) > code[class*=language-], pre[class*=language-] {
+    background: none;
+  }

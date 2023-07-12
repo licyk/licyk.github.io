@@ -1,0 +1,52 @@
+<%
+    var title = page.title;
+    // tags, categories, about pages title
+    if (title === 'tags') {
+        title = '标签 | '+ config.title;
+    } else if (title === 'categories') {
+        title = '分类归档 | '+ config.title;
+    } else if (title === 'about') {
+        title = '关于 | '+ config.title;
+    } else if (!title) {
+        title = config.title;
+    }
+
+    // final page title.
+    var pageTitle = title ? title + ' | ' + config.title : config.title;
+    // keywords.
+    var keyWords = config.keywords ? config.keywords : config.title;
+    if (page.keywords) {
+        keyWords = page.keywords;
+    } else {
+    	keyWords = title ? title  + ', ' + keyWords : keyWords;
+    }
+    // description.
+    var description = config.description ? config.description : config.title;
+    if (page.description) {
+        description = page.description;
+    } else if (page.summary) {
+        description = page.summary;
+    } else if (page.hasOwnProperty('__post') && page.__post) {
+        description = strip_html(page.content).substring(0, 120);
+    }
+%>
+<% if (theme.dark_theme && theme.dark_theme.enable) { %>
+    <% if (theme.dark_theme.mode === 'dark') { %>
+<script>!function(){document.documentElement.classList.toggle("dark",!0)}()</script>
+    <% } else { %>
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    <% } %>
+<% } %>
+<meta charset="utf-8" >
+
+<title><%= title %></title>
+<meta name="keywords" content="<%= keyWords %>">
+<meta name="description" content="<%- description %>">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%- description %>">
+<% if (page.img && page.img !== '') { %><meta property="og:image" content="<%= full_url_for(page.img) %>"><% } %>
+<link rel="shortcut icon" href="<%= url_for('/favicon.ico') %>">
+<link rel="stylesheet" href="<%= url_for('/style/main.css') %>">
