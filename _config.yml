@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: licyk
+title: licyk的小窝
 subtitle: ''
 description: '你所热爱的就是你的生活'
 keywords:
@@ -97,15 +97,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme:  minimalism #landscape
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
-
-
-#hexo-permalink-pinyin
-permalink_pinyin:
-  enable: true # 启用插件
-  separator: '-' # 分词符，将使用此符号分隔两个汉字间的拼音
+  type: git
+  repository: https://github.com/licyk/licyk.github.io
+  branch: main
