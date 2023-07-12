@@ -5,7 +5,4 @@ db.json
 node_modules/
 public/
 .deploy*/
-.deploy_git*/
-.idea
-themes/butterfly/.git
-package-lock.json
+_multiconfig.yml
