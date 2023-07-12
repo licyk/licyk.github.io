@@ -1,0 +1,82 @@
+.site-header-container {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1024;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(5px); /*添加模糊效果*/
+  height: 56px;
+}
+.site-header {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 768px;
+  margin: 0 auto;
+  box-shadow: inset 0px -1px 0px #fafafa;
+
+  .left {
+    display: flex;
+    .avatar {
+      border-radius: 50%;
+    }
+    .site-title {
+      margin: 0 16px;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  .right {
+    .icon-menu-outline, .icon-close-outline {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+.menu-container {
+  display: flex;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.45); /*修改背景透明度*/
+  backdrop-filter: blur(5px); /*添加模糊效果*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //z-index: 1024;
+  transition: opacity 0.6s;
+  opacity: 0;
+  height: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .menu-list {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
+  }
+  .menu {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 22px;
+    margin: 16px 0;
+    font-weight: bold;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

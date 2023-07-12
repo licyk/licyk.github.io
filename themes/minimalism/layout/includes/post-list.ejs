@@ -1,0 +1,48 @@
+<% page.posts.forEach(function(post) { %>
+<% if (is_hide(post) === false)  { %>
+<section class="post-item">
+    <div class="content">
+      <a href="<%- url_for(post.path) %>">
+        <h2 class="post-title"><%= post.title %></h2>
+      </a>
+      <a href="<%- url_for(post.path) %>">
+          <div class="post-abstract">
+            <% if (post.summary && post.summary.length > 0) { %>
+                <%- post.summary %>
+			<% } else if (post.content && post.content.length > 0) { %>
+			    <%- strip_html(post.content).substring(0, 120) %>
+            <% } else if (post.excerpt && post.excerpt.length > 0) { %>
+                <%- strip_html(post.excerpt).substring(0, 120) %>
+            <% } %>
+          </div>
+      </a>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> <%= date(post.date, config.date_format) %></span>
+        <% if (post.tags && post.tags.length > 0) { %>
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            <% post.tags.forEach(function(tag, index) { %>
+
+                <%= tag.name %>
+                <% if (index !== post.tags.length - 1) { %>
+                  ，
+                <% } %>
+            <% }); %>
+          </span>
+        <% } %>
+      </div>
+    </div>
+  </section>
+<% } %>
+<% }); %>
+
+<% if (page.total > 1) { %>
+    <div class="pagination-container">
+      <% if (page.prev) { %>
+        <a href="<%- url_for(page.prev_link) %>" class="prev"><i class="icon icon-arrow-ios-back-outline"></i> 上一页</a>
+      <% } %>
+      <% if (page.next) { %>
+        <a href="<%- url_for(page.next_link) %>" class="next">下一页 <i class="icon icon-arrow-ios-forward-outline"></i></a>
+      <% } %>
+    </div>
+<% } %>
