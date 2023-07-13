@@ -32,7 +32,45 @@ date: 2023-07-13 11:59:18
 |[腾讯软件中心(pc)](https://pc.qq.com/)|[360软件管家(pc)](https://soft.360.cn/)
 
 
+|机场推荐|[XYZ](https://9.234456.xyz/abc.html?t=567)|
+|---|---
+
+
 |我的世界下载||
 |---|---
 |[手机端](https://zihao-il.github.io/)|[PC端](https://www.mcappx.com/)
+
+
+|专业工具下载||
+|---|---
+|[Vposy](https://mp.weixin.qq.com/mp/homepage?__biz=MzIyNjU2NzIxNQ==&hid=2&sn=0d0cb7f7ef080cb1fb6672e01ee632eb)|微信公众号搜索“Vposy”，关注后回复“软件目录”
+
+
+|工具下载||
+|---|---
+|[异星软件空间](https://www.yxssp.com/)|[果核剥壳](https://www.ghxi.com/)
+|[爱纯净](http://www.aichunjing.com/)|
+
+|windows镜像下载||
+|---|---
+|[itellyou](https://msdn.itellyou.cn/)|[next.itellyou](https://next.itellyou.cn/)
+|[系统库](https://www.xitongku.com/)|[HelloWindows](https://hellowindows.cn/)
+|[山己几子木](https://msdn.sjjzm.com/)|[]()
+|[官方windows10](https://www.microsoft.com/zh-cn/software-download/windows10)|[官方windows11](https://www.microsoft.com/zh-cn/software-download/windows11)
+
+|Windows11绕限制直升教程||
+|---|---
+|[教程](https://www.bilibili.com/video/BV1jG4y1x7z1/)|有效
+
+|Windows11跳过登陆教程||
+|---|---
+|[教程1](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
+[教程2](https://www.bilibili.com/video/BV1r24y1m7Jy/) |有效
+|[教程3](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
+
+|镜像站||||
+|---|---|---|---
+|flatpak镜像站|[SJTU](https://mirror.sjtu.edu.cn/docs/flathub)
+|pip镜像站|[SJTU](https://mirror.sjtu.edu.cn/docs/pypi/web/simple)|[BFSU](https://mirrors.bfsu.edu.cn/help/pypi/)|[TUNA](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
+|pytorch镜像站|[SJTU](https://mirror.sjtu.edu.cn/pytorch-wheels)
 
