@@ -16,7 +16,7 @@ categories:
     ## Docs: https://hexo.io/docs/one-command-deployment
     deploy:
         type: git
-        repository: https://github.com/<你的 GitHub 用户名>/<你的 GitHub 用户名>.github.io
+        repository: https://<你的 GitHub 用户名>.github.io
         branch: main #你的储存库分支
 
 将 `Hexo` 文件夹中的文件 `push` 到储存库的默认分支，默认分支通常名为 `main`，旧一点的储存库可能名为 master。  
