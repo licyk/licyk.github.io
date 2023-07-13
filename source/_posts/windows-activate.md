@@ -2,6 +2,8 @@
 title: windows激活方法
 date: 2023-07-13 16:33:38
 tags:
+categories:
+ - 教程
 ---
 windows系统激活方法和激活码
 <!-- more -->

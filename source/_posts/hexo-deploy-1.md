@@ -2,6 +2,8 @@
 title: hexo部署到github pages
 date: 2023-07-13 18:50:18
 tags:
+categories:
+ - 教程
 ---
 这是我在github pages上部署hexo的方法，参考了[官方文档](https://hexo.io/zh-cn/docs/github-pages)
 <!-- more -->

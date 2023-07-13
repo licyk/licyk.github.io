@@ -2,6 +2,8 @@
 title: hexo搭建
 date: 2023-07-13 18:15:06
 tags:
+categories:
+ - 教程
 ---
 hexo搭建教程，教程来自argvchs
 <!-- more -->

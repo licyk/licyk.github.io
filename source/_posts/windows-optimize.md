@@ -2,6 +2,8 @@
 title: windows设置优化
 date: 2023-07-13 16:32:42
 tags:
+categories:
+ - 教程
 ---
 个人使用win11调整的设置
 <!-- more -->

@@ -30,10 +30,10 @@ menu:
         name: box-archive
         theme: solid
         link: /archives
-#    Categories:
-#        name: bookmark
-#        theme: solid
-#        link: /categories
+    书签:
+        name: bookmark
+        theme: solid
+        link: /categories
     标签:
         name: tags
         theme: solid
