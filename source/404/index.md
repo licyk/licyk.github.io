@@ -20,7 +20,7 @@ function count() {
   document.getElementById('timeout').textContent = countTime;
   countTime -= 1;
   if(countTime === 0){
-    location.href = 'Richard Zhu';
+    location.href = 'https://licyk.github.io';
   }
   setTimeout(() => {
     count();
