@@ -63,9 +63,7 @@ P.S. 创建新文章命令中的 `<file>` 是文件名，标题在文章中的 `
 Hexo 博客搭建教程 II：
 1. 安装主题
 
-首先在这里选择一个主题
-
-上面的图片是预览页，下面的蓝色链接是 GitHub 项目页
+首先在[hexo官网](https://hexo.io/themes/)选择一个主题
 
 选好主题后就要安装，在博客根目录下运行下面的命令将主题 Clone 到本地
 
@@ -81,7 +79,7 @@ GitHub 打不开可以用镜像站
     git clone https://github.com/theme-particlex/hexo-theme-particlex.git particlex --depth=1
 
 安装完成后，在博客根目录下的 `_config.yml` 中设置 `theme` 参数为你的主题名称，就可以切换主题，一般主题在 GitHub 项目页下都会有介绍和配置说明，可以按照说明自定义页面
-2. 创建特殊页面
+1. 创建特殊页面
 2.1. 分类页
 
     hexo new page categories
