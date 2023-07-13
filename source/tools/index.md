@@ -12,7 +12,8 @@ date: 2023-07-13 11:59:18
 
 |教程(比较杂)||
 |---|---
-|[电脑使用经验]()|[windows激活]()
+|[电脑使用经验](https://licyk.github.io/2023/07/13/pc-use-experience/)|[windows激活](https://licyk.github.io/2023/07/13/windows-activate)
+|[windows设置优化](https://licyk.github.io/2023/07/13/windows-optimize)|[cinnamon设置优化](https://licyk.github.io/2023/07/13/cinnamon-optimize)
 |[sd-webui教程]()
 
 |网页工具||
