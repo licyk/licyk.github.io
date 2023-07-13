@@ -49,10 +49,9 @@ card:
     enable: true
     description: |
         做自己喜欢的事情就好
-        ...
     iconLinks:
     friendLinks:
-        Argvchs: https://github.com/licyk
+        Github: https://github.com/licyk
 
 # Footer info
 footer:
