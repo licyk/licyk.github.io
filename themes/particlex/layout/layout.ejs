@@ -1,0 +1,58 @@
+<%
+    let type;
+    if (is_home()) type = "index";
+    if (is_post() || is_page()) type = "post";
+    if (is_category() || page.type === "categories") type = "categories";
+    if (is_tag() || page.type === "tags") type = "tags";
+    if (is_archive()) type = "archives";
+    let title;
+    if (is_home()) title = config.title;
+    if (is_post() || is_page()) title = page.title + " | " + config.title;
+    if (is_category()) title = "Categories: " + page.category + " | " + config.title;
+    if (is_tag()) title = "Tags: " + page.tag + " | " + config.title;
+    if (is_archive()) title = "Archives | " + config.title;
+%>
+<!DOCTYPE html>
+<html lang="<%- config.language %>">
+    <head>
+        <meta charset="utf-8" />
+        <title><%= title %></title>
+        <meta name="author" content="<%- config.author %>" />
+        <meta name="description" content="<%- config.description %>" />
+        <meta name="keywords" content="<%- config.keywords %>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="<%- url_for(theme.favicon) %>" />
+        <%- partial("import", { type }) %>
+    </head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="<%- url_for("/images/loading.gif") %>" />
+                    </div>
+                </div>
+            </transition>
+            <%- partial("menu") %>
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <%- partial(type) %>
+                    <%- partial("footer") %>
+                </div>
+            </transition>
+            <% if (theme.preview.enable) { %>
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            <% } %>
+        </div>
+        <script src="<%- url_for("/js/main.js") %>"></script>
+        <% if (type === "post" && page.comments) { %>
+        <%- partial("comment") %>
+        <% } %>
+    </body>
+</html>

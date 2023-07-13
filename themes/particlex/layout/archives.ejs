@@ -1,0 +1,56 @@
+<%
+    let posts = site.posts;
+    posts.data.sort((a, b) => b.date - a.date);
+%>
+<div id="archives">
+    <% if (theme.search.enable) { %>
+    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
+    <% } %>
+    <div id="timeline-wrap" ref="timeline">
+        <% posts.reverse().forEach((post, id) => { %>
+        <div class="timeline" data-title="<%- post.title.toLowerCase().replace(/\s+/g, "") %>">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time"><%= date(post.date, "YYYY/M/D") %></div>
+                <a href="<%- url_for(post.path) %>">
+                    <h3><%= post.title %></h3>
+                </a>
+                <div class="info">
+                    <% if (post.categories && post.categories.data.length !== 0) { %>
+                    <span class="category">
+                        <a href="<%- url_for(post.categories.data[0].path) %>">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            <%= post.categories.data[0].name %>
+                        </a>
+                    </span>
+                    <% } %>
+                    <% if (post.tags && post.tags.data.length !== 0) { %>
+                    <span class="tags">
+                        <span class="icon">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </span>
+                        <% post.tags.data.forEach(tag => { %>
+                        <span class="tag">
+                            <%
+                                const color = [
+                                    "color: #ffa2c4",
+                                    "color: #00bcd4",
+                                    "color: #03a9f4",
+                                    "color: #00a596",
+                                    "color: #ff7d73",
+                                ];
+                                let id = Math.floor(Math.random() * color.length);
+                            %>
+                            <a href="<%- url_for(tag.path) %>" style="<%- color[id] %>"><%= tag.name %></a>
+                        </span>
+                        <% }); %>
+                    </span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
