@@ -102,8 +102,9 @@ theme: particlex #landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
-
+  type: git
+  repository: https://github.com/licyk/licyk.github.io
+  branch: main
 
 # 禁用年度月度归档
 archive_generator:
