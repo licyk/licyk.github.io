@@ -2,7 +2,8 @@
 # https://github.com/theme-particlex/hexo-theme-particlex
 
 # Avatar image
-avatar: /images/avatar.jpg
+avatar: http://q1.qlogo.cn/g?b=qq&amp;nk=3262736740&amp;s=160
+#avatar: /images/avatar.jpg
 
 # Favicon
 favicon: /images/favicon.png
@@ -17,26 +18,31 @@ background:
 
 # Main menu navigation
 menu:
-    Home:
+    首页:
         name: 首页
         theme: solid
         link: /
-    About:
+    关于:
         name: 关于
         theme: solid
         link: /about
-    Archives:
-        name: box-archive
+    归档:
+        name: 归档
         theme: solid
         link: /archives
-    Categories:
-        name: bookmark
-        theme: solid
-        link: /categories
-    Tags:
-        name: tags
+#    Categories:
+#        name: bookmark
+#        theme: solid
+#        link: /categories
+    标签:
+        name: 标签
         theme: solid
         link: /tags
+    工具:
+        name: 标签
+        theme: solid
+        link: /tags
+
 
 # Side info card
 card:
