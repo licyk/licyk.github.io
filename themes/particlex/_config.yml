@@ -41,7 +41,7 @@ menu:
     工具:
         name: 标签
         theme: solid
-        link: /tags
+        link: /tools
 
 
 # Side info card
