@@ -12,14 +12,14 @@ date: 2023-07-13 11:59:18
 
 |教程(比较杂)||
 |---|---
-|[电脑使用经验](/2023/07/13/pc-use-experience/)|[windows激活](https://licyk.github.io/2023/07/13/windows-activate)
+|[电脑使用经验](/2023/07/13/pc-use-experience/)|[windows激活](/2023/07/13/windows-activate)
 |[windows设置优化](/2023/07/13/windows-optimize)|[cinnamon设置优化](/2023/07/13/cinnamon-optimize)
 |[linux命令教程](https://wangchujiang.com/linux-command/)|[sd-webui教程]()
 
 |网页工具||
 |---|---|
-|[QQ消息撤回名片生成](https://licyk.github.io/t/q)|[仿浏览器页面](https://licyk.github.io/t/b)
-|[浏览器主页](https://xiaobaizzz.gitee.io/liulanqizhuye/viaBrowser/)|[滑稽](https://licyk.github.io/t/h)|
+|[QQ消息撤回名片生成](/t/q)|[仿浏览器页面](/t/b)
+|[浏览器主页](https://xiaobaizzz.gitee.io/liulanqizhuye/viaBrowser/)|[滑稽](/t/h)|
 
 
 |应用商店||
