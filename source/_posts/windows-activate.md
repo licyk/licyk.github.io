@@ -12,10 +12,10 @@ windows系统激活方法和激活码
 首先 WIN+X 打开”PowerShell(管理员)”在win11中是"终端(管理员)")
 逐条输入以下指令：
 
-slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-slmgr -skms zh.us.to
-slmgr -ato
-slmgr -dlv
+    slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+    slmgr -skms zh.us.to
+    slmgr -ato
+    slmgr -dlv
 
 之后就可以愉快地使用了。
 
