@@ -50,21 +50,21 @@ card:
     description: |
         做自己喜欢的事情就好
     iconLinks:
-            github:
+        github:
             name: github
-            theme: solid
+            theme: brands
             link: https://github.com/licyk
         qq:
             name: qq
-            theme: solid
+            theme: brands
             link: http://wpa.qq.com/msgrd?v=3&uin=3064404574&site=qq&menu=yes
         bilibili:
             name: bilibili
-            theme: solid
+            theme: brands
             link: https://space.bilibili.com/46497516
         weibo:
             name: weibo
-            theme: solid
+            theme: brands
             link: https://m.weibo.cn/u/5220561442
     friendLinks:
         Argvchs: https://argvchs.github.io
