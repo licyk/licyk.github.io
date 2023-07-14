@@ -18,8 +18,8 @@ date: 2023-07-13 11:59:18
 
 |网页工具||
 |---|---|
-|[QQ消息撤回名片生成](/t/q)|[仿浏览器页面](/t/b)
-|[浏览器主页](https://xiaobaizzz.gitee.io/liulanqizhuye/viaBrowser/)|[滑稽](/t/h)|
+|[QQ消息撤回名片生成](https://licyk.github.io/t/q)|[仿浏览器页面](https://licyk.github.io/t/b)
+|[浏览器主页](https://xiaobaizzz.gitee.io/liulanqizhuye/viaBrowser/)|[滑稽](https://licyk.github.io/t/h)|
 
 
 |应用商店||
