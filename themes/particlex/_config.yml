@@ -50,8 +50,24 @@ card:
     description: |
         做自己喜欢的事情就好
     iconLinks:
+            github:
+            name: github
+            theme: brands
+            link: https://github.com/licyk
+        qq:
+            name: qq
+            theme: brands
+            link: http://wpa.qq.com/msgrd?v=3&uin=3064404574&site=qq&menu=yes
+        bilibili:
+            name: bilibili
+            theme: brands
+            link: https://space.bilibili.com/46497516
+        weibo:
+            name: weibo
+            theme: brands
+            link: https://m.weibo.cn/u/5220561442
     friendLinks:
-        Github: https://github.com/licyk
+        Argvchs: https://argvchs.github.io
 
 # Footer info
 footer:
