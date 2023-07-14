@@ -93,7 +93,7 @@ highlight:
 
 # KaTeX math rendering
 math:
-    enable: false
+    enable: true
 
 # Image preview
 preview:
@@ -101,7 +101,7 @@ preview:
 
 # Article encryption
 crypto:
-    enable: false
+    enable: true
 
 # Search
 search:
