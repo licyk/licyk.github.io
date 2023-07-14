@@ -2,8 +2,10 @@
 title: android软件合集
 date: 2023-07-14 16:42:57
 tags:
+categories:
+ - 软件
 ---
-收集了一些个人使用过的软件
+收集了一些个人使用过的手机软件
 <!-- more -->
 ****
 |玩机||
@@ -17,6 +19,8 @@ tags:
 |[屏幕滤镜（PWM防闪烁）](https://www.coolapk.com/apk/com.omarea.filter)|oled屏幕防闪烁
 |[冰箱 IceBox](https://www.coolapk.com/apk/com.catchingnow.icebox)|冻结软件
 |[AccA](https://github.com/MatteCarra/AccA/)|智能调节充电
+|[magisk](https://github.com/topjohnwu/Magisk)|magisk管理器，支持插件的插件较多
+|[KernelSU](https://github.com/tiann/KernelSU)|KernelSU管理器，新的root选择
 
 
 |监测工具||
@@ -86,6 +90,7 @@ tags:
 |---|---
 |[mx player](https://www.mxplayer.in/)|多格式视频播放器
 |[vlc](https://play.google.com/store/apps/details?id=org.videolan.vlc)|开源多格式视频播放器
+|[bilibili](https://app.bilibili.com/)|视频弹幕网站
 
 
 |文件管理||
@@ -113,6 +118,13 @@ tags:
 |[夜间屏幕](https://github.com/fython/Blackbulb)|夜间护眼工具
 |[ksweb](https://www.kslabs.ru/)|手机搭建网页
 |[迅飞输入法](https://srf.xunfei.cn/)|语音输入准确度高
+|[钛备份](https://play.google.com/store/apps/details?id=com.keramidas.TitaniumBackup)|软件备份工具，不支持android11
+|[Neo Backup](https://f-droid.org/packages/com.machiav3lli.backup/)|支持android11
+|[Swift Backup](https://play.google.com/store/apps/details?id=org.swiftapps.swiftbackup)|支持android11
+|[坚果云markdown](https://www.jianguoyun.com/static/html/markdown-landing/index.html)|markdown编辑器
+|[龙卷风收音机](https://cradio.live/)|收听全球任意电台
+|[microg软件合集](https://microg.org/download.html)|google框架的开源实现
+|[V2rayaNG](https://github.com/2dust/v2rayNG)|代理工具
 
 
 |美化||
@@ -120,6 +132,7 @@ tags:
 |[兽耳助手](https://www.mimikko.cn/)|桌面live2d展示
 |[Volume Styles](https://play.google.com/store/apps/details?id=com.tombayley.volumepanel)|音量调节界面美化
 |[Nova Launcher](https://novalauncher.com/)|第三方桌面
+
 
 |浏览器||
 |---|---
@@ -144,11 +157,13 @@ tags:
 |[微软远程桌面](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx&hl=en_US)|微软官方的远程桌面控制
 |[monect](https://www.monect.com/)|远程控制
 
+
 |虚拟机||
 |---|---
 |[两仪](https://github.com/twoyi/twoyi)|手机虚拟机，已停更
 |[光速虚拟机](https://gsxnj.cn/index)|某些性能方面比vmos强
 |[vmos](http://www.vmos.cn/)|功能比较全
+
 
 |应用市场||
 |---|---
@@ -163,6 +178,9 @@ tags:
 |[apkpure](https://m.apkpure.com/cn/apkpure/com.apkpure.aegon/download/3192527-apk?utm_content=1006&icn=aegon&ici=text_home-m&from=text_home-m?icn=aegon&ici=text_home-m&utm_content=1033)|可以下载google play store的付费软件
 |[Malavida](https://www.malavida.com/en/soft/malavida-app-store/android/)|国外的应用市场
 |[f-droid](https://f-droid.org/)|开源的应用市场
+|[华为应用市场](https://appgallery.huawei.com/app/C27162)|
+|[oppo软件商店](https://store.oppomobile.com/)|
+|[vivo应用商店](http://info.appstore.vivo.com.cn/detail/51699)|
 
 
 |网盘||
