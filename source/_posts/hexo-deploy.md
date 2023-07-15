@@ -5,7 +5,7 @@ tags:
 categories:
  - 教程
 ---
-hexo搭建教程，教程来自argvchs
+hexo搭建教程，教程来自[argvchs](https://argvchs.github.io/)
 <!-- more -->
 argvchs大佬教程的原文地址：  
 [Hexo 博客搭建教程 I](https://argvchs.netlify.app/2022/04/17/hexo-blog-1/)  
@@ -167,7 +167,7 @@ Markdown 是支持渲染 HTML 的，所以可以实现各种效果
 如果你要不使 HTML 标签被渲染可以在右边加 `\` 转义，如 `<tag\>`，但还是推荐 ``code`` 的代码格式
 4.1. 字体
 
-用 `<font>`` 元素来实现字体的样式修改
+用 `<font>` 元素来实现字体的样式修改
 ```markdown
     <font color=<color> size=<size> face=<face>>...</font>
 ```
