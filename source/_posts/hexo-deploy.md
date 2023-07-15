@@ -44,11 +44,11 @@ Markdown 可以看 GitHub 的基本撰写和格式语法
 3. 安装 Hexo
 
 新建一个文件夹，作为博客目录，cd 进入文件夹，运行命令
-
+```bash
     pnpm add hexo-cli -g
     hexo init --no-install
     pnpm i
-
+```
 4. Hexo 的一些命令
 
     生成静态文件：`hexo g`
@@ -66,34 +66,34 @@ Hexo 博客搭建教程 II：
 首先在[hexo官网](https://hexo.io/themes/)选择一个主题
 
 选好主题后就要安装，在博客根目录下运行下面的命令将主题 Clone 到本地
-
+```bash
     cd themes
     git clone <link>.git <theme> --depth=1
-
+```
     `--depth=1` 是为了 Clone 更快，只 Clone 最新提交
 
 GitHub 打不开可以用镜像站
 
 例如我的主题是 `ParticleX`,则为
-
+```bash
     git clone https://github.com/theme-particlex/hexo-theme-particlex.git particlex --depth=1
-
+```
 安装完成后，在博客根目录下的 `_config.yml` 中设置 `theme` 参数为你的主题名称，就可以切换主题，一般主题在 GitHub 项目页下都会有介绍和配置说明，可以按照说明自定义页面
 1. 创建特殊页面
 2.1. 分类页
-
+```bash 
     hexo new page categories
-
+```
 打开 `source/categories/index.md`在 --- 括起来的地方添加 type: categories
 2.1. 标签页
-
+```bash
     hexo new page tags
-
+```
 打开 `source/tags/index.md`在 `---` 括起来的地方添加 `type: tags`
 2.3. 关于页
-
+```bash
     hexo new page about
-
+```
 打开 `source/about/index.md` 在下面添加内容即可
 
 如果想让标题大写的话可以将 `title` 参数改为大写，例如 `title: About`
@@ -128,38 +128,39 @@ blog # Hexo 博客根目录
 
 在 `source` 下添加自定义文件，把文件放在 `js` `css` 文件夹下分类，不然生成的静态文件会很乱
 然后在 `layout.ejs` 下添加如下内容，如果使用网络上的文件直接在 `src` `href` 中填写路径即可
-
+```html
     <script src="/js/<file>"></script>
     <link rel="stylesheet" href="/css/<file>" />
-
+```
 3. 一些自定义文件
 3.1. 鼠标点击特效
 
+```html
     <canvas
-        id="fireworks"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"
-    ></canvas>
+       id="fireworks"
+       style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767" ></canvas>
     <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
     <script src="/js/fireworks.min.js"></script>
+```
 
-[fireworks.min.js](https://static-argvchs.netlify.app/js/fireworks.min.js)
+[`fireworks.min.js`](https://static-argvchs.netlify.app/js/fireworks.min.js)
 3.2. 流星背景特效
-
+```html
     <canvas
         id="background"
         style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"
     ></canvas>
     <script src="/js/background.min.js"></script>
-
-[background.min.js](https://static-argvchs.netlify.app/js/background.min.js)
+```
+[`background.min.js`](https://static-argvchs.netlify.app/js/background.min.js)
 
 3.3. 鼠标指针特效
-
+```html
     <div id="cursor"></div>
     <link rel="stylesheet" href="/css/cursor.min.css" />
     <script src="/js/cursor.min.js"></script>
-
-[cursor.min.css](https://static-argvchs.netlify.app/css/cursor.min.css) [cursor.min.js](https://static-argvchs.netlify.app/js/cursor.min.js)
+```
+[`cursor.min.css`](https://static-argvchs.netlify.app/css/cursor.min.css) [`cursor.min.js`](https://static-argvchs.netlify.app/js/cursor.min.js)
 4. Hexo Markdown 语法补充
 
 Markdown 是支持渲染 HTML 的，所以可以实现各种效果
@@ -167,24 +168,24 @@ Markdown 是支持渲染 HTML 的，所以可以实现各种效果
 4.1. 字体
 
 用 `<font>`` 元素来实现字体的样式修改
-
+```markdown
     <font color=<color> size=<size> face=<face>>...</font>
-
+```
 4.2. 下载文件
 
 只要把文件放到 `source` 下，在 `Markdown` 中引用就行
 
 部分文件可能不会下载，直接在浏览器打开，可以用第二种方法
-
+```markdown
     [...](file)
     <a href="<file>" download>...</a>
-
+```
 4.3. 注释
 
 Markdown 注释和 HTML 一样
-
+```markdown
     <!-- ... -->
-
+```
 特别的，用 `<!-- more -->` 可以控制主页预览内容，后面的内容在显示全文时才出现
 
 Hexo 博客搭建教程 IV：
@@ -195,22 +196,22 @@ Hexo 博客搭建教程 IV：
 注册完成后回到主页，点击左边的 New 新建仓库，名称为 `<user>.github.io`,然后点击 `Create repositpory`` 完成创建
 
 在命令行输入命令，获取 `SSH` 密钥，这个过程会提示你输入一些东西，一直回车就行了
-
+```bash
     ssh-keygen -t ed25519 -C <email>
-
+```
 然后添加到 `SSH-Agent``
-
+```bash
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
-
+```
 输入以下命令复制 `SSH` 密钥，先不用管，后面会用到
-
+```bash
     clip < ~/.ssh/id_ed25519.pub
-
+```
 如果你用 `Windows CMD`
-
+```bash
     clip < %USERPROFILE%\.ssh\id_ed25519.pub
-
+```
 打开你 `GitHub` 右上角的头像中的 `Settings` 设置，点击左边的 `SSH and GPG keys`，点击右上角的 `New SSH key`，将 `SSH` 密钥复制到 `Key` 中，`Title` 不用写，点击 `Add SSH key` 添加密钥
 
 设置好 `SSH` 密钥后用 `ssh -T git@github.com` 检测，如果出现 `Hi! You've successfully authenticated` 则配置成功
@@ -227,10 +228,10 @@ Hexo 博客搭建教程 IV：
 3. 部署到 GitHub Pages
 
 使用下面的命令初始配置
-
+```bash
     git config --global user.name "<user>"
     git config --global user.email "<email>"
-
+```
 打开你博客根目录的 `_config.yml`，设置参数
 
     url: https://<user>.github.io/
@@ -241,9 +242,9 @@ Hexo 博客搭建教程 IV：
         message:
 
 设置好参数，使用下面的命令安装部署插件，安装了才能部署到 GitHub Pages
-
+```bash
     pnpm add hexo-deployer-git
-
+```
 在博客根目录下使用 hexo d -g 部署到 GitHub Pages
 4. 部署到 Vercel 或 Netlify 加速访问
 
