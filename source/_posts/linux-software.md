@@ -17,6 +17,21 @@ Linux软件存档
 |[launchpad](https://launchpad.net/)
 
 
+|桌面环境||
+|---|---
+|[gnome](https://www.gnome.org/)
+|[gnome flashback](https://wiki.gnome.org/Projects/GnomeFlashback)
+|[xfce](https://www.xfce.org/)
+|[kde plasma](https://kde.org/plasma-desktop/)
+|[cinnamon](https://github.com/linuxmint/cinnamon-desktop)
+|[mate](https://mate-desktop.org/)
+|[lxde](http://www.lxde.org/)
+|[lxqt](https://lxqt-project.org/)
+|[unity](https://ubuntuunity.org/)
+|[dde](https://www.deepin.org/zh/dde/)
+|[cutefish](https://github.com/cutefishos)
+
+
 |系统||
 |---|---
 |[gparted](https://gparted.org/)|分区编辑工具
@@ -58,6 +73,10 @@ Linux软件存档
 |[htop](https://htop.dev/)|终端任务管理器
 |[xsensors](https://github.com/Mystro256/xsensors)|硬件温度监视
 |[MissionCenter](https://flathub.org/apps/io.missioncenter.MissionCenter)|任务管理器
+|[fcitx5](https://github.com/fcitx/fcitx5)|输入法框架
+|[ibus](https://github.com/ibus/ibus)|输入法框架
+|[carbonyl](https://github.com/fathyb/carbonyl)|终端浏览器
+|[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
 
 
 |wine||
@@ -130,6 +149,7 @@ Linux软件存档
 |[v2ray](https://www.v2ray.com/chapter_00/install.html)|代理内核
 |[zerotier](https://www.zerotier.com/)|内网穿透工具
 |[Watt Toolkit](https://steampp.net/)|代理工具
+|[v2raya](https://github.com/v2rayA/v2rayA)|代理工具
 
 
 |社交||
