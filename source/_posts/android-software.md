@@ -1,5 +1,5 @@
 ---
-title: android软件合集
+title: Android软件合集
 date: 2023-07-14 16:42:57
 tags:
 categories:
@@ -44,7 +44,7 @@ categories:
 |软件外设||
 |---|---
 |[audiorelay](https://audiorelay.net/)|音频串流
-|[droidcam](https://www.dev47apps.com/)|麦克风和摄像头串流
+|[droidcam](https://droidcam.org/)|麦克风和摄像头串流
 |[soundwire](https://georgielabs.net/)|音频串流
 |[womic](https://wolicheng.com/womic/)|麦克风串流
 |[IP摄像头](https://play.google.com/store/apps/details?id=com.shenyaocn.android.WebCam)|摄像头串流
@@ -77,6 +77,7 @@ categories:
 |[qq音乐](https://y.qq.com/download/download.html)|版权多
 |[酷狗音乐](https://download.kugou.com/)|中规中矩
 |[apple music](https://play.google.com/store/apps/details?id=com.apple.android.music)|版权多
+|[龙卷风收音机](https://cradio.live/)|收听全球任意电台
 
 
 |图片||
@@ -119,12 +120,13 @@ categories:
 |[ksweb](https://www.kslabs.ru/)|手机搭建网页
 |[迅飞输入法](https://srf.xunfei.cn/)|语音输入准确度高
 |[钛备份](https://play.google.com/store/apps/details?id=com.keramidas.TitaniumBackup)|软件备份工具，不支持android11
-|[Neo Backup](https://f-droid.org/packages/com.machiav3lli.backup/)|支持android11
-|[Swift Backup](https://play.google.com/store/apps/details?id=org.swiftapps.swiftbackup)|支持android11
+|[Neo Backup](https://f-droid.org/packages/com.machiav3lli.backup/)|支持android11的软件和数据备份
+|[Swift Backup](https://play.google.com/store/apps/details?id=org.swiftapps.swiftbackup)|支持android11的软件和数据备份
 |[坚果云markdown](https://www.jianguoyun.com/static/html/markdown-landing/index.html)|markdown编辑器
-|[龙卷风收音机](https://cradio.live/)|收听全球任意电台
+|[speedtest](https://www.speedtest.net/apps)|网络测速软件
 |[microg软件合集](https://microg.org/download.html)|google框架的开源实现
 |[V2rayaNG](https://github.com/2dust/v2rayNG)|代理工具
+[clash](https://github.com/Kr328/ClashForAndroid)|代理工具
 
 
 |美化||
@@ -163,6 +165,7 @@ categories:
 |[两仪](https://github.com/twoyi/twoyi)|手机虚拟机，已停更
 |[光速虚拟机](https://gsxnj.cn/index)|某些性能方面比vmos强
 |[vmos](http://www.vmos.cn/)|功能比较全
+|[X8沙箱](https://www.x8ds.com/)|自带应用变速器
 
 
 |应用市场||
@@ -178,9 +181,9 @@ categories:
 |[apkpure](https://m.apkpure.com/cn/apkpure/com.apkpure.aegon/download/3192527-apk?utm_content=1006&icn=aegon&ici=text_home-m&from=text_home-m?icn=aegon&ici=text_home-m&utm_content=1033)|可以下载google play store的付费软件
 |[Malavida](https://www.malavida.com/en/soft/malavida-app-store/android/)|国外的应用市场
 |[f-droid](https://f-droid.org/)|开源的应用市场
-|[华为应用市场](https://appgallery.huawei.com/app/C27162)|
-|[oppo软件商店](https://store.oppomobile.com/)|
-|[vivo应用商店](http://info.appstore.vivo.com.cn/detail/51699)|
+|[华为应用市场](https://appgallery.huawei.com/app/C27162)|华为官方
+|[oppo软件商店](https://store.oppomobile.com/)|oppo官方
+|[vivo应用商店](http://info.appstore.vivo.com.cn/detail/51699)|vivo官方
 
 
 |网盘||
@@ -190,3 +193,4 @@ categories:
 |[onedrive](https://www.microsoft.com/zh-cn/microsoft-365/onedrive/mobile)|microsoft官方网盘
 |[123云盘](https://www.123pan.com/Downloadclient)|空间大，目前不限速
 |[蓝奏云](https://up.woozooo.com/)|限制文件大小，但空间无限
+|[阿里云盘](https://www.aliyundrive.com/download)|速度快
