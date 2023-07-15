@@ -16,6 +16,13 @@ date: 2023-07-13 11:59:18
 |[windows设置优化](/2023/07/13/windows-optimize)|[cinnamon设置优化](/2023/07/13/cinnamon-optimize)
 |[linux命令教程](https://wangchujiang.com/linux-command/)|[sd-webui教程]()
 
+
+|个人软件存档列表||
+|---|---
+|[windows](/2023/07/14/windows-software)
+|[Android](/2023/07/14/android-software)
+|[Linux](/2023/07/15/linux-software)
+
 |网页工具||
 |---|---|
 |[QQ消息撤回名片生成](https://licyk.github.io/t/q)|[仿浏览器页面](https://licyk.github.io/t/b)

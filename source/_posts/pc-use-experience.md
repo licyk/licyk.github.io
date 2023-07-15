@@ -2,6 +2,9 @@
 title: 电脑使用
 date: 2023-07-13 16:16:17
 tags:
+ - linux
+ - windows
+ - android
 categories:
  - 教程
 ---
@@ -54,57 +57,6 @@ categories:
 控制面板 control
 directx诊断 dxdiag
 自启动程序图标 shell:startup
-
-
-●v2rayN项目：
-https://github.com/2dust/v2rayN
-
-
-●Windows编辑右键菜单工具：
-https://github.com/BluePointLilac/ContextMenuManager
-
-
-●Windows文件管理器快捷图标管理工具：
-https://github.com/1357310795/MyComputerManager
-
-
-●Windows11设置窗口边框毛玻璃效果工具：
-https://github.com/MicaForEveryone/MicaForEveryone
-
-
-●Windows设置任务栏透明效果工具：
-https://github.com/TranslucentTB/TranslucentTB
-
-
-●Windows设置任务栏分段工具：
-https://github.com/Erisa/RoundedTB
-
-
-●Windows设置文件管理器透明工具：
-https://github.com/Maplespe/ExplorerBlurMica
-
-
-●Windows设置右键菜单保护工具：
-https://github.com/HaujetZhao/Protect-Windows-Context-Menu
-
-
-●Windows11 docker栏工具：
-https://chrisandriessen.nl/
-https://github.com/ChrisAnd1998/TaskbarXI
-
-
-●Windows MacOS风格任务栏工具：
-https://www.droptopfour.com/
-
-
-●Windows自定义桌面工具：
-https://www.rainmeter.net/
-https://github.com/rainmeter/rainmeter
-
-
-●Windows自定义桌面组件工具：
-https://jaxcore.app/
-https://github.com/Jax-Core/JaxCore
 
 
 ●Windows开始菜单图标路径：
@@ -575,14 +527,6 @@ tmux
 
 ●termux安装linux脚本链接：
 https://gitee.com/skymysky/linux#tmoe-linux
-
-
-●magisk下载：
-https://github.com/topjohnwu/Magisk
-
-
-●v2rayNG项目：
-https://github.com/2dust/v2rayNG
 
 
 -------------------------------------------------

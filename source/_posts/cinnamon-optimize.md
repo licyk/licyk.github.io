@@ -2,6 +2,7 @@
 title: cinnamon设置优化
 date: 2023-07-13 16:32:54
 tags:
+ - linux
 categories:
  - 教程
 ---

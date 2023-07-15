@@ -2,10 +2,11 @@
 title: Windows软件合集
 date: 2023-07-14 20:14:48
 tags:
+ - windows
 categories:
  - 软件
 ---
-收集了一些个人使用过的windows软件
+Windows软件存档
 <!-- more -->
 ****
 |浏览器||
@@ -27,7 +28,7 @@ categories:
 |[wps](https://platform.wps.cn/)|国内office工具，上手简单
 |[microsoft 365](https://www.microsoft.com/zh-cn/microsoft-365/)|microsoft自家office工具
 |[opentoonz](https://opentoonz.github.io/)|动画制作
-|[Blender](https://www.blender.org/)|3d建模，渲染
+|[Blender](https://www.blender.org/)|开源，免费的3d建模，渲染软件
 |[希沃易+](https://e.seewo.com/)|希沃全家桶
 |[OBS Studio](https://obsproject.com/)|视频录制，直播，可扩展性强
 |[obs-websocket](https://obsproject.com/forum/resources/obs-websocket-remote-control-obs-studio-using-websockets.466/)|obs远程控制插件
@@ -45,6 +46,11 @@ categories:
 |[Autodesk Maya](https://www.autodesk.com.cn/products/maya/overview)|3d建模，渲染
 |[Autodesk 3ds Max](https://www.autodesk.com.cn/products/3ds-max/overview)|3d建模，渲染
 |[FL STUDIO](https://www.flstudiochina.com/)|音乐制作
+|[slack](https://slack.com/intl/zh-cn/downloads/windows)|办公协作
+|[thunderbird](https://www.thunderbird.net/zh-CN/)|邮件收发平台
+|[gimp](https://www.gimp.org/downloads/)|开源，免费的图片编辑软件
+|[kdenlive](https://kdenlive.org/zh/features-zh/)|开源，免费的视频编辑软件
+|[Davinci Resolve](https://www.blackmagicdesign.com/cn/products/davinciresolve/)|视频编辑
 
 
 |开发||
@@ -141,6 +147,7 @@ categories:
 |[TaskbarXI](https://github.com/ChrisAnd1998/TaskbarXI)|docker栏
 |[TaskbarX](https://chrisandriessen.nl/taskbarx)|docker栏
 |[Aerial](https://chrisandriessen.nl/aerial)|窗口最大化的大小限制工具，配合docker栏工具使用
+[RoundedTB](https://github.com/Erisa/RoundedTB)|任务栏分段
 
 
 |虚拟机||
@@ -149,6 +156,7 @@ categories:
 |[VirtualBox](https://www.virtualbox.org/)|性能较弱
 |[unraid](https://unraid.net/zh)|虚拟化工具，性能强
 |[proxmox](https://www.proxmox.com/en/)|开源的企业级服务器虚拟化工具，性能强
+[qemu](https://www.qemu.org/)|开源的虚拟机
 
 
 |优化工具||
