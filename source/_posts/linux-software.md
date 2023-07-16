@@ -141,6 +141,7 @@ Linux软件存档
 |[kdenlive](https://kdenlive.org/zh/features-zh/)|视频编辑
 |[thunderbird](https://www.thunderbird.net/zh-CN/)|邮件管理
 |[slack](https://slack.com/intl/zh-cn/downloads/windows)|办公协作
+|[思源笔记](https://b3log.org/siyuan/download.html)|强大的笔记编辑和管理软件
 
 
 |代理工具||

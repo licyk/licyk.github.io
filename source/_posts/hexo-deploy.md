@@ -2,6 +2,7 @@
 title: hexo搭建
 date: 2023-07-13 18:15:06
 tags:
+ - hexo
 categories:
  - 教程
 ---

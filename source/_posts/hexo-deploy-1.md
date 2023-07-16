@@ -2,6 +2,7 @@
 title: hexo部署到github pages
 date: 2023-07-13 18:50:18
 tags:
+ - hexo
 categories:
  - 教程
 ---

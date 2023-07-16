@@ -51,6 +51,7 @@ Windows软件存档
 |[gimp](https://www.gimp.org/downloads/)|开源，免费的图片编辑软件
 |[kdenlive](https://kdenlive.org/zh/features-zh/)|开源，免费的视频编辑软件
 |[Davinci Resolve](https://www.blackmagicdesign.com/cn/products/davinciresolve/)|视频编辑
+|[思源笔记](https://b3log.org/siyuan/download.html)|强大的笔记编辑和管理软件
 
 
 |开发||

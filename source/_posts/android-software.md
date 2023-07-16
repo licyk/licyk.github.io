@@ -128,6 +128,8 @@ Android软件存档
 |[microg软件合集](https://microg.org/download.html)|google框架的开源实现
 |[V2rayaNG](https://github.com/2dust/v2rayNG)|代理工具
 [clash](https://github.com/Kr328/ClashForAndroid)|代理工具
+|[Daedalus](https://github.com/iTXTech/Daedalus)|免root修改dns
+|[思源笔记](https://b3log.org/siyuan/download.html)|强大的笔记编辑和管理软件
 
 
 |美化||
