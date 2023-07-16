@@ -946,7 +946,7 @@ cd /usr/share/fonts
 #用来放置从虚拟机外复制过来的字体文件
 mkdir truetype
 #U盘挂载操作，不要照抄啊，挂载点和设备名可能不一样
-mount -t vfat -o iocharset=cp950 /dev/sdb1 /mnt/Udisk    
+mount -t vfat -o iocharset=cp950 /dev/sdb1 /mnt/Udisk
 cd /mnt/Udisk
 cp ./msyh.ttf /usr/share/fonts/truetype    
 cd /usr/share/fonts/truetype
@@ -2914,119 +2914,119 @@ vim .tmux.conf
         在一般模式中可以进行删除、复制、粘贴等的操作，但是却无法编辑文件的内容，只有当到你按下`i`, `I`, `o`, `O`, `a`, `A`, `r`, `R`等任何一个字母之后才会进入编辑模式。这时候屏幕的左下方会出现`INSERT`或`REPLACE`的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下`Esc`即可退出编辑模式。
 
 2、命令行模式：
-        输入【 : / ? 】三个中的任何一个，就可以将光标移动到最底下那一行。在这个模式中， 可以提供查找、读取、存盘、替换字符、离开vi、显示行号等的动作则是在此模式中完成的！
+        输入`:` `/` `?`三个中的任何一个，就可以将光标移动到最底下那一行。在这个模式中， 可以提供`查找`、`读取`、`存盘`、`替换字符`、`离开vi`、`显示行号`等的动作则是在此模式中完成的！
 
 3、打开文件
 ```bash
 vim /path/to/somefile
 ```
-    vim +# :打开文件，并定位于第#行 
-    vim +：打开文件，定位至最后一行
-    vim +/PATTERN : 打开文件，定位至第一次被PATTERN匹配到的行的行首
+>vim +# :打开文件，并定位于第#行 
+>vim +：打开文件，定位至最后一行
+>vim +/PATTERN : 打开文件，定位至第一次被PATTERN匹配到的行的行首
 
 一般模式可用的按钮说明
 4、移动光标
-【h、j、k、l】，分别控制光标左、下、上、右移一格
+`h`、`j`、`k`、`l`，分别控制光标`左`、`下`、`上`、`右`移一格
 
 翻屏
-Ctrl+f: 向下翻一屏
-Ctrl+b: 向上翻一屏
-Ctrl+d: 向下翻半屏
-Ctrl+u: 向上翻半屏
+`Ctrl+f`: 向下翻一屏
+`Ctrl+b`: 向上翻一屏
+`Ctrl+d`: 向下翻半屏
+`Ctrl+u`: 向上翻半屏
 
-【n<space>】光标向右移动n个字符
-【Home】移动到这一行的最前面字符处:0数字，但不能用数字小键盘上的数字
-【End】 移动到这一行的最后面字符处:$，我测试好像不行
-【w】光标跳到下个字的开头
-【e】光标跳到下个字的字尾
+`n<space>`光标向右移动n个字符
+`Home`移动到这一行的最前面字符处:0数字，但不能用数字小键盘上的数字
+`End` 移动到这一行的最后面字符处:$，我测试好像不行
+`w`光标跳到下个字的开头
+`e`光标跳到下个字的字尾
 
-【H】 光标移动到这个屏幕的最上方那一行的第一个字符
-【M】 光标移动到这个屏幕的中间那一行的第一个字符
-【L】光标移动到这个屏幕的最下方那一行的第一个字符
+`H` 光标移动到这个屏幕的最上方那一行的第一个字符
+`M` 光标移动到这个屏幕的中间那一行的第一个字符
+`L`光标移动到这个屏幕的最下方那一行的第一个字符
 
-【G】 移动到这个文件的最后一行
-【nG】移动到这个文件的第n行(可配合:set nu)
-【gg】 移动到这个文件的第一行，相当于1G
-【n<Enter>】光标向下移动n行
+`G` 移动到这个文件的最后一行
+`nG`移动到这个文件的第n行(可配合:set nu)
+`gg` 移动到这个文件的第一行，相当于1G
+`n<Enter>`光标向下移动n行
 
 5、查找与替换
-【/word】 向光标向下寻找一个名称为word的字符串
-【?word】 向光标向上寻找一个名称为word的字符串
-【n】 代表重复前一个查找的动作
-【N】 与n刚好相反，为【反向】进行行前一个查找动作
+`/word` 向光标向下寻找一个名称为word的字符串
+`?word` 向光标向上寻找一个名称为word的字符串
+`n` 代表重复前一个查找的动作
+`N` 与n刚好相反，为`反向`进行行前一个查找动作
 
-【:n1,n2s/word1/word2/g】  n1与n2为数字，在第n1与n2行之间查找word1 这个字符串，并将该字符串替换为word2
+`:n1,n2s/word1/word2/g`  n1与n2为数字，在第n1与n2行之间查找word1 这个字符串，并将该字符串替换为word2
 
-【:1,$s/word1/word2/g】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2
-【:1,$s/word1/word2/gc】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2 ，且在替换前提示用户确认是否进行替换
+`:1,$s/word1/word2/g` 从第一行到最后一行查找word1字符串，并将该字符串替换为word2
+`:1,$s/word1/word2/gc` 从第一行到最后一行查找word1字符串，并将该字符串替换为word2 ，且在替换前提示用户确认是否进行替换
 
 6、删除、复制与粘贴
 
-【x】 为向后删除一个字符 (相当于【del】键)
-【X】 为向前删除一个字符(相当于【backspace】键)
-【nx】 连续向后删除n个字符
+`x` 为向后删除一个字符 (相当于`del`键)
+`X` 为向前删除一个字符(相当于`backspace`键)
+`nx` 连续向后删除n个字符
 
-【dd】 删除光标所在行
-【dn】 删除光标所在的向下n行
-【d1G】 删除光标所在行到第一行的所有数据
-【dG】 删除光标所在到最后一行的所有数据
+`dd` 删除光标所在行
+`dn` 删除光标所在的向下n行
+`d1G` 删除光标所在行到第一行的所有数据
+`dG` 删除光标所在到最后一行的所有数据
 
-【d$】 删除光标所在处，到该行的最后一个字符
-【d0】 删除光标所在处，到该行的最前一个字符
+`d$` 删除光标所在处，到该行的最后一个字符
+`d0` 删除光标所在处，到该行的最前一个字符
 
-【yy】 复制光标所在的那一行
-【nyy】 复制光标所在的向下n列
+`yy` 复制光标所在的那一行
+`nyy` 复制光标所在的向下n列
 
-【y1G】 复制光标所在行到第一行的所有数据
-【yG】 复制光标所在行到最后一行的所有数据
+`y1G` 复制光标所在行到第一行的所有数据
+`yG` 复制光标所在行到最后一行的所有数据
 
-【y0】 复制光标所在的那个字符到该行行首的所有数据
-【y$】 复制光标所在的那个字符到该行行尾的所有数据
+`y0` 复制光标所在的那个字符到该行行首的所有数据
+`y$` 复制光标所在的那个字符到该行行尾的所有数据
 
-【p】将已复制的数据在光标下一行粘贴上
-【P】 则为贴在光标的上一行
+`p`将已复制的数据在光标下一行粘贴上
+`P` 则为贴在光标的上一行
 
-【u】 恢复前一个操作
-【Ctrl+r】重做上一个操作
+`u` 恢复前一个操作
+`Ctrl+r`重做上一个操作
 
-【.】 是重复前一个操作
+`.` 是重复前一个操作
 
 7、一般模式切换到编辑模式的可用的按钮说明
-【i, I】 进入编辑模式：
-i 为【从目前光标所在处插入】
-I 为【在目前所在行的第一个非空格符处开始插入】
+`i, I` 进入编辑模式：
+i 为`从目前光标所在处插入`
+I 为`在目前所在行的第一个非空格符处开始插入`
  
-【a, A】 进入编辑模式(Insert mode)：
-a 为【从目前光标所在的下一个字符处开始插入】
-A 为【从光标所在行的最后一个字符处开始插入】
+`a, A` 进入编辑模式(Insert mode)：
+a 为`从目前光标所在的下一个字符处开始插入`
+A 为`从光标所在行的最后一个字符处开始插入`
 
-【o, O】 进入编辑模式：
-o 为【在目前光标所在的下一行处插入新的一行】
+`o, O` 进入编辑模式：
+o 为`在目前光标所在的下一行处插入新的一行`
 O 为在目前光标所在处的上一行插入新的一行
 
-【r, R】 进入取代模式：
+`r, R` 进入取代模式：
 r 只会取代光标所在的那一个字符一次
 R会一直取代光标所在的文字，直到按下 ESC 为止；
 
-【Esc】 退出编辑模式，回到一般模式
+`Esc` 退出编辑模式，回到一般模式
 
 8、一般模式切换到命令行模式可用的按钮说明
-【:w】 保存编辑的内容
-【:w!】强制写入该文件，但跟你对该文件的权限有关
-【:q】 离开vi
-【:q!】 不想保存修改强制离开
-【:wq】 保存后离开
-【:x】 保存后离开
-【ZZ】 若文件没有更动，则不保存离开，若文件已经被更改过，则保存后离开
+`:w` 保存编辑的内容
+`:w!`强制写入该文件，但跟你对该文件的权限有关
+`:q` 离开vi
+`:q!` 不想保存修改强制离开
+`:wq` 保存后离开
+`:x` 保存后离开
+`ZZ` 若文件没有更动，则不保存离开，若文件已经被更改过，则保存后离开
 
-【:w filename】 将编辑的数据保存成另一个文件（类似另存）
-【:r filename】 在编辑的数据中，读入另一个文件的数据。即将【filename】 这个文件的内容加到光标所在行后面。
+`:w filename` 将编辑的数据保存成另一个文件（类似另存）
+`:r filename` 在编辑的数据中，读入另一个文件的数据。即将`filename` 这个文件的内容加到光标所在行后面。
 
-【:n1,n2 w filename】 将n1到n2的内容保存成filename这个文件。
-【:! command】暂时离开vi 到命令行模式下执行command的显示结果！例如 【:! ls /home】即可在 vi 当中察看/home底下以ls输出的文件信息！
+`:n1,n2 w filename` 将n1到n2的内容保存成filename这个文件。
+`:! command`暂时离开vi 到命令行模式下执行command的显示结果！例如 `:! ls /home`即可在 vi 当中察看/home底下以ls输出的文件信息！
 
-【:set nu】 显示行号
-【:set nonu】 与 set nu 相反，为取消行
+`:set nu` 显示行号
+`:set nonu` 与 set nu 相反，为取消行
 
 9、vim的缓存文件、恢复与开启时的警告信息
 我们知道一些常用的编辑软件，都有个恢复的功能，就是说当你的系统因为某些原因而导致类似当机的情况时，还可以利用这个恢复功能将之前未保存的数据找回来。我们的VIM也有这个功能。
@@ -3053,11 +3053,11 @@ R会一直取代光标所在的文字，直到按下 ESC 为止；
 alias这个命令来查看是不是有alias vi=’vim’这一行。
 
 11、块选择
-【v】字符选择，会将光标经过的地方反白选择
-【V】 行选择，会将光标经过的行反白选择
-【Ctrl+v】 块选择，可以用长方形的方式选择资料 （提制竖列）
-【y】 将反白的地方复制
-【d】 将反白的地方删除
+`v`字符选择，会将光标经过的地方反白选择
+`V` 行选择，会将光标经过的行反白选择
+`Ctrl+v` 块选择，可以用长方形的方式选择资料 （提制竖列）
+`y` 将反白的地方复制
+`d` 将反白的地方删除
 
 12、分屏显示一个文件
 Ctrl+w, s: 水平拆分窗口 （按住Ctrl+w后松开键盘，按键盘上的s键就可以水平拆分）
@@ -3069,26 +3069,26 @@ Ctrl+w, v: 垂直拆分窗口 （按住Ctrl+w后松开键盘，按键盘上的v�
 
 13、多文件编辑
 大家在使用vim的时候，可能会碰到你需要复制一个文件中的某段到另外一个文件中，而vim不能够在关闭的时候，把这段保留住。或者是用其它的方法复制。
-【vim file1 file2】
+`vim file1 file2`
 
-【:n】编辑下一个文件
-【:N】编辑上一个文件
-【:files】列出目前这个vim编辑的所有文件
+`:n`编辑下一个文件
+`:N`编辑上一个文件
+`:files`列出目前这个vim编辑的所有文件
 
 多窗口功能
 有两个需要对照着看的文件
-【:sp filename】开启一个新窗口，如果有加 filename， 表示在新窗口开启一个新文件，否则表示两个窗口为同一个文件内容(同步显示)。
+`:sp filename`开启一个新窗口，如果有加 filename， 表示在新窗口开启一个新文件，否则表示两个窗口为同一个文件内容(同步显示)。
 
-【ctrl+w+j】
-【ctrl+w+↓】按键的按法是：先按下 【ctrl】 不放， 再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。
+`ctrl+w+j`
+`ctrl+w+↓`按键的按法是：先按下 `ctrl` 不放， 再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。
 
-【ctrl+w+k】
-【ctrl+w+↑】同上，不过光标移动到上面的窗口。
+`ctrl+w+k`
+`ctrl+w+↑`同上，不过光标移动到上面的窗口。
 
 vim 环境设定与记录(~/.vimrc, ~/.viminfo)
 
 14、参数参考文档。  
-
+```
     设定自动缩进
     :set autoindent
     :set ai
@@ -3120,15 +3120,15 @@ vim 环境设定与记录(~/.vimrc, ~/.viminfo)
 
     :w   /path/to/somewhere
     :ADDR1,ADDR2w /path/to/somewhere
-
+```
     配置文件（保存退出vim后，在下次使用vim的时候，就会有自己的vim操作环境了。）
+    
+    >/etc/vimrc（全局配置有效）
+    >~/.vimrc   (当前bash)
 
-    /etc/vimrc（全局配置有效）
-    ~/.vimrc   (当前bash)
+    >注意;上面的参数参考中每一行前面加不加`:`效果都是一样的。
 
-        注意;上面的参数参考中每一行前面加不加【:】效果都是一样的。
-
-15、如果想自己专研vim  可以执行命令： vimtutor  (此命令可以自己学习vim)
+15、如果想自己专研vim  可以执行命令： `vimtutor`  (此命令可以自己学习vim)
 
 
 ## Linux控制手机(Android)：
@@ -3138,285 +3138,278 @@ vim 环境设定与记录(~/.vimrc, ~/.viminfo)
 https://github.com/Genymobile/scrcpy
 https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn
 ### 使用有线连接：
-1、首先需要开启Android设备的开发者选项和允许USB调试。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
-1）打开手机找到【设置】-->找到【系统】一栏（有些手机是更多设置）-->选择打开【开发者选项】和启用【USB调试】，推荐启用【“仅充电”模式下允许ADB调试】
+1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
+1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
 2）如果找不到开发者选项在哪，可以按照下面的方法找到开发者选项并打开：
-打开手机找到【设置】-->点击【更多设置】-->点击进入【关于手机】-->找到【版本号】连续点击7次即可开启开发者模式
+打开手机找到`设置`-->点击`更多设置`-->点击进入`关于手机`-->找到`版本号`连续点击7次即可开启开发者模式
 2、手机用usb线连接电脑，然后打开终端
 3、检查是否连接成功
+```bash
 $ adb devices
-
 List of devices attached
 28PNW18349738948	device
-
+```
 (手机会提示是否允许调试，点击确定)
 说明连接成功
 4、使用scrcpy进行连接
-$ scrcpy
-
+```
+scrcpy
+```
 此时会弹出一个可以控制手机的窗口，可以通过鼠标和键盘控制手机
 
 ### 使用无线连接：
-注：确保手机和电脑处在同一个局域网中
-1、首先需要开启Android设备的开发者选项和允许USB调试。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
-1）打开手机找到【设置】-->找到【系统】一栏（有些手机是更多设置）-->选择打开【开发者选项】和启用【USB调试】，推荐启用【“仅充电”模式下允许ADB调试】
+注：确保手机和电脑处在`同一个局域网`中
+1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
+1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
 2）如果找不到开发者选项在哪，可以按照下面的方法找到开发者选项并打开：
-打开手机找到【设置】-->点击【更多设置】-->点击进入【关于手机】-->找到【版本号】连续点击7次即可开启开发者模式
+打开手机找到`设置`-->点击`更多设置`-->点击进入`关于手机`-->找到`版本号`连续点击7次即可开启开发者模式
 2、手机用usb线连接电脑，然后打开终端
 3、检查是否连接成功
+```bash
 $ adb devices
-
 List of devices attached
 28PNW18349738948	device
-
+```
 (手机会提示是否允许调试，点击确定)
 说明连接成功
 4、启用手机网络调试
-$ adb tcpip 5555
+```bash
+adb tcpip 5555
+```
 此时可以断开手机和电脑的连接
-4、查看手机的ip，比如192.168.1.111
+4、查看手机的ip，比如`192.168.1.111`
 然后使用adb无线连接
+```bash
 $ adb connect 192.168.1.111:5555
-
 connected to 192.168.1.111:5555
+```
 此时连接成功
 5、使用scrcpy进行连接
-$ scrcpy
-
+```bash
+scrcpy
+```
 此时会弹出一个可以控制手机的窗口，可以通过鼠标和键盘控制手机
 
-注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
+>注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
 
 
 ## Linux设置软件开机自启动：
 一、有界面的程序自启动
 
-利用Linux的 .desktop文件实现开机启动。
-在/etc/xdg/autostart 目录下建立一个 test.desktop文件，并对文件进行以下编辑。
+利用Linux的 `.desktop`文件实现开机启动。
+在`/etc/xdg/autostart` 目录下建立一个 `test.desktop`文件，并对文件进行以下编辑。
 操作步骤
 
-    打开/etc/xdg/autostart目录
-
-    cd /etc/xdg/autostart
-
-    或者打开~/.config/autostart目录
-
-    cd ~/.config/autostart
-
-    建立test.desktop文件
-
-    touch test.desktop
-
-
-    编写文件并保存
-
-    sudo vim test.desktop
-
-
+打开`/etc/xdg/autostart`目录:
+```bash
+cd /etc/xdg/autostart
+```
+或者打开`~/.config/autostart`目录:
+```bash
+cd ~/.config/autostart
+```
+建立test.desktop文件:
+```bash
+touch test.desktop
+```
+编写文件并保存:
+```bash
+sudo vim test.desktop
+```
 添加如下代码：
-
+```
 [Desktop Entry]
 Name=Test	 		#可执行文件名字
 Exec=/root/Test 	#可执行文件路径
 Type=Application	#可执行文件类型
-
-
+```
 桌面条目具体要求和含义可见：https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
-
-注意：
-
-    需要root权限
-    此设置开机自启动的方法与rc.local方法不同的是，此方法适合桌面级软件的开机自启动（软件有界面）
+>注意：
+>需要root权限
+>此设置开机自启动的方法与`rc.local`方法不同的是，此方法适合桌面级软件的开机自启动（软件有界面）
 
 二、无界面的程序自启动
 ① 方式一
 
-Ubuntu 20.04的服务管理是基于systemd的，因此设置服务自启动最推荐的方法是在/etc/systemd/user目录下创建一个systemd服务文件，配置好要执行的服务。
+Ubuntu 20.04的服务管理是基于`systemd`的，因此设置服务自启动最推荐的方法是在`/etc/systemd/user`目录下创建一个systemd服务文件，配置好要执行的服务。
 
-    该种方式在ExecStart字段中指定开机自启动的程序是可执行文件的时候会管用，但在某些情况下，当ExecStart字段指定为脚本文件时可能会失效，并且此方式貌似需要登录系统后才会启动指定的程序
+该种方式在`ExecStart`字段中指定开机自启动的程序是可执行文件的时候会管用，但在某些情况下，当`ExecStart`字段指定为脚本文件时可能会失效，并且此方式貌似需要登录系统后才会启动指定的程序
 
 操作步骤
 
-    创建我们需要开机自启动的脚本，例如test.sh，其内容如下：
+创建我们需要开机自启动的脚本，例如test.sh，其内容如下：
+```sh
+#!/bin/bash
+cd ~/
+touch 11111111111.txt
+```
+在`/etc/systemd/user`目录下创建一个systemd服务文件, 命名为`user-defined.service`（可以命名为以`.service`结尾的任何名称）, 内容如下：
+```
+[Unit]
+After=network.service
+#After表示在哪个服务启动后启动我们的程序，After=network.service 表示网络连接完成后，启动我们的程序
 
-    #!/bin/bash
+[Service]
+ExecStart=/home/hqc/test.sh # 此处只能绝对路径
+#ExecStart表示我们的脚本（步骤1中的test.sh)的执行路径
 
-    cd ~/
-    touch 11111111111.txt
+[Install]
+WantedBy=default.target
+#WantedBy默认填default.target，表示我们程序所在的服务组。
+```
 
-    在/etc/systemd/user目录下创建一个systemd服务文件, 命名为user-defined.service（可以命名为以.service结尾的任何名称）, 内容如下：
-
-    [Unit]
-    After=network.service
-    # After表示在哪个服务启动后启动我们的程序，After=network.service 表示网络连接完成后，启动我们的程序
-
-    [Service]
-    ExecStart=/home/hqc/test.sh # 此处只能绝对路径
-    # ExecStart表示我们的脚本（步骤1中的test.sh)的执行路径
-
-    [Install]
-    WantedBy=default.target
-    # WantedBy默认填default.target，表示我们程序所在的服务组。
-
-
-    将systemd服务文件和我们的脚本更改权限，使其可执行。
-
-
-    sudo chmod 744 ~/test.sh
-    sudo chmod 664 /etc/systemd/user/user-defined.service
-
-
-    重新加载系统的systemd服务文件，并启用我们自己写的user-defined.service文件。
-
-
-    sudo systemctl daemon-reload
-    systemctl --user enable user-defined.service
-
-
-取消开机自启动
-
+将systemd服务文件和我们的脚本更改权限，使其可执行。
+```bash
+sudo chmod 744 ~/test.sh
+sudo chmod 664 /etc/systemd/user/user-defined.service
+```
+重新加载系统的systemd服务文件，并启用我们自己写的`user-defined.service`文件。
+```bash
+sudo systemctl daemon-reload
+systemctl --user enable user-defined.service
+```
+取消开机自启动:
+```bash
 systemctl --user disable user-defined.service
 cd /etc/systemd/user
 rm user-defined.service
-
+```
 
 ② 方式二
+现在大部分的Linux发布版本开机第一个程序都从`init`换成了`systemd`这中启动方式。`systemd`是靠管理`unit`的方式来控制开机服务、开机级别等功能。
+在`/usr/lib/systemd/system`目录下包含了各种`unit`文件，有`service`后缀的服务unit，有`target`后缀的开机级别unit等，这里介绍关于`service`后缀的文件。因为systemd在开机要想执行自启动，都是通过这些`*.service` 的unit控制的，服务又分为`系统服务（system）`和`用户服务（user）`。
 
-现在大部分的Linux发布版本开机第一个程序都从init换成了systemd这中启动方式。systemd是靠管理unit的方式来控制开机服务、开机级别等功能。
-在/usr/lib/systemd/system目录下包含了各种unit文件，有service后缀的服务unit，有target后缀的开机级别unit等，这里介绍关于service后缀的文件。因为systemd在开机要想执行自启动，都是通过这些*.service 的unit控制的，服务又分为系统服务（system）和用户服务（user）。
+>系统服务：开机不登录就能运行的程序（常用于开机自启）。
+>用户服务：需要登录以后才能运行的程序。
 
-    系统服务：开机不登录就能运行的程序（常用于开机自启）。
-    用户服务：需要登录以后才能运行的程序。
-
-配置文件说明
-
+配置文件说明:
 （以sshd.service服务为例）
 
-    [Unit]区块：启动顺序与依赖关系
-    Description字段：给出当前服务的简单描述。
-    Documentation字段：给出文档位置。
-    After字段：如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
-    Before字段：定义sshd.service应该在哪些服务之前启动。
-    注：[After和Before字段只涉及启动顺序，不涉及依赖关系]
-    Wants字段：表示sshd.service与sshd-keygen.service之间存在“弱依赖”关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。
-    Requires字段：表示“强依赖”关系，即如果该服务启动失败或异常提出，那么sshd.service也必须退出。
-    注：[Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的]
+\[Unit\]区块：启动顺序与依赖关系
+Description字段：给出当前服务的简单描述。
+Documentation字段：给出文档位置。
+After字段：如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
+Before字段：定义sshd.service应该在哪些服务之前启动。
+>注：After和Before字段只涉及启动顺序，不涉及依赖关系
+Wants字段：表示sshd.service与sshd-keygen.service之间存在“弱依赖”关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。
+Requires字段：表示“强依赖”关系，即如果该服务启动失败或异常提出，那么sshd.service也必须退出。
+>注：`Wants`字段与`Requires`字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的
+\[Service\]区块：启动行为。
 
-    [Service]区块：启动行为。
+启动命令:
+ExecStart字段：定义启动进程时执行的命令。
+ExecReload字段：重启服务时执行的命令。
+ExecStop字段：停止服务时执行的命令。
+ExecStartPre字段：启动服务之前执行的命令。
+ExecStartPost字段：启动服务之后执行的命令。
+ExecStopPost字段：停止服务之后执行的命令。
+>注：所有的启动设置之前都可以加一个连词号（-），表示`抑制错误`，即发生错误的时候，不影响其他命令的执行。比如`EnvironmentFile=-/etc/sysconfig/sshd`（注意等号后面的那个连词号），就表示即使`/etc/sysconfig/sshd`文件不存在，也不会抛出错误。\[Service\]中的启动、重启、停止命令要求全部使用绝对路径！
 
-        启动命令
-        ExecStart字段：定义启动进程时执行的命令。
-        ExecReload字段：重启服务时执行的命令。
-        ExecStop字段：停止服务时执行的命令。
-        ExecStartPre字段：启动服务之前执行的命令。
-        ExecStartPost字段：启动服务之后执行的命令。
-        ExecStopPost字段：停止服务之后执行的命令。
-        注：所有的启动设置之前都可以加一个连词号（-），表示“抑制错误”，即发生错误的时候，不影响其他命令的执行。比如EnvironmentFile=-/etc/sysconfig/sshd（注意等号后面的那个连词号），就表示即使/etc/sysconfig/sshd文件不存在，也不会抛出错误。[Service]中的启动、重启、停止命令要求全部使用绝对路径！
+启动类型:
+Type字段定义启动类型。
+它可以设置的值如下：
+simple（默认值）：ExecStart字段启动的进程为主进程
+forking：ExecStart字段将以fork()方式启动，此时父进程将会退出，子进程将成为主进程（后台运行）
+oneshot：类似于simple，但只执行一次，Systemd 会等它执行完，才启动其他服务
+dbus：类似于simple，但会等待D-Bus信号后启动
+notify：类似于simple，启动结束后会发出通知信号，然后 Systemd 再启动其他服务
+idle：类似于simple，但是要等到其他任务都执行完，才会启动该服务。一种使用场合是为让该服务的输出，不与其他服务的输出相混合。
 
-        启动类型
-        Type字段定义启动类型。
-        它可以设置的值如下：
-            simple（默认值）：ExecStart字段启动的进程为主进程
-            forking：ExecStart字段将以fork()方式启动，此时父进程将会退出，子进程将成为主进程（后台运行）
-            oneshot：类似于simple，但只执行一次，Systemd 会等它执行完，才启动其他服务
-            dbus：类似于simple，但会等待D-Bus信号后启动
-            notify：类似于simple，启动结束后会发出通知信号，然后 Systemd 再启动其他服务
-            idle：类似于simple，但是要等到其他任务都执行完，才会启动该服务。一种使用场合是为让该服务的输出，不与其他服务的输出相混合。
+重启行为:
+Service区块有一些字段，定义了重启行为。
 
-        重启行为
-        Service区块有一些字段，定义了重启行为。
+KillMode字段：定义 Systemd 如何停止 sshd 服务：
+control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉
+process：只杀主进程
+mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号
+none：没有进程会被杀掉，只是执行服务的 stop 命令。
 
-            KillMode字段：定义 Systemd 如何停止 sshd 服务：
-                control-group（默认值）：当前控制组里面的所有子进程，都会被杀掉
-                process：只杀主进程
-                mixed：主进程将收到 SIGTERM 信号，子进程收到 SIGKILL 信号
-                none：没有进程会被杀掉，只是执行服务的 stop 命令。
+Restart字段：定义了sshd退出后，Systemd 的重启方式
+no（默认值）：退出后不会重启
+on-success：只有正常退出时（退出状态码为0），才会重启
+on-failure：非正常退出时（退出状态码非0），包括被信号终止和超时，才会重启
+on-abnormal：只有被信号终止和超时，才会重启
+on-abort：只有在收到没有捕捉到的信号终止时，才会重启
+on-watchdog：超时退出，才会重启
+always：不管是什么退出原因，总是重启
 
-            Restart字段：定义了sshd退出后，Systemd 的重启方式
-                no（默认值）：退出后不会重启
-                on-success：只有正常退出时（退出状态码为0），才会重启
-                on-failure：非正常退出时（退出状态码非0），包括被信号终止和超时，才会重启
-                on-abnormal：只有被信号终止和超时，才会重启
-                on-abort：只有在收到没有捕捉到的信号终止时，才会重启
-                on-watchdog：超时退出，才会重启
-                always：不管是什么退出原因，总是重启
+Restart设为on-failure，表示任何意外的失败，就将重启sshd。如果 sshd 正常停止（比如执行systemctl stop命令），它就不会重启。
+>注：对于守护进程，推荐设为`on-failure`。对于那些允许发生错误退出的服务，可以设为`on-abnormal`
 
-            Restart设为on-failure，表示任何意外的失败，就将重启sshd。如果 sshd 正常停止（比如执行systemctl stop命令），它就不会重启。
-            注：[对于守护进程，推荐设为on-failure。对于那些允许发生错误退出的服务，可以设为on-abnormal]
+RestartSec字段：表示 Systemd 重启服务之前，需要等待的秒数。
 
-            RestartSec字段：表示 Systemd 重启服务之前，需要等待的秒数。
+\[Install\]区块:
+Install区块定义如何安装这个配置文件，即怎样做到开机启动。
 
-    [Install]区块
-    Install区块定义如何安装这个配置文件，即怎样做到开机启动。
+WantedBy字段：表示该服务所在的 Target。
 
-        WantedBy字段：表示该服务所在的 Target。
+Target的含义是服务组，表示一组服务。
 
-        Target的含义是服务组，表示一组服务。
+WantedBy=multi-user.target指的是：sshd 所在的 Target 是multi-user.target。
+这个设置非常重要，因为执行systemctl enable sshd.service命令时，sshd.service的一个符号链接，就会放在/etc/systemd/system目录下面的multi-user.target.wants子目录之中。
+Systemd 有默认的启动 Target。
+```bash
+systemctl get-default
+```
+输出multi-user.target
 
-        WantedBy=multi-user.target指的是：sshd 所在的 Target 是multi-user.target。
-        这个设置非常重要，因为执行systemctl enable sshd.service命令时，sshd.service的一个符号链接，就会放在/etc/systemd/system目录下面的multi-user.target.wants子目录之中。
-        Systemd 有默认的启动 Target。
+上面的结果表示，默认的启动 `Target` 是`multi-user.target`。在这个组里的所有服务，都将开机启动。这就是为什么`systemctl enable`命令能设置开机启动的原因。
+使用 `Target` 的时候，`systemctl list-dependencies`命令和`systemctl isolate`命令也很有用。
 
-        systemctl get-default
-        #输出multi-user.target
+查看 multi-user.target 包含的所有服务:
+```bash
+systemctl list-dependencies multi-user.target
+```
+切换到另一个 target(shutdown.target 就是关机状态):
+```bash
+systemctl isolate shutdown.target
+```
 
+一般来说，常用的Target有两个：
+multi-user.target：表示多用户命令行状态；
+graphical.target：表示图形用户状态，它依赖于multi-user.target。
 
-        上面的结果表示，默认的启动 Target 是multi-user.target。在这个组里的所有服务，都将开机启动。这就是为什么systemctl enable命令能设置开机启动的原因。
-        使用 Target 的时候，systemctl list-dependencies命令和systemctl isolate命令也很有用。
+注册服务实例:
 
-        #查看 multi-user.target 包含的所有服务
-        systemctl list-dependencies multi-user.target
+配置文件目录
+systemctl脚本目录：`/usr/lib/systemd/`
+系统服务目录：`/usr/lib/systemd/system/`
+用户服务目录：`/usr/lib/systemd/user/`
 
-        #切换到另一个 target
-        #shutdown.target 就是关机状态
-        systemctl isolate shutdown.target
+在/usr/lib/systemd/system目录下新建service-name.service文件：
+```
 
+[Unit]
+#服务描述
+#Description=Media wanager Service
+#指定了在systemd在执行完那些target之后再启动该服务
+After=network.target
 
-        一般来说，常用的Target有两个：
-        multi-user.target：表示多用户命令行状态；
-        graphical.target：表示图形用户状态，它依赖于multi-user.target。
+[Service]
+#定义Service的运行类型，这种一般是开机自启动文件就是可执行文件
+Type=simple
 
-注册服务实例
+#Type=forking，这种一般是开机自启动文件为shell脚本文件，脚本文件里面可能写了多个需要
+#开机自启动的程序，forking代表子进程的方式，就是脚本里的程序以子进程后台运行。
+#WorkingDirectory=工作目录 #该项设置自启动软件的工作目录。
+#定义systemctl start|stop|reload *.service 的执行方法（具体命令需要写绝对路径）
+#注：ExecStartPre为启动前执行的命令
+ExecStartPre=/usr/bin/test "x${NETWORKMANAGER}" = xyes
+ExecStart=/home/mobileoa/apps/shMediaManager.sh -start#-start加不加都行
+#创建私有的内存临时空间
+PrivateTmp=True
 
-    配置文件目录
-    systemctl脚本目录：/usr/lib/systemd/
-    系统服务目录：/usr/lib/systemd/system/
-    用户服务目录：/usr/lib/systemd/user/
+[Install]
+#多用户
+WantedBy=multi-user.target
+```
 
-    在/usr/lib/systemd/system目录下新建service-name.service文件：
-
-
-    [Unit]
-    #服务描述
-    #Description=Media wanager Service
-    #指定了在systemd在执行完那些target之后再启动该服务
-    After=network.target
-
-    [Service]
-    #定义Service的运行类型，这种一般是开机自启动文件就是可执行文件
-    Type=simple
-
-    #Type=forking，这种一般是开机自启动文件为shell脚本文件，脚本文件里面可能写了多个需要
-    #开机自启动的程序，forking代表子进程的方式，就是脚本里的程序以子进程后台运行。
-    #WorkingDirectory=工作目录 #该项设置自启动软件的工作目录。
-    #定义systemctl start|stop|reload *.service 的执行方法（具体命令需要写绝对路径）
-    #注：ExecStartPre为启动前执行的命令
-    ExecStartPre=/usr/bin/test "x${NETWORKMANAGER}" = xyes
-    ExecStart=/home/mobileoa/apps/shMediaManager.sh -start#-start加不加都行
-    #创建私有的内存临时空间
-    PrivateTmp=True
-
-    [Install]
-    #多用户
-    WantedBy=multi-user.target
-
-
-重载系统服务：systemctl daemon-reload
-设置开机启动：systemctl enable *.service
-启动服务：systemctl start *.service
-停止服务：systemctl stop *.service
-重启服务：systemctl restart *.service
-注：[修改完配置文件要重载配置文件]
+重载系统服务：`systemctl daemon-reload`
+设置开机启动：`systemctl enable *.service`
+启动服务：`systemctl start *.service`
+停止服务：`systemctl stop *.service`
+重启服务：`systemctl restart *.service`
+>注：修改完配置文件要重载配置文件
 参考：
 https://www.freedesktop.org/software/systemd/man/systemd.service.html
 https://www.jianshu.com/p/79059b06a121
@@ -3426,5 +3419,5 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 
 适用于无界面的程序自启动
 
-对于有/etc/rc.d/rc.local或/etc/rc.local文件的Linux发行版本，开机自启动只需要在/etc/rc.local文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
-注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看/etc/rc.d/rc.local文件是否具有可执行权限（/etc/rc.local只是/etc/rc.d/rc.local的软链接，添加/etc/rc.local文件的可执行权限是不管用的）。
+对于有`/etc/rc.d/rc.local`或`/etc/rc.local`文件的Linux发行版本，开机自启动只需要在`/etc/rc.local`文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
+注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看`/etc/rc.d/rc.local`文件是否具有可执行权限（`/etc/rc.local`只是`/etc/rc.d/rc.local`的软链接，添加`/etc/rc.local`文件的可执行权限是不管用的）。
