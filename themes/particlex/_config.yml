@@ -54,10 +54,10 @@ card:
             name: github
             theme: brands
             link: https://github.com/licyk
-        qq:
-            name: qq
-            theme: brands
-            link: http://wpa.qq.com/msgrd?v=3&uin=3064404574&site=qq&menu=yes
+#        qq:
+#            name: qq
+#            theme: brands
+#            link: http://wpa.qq.com/msgrd?v=3&uin=3064404574&site=qq&menu=yes
         bilibili:
             name: bilibili
             theme: brands
