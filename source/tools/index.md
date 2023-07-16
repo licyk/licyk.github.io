@@ -23,6 +23,7 @@ date: 2023-07-13 11:59:18
 |[Android](/2023/07/14/android-software)
 |[Linux](/2023/07/15/linux-software)
 
+
 |网页工具||
 |---|---|
 |[QQ消息撤回名片生成](https://licyk.github.io/t/q)|[仿浏览器页面](https://licyk.github.io/t/b)
@@ -59,6 +60,7 @@ date: 2023-07-13 11:59:18
 |[异星软件空间](https://www.yxssp.com/)|[果核剥壳](https://www.ghxi.com/)
 |[爱纯净](http://www.aichunjing.com/)|
 
+
 |windows镜像下载||
 |---|---
 |[itellyou](https://msdn.itellyou.cn/)|[next.itellyou](https://next.itellyou.cn/)
@@ -66,15 +68,18 @@ date: 2023-07-13 11:59:18
 |[山己几子木](https://msdn.sjjzm.com/)|[]()
 |[官方windows10](https://www.microsoft.com/zh-cn/software-download/windows10)|[官方windows11](https://www.microsoft.com/zh-cn/software-download/windows11)
 
+
 |Windows11绕限制直升教程||
 |---|---
 |[教程](https://www.bilibili.com/video/BV1jG4y1x7z1/)|有效
+
 
 |Windows11跳过登陆教程||
 |---|---
 |[教程1](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
 [教程2](https://www.bilibili.com/video/BV1r24y1m7Jy/) |有效
 |[教程3](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
+
 
 |镜像站||||
 |---|---|---|---
