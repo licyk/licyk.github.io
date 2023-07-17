@@ -79,8 +79,7 @@ C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 &nbsp;
 ## 在用户账户（netplwiz）启用自动登陆复选框：
-注册表中   `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\
-PasswordLessBuildVersion`把3改为0
+注册表中   `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\PasswordLessBuildVersion`把3改为0
 
 &nbsp;
 ## 隐藏Windows10设置中的部分设置：
@@ -519,6 +518,18 @@ scrcpy
 >注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
 
 &nbsp;
+## Windows设置u盘工作模式：
+1、按下`win+r`键，输入`compmgmt.msc`，确定
+2、选择`磁盘管理`，右键u盘，点击`属性`-->`策略`，
+3、在`删除策略`中可以选择`快速删除(默认)`或者`更好的性能(B)`
+>快速删除：
+>优点：可热插拔U盘等外接移动设备
+>缺点：禁用设备和 Windows 上的写入缓存,降低传输速率
+>`更好的性能:
+>优点：启用 Windows 中的写入缓存功能，确保完成所有缓存操作来保护U盘等外接移动设备上数据的完整性，加速传输速度
+>缺点：必须使用安全删除硬件，不能热插拔U盘等外接移动设备
+
+&nbsp;
 ---
 &nbsp;
 
@@ -760,6 +771,10 @@ https://blog.csdn.net/dwj1979/article/details/85232191
 https://www.bilibili.com/read/cv12760387
 https://zhuanlan.zhihu.com/p/428845384
 https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
+
+&nbsp;
+## Virtual Box虚拟机自动进入UEFI sheill的解决方法(同样也适用于qemu/kvm)：
+https://www.bilibili.com/read/cv15426771
 
 &nbsp;
 ## cinnamon主题修改教程：
