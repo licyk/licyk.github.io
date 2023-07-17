@@ -176,6 +176,7 @@ Windows软件存档
 |[aira2](http://aria2.github.io/)|强大的下载工具
 |[Office Tool Plus](https://otp.landian.vip/zh-cn/)|office下载工具
 |[唧唧Down](http://client.jijidown.com/)|哔哩哔哩视频下载工具
+|[AriaNg](https://github.com/mayswind/AriaNg)|图形化aria2工具
 
 
 |其他工具||

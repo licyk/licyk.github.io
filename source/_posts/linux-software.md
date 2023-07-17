@@ -77,7 +77,7 @@ Linux软件存档
 |[ibus](https://github.com/ibus/ibus)|输入法框架
 |[carbonyl](https://github.com/fathyb/carbonyl)|终端浏览器
 |[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
-
+|[AriaNg](https://github.com/mayswind/AriaNg)|图形化aria2工具
 
 |wine||
 |---|---
