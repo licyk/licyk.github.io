@@ -65,7 +65,6 @@ Android软件存档
 |---|---
 |[Telegram](https://telegram.org/)|即时通讯工具
 |[Discord](https://discord.com/)|综合性社交媒体平台
-|[百度贴吧](https://tiebac.baidu.com/c/s/download/pc?src=webtbGF)|比较抽象的社交平台😅
 |[知乎](https://www.zhihu.com/oia/)|知识交流平台
 |[米游社](https://bbs.mihoyo.com/download.html)|米哈游旗下社区
 |[QQ](https://im.qq.com/immobile)|即时通讯工具
