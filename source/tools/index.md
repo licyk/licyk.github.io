@@ -45,9 +45,12 @@ date: 2023-07-13 11:59:18
 |---|---
 
 
-|我的世界下载||
+|我的世界||
 |---|---
-|[手机端](https://zihao-il.github.io/)|[PC端](https://www.mcappx.com/)
+|[导航站](https://www.mcnav.net/)|[版本库导航](https://www.mcappx.com/)
+|[安卓/WIN版本库(原版)](https://mcarc.gitee.io/)|[安卓版本库(去验证)](https://mc233.endyun.ltd/)
+|[安卓/IOS/WIN版本库(去验证)](https://mc.minebbs.com)|[安卓版本库(去验证)](http://mcapks.net/)
+|[安卓/WIN版本库(去验证)](https://mcbbk.blmcpia.com)|[WIN版本库(原版)](https://www.mcappx.com/)
 
 
 |专业工具下载||
