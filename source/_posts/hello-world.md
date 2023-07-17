@@ -2,7 +2,6 @@
 title: Hello World
 date: 2023-07-12 8:00:00
 hide:
-- home_hide: true
 categories:
  - 其他
 ---
