@@ -12,14 +12,14 @@ date: 2023-07-13 11:59:18
 
 |教程(比较杂)||
 |---|---
-|[电脑使用经验](/2023/07/13/pc-use-experience/)|[windows激活](/2023/07/13/windows-activate)
-|[windows设置优化](/2023/07/13/windows-optimize)|[cinnamon设置优化](/2023/07/13/cinnamon-optimize)
-|[linux命令教程](https://wangchujiang.com/linux-command/)|[sd-webui教程]()
+|[电脑使用经验](/2023/07/13/pc-use-experience/)|[Windows激活](/2023/07/13/windows-activate)
+|[Windows设置优化](/2023/07/13/windows-optimize)|[Cinnamon设置优化](/2023/07/13/cinnamon-optimize)
+|[Linux命令教程](https://wangchujiang.com/linux-command/)|[SD-WebUI教程]()
 
 
 |个人软件存档列表||
 |---|---
-|[windows](/2023/07/14/windows-software)
+|[Windows](/2023/07/14/windows-software)
 |[Android](/2023/07/14/android-software)
 |[Linux](/2023/07/15/linux-software)
 
@@ -35,10 +35,10 @@ date: 2023-07-13 11:59:18
 |[百度手机助手](https://mobile.baidu.com/)|[360手机助手](http://m.app.haosou.com/)
 |[应用宝](https://cftweb.3g.qq.com/qqappstore/index)|[应用汇](http://m.appchina.com/)
 |[酷安](https://www.coolapk.com/apk/)|[豌豆荚](https://m.wandoujia.com/)
-|[pp助手](https://wap.pp.cn/)|[apkpure](http://m.apkpure.com/cn)
+|[PP助手](https://wap.pp.cn/)|[Apkpure](http://m.apkpure.com/cn)
 |[小米应用商城](https://app.mi.com/)|[华为应用市场](https://appgallery.huawei.com)
-|[f-droid](https://f-droid.org/)|[malavida](https://www.malavida.com/en/android/)
-|[腾讯软件中心(pc)](https://pc.qq.com/)|[360软件管家(pc)](https://soft.360.cn/)
+|[F-Droid](https://f-droid.org/)|[Malavida](https://www.malavida.com/en/android/)
+|[腾讯软件中心(PC)](https://pc.qq.com/)|[360软件管家(PC)](https://soft.360.cn/)
 
 
 |机场推荐|[XYZ](https://9.234456.xyz/abc.html?t=567)|
@@ -61,12 +61,12 @@ date: 2023-07-13 11:59:18
 |[爱纯净](http://www.aichunjing.com/)|
 
 
-|windows镜像下载||
+|Windows镜像下载||
 |---|---
-|[itellyou](https://msdn.itellyou.cn/)|[next.itellyou](https://next.itellyou.cn/)
+|[Itellyou](https://msdn.itellyou.cn/)|[Next.Itellyou](https://next.itellyou.cn/)
 |[系统库](https://www.xitongku.com/)|[HelloWindows](https://hellowindows.cn/)
 |[山己几子木](https://msdn.sjjzm.com/)|[]()
-|[官方windows10](https://www.microsoft.com/zh-cn/software-download/windows10)|[官方windows11](https://www.microsoft.com/zh-cn/software-download/windows11)
+|[官方Windows10](https://www.microsoft.com/zh-cn/software-download/windows10)|[官方Windows11](https://www.microsoft.com/zh-cn/software-download/windows11)
 
 
 |Windows11绕限制直升教程||
