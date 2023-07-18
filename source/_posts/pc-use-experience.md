@@ -280,6 +280,8 @@ bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 
 在OBS Studio中可按住Alt键裁剪窗口
 
+在桌面或文件管理器空白处按住 Shift 点鼠标右建，可以打开 PowerShell
+
 &nbsp;
 ## 浏览器快捷键
 >支持firefox/chrome/其他浏览器
