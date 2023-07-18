@@ -119,6 +119,7 @@ Windows软件存档
 |[图拉丁吧工具箱](http://www.tbtool.cn/)|玩机工具箱
 |[云图工具箱](https://wintool.cc/)|玩机工具箱
 |[卡硬工具箱](http://www.kbtool.cn/)|玩机工具箱
+|[dism++](https://github.com/Chuyu-Team/Dism-Multi-language/releases)|强大的 Windows 系统优化工具
 |[傲梅分区助手](https://www.disktool.cn/)|硬盘分区与管理
 |[Etcher](https://www.balena.io/etcher/)|启动盘制作器
 |[rEFInd](http://www.rodsbooks.com/refind/getting.html)|多系统引导工具
