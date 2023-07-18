@@ -1,7 +1,9 @@
 ---
-title: 个人制作项目下载
+title: 个人制作项目
 date: 2023-07-18 09:50:57
 tags:
+categories:
+ - 其他
 ---
 这里展示我制作的小项目的下载页
 &nbsp;
@@ -15,8 +17,8 @@ tags:
 ||下载地址|
 |---|---
 |↓|[`源码`](https://github.com/licyk/sd-webui-script)
-|↓|[`下载地址1`](https://ghproxy.com/https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh)
-|↓|[`下载地址2`](https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh)
+|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh?response-content-type=application%2Foctet-stream" download>`下载地址1`</a>
+|↓|<a href="https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh?response-content-type=application%2Foctet-stream" download>`下载地址2`</a>
 
 ***
 
@@ -27,8 +29,8 @@ tags:
 ||下载地址|
 |---|---
 |↓|[`源码`](https://github.com/licyk/scrcpy-tui)
-|↓|[`下载地址1`](https://ghproxy.com/https://raw.githubusercontent.com/licyk/scrcpy-tui/main/scrcpy-tui.sh)
-|↓|[`下载地址2`](https://raw.githubusercontent.com/licyk/scrcpy-tui/main/scrcpy-tui.sh)
+|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/scrcpy-tui/main/scrcpy-tui.sh?response-content-type=application%2Foctet-stream" download>`下载地址1`</a>
+|↓|<a href="https://raw.githubusercontent.com/licyk/scrcpy-tui/main/scrcpy-tui.sh?response-content-type=application%2Foctet-stream" download>`下载地址2`</a>
 
 ***
 
@@ -39,7 +41,7 @@ tags:
 ||下载地址|
 |---|---
 |↓|[`源码`](https://github.com/licyk/bili-dl-merge)
-|↓|[`下载地址1`](https://ghproxy.com/https://raw.githubusercontent.com/licyk/bili-dl-merge/main/bili-dl-merge.sh)
-|↓|[`下载地址2`](https://raw.githubusercontent.com/licyk/bili-dl-merge/main/bili-dl-merge.sh)
+|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/bili-dl-merge/main/bili-dl-merge.sh?response-content-type=application%2Foctet-stream" download>`下载地址1`</a>
+|↓|<a href="https://raw.githubusercontent.com/licyk/bili-dl-merge/main/bili-dl-merge.sh?response-content-type=application%2Foctet-stream" download>`下载地址2`</a>
 
 ***
