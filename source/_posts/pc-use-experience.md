@@ -10,14 +10,160 @@ categories:
 ---
 这里记录了一些个人使用电脑的经验和网上搜集的教程
 <!-- more -->
+&nbsp;
+***
+&nbsp;
+<h1>目录</h1>
 
-* [test](#linux)
+- [windows](#windows)
+  - [windows快捷键](#windows快捷键)
+  - [windows程序](#windows程序)
+  - [windows开始菜单图标路径](#windows开始菜单图标路径)
+  - [windows自启动图标路径](#windows自启动图标路径)
+  - [windows文件管理器界面快捷方式的注册表路径](#windows文件管理器界面快捷方式的注册表路径)
+  - [在用户账户netplwiz启用自动登陆复选框](#在用户账户netplwiz启用自动登陆复选框)
+  - [隐藏windows10设置中的部分设置](#隐藏windows10设置中的部分设置)
+  - [隐藏windows中控制面板的部分设置](#隐藏windows中控制面板的部分设置)
+  - [cmd指令](#cmd指令)
+  - [其他软件使用](#其他软件使用)
+  - [浏览器快捷键](#浏览器快捷键)
+  - [firefox推荐插件](#firefox推荐插件)
+  - [edge浏览器进入高级设置](#edge浏览器进入高级设置)
+  - [firefox浏览器进入高级设置](#firefox浏览器进入高级设置)
+  - [edge浏览器关闭 使用推荐的浏览器设置 弹窗](#edge浏览器关闭-使用推荐的浏览器设置-弹窗)
+  - [win10优化方法](#win10优化方法)
+  - [win10关闭自动更新](#win10关闭自动更新)
+  - [利用firefox开发者网站转换chrome插件为firefox插件](#利用firefox开发者网站转换chrome插件为firefox插件)
+  - [windows下隐藏文件](#windows下隐藏文件)
+  - [解决parsec国内无法使用](#解决parsec国内无法使用)
+  - [bios核显设置优化](#bios核显设置优化)
+  - [windows修复分区](#windows修复分区)
+  - [windows解决桌面图标发白](#windows解决桌面图标发白)
+  - [windows刷新dns缓存](#windows刷新dns缓存)
+  - [windows快捷调整桌面图标大小](#windows快捷调整桌面图标大小)
+  - [在uefi启动下安装windows后启动windows时出现错误提示导致启动失败的解决方法](#在uefi启动下安装windows后启动windows时出现错误提示导致启动失败的解决方法)
+  - [windows调整虚拟内存设置](#windows调整虚拟内存设置)
+  - [windows安装并配置msys2](#windows安装并配置msys2)
+  - [在windows终端配置msys2](#在windows终端配置msys2)
+  - [windows删除卸载残留的右键菜单打开方式](#windows删除卸载残留的右键菜单打开方式)
+  - [windows使用手机的代理](#windows使用手机的代理)
+  - [windows安装office](#windows安装office)
+  - [windows家庭版转换成专业版](#windows家庭版转换成专业版)
+  - [windows控制手机](#windows控制手机)
+    - [使用有线连接](#使用有线连接)
+    - [使用无线连接](#使用无线连接)
+  - [windows设置u盘工作模式](#windows设置u盘工作模式)
+  - [ ](#)
+- [安卓](#安卓)
+  - [列出分区](#列出分区)
+  - [提取boot](#提取boot)
+  - [刷入boot](#刷入boot)
+  - [termux-tools命令](#termux-tools命令)
+  - [termux保持终端运行](#termux保持终端运行)
+  - [termux安装linux脚本链接](#termux安装linux脚本链接)
+  - [ ](#-1)
+- [linux](#linux)
+  - [linux快捷键](#linux快捷键)
+  - [debian系linux发行版](#debian系linux发行版)
+  - [tty终端快捷键](#tty终端快捷键)
+  - [重新启动xorg](#重新启动xorg)
+  - [在tty终端中启动xorg](#在tty终端中启动xorg)
+  - [终端在后台运行命令](#终端在后台运行命令)
+  - [linux mint解决中文不全](#linux-mint解决中文不全)
+  - [debain系linux在虚拟机中安装vmtools](#debain系linux在虚拟机中安装vmtools)
+  - [debian系linux安装桌面](#debian系linux安装桌面)
+  - [linux桌面卡死解决方法](#linux桌面卡死解决方法)
+  - [linux安装grub2](#linux安装grub2)
+  - [更改终端显示语言](#更改终端显示语言)
+  - [bash环境配置文件](#bash环境配置文件)
+  - [安装docker后进行apt upgrade时出现pending kernel upgrade选项的解决方法](#安装docker后进行apt-upgrade时出现pending-kernel-upgrade选项的解决方法)
+  - [linux查询命令用法](#linux查询命令用法)
+  - [archlinux安装教程](#archlinux安装教程)
+  - [在vmware安装与优化archlinux教程](#在vmware安装与优化archlinux教程)
+  - [linux安装和配置kvm-qemu教程](#linux安装和配置kvm-qemu教程)
+  - [virtual box虚拟机自动进入uefi sheill的解决方法](#virtual-box虚拟机自动进入uefi-sheill的解决方法)
+  - [cinnamon主题修改教程](#cinnamon主题修改教程)
+  - [cmake命令教程](#cmake命令教程)
+  - [make命令教程](#make命令教程)
+  - [debian系安装fcitx5输入法](#debian系安装fcitx5输入法)
+  - [wine](#wine)
+    - [在debian系的linux发行版可以参考以下连接安装winehq](#在debian系的linux发行版可以参考以下连接安装winehq)
+    - [wine安装字体](#wine安装字体)
+    - [wine手动安装wine-gecko和wine-momo](#wine手动安装wine-gecko和wine-momo)
+    - [安装deepin wine环境与应用在debian和ubuntu上的移植仓库](#安装deepin-wine环境与应用在debian和ubuntu上的移植仓库)
+  - [linux更改grub主题](#linux更改grub主题)
+  - [ubuntu下切换桌面管理器](#ubuntu下切换桌面管理器)
+  - [linux在tty界面中文乱码解决方案](#linux在tty界面中文乱码解决方案)
+    - [centos解决tty界面中文乱码](#centos解决tty界面中文乱码)
+    - [ubuntu解决tty界面中文乱码](#ubuntu解决tty界面中文乱码)
+  - [linux mint cinnamon推荐装的任务栏插件](#linux-mint-cinnamon推荐装的任务栏插件)
+  - [gnome桌面推荐插件](#gnome桌面推荐插件)
+  - [安装gnome桌面插件管理](#安装gnome桌面插件管理)
+  - [linux安装v2ray](#linux安装v2ray)
+  - [linux安装v2raya](#linux安装v2raya)
+  - [linux主题路径](#linux主题路径)
+  - [linux启用sysrq](#linux启用sysrq)
+  - [linux卡死后使用sysrq安全重启方法](#linux卡死后使用sysrq安全重启方法)
+  - [cinnamon切换虚拟桌面](#cinnamon切换虚拟桌面)
+  - [linux设置开机自动登录](#linux设置开机自动登录)
+  - [linux创建软链接](#linux创建软链接)
+  - [linux mint使用samba共享](#linux-mint使用samba共享)
+    - [在原基础上添加新的用户进行访问](#在原基础上添加新的用户进行访问)
+  - [linux用户和用户组](#linux用户和用户组)
+    - [检查用户组是否存在](#检查用户组是否存在)
+    - [如果用户组不存在则使用如下命令新建用户组](#如果用户组不存在则使用如下命令新建用户组)
+    - [新建用户并将其加入指定用户组并作为其主用户组](#新建用户并将其加入指定用户组并作为其主用户组)
+    - [或者新建用户](#或者新建用户)
+    - [设置用户密码](#设置用户密码)
+    - [查看用户属性并检查是否添加到正确的用户组](#查看用户属性并检查是否添加到正确的用户组)
+    - [将已有用户添加到指定用户组并作为其附属用户组](#将已有用户添加到指定用户组并作为其附属用户组)
+    - [将已有用户的主用户组改为新的用户组](#将已有用户的主用户组改为新的用户组)
+    - [将用户从该用户的附属组中删除](#将用户从该用户的附属组中删除)
+    - [永久性删除用户账号](#永久性删除用户账号)
+  - [linux使用gdebi安装deb包](#linux使用gdebi安装deb包)
+  - [linux设置文件默认打开程序](#linux设置文件默认打开程序)
+  - [linux手动关联文件扩展名和打开程序](#linux手动关联文件扩展名和打开程序)
+  - [linux关联文件扩展名的打开程序](#linux关联文件扩展名的打开程序)
+  - [将linux程序打包成deb格式的安装包](#将linux程序打包成deb格式的安装包)
+  - [linux修复分区](#linux修复分区)
+  - [debian系linux发行版解决依赖问题](#debian系linux发行版解决依赖问题)
+  - [解决linux提示 输入密码以解锁您的登录密钥环 问题](#解决linux提示-输入密码以解锁您的登录密钥环-问题)
+  - [debian一些常用指令使用时显示 未找到命令 解决方法](#debian一些常用指令使用时显示-未找到命令-解决方法)
+  - [linux使用sudo显示 用户不在sudoers文件中此事将被报告 解决方法](#linux使用sudo显示-用户不在sudoers文件中此事将被报告-解决方法)
+  - [debian中设置locale的方法](#debian中设置locale的方法)
+  - [在debian中安装locales的方法如下](#在debian中安装locales的方法如下)
+  - [linux安装中文版man](#linux安装中文版man)
+  - [centos7中使用efibootmgr管理uefi启动项](#centos7中使用efibootmgr管理uefi启动项)
+    - [列出 uefi 启动项条目](#列出-uefi-启动项条目)
+    - [获取条目的详细信息](#获取条目的详细信息)
+    - [更改 uefi 启动项顺序](#更改-uefi-启动项顺序)
+    - [创建一条引导](#创建一条引导)
+    - [删除一条引导](#删除一条引导)
+    - [取消激活条目](#取消激活条目)
+    - [激活该条目](#激活该条目)
+    - [修改 uefi 引导管理器超时时间](#修改-uefi-引导管理器超时时间)
+  - [debian安装docker](#debian安装docker)
+  - [窗口管理器安装和配置](#窗口管理器安装和配置)
+  - [python设置pip镜像源](#python设置pip镜像源)
+  - [flatpak设置镜像源](#flatpak设置镜像源)
+  - [在debian启用ssh](#在debian启用ssh)
+  - [linux清理cache缓存](#linux清理cache缓存)
+  - [tmux使用和美化](#tmux使用和美化)
+    - [tmux默认快捷键](#tmux默认快捷键)
+    - [美化tmux](#美化tmux)
+  - [vim使用](#vim使用)
+  - [linux控制手机](#linux控制手机)
+    - [使用有线连接来连接手机](#使用有线连接来连接手机)
+    - [使用无线连接来连接手机](#使用无线连接来连接手机)
+  - [linux设置软件开机自启动](#linux设置软件开机自启动)
 
+&nbsp;
+***
+&nbsp;
+# windows
+## windows快捷键
+>部分快捷键在其他系统上可用
 
-
-
-# Windows：
-## 快捷键（部分快捷键在其他系统上可用）：
 全选`ctrl+a`
 剪切`ctrl+x`
 复制`ctrl+c`
@@ -53,7 +199,9 @@ categories:
 全屏/取消全屏`F11`
 
 &nbsp;
-## Windows程序(使用win+r运行)：
+## windows程序
+>使用win+r运行
+
 策略管理`services.msc`
 系统配置`msconfig`
 注册表`regedit`
@@ -65,30 +213,30 @@ directx诊断`dxdiag`
 自启动程序图标`shell:startup`
 
 &nbsp;
-## Windows开始菜单图标路径：
+## windows开始菜单图标路径
 ```
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 ```
 &nbsp;
-## Windows自启动图标路径：
+## windows自启动图标路径
 ```
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 ```
 
 &nbsp;
-## Windows文件管理器界面快捷方式的注册表路径：
+## windows文件管理器界面快捷方式的注册表路径
 ```
 计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace
 ```
 
 &nbsp;
-## 在用户账户（netplwiz）启用自动登陆复选框：
+## 在用户账户netplwiz启用自动登陆复选框
 注册表中   `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device\PasswordLessBuildVersion`把3改为0
 
 &nbsp;
-## 隐藏Windows10设置中的部分设置：
+## 隐藏windows10设置中的部分设置
 运行`gpedit.msc`（本地组策略编辑器），依次点开`计算机配置`-->`管理模板`-->`控制面板`，找到`设置页面可见性`
 编辑，点击`已启用`
 在选项中的输入框中输入参数
@@ -100,7 +248,7 @@ hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollmen
 更多参数信息在[微软官方文档](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app#accounts)
 
 &nbsp;
-## 隐藏Windows中控制面板的部分设置：
+## 隐藏windows中控制面板的部分设置
 运行`gpedit.msc`（本地组策略编辑器），依次点开`用户配置`→`管理模版`→`控制面板`，找到`隐藏指定的“控制面板”项`
 编辑，点击`已启用`，在选项中点击`显示`，在`”值“`的输入框中输入参数
 如`Microsoft.UserAccounts`（用户账户），`Microsoft.CredentialManager`（凭据管理器）
@@ -108,16 +256,24 @@ hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollmen
 更多参数信息在[微软官方文档](https://docs.microsoft.com/zh-cn/windows/win32/shell/controlpanel-canonical-names?redirectedfrom=MSDN#credential-manager)
 
 &nbsp;
-## cmd指令：
+## cmd指令
 强制关闭进程
 ```
 wmic process where name='进程名.exe' call terminate
 wmic process where processid="进程pid" delete
 wmic process 进程pid call terminate
 ```
+创建软链接
+```
+mklink /d "虚拟文件路径" "真实文件路径"
+```
+删除软连接：
+```
+rmdir "虚拟文件路径"
+```
 
 &nbsp;
-## 其他软件使用：
+## 其他软件使用
 bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
  
 在基于Unity，虚幻等制作的游戏中可以按住Alt+Enter快速进入全屏模式
@@ -125,13 +281,15 @@ bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 在OBS Studio中可按住Alt键裁剪窗口
 
 &nbsp;
-## firefox/chrome/其他浏览器快捷键：
+## 浏览器快捷键
+>支持firefox/chrome/其他浏览器
+
 关闭当前标签页`Ctrl+F4`
 将鼠标点击的链接在后台打开`Ctrl+鼠标左键`
 切换标签页`Ctrl+Tab`
 
 &nbsp;
-## firefox推荐插件：
+## firefox推荐插件
 |||
 |---|---
 |[Translate Web Pages](https://addons.mozilla.org/zh-CN/firefox/addon/traduzir-paginas-web/)|网页实时翻译
@@ -173,21 +331,21 @@ bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 [singlefile](https://addons.mozilla.org/zh-CN/firefox/addon/single-file/)|将完整的页面保存到一个html文件中
 
 &nbsp;
-## edge浏览器进入高级设置：
+## edge浏览器进入高级设置
 在地址栏输入以下并回车
 ```
 edge://flags
 ```
 
 &nbsp;
-## firefox浏览器进入高级设置：
+## firefox浏览器进入高级设置
 在地址栏输入以下并回车
 ```
 about:config
 ```
 
 &nbsp;
-## edge浏览器关闭“使用推荐的浏览器设置”弹窗：
+## edge浏览器关闭 使用推荐的浏览器设置 弹窗
 在地址栏输入
 ```
 edge://flags/#edge-show-feature-recommendations
@@ -195,7 +353,9 @@ edge://flags/#edge-show-feature-recommendations
 将下面第一个选项的`Default`改成`Disable`，并重启浏览器
 
 &nbsp;
-## win10优化方法（低配机可尝试）：
+## win10优化方法
+>低配机可尝试
+
 固态硬盘禁用休眠文件
 禁用系统7G预留
 禁用传递优化
@@ -229,7 +389,7 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 最后，你的原版win10（比如20H2），流畅度堪比精简版，C盘占用不会超过15G。不删除任何组件，这样的系统比精简版好太多了。
 
 &nbsp;
-## win10关闭自动更新：
+## win10关闭自动更新
 1、同时按下`Win + R`组合快捷键打开运行命令操作框，然后输入`gpedit.msc`，点击确定
 2、在组策略编辑器中，依次展开 `计算机配置` -> `管理模板` -> `Windows组件` -> `Windows更新` ->`管理最终用户体验`
 (在Windows11中，依次展开 `计算机配置` -> `管理模板` -> `Windows组件` -> `Windows更新`)
@@ -237,7 +397,7 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 4、之后还需要再找到`删除使用所有Windows更新功能的访问权限`，选择`已启用`，完成设置后，点击`确定`
 
 &nbsp;
-## 利用Firefox开发者网站，转换Chrome插件为Firefox插件：
+## 利用firefox开发者网站转换chrome插件为firefox插件
 1、提前准备好Chrome插件。
 2、打开Firefox浏览器，建议使用国际版。下载链接就不提供了，大家自己找一下吧。
 3、打开[Firefox开发者网址](https://addons.mozilla.org/zh-CN/firefox/)
@@ -267,7 +427,7 @@ dism++删除预装应用的安装包后，可以对win10全家桶进行转移到
 这下，真正大功告成！
 
 &nbsp;
-## Windows下隐藏文件：
+## windows下隐藏文件
 打开cmd窗口，在弹出的窗口输入
 ```
 attrib +s +h +r 文件的绝对地址
@@ -282,7 +442,7 @@ attrib +s +h +r D:\test\1.jpg
 关于查看的方法也很简单，在文件夹选项里，取消隐藏系统文件，然后按确定，即可查看隐藏的系统文件
 
 &nbsp;
-## 解决parsec国内无法使用方法：
+## 解决parsec国内无法使用
 1、下载[v2rayN](https://github.com/2dust/v2rayN/releases/)
 2、在v2rayN中添加节点（节点可从网上寻找），并启用
 3、在文件管理器中打开`C:\Users\用户名\AppData\Roaming\Parsec`，找到`config.txt`，在文本的最后添加下列参数
@@ -303,32 +463,22 @@ app_proxy_port为代理的端口
 
 
 &nbsp;
-## window创建软链接：
-在`cmd`中输入指令
-```
-mklink /d "虚拟文件路径" "真实文件路径"
-```
-删除软连接：
-```
-rmdir "虚拟文件路径"
-```
-
-&nbsp;
-## bios核显设置优化：
+## bios核显设置优化
 GFX Boost 意思是GPU动态加速，默认是关闭的，我们要开启，方法是按方向键选中此项回车，再选择Enabled开启，而选择Disabled关闭
 DVMT Pre-Allocated 意思是显存采用预分配，这里可以调大一些，也不是越大越好因为会减小系统内存，推荐调到128。
 DVMT Total Gfx Mem 意思是显存采用总大小，也就是动态显存总分配大小，这个也不是越大越好，以情况而定，我自己选的是Max最大
 Aperture Size 这个是最大图形缓冲区，默认256我选的512。
 
 &nbsp;
-## windows修复分区(如修复C盘):
+## windows修复分区
+比如修复C盘
 在cmd中输入
 ```
 chkdsk /f C:\
 ```
 
 &nbsp;
-## windows解决桌面图标发白：
+## windows解决桌面图标发白
 创建`*.bat`文件
 填入以下内容：
 ```
@@ -342,7 +492,7 @@ echo
 运行这个脚本即可解决
 
 &nbsp;
-## windows刷新dns缓存：
+## windows刷新dns缓存
 在cmd输入
 ```
 ipconfig/flushdns
@@ -350,11 +500,11 @@ ipconfig/flushdns
 回车后即可
 
 &nbsp;
-## Windows快捷调整桌面图标大小：
+## windows快捷调整桌面图标大小
 单击桌面任意区域后，`Ctrl+鼠标滚轮`进行调整
 
 &nbsp;
-## 在uefi启动下安装windows后，启动Windows时出现错误提示导致启动失败的解决方法：
+## 在uefi启动下安装windows后启动windows时出现错误提示导致启动失败的解决方法
 使用笫三方工具（如`dism++`，`Windows NT安装器`）安装Windows后，进系统时出现错误，
 可能与windows系统的引导文件残留有关，
 可尝试删除`ESP`分区中的Windows引导文件（使用`diskgenius`），windows的引导文件在`EFI`文件夹中的`microsoft`文件夹
@@ -364,7 +514,7 @@ BOOT文件夹中的文件
 注：`dism++`，`window NT安装器`可绕过TPM限制来安装Windows11
 
 &nbsp;
-## Windows调整虚拟内存设置：
+## windows调整虚拟内存设置
 1、在桌面`此电脑`图标上点击鼠标右键，然后选择`属性`选项。
 2、打开系统窗口后，点击左上角的`高级系统设置`选项。
 3、在打开的窗口中，点击`高级`选项卡下`性能`选项组的`设置`按钮。
@@ -373,7 +523,7 @@ BOOT文件夹中的文件
 6、接下来选择`自定义大小`，然后手动设置初始大小以及最大值，然后点击`确定`按钮。
 
 &nbsp;
-## Windows安装并配置msys2：
+## windows安装并配置msys2
 1、在[msys2官网](https://www.msys2.org/)下载并安装msys2
 2、记下刚才安装的路径，比如`C:\msys64`
 3、在桌面`此电脑`图标上点击鼠标右键，然后选择`属性`选项
@@ -394,7 +544,9 @@ pacman -Sy
 此时msys2配置完成
 
 &nbsp;
-## 在Windows终端(win10要在microsoft store安装)配置msys2：
+## 在windows终端配置msys2
+>win10要在microsoft store安装
+
 1、打开Windows终端设置
 2、点击`添加新配置文件`
 3、在`名称`中填入`MinGW64`
@@ -409,7 +561,7 @@ C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64”
 7、保存后生效
 
 &nbsp;
-## Windows删除卸载残留的右键菜单打开方式：
+## windows删除卸载残留的右键菜单打开方式
 `win+r`，输入`regedit`打开注册表
 打开
 ```
@@ -418,7 +570,9 @@ C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64”
 找到对应的残留软件并删除
 
 &nbsp;
-## Windows使用手机的代理(windows10同理)：
+## windows使用手机的代理
+>windows10同理
+
 1、确保手机和电脑处在同一个局域网中
 2、在手机上下载[every proxy](https://play.google.com/store/apps/details?id=com.gorillasoftware.everyproxy)
 或者在百度上搜索`every proxy`并安装
@@ -439,7 +593,9 @@ Port   8080
 手机的ip地址在重启或开关WIFI后会变化，请注意
 
 &nbsp;
-## windows安装office(演示安装Microsoft 365方法，其他版本office版本的安装大同小异)：
+## windows安装office
+>演示安装Microsoft 365方法，其他版本office版本的安装大同小异
+
 1、前往[office tool plus官网](https://otp.landian.vip/)下载工具
 2、解压，双击打开`Office Tool Plus.exe`，接受许可条款,然后点击左侧三条横线的图标，展开选项
 3、如果之前有安装过office，则在左侧栏选择`工具箱`，在`office工具`处选择`移除office`
@@ -448,14 +604,14 @@ Port   8080
 5、完成后即可使用office
 
 &nbsp;
-## Windows家庭版转换成专业版：
+## windows家庭版转换成专业版
 1、打开设置，依次打开
 `系统` -> `系统信息` -> `产品密钥和激活` -> `更改激活密钥`
 2、输入专业版激活码，然后按提示操作就行
 注：如果失败的话，先断网，再输入激活码，然后下一步，之后再联网进行切换
 
 &nbsp;
-## windows控制手机(Android)：
+## windows控制手机
 前期准备：
 1、前往[scrcpy官网](https://github.com/Genymobile/scrcpy/releases/)下载`scrcpy-win64`，并解压
 2此时把解压的文件放在合适的位置，位置可以自己选，只要能找到就行，比如
@@ -468,7 +624,7 @@ C:\scrcpy       
 5、在打开的窗口中，点击`高级`选项卡下`环境变量`
 6、在`系统变量`部分点双击`Path`，点击`新建`，输入记下的位置，然后一直点确定直至完成
 
-### 使用有线连接：
+### 使用有线连接
 1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
 1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
 2）如果找不到开发者选项在哪，可以按照下面的方法找到开发者选项并打开：
@@ -488,7 +644,7 @@ scrcpy
 ```
 此时会弹出一个可以控制手机的窗口，可以通过鼠标和键盘控制手机
 
-### 使用无线连接：
+### 使用无线连接
 注：确保手机和电脑处在`同一个局域网`中
 1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
 1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
@@ -524,7 +680,7 @@ scrcpy
 >注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
 
 &nbsp;
-## Windows设置u盘工作模式：
+## windows设置u盘工作模式
 1、按下`win+r`键，输入`compmgmt.msc`，确定
 2、选择`磁盘管理`，右键u盘，点击`属性`-->`策略`，
 3、在`删除策略`中可以选择`快速删除(默认)`或者`更好的性能(B)`
@@ -539,14 +695,14 @@ scrcpy
 ---
 &nbsp;
 
-# 安卓：
-## 列出分区：
+# 安卓
+## 列出分区
 ```bash
 ls -l /dev/block/by-name/*
 ```
 
 &nbsp;
-## 提取boot（或recovery）：
+## 提取boot
 1、查看boot所对应的分区：
 ```bash
 ls -l /dev/block/by-name/*
@@ -558,7 +714,7 @@ dd if=/dev/block/sdc11 of=/手机其他路径/boot.img
 ```
 
 &nbsp;
-## 刷入boot：
+## 刷入boot
 1、方法1：
 使用`dd`指令
 2、方法2：
@@ -567,7 +723,7 @@ fastboot flash boot boot.img
 ```
 
 &nbsp;
-## termux-tools命令：
+## termux-tools命令
 `termux-change-repo`（换源）
 `termux-fix-shebang`
 `termux-info`
@@ -580,7 +736,7 @@ fastboot flash boot boot.img
 `termux-wake-unlock`
 
 &nbsp;
-## termux保持终端运行：
+## termux保持终端运行
 安装tmux：
 ```bash
 apt install tmux
@@ -591,15 +747,15 @@ tmux
 ```
 
 &nbsp;
-## termux安装linux脚本链接：
+## termux安装linux脚本链接
 https://gitee.com/skymysky/linux#tmoe-linux
 
 &nbsp;
 ---
 &nbsp;
 
-# Linux:
-## 快捷键：
+# linux
+## linux快捷键
 进入tty界面：`Ctrl+Alt+F2/F3/…F6`
 退出tty界面：`Ctrl+Alt+F7`
 勾选复选框：`空格`
@@ -607,7 +763,7 @@ https://gitee.com/skymysky/linux#tmoe-linux
 命令行中翻页：`shift+pageup/pagedown` 或`pageup/pagedown`
 
 &nbsp;
-## debian系linux发行版:
+## debian系linux发行版
 更新软件包缓存:
 ```bash
 sudo apt update
@@ -657,7 +813,7 @@ pkill 程序名
 ```
 
 &nbsp;
-## tty终端快捷键：
+## tty终端快捷键
 停止屏幕输出`Ctrl+S`
 恢复屏幕输出`Ctrl+Q`
 中断程序`Ctrl+C`
@@ -667,55 +823,59 @@ pkill 程序名
 命令补全/文件补齐/参数补齐`Tab`
 
 &nbsp;
-## 重新启动x.org：
+## 重新启动xorg
 `Ctrl+Alt+backspace`
 
 &nbsp;
-## 在tty终端中启动x.org：
+## 在tty终端中启动xorg
 ```bash
 startx
 ```
 （需注意没有其他x.org被启用）
 
 &nbsp;
-## 终端在后台运行命令：
+## 终端在后台运行命令
 ```bash
 nohup 命令 &
 ```
 
 &nbsp;
-## linux mint(基于ubuntu)解决中文不全:
+## linux mint解决中文不全
+>此方法适用于基于ubuntu的版本
+
 ```bash
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
 ```
  
 &nbsp;
-## debain系linux在虚拟机中安装vmtools:
+## debain系linux在虚拟机中安装vmtools
 ```bash
 sudo apt install open-vm-tools open-vm-tools-desktop
 ```
 
 &nbsp;
-## debian系linux安装桌面：
+## debian系linux安装桌面
 ```bash
 sudo tasksel
 ```
 
 &nbsp;
-## Linux桌面卡死解决方法：
+## linux桌面卡死解决方法
 ```bash
 sudo systemctl restart lightdm
 ```
 >lightdm为桌面管理器，可替换为sddm或gdm
 
 &nbsp;
-## Linux安装grub2(sda为硬盘，可更换为sda1或其他硬盘分区)：
+## linux安装grub2
+>sda为硬盘，可更换为sda1或其他硬盘分区
+
 ```bash
 sudo grub-install /dev/sda
 ```
 
 &nbsp;
-## 更改终端显示语言：
+## 更改终端显示语言
 显示目前所支持语系：
 ```bash
 $ locale
@@ -731,7 +891,7 @@ export LC_ALL=en.US.utf8
 >LANG与输出信息有关，若要更改其他不同的信息，要同步更新LC_ALL
 
 &nbsp;
-## bash环境配置文件：
+## bash环境配置文件
 全局：
 ```
 /etc/profile
@@ -749,11 +909,11 @@ export LC_ALL=en.US.utf8
 ```
 
 &nbsp;
-## 安装docker后进行apt upgrade时出现Pending Kernel Upgrade选项的解决方法：
+## 安装docker后进行apt upgrade时出现pending kernel upgrade选项的解决方法
 安装`docker`时会自动安装`needrestart`，卸载`needrestart`后解决
 
 &nbsp;
-## Linux查询命令用法：
+## linux查询命令用法
 ```bash
 【命令】 --help
 info 【命令】
@@ -761,15 +921,15 @@ man 【命令】
 ```
 
 &nbsp;
-## ArchLinux安装教程链接：
+## archlinux安装教程
 https://zhuanlan.zhihu.com/p/138951848
 
 &nbsp;
-## 在vmware安装与优化ArchLinux教程链接：
+## 在vmware安装与优化archlinux教程
 https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest#VMware_Tools_versus_Open-VM-Tools
 
 &nbsp;
-## Linux安装和配置kvm/qemu教程链接：
+## linux安装和配置kvm-qemu教程
 https://blog.csdn.net/weixin_35379749/article/details/116632599
 https://blog.csdn.net/allway2/article/details/122160151
 https://cloud.tencent.com/developer/article/2067416
@@ -779,33 +939,35 @@ https://zhuanlan.zhihu.com/p/428845384
 https://liucreator.gitlab.io/zh/posts/0x0b-single-gpu-passthrough/main/ 
 
 &nbsp;
-## Virtual Box虚拟机自动进入UEFI sheill的解决方法(同样也适用于qemu/kvm)：
+## virtual box虚拟机自动进入uefi sheill的解决方法
+>同样也适用于qemu/kvm
+
 https://www.bilibili.com/read/cv15426771
 
 &nbsp;
-## cinnamon主题修改教程：
+## cinnamon主题修改教程
 https://forums.linuxmint.com/viewtopic.php?f=211&t=155400
 https://forums.linuxmint.com/viewtopic.php?t=156948
 
 &nbsp;
-## cmake命令教程:
+## cmake命令教程
 https://blog.csdn.net/yulesyu/article/details/122200780
 
 &nbsp;
-## make命令教程:
+## make命令教程
 https://www.cnblogs.com/nosadness/p/5136652.html
 
 &nbsp;
-## Debian系安装fcitx5输入法：
+## debian系安装fcitx5输入法
 https://wiki.debian.org/zh_CN/I18n/Fcitx5
 
 &nbsp;
-## wine:
-### 在Debian/ubuntu系的Linux发行版可以参考以下连接安装winehq
+## wine
+### 在debian系的linux发行版可以参考以下连接安装winehq
 https://mirrors.tuna.tsinghua.edu.cn/help/wine-builds/
 
 
-### wine安装字体:
+### wine安装字体
 1：先从Windows系统中把`微软雅黑`字体提取出来（在系统分区的`Windows/Fonts`目录下），搜索`msyh`关键字能找到3个文件，分别是`msyh.ttc`，`msyhbd.ttc`，`msyhl.ttc`，其实也就是常规字体、粗体和细体，把它们（只复制第一个也可以）复制到Ubuntu系统用户主目录的`~/.wine/drive_c/windows/Fonts`目录下面，`.wine`是隐藏文件夹，在主目录文件夹里按`Ctrl+H`即可显示。
 2：然后随便找个地方新建一个空文本，取名为`msyh_font.reg`（后缀是`reg`即可，文件名随便取的），终端命令操作：
 ```bash
@@ -843,7 +1005,7 @@ winecfg
 最好是重启下系统或者注销一下，搞定！既能解决乱码问题，又美观。
 
 
-### wine手动安装wine-gecko，wine-momo：
+### wine手动安装wine-gecko和wine-momo
 wine在初次安装并在终端输入`winecfg`后，会自动下载安装`wine-mono`和`wine-gecko`两个插件
 但是自动下载会很慢，而且还不一定能下载成功，因此最好选择手动下载
 
@@ -863,7 +1025,9 @@ wine start /i xxxx.msi
 在弹出的界面中，如果发现了wine-mono和wine-gecko的相关软件，则说明安装成功了
 
 
-### 安装deepin-wine环境与应用在Debian/Ubuntu上的移植仓库（使用deepin官方原版软件包）：
+### 安装deepin wine环境与应用在debian和ubuntu上的移植仓库
+>使用deepin官方原版软件包
+
 1.添加仓库
 首次使用时，你需要运行如下一条命令将移植仓库添加到系统中。
 ```bash
@@ -890,7 +1054,7 @@ sudo apt-get install com.qq.weixin.deepin
 完整列表参见https://deepin-wine.i-m.dev。
 
 &nbsp;
-## linux更改grub主题:
+## linux更改grub主题
 >这里以deepin主题演示
 
 1、创建主题文件夹
@@ -926,7 +1090,7 @@ sudo update-grub
 >其他图片：零散的图片为启动背景需要
 
 &nbsp;
-## Ubuntu下切换桌面管理器：
+## ubuntu下切换桌面管理器
 以切换到`GDM`为例，打开终端，使用命令：
 ```bash
 sudo dpkg-reconfigure gdm3
@@ -934,8 +1098,8 @@ sudo dpkg-reconfigure gdm3
 然后选择`GDM`，按下Enter选择即可。然后重启计算机生效。同样，可以用其他DM如`KDM`，`SLim`，`LightDM`来替换上述命令中的gdm来进行DM间切换
 
 &nbsp;
-## linux在tty界面中文乱码解决方案：
-### CentOS:
+## linux在tty界面中文乱码解决方案
+### centos解决tty界面中文乱码
 1.安装fbterm
 2.安装中文字体
 3.配置fbterm
@@ -1000,7 +1164,7 @@ fc-list|less
 ```
 能找到Microsoft YaHei哦，说明字体安装成功了
 说明：看到有的文章说要先创建字体的连接文件之后再注册字体，经博主亲测，连接文件完全没有必要，直接复制进去就可以注册字体使用了。
-### Ubuntu:
+### ubuntu解决tty界面中文乱码
 下载命令：
 ```bash
 sudo apt-get install fbterm
@@ -1029,13 +1193,13 @@ sudo setcap 'cap_sys_tty_config+ep' /usr/bin/fbterm
 >参考：http://fcitx-im.org/wiki/Fbterm
 
 &nbsp;
-## Linux mint Cinnamon推荐装的任务栏插件：
+## linux mint cinnamon推荐装的任务栏插件
 Network Data Usage Monitor
 Simple CPU Monitor
 Download and upload speed
 
 &nbsp;
-## gnome桌面推荐插件：
+## gnome桌面推荐插件
 dash to panel
 network stats
 openweather
@@ -1044,13 +1208,13 @@ simple system monitor
 topicons plus
 
 &nbsp;
-## 安装gnome桌面插件管理：
+## 安装gnome桌面插件管理
 ```bash
 sudo apt install gnome-tweaks gnome-extensions-app
 ```
 
 &nbsp;
-## Linux安装v2ray：
+## linux安装v2ray
 安装和更新 V2Ray
 ```bash
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
@@ -1075,7 +1239,7 @@ systemctl status v2ray
 ```
 
 &nbsp;
-## Linux安装v2rayA：
+## linux安装v2raya
 添加公钥
 ```bash
 wget -qO - https://apt.v2raya.mzz.pub/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
@@ -1099,12 +1263,12 @@ sudo systemctl stop v2raya
 ```
 
 &nbsp;
-## Linux主题路径：
+## linux主题路径
 主题：`~/.themes/`或`/usr/share/themes/`
 鼠标指针：`~/.icons`或`/usr/share/icons/`
 
 &nbsp;
-## Linux启用sysrq：
+## linux启用sysrq
 编辑/etc/sysctl.conf
 ```bash
 sudo vim /etc/sysctl.conf
@@ -1116,7 +1280,7 @@ kernel.sysrq=1
 如果要禁用则设置为0
 
 &nbsp;
-## Linux卡死后使用sysrq安全重启方法：
+## linux卡死后使用sysrq安全重启方法
 左手一直长按`ctrl+alt键`，右手先按`Print Screen SysRq`这个键后松开后，右手依次`r`,`e`,`i`,`s`,`u`,`b`这几个键，每次间隔1秒，会发现桌面依次发生变化，最后重启关机；
 >这几个键的含义如下：
 >键就是`PrintScreen`(屏幕截图)按键重合，直接系统请求
@@ -1129,14 +1293,14 @@ kernel.sysrq=1
 >b : reBoot 重启
 
 &nbsp;
-## cinnamon切换虚拟桌面：
+## cinnamon切换虚拟桌面
 切换桌面`Ctrl+Alt+方向左右键`
 虚拟桌面管理`Ctrl+Alt+方向上键`
 在当前桌面切换应用`Ctrl+Alt+方向下键`
 快捷将当前选中窗口移动到其他虚拟桌面 鼠标左键按住窗口+`Ctrl+Alt+方向左右键`
 
 &nbsp;
-## Linux设置开机自动登录：
+## linux设置开机自动登录
 lightdm：
 修改`/etc/lightdm/lightdm.conf`
 找到`#autologin-user=`这一行
@@ -1161,7 +1325,7 @@ AllowRoot=True
 gdm配置完毕，重启后生效
 
 &nbsp;
-## linux创建软链接：
+## linux创建软链接
 ```bash
 ln -s 源文件 目标文件
 ```
@@ -1172,7 +1336,9 @@ ln -s /home/用户名/下载/文件/test /home/用户名/下载/
 此时会在`/home/用户名/下载/`生成`test`快捷方式，并链接到真实路径`/home/用户名/下载/文件/test`
 
 &nbsp;
-## linux mint使用samba共享(基于samba,nemo,nemo-share,cinnamon-settings-users)：
+## linux mint使用samba共享
+>方法基于samba,nemo,nemo-share,cinnamon-settings-users
+
 1、安装samba
 ```bash
 sudo apt install samba
@@ -1200,7 +1366,7 @@ sudo cinnamon-settings-users
 5、打开nemo文件管理器，右键将要共享的文件夹，，选择`共享选项`,启用`共享此文件夹`，此时文件共享成功
 在Windows文件管理器中输入`\\ip`即可访问
 
-### 在原基础上添加新的用户进行访问：
+### 在原基础上添加新的用户进行访问
 1、添加新的Linux系统用户：
 ```bash
 sudo useradd 用户名
@@ -1220,7 +1386,7 @@ sudo smbpasswd -a 用户名
 >想实现完整功能需使用纯samba配置法
 
 &nbsp;
-## Linux用户和用户组：
+## linux用户和用户组
 命令;
 `groupadd`添加用户组
 `useradd`增加一个新用户或者更新默认新用户信息
@@ -1246,19 +1412,24 @@ uid=502(mm) gid=500(jww) groups=500(jww)
 用户必须有且只能有一个主组，可以有0个、1个或多个附属组
 新增一个用户并添加到指定用户组:
 
-### 检查用户组是否存在，如果组存在则会输出组信息，否则没有任何输出
+### 检查用户组是否存在
+>如果组存在则会输出组信息，否则没有任何输出
+
 ```bash
 grep <用户组名称> /etc/group
 ```
-### 如果用户组不存在则使用如下命令新建用户组：
+### 如果用户组不存在则使用如下命令新建用户组
 ```bash
 groupadd <用户组名称>
 ```
-### 新建用户并将其加入指定用户组,作为其主用户组（每个用户有且只有一个主用户组）
+### 新建用户并将其加入指定用户组并作为其主用户组
+>每个用户有且只有一个主用户组
 ```bash
 useradd -g <用户组名称> <用户名称>
 ```
-### 或者新建用户并将其加入指定附属用户组，附属用户组可以有多个，多个附属组名称用逗号分隔即可
+### 或者新建用户
+>将其加入指定附属用户组，附属用户组可以有多个，多个附属组名称用逗号分隔即可
+
 ```bash
 useradd -G <用户组名称> <用户名称>
 ```
@@ -1266,7 +1437,7 @@ useradd -G <用户组名称> <用户名称>
 ```bash
 passwd <用户名称>
 ```
-### 查看用户属性，检查是否添加到正确的用户组
+### 查看用户属性并检查是否添加到正确的用户组
 ```bash
 id <用户名称>
 ```
@@ -1274,7 +1445,7 @@ id <用户名称>
 ```bash
 useradd -g <用户组名称> <用户名称>
 ```
-### 将已有用户添加到指定用户组，作为其附属用户组
+### 将已有用户添加到指定用户组并作为其附属用户组
 
 >`-a`代表`append`，和`-G`一起使用，将用户添加到新用户组中而不必来开原有的其他用户组
 ```bash
@@ -1304,7 +1475,7 @@ userdel <用户名称>
 ```
 
 &nbsp;
-## Linux使用gdebi安装deb包
+## linux使用gdebi安装deb包
 安装gdebi
 ```bash
 sudo apt install gdebi
@@ -1317,7 +1488,7 @@ gdebi会自动寻找软件依赖并安装
 启动gdebi图形界面可运行`gdebi-gtk`
 
 &nbsp;
-## Linux设置文件默认打开程序：
+## linux设置文件默认打开程序
 ```bash
 gio mime MIME类型类型 处理程序
 ```
@@ -1329,7 +1500,7 @@ gio mime application/x-blender blender.desktop
 >MIME类型类型可以用`file --mime-type`命令查看
 
 &nbsp;
-## Linux手动关联文件扩展名和打开程序:
+## linux手动关联文件扩展名和打开程序
 当Linux不认识某种`扩展名`的时候，需要为此`扩展名`创建`一个MIME类型`。
 Linux是依据`MIME类型`而不是`扩展名`来决定打开程序的，
 再将此种MIME类型与某程序菜单项关联
@@ -1382,7 +1553,9 @@ application/x-扩展名=程序.desktop;其他程序.desktop;其他程序2.deskto
 其中`application/x-扩展名`是你刚刚所创建的`MIME类型`。如果`MIME类型`是原有的不是刚刚创建的，替换为原有的`MIME类型`名称。
 
 &nbsp;
-## Linux关联文件扩展名的打开程序(根据 MIME 类型关联)：
+## linux关联文件扩展名的打开程序
+>根据 MIME 类型关联
+
 1、查看文件 MIME 类型：
 ```bash
 mimetype 文件
@@ -1397,7 +1570,7 @@ gio mime MIME类型 程序.desktop
 ```
 
 &nbsp;
-## 将Linux程序打包成 .deb 格式的安装包：
+## 将linux程序打包成deb格式的安装包
 1、创建一个文件夹：
 ```bash
 mkdir app
@@ -1482,7 +1655,7 @@ dpkg -b ./app 软件名.deb
 ```
 
 &nbsp;
-## Linux修复分区：
+## linux修复分区
 查询需要修复的磁盘盘符
 ```bash
 fdisk -l
@@ -1493,7 +1666,7 @@ fsck -a /dev/sdc1
 ```
 
 &nbsp;
-## Debian系Linux发行版解决依赖问题：
+## debian系linux发行版解决依赖问题
 当使用apt安装某个软件包时出现
 ”无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系“
 这是因为这些依赖的软件包，系统已经安装过而且是更高的版本，而需要的是较低版本，所以会报错。
@@ -1506,7 +1679,7 @@ sudo aptitude install <package>
 然后`建议 降级软件包`，选择`y`
 
 &nbsp;
-## 解决Linux提示【输入密码以解锁您的登录密钥环】问题：
+## 解决linux提示 输入密码以解锁您的登录密钥环 问题
 打开terminal，输入
 ```bash
 seahorse
@@ -1521,7 +1694,7 @@ sudo apt install seahorse
 再打开opera或者chrome将不会有【输入密码以解锁您的登录密钥环】这个提示
 
 &nbsp;
-## Debian一些常用指令使用时显示"未找到命令"解决方法：
+## debian一些常用指令使用时显示 未找到命令 解决方法
 该问题原为其实造成这个问题的原因是没有把`/sbin`的目录路径（系统用户目录）添加到`PATH`变量中
 1、临时解决方法：
 使用`su -`命令重新切换到root
@@ -1566,7 +1739,7 @@ $ echo $PATH
 现在就可以正常的使用reboot、service等命令
 
 &nbsp;
-## Linux使用sudo显示"用户不在sudoers文件中此事将被报告"解决方法：
+## linux使用sudo显示 用户不在sudoers文件中此事将被报告 解决方法
 1、第一种解决方法：
 （1）进入root模式，`su`，再输入正确密码
 （2）通过vim打开sudoers并编辑
@@ -1591,7 +1764,7 @@ apt install sudo
 (不同Linux发行版的安装命令可能不同，视具体情况而定)
 
 &nbsp;
-## Debian中设置locale的方法：
+## debian中设置locale的方法
 locale的命名规则为`<语言>_<地区>.<字符集编码>`，如`zh_CN.UTF-8`，`zh`代表中文，`CN`代表大陆地区，`UTF-8`表示字符集。
 在locale环境中，有一组变量，代表国际化环境中的不同设置：
 
@@ -1664,7 +1837,7 @@ LC_ALL=zh_CN.GBK
 ```
 
 &nbsp;
-## 在Debian中安装locales的方法如下：
+## 在debian中安装locales的方法如下
 通过`apt-get install locales`命令安装`locales`包
 安装完成locales包后，系统会自动进行locale配置，你只要选择所需的locale，可以多选。
 最后指定一个系统默认的locale。这样系统就会帮你自动生成相应的locale和配置好系统的locale。
@@ -1684,7 +1857,7 @@ zh_CN.UTF-8 UTF-8
 ```
 
 &nbsp;
-## Linux安装中文版man：
+## linux安装中文版man
 英文不好？没关系，往下看！！！
 原官方下载地址http://code.google.com/p/manpages-zh/
 Githu项目地址https://github.com/man-pages-zh/manpages-zh
@@ -1739,7 +1912,7 @@ cman ls
 ```
 
 &nbsp;
-## CentOS7中使用efibootmgr管理UEFI启动项
+## centos7中使用efibootmgr管理uefi启动项
 `UEFI`是一种固件接口，在现代机器上已经取代了传统的BIOS。 UEFI固件的一个特性是能够在持久可编辑的`NVRAM` (Non - Volatile RAM，非易失性内存)中保存启动项。 在UEFI模式下安装Linux操作系统时，通常会将相关的引导项写入`NVRAM`，在某些情况下，我们可能希望执行手动操作，例如修改启动顺序、创建新的引导或删除旧的启动项。
 
 安装:
@@ -1748,7 +1921,7 @@ CentOS7 默认以`UEFI`模式安装，会自带`efibootmgr`工具，如没有带
 ```bash
 yum -y install efibootmgr
 ```
-### 列出 UEFI 启动项条目：
+### 列出 uefi 启动项条目
 在使用UEFI固件的系统上，UEFI启动项存储在NVRAM中。 要使用 efibootmgr列出现有的启动项，如果需要列出条目就是不带任何选项或参数地调用efibootmgr。 下面就是输出条目的命令：
 ```bash
 $sudo efibootmgr
@@ -1776,7 +1949,9 @@ DesiredMirrorMemoryBelow4GB: false
 
 `efibootmgr`命令还显示了可用引导条目的列表。 每个条目显示其编号和名称。 在列表中，激活的条目它们被标记为`*`符号。
 
-### 可以添加`-v`或者`--verbose`选项来获取条目的详细信息：
+### 获取条目的详细信息
+>可以添加 -v 或者--verbose 选项
+
 ```bash
 $sudo efibootmgr -v
 BootCurrent: 0005
@@ -1790,7 +1965,7 @@ Boot0004* CentOS Linux  HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File
 Boot0005* Centos7.9-EFI HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File(\EFI\centos\grubx64.efi)
 Boot0006* centos7.9     HD(1,800,64000,2c1c6263-e2bc-4f35-b341-a9174a199f60)File(\EFI\centos\grubx64.efi)
 ```
-### 更改 UEFI 启动项顺序:
+### 更改 uefi 启动项顺序
 我们可以使用efibootmgr来更改当前的引导顺序。 使用`-o`或者`--bootorder`选项，后添加想要排列的顺序。当前本机的引导顺序如下：
 ```
 BootOrder: 000A,0009,0004,0007,0008,0006,0000,0001,0002,0003,0005
@@ -1820,7 +1995,7 @@ DesiredMirrorMemoryBelow4GB: false
 
 可以看到顺序已经变了。网卡启动变为第一项了。
 
-### 创建一条引导:
+### 创建一条引导
 可以使用 `efibootmgr` 在 UEFI 引导管理器中创建新条目。 要创建引导项，我们必须知道EFI系统分区的位置和要引导的EFI映像的路径。
 创建新条目时必须使用的选项是`-c`或者`--create`。 假设EFI分区在`/dev/sda`磁盘的第一个分区，efi镜像的引导路径是`EFI/centos/grubx64.efi`，名称为`centos7.9`，我们将运行以下命令:
 ```bash
@@ -1841,7 +2016,7 @@ Boot0006* centos7.9
 
 使用`-L`或`--label`来提供菜单中条目的名称，最后使用`-l`或`--loader`来传递要引导镜像的路径。 需要注意的是，路径应该以单引号形式提供。 创建的引导条目将自动放在引导顺序列表的顶部。
 
-### 删除一条引导:
+### 删除一条引导
 我们可以使用 efibootmgr 删除现有的引导项。 我们可以删除一个不存在的系统引导条目。 我们使用`-b`或者`--bootnum`传递索引作为参数来选择我们想要删除的引导条目，然后使用`-B`或者`--delete-bootnum`来删除它。
 
 例如，要删除索引为`0008` , 我们将运行以下命令：
@@ -1866,7 +2041,9 @@ DesiredMirrorMemoryBelow4GB: false
 >Tips：在传递引导条目序号时，我们可以不填充前面的0。
 
 激活、取消激活引导条目:
-### 如果不想显示某一个启动项可以使用`-A`或者`--inactive`来取消激活该条目：
+### 取消激活条目
+>如果不想显示某一个启动项可以使用 -A 或者 --inactive
+
 ```bash
 $ sudo efibootmgr -b 000A -A
 Timeout: 1 seconds
@@ -1885,7 +2062,9 @@ DesiredMirroredPercentageAbove4G: 0.00
 DesiredMirrorMemoryBelow4GB: false
 ```
 可以看到 Boot000A Linux这一条前面的*消失了，这就代表不显示该条目了。
-### 如果想显示某一个启动项可以使用`-a`或者`--active`来激活该条目：
+### 激活该条目
+>如果想显示某一个启动项可以使用 -a 或者 --active
+
 ```bash
 $ sudo efibootmgr -b 000A -a
 Timeout: 1 seconds
@@ -1905,7 +2084,7 @@ DesiredMirrorMemoryBelow4GB: false
 ```
 可以看到 `Boot000A Linux`这一条前面的又回来了。
 
-### 修改 UEFI 引导管理器超时时间:
+### 修改 uefi 引导管理器超时时间
 我们可以设置超时间隔，使用`-t`或者`-timeout`选项来设置，在此之后自动选择EFI引导管理器中的默认条目。我们可以设置时间长一点：
 ```bash
 $ sudo efibootmgr -t 5
@@ -1923,7 +2102,7 @@ Boot0005* Centos7.9-EFI
 >支持UEFI固件的机器将引导项存储在称为NVRAM的非易失性RAM中。 当我们安装Linu操作系统时，EFI引导管理器菜单中会自动添加一个对应的条目。
 
 &nbsp;
-## Debian安装docker：
+## debian安装docker
 使用 APT 安装
 
 由于 apt 源使用 `HTTPS` 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 `HTTPS` 传输的软件包以及 `CA` 证书。
@@ -2008,7 +2187,7 @@ sudo systemctl restart docker
 ```
 
 &nbsp;
-## 窗口管理器安装和配置：
+## 窗口管理器安装和配置
 1、所需软件：
 `sway`(窗口管理器)
 `waybar`(顶栏)
@@ -2754,7 +2933,7 @@ mod+shift+e 重载sway
 mod+数字键 切到指定工作区
 
 &nbsp;
-## python设置pip镜像源：
+## python设置pip镜像源
 设置主要镜像源：
 ```bash
 pip config set global.index-url "镜像源地址"
@@ -2783,7 +2962,7 @@ https://mirror.sjtu.edu.cn/pypi/web/simple
 https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
 
 &nbsp;
-## flatpak设置镜像源：
+## flatpak设置镜像源
 设置国内镜像源：
 ```bash
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
@@ -2794,7 +2973,7 @@ sudo flatpak remote-add --if-not-exists /flathub.flatpakrepo
 ```
 
 &nbsp;
-## 在Debian启用ssh：
+## 在debian启用ssh
 1、安装ssh
 ```bash
 sudo apt install ssh
@@ -2836,7 +3015,7 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 然后可以利用远程登录软件(SecureCRT SSH)进行相关登录。
 
 &nbsp;
-## Linux清理cache缓存：
+## linux清理cache缓存
 查看缓存：
 ```bash
 free -m
@@ -2869,8 +3048,8 @@ sysctl -w vm.drop_caches=3
 >上面三种方式都是临时释放缓存的方法，要想永久释放缓存，需要在`/etc/sysctl.conf`文件中配置：`vm.drop_caches=1/2/3`，然后`sysctl -p`生效即可
 
 &nbsp;
-## tmux使用和美化：
-### 快捷键(默认)：
+## tmux使用和美化
+### tmux默认快捷键
 Prefix键：`Ctrl+b`
 (当按下`Prefix键`并松开后才可以使用tmux的快捷键，`Prefix键`相当于快捷键激活键，防止误触)
 
@@ -2914,7 +3093,7 @@ tmux new -s <工作区名称>  (创建指定名称的工作区)
 tmux kill-session -t <工作区数字>
 tmux kill-session -t <工作区名称>
 ```
-### 美化tmux：
+### 美化tmux
 工具：
 https://github.com/gpakosz/.tmux
 
@@ -2936,7 +3115,7 @@ vim .tmux.conf
 然后参考github上项目的的说明修改
 
 &nbsp;
-## vim使用：
+## vim使用
 1、编辑模式：
         在一般模式中可以进行删除、复制、粘贴等的操作，但是却无法编辑文件的内容，只有当到你按下`i`, `I`, `o`, `O`, `a`, `A`, `r`, `R`等任何一个字母之后才会进入编辑模式。这时候屏幕的左下方会出现`INSERT`或`REPLACE`的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下`Esc`即可退出编辑模式。
 
@@ -3158,13 +3337,13 @@ vim 环境设定与记录(~/.vimrc, ~/.viminfo)
 15、如果想自己专研vim  可以执行命令： `vimtutor`  (此命令可以自己学习vim)
 
 &nbsp;
-## Linux控制手机(Android)：
+## linux控制手机
 前期准备：
 使用Linux发行版自带的包管理器安装adb和scrcpy
 工具官网:
 https://github.com/Genymobile/scrcpy
 https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn
-### 使用有线连接：
+### 使用有线连接来连接手机
 1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
 1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
 2）如果找不到开发者选项在哪，可以按照下面的方法找到开发者选项并打开：
@@ -3184,7 +3363,7 @@ scrcpy
 ```
 此时会弹出一个可以控制手机的窗口，可以通过鼠标和键盘控制手机
 
-### 使用无线连接：
+### 使用无线连接来连接手机
 注：确保手机和电脑处在`同一个局域网`中
 1、首先需要开启Android设备的`开发者选项`和`允许USB调试`。不同手机型号打开开发者选项的方式也不同，大致有两种方式可以打开开发者选项。
 1）打开手机找到`设置`-->找到`系统`一栏（有些手机是`更多设置`）-->选择打开`开发者选项`和启用`USB调试`，推荐启用`“仅充电”模式下允许ADB调试`
@@ -3220,7 +3399,7 @@ scrcpy
 >注:手机在重启或重新打开usb调试后需要重新启用手机网络调试
 
 &nbsp;
-## Linux设置软件开机自启动：
+## linux设置软件开机自启动
 一、有界面的程序自启动
 
 利用Linux的 `.desktop`文件实现开机启动。
@@ -3448,3 +3627,4 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 
 对于有`/etc/rc.d/rc.local`或`/etc/rc.local`文件的Linux发行版本，开机自启动只需要在`/etc/rc.local`文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
 注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看`/etc/rc.d/rc.local`文件是否具有可执行权限（`/etc/rc.local`只是`/etc/rc.d/rc.local`的软链接，添加`/etc/rc.local`文件的可执行权限是不管用的）。
+
