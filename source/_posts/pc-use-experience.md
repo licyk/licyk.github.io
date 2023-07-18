@@ -110,7 +110,7 @@ hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollmen
 &nbsp;
 ## cmd指令：
 强制关闭进程
-```cmd
+```
 wmic process where name='进程名.exe' call terminate
 wmic process where processid="进程pid" delete
 wmic process 进程pid call terminate
