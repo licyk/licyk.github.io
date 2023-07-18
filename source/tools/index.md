@@ -22,6 +22,7 @@ date: 2023-07-13 11:59:18
 |[Windows](/2023/07/14/windows-software)
 |[Android](/2023/07/14/android-software)
 |[Linux](/2023/07/15/linux-software)
+|[个人制作项目](/2023/07/18/personal-software-download-page)
 
 
 |网页工具||
@@ -38,6 +39,7 @@ date: 2023-07-13 11:59:18
 |[PP助手](https://wap.pp.cn/)|[Apkpure](http://m.apkpure.com/cn)
 |[小米应用商城](https://app.mi.com/)|[华为应用市场](https://appgallery.huawei.com)
 |[F-Droid](https://f-droid.org/)|[Malavida](https://www.malavida.com/en/android/)
+|[uptodown](https://cn.uptodown.com/android)|[APK Support](https://apk.support/zh_cn/)
 |[腾讯软件中心(PC)](https://pc.qq.com/)|[360软件管家(PC)](https://soft.360.cn/)
 
 
