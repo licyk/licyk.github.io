@@ -8,6 +8,7 @@ categories:
 ---
 个人使用Linux mint(cinnamon)时调整的设置
 <!-- more -->
+***
 # 系统设置：
 ## 特效：
 全部打开，Windows animation speed（动画速度）调成减速

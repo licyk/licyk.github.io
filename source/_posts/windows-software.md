@@ -8,7 +8,7 @@ categories:
 ---
 Windows软件存档
 <!-- more -->
-****
+***
 |浏览器||
 |---|---
 |[Firefox](https://www.mozilla.org/zh-CN/firefox/all/#product-desktop-release)|开源

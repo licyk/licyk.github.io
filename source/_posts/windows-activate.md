@@ -8,6 +8,7 @@ categories:
 ---
 windows系统激活方法和激活码
 <!-- more -->
+***
 # Windows(win10，win11)激活教程：
 
 首先 WIN+X 打开”PowerShell(管理员)”在win11中是"终端(管理员)")
