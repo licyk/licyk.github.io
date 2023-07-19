@@ -40,6 +40,7 @@ Android软件存档
 |[AidLux](https://aidlux.com/)|应用开发和部署平台
 |[Termux](https://termux.dev/)|Android终端仿真器和Linux环境应用
 |[Auto.js](https://pro.autojs.org/)|JavaScript IDE
+|[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
 
 
 |软件外设||

@@ -75,6 +75,7 @@ Windows软件存档
 |[Win-Bash](https://win-bash.sourceforge.net/)|shell 命令行开发环境
 |[Gradio](https://www.gradio.app/)|快速创建图形用户界面(GUI)的Python库
 |[Pytorch](https://pytorch.org/)|开源的Python机器学习库
+|[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
 
 
 |串流||
