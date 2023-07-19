@@ -203,6 +203,8 @@ categories:
 >使用win+r运行
 
 策略管理`services.msc`
+服务`services.msc`
+任务计划程序`taskschd.msc`
 系统配置`msconfig`
 注册表`regedit`
 用户账户`Netplwiz`
