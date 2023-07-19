@@ -74,6 +74,7 @@ categories:
   - [debian系linux安装桌面](#debian系linux安装桌面)
   - [linux桌面卡死解决方法](#linux桌面卡死解决方法)
   - [linux安装grub2](#linux安装grub2)
+  - [qemu-kvm启用nat网络模块](#qemu-kvm启用nat网络模块)
   - [更改终端显示语言](#更改终端显示语言)
   - [bash环境配置文件](#bash环境配置文件)
   - [安装docker后进行apt upgrade时出现pending kernel upgrade选项的解决方法](#安装docker后进行apt-upgrade时出现pending-kernel-upgrade选项的解决方法)
@@ -876,6 +877,12 @@ sudo systemctl restart lightdm
 
 ```bash
 sudo grub-install /dev/sda
+```
+
+&nbsp;
+## qemu-kvm启用nat网络模块
+```bash
+sudo virsh net-start --network default
 ```
 
 &nbsp;
