@@ -45,3 +45,27 @@ categories:
 |↓|<a href="https://raw.githubusercontent.com/licyk/bili-dl-merge/main/bili-dl-merge.sh?response-content-type=application%2Foctet-stream" download>`下载地址2`</a>
 
 ***
+
+# ani2xcur
+一个将windows鼠标指针转换为linux鼠标指针的脚本，拥有TUI界面，转换核心基于win2xcur
+下载前请看[`使用说明`](https://github.com/licyk/ani2xcur/README.md)
+
+||下载地址|
+|---|---
+|↓|[`源码`](https://github.com/licyk/ani2xcur)
+|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/ani2xcur/main/ani2xcur.sh" download>`下载地址1`</a>
+|↓|<a href="https://raw.githubusercontent.com/licyk/ani2xcur/main/ani2xcur.sh" download>`下载地址2`</a>
+
+***
+
+# ani2xcur-core
+这个是ani2xcur的核心版本，去掉了dialog,只保留基本的转换功能
+下载前请看[`使用说明`](https://github.com/licyk/ani2xcur/README.md)
+
+||下载地址|
+|---|---
+|↓|[`源码`](https://github.com/licyk/ani2xcur)
+|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/ani2xcur/main/ani2xcur-core.sh" download>`下载地址1`</a>
+|↓|<a href="https://raw.githubusercontent.com/licyk/ani2xcur/main/ani2xcur-core.sh" download>`下载地址2`</a>
+
+***
