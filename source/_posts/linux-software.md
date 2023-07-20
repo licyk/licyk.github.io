@@ -78,6 +78,9 @@ Linux软件存档
 |[carbonyl](https://github.com/fathyb/carbonyl)|终端浏览器
 |[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
 |[AriaNg](https://github.com/mayswind/AriaNg)|图形化aria2工具
+|[win2xcur](https://github.com/quantum5/win2xcur)|windows鼠标指针转换成linux鼠标指针格式的工具
+|[ssfconv](https://github.com/fkxxyz/ssfconv)|搜狗输入法皮肤格式转换成fcitx输入法格式的工具
+
 
 |wine||
 |---|---
