@@ -17,6 +17,13 @@ Windows软件存档
 |[Chromium](https://chromium.googlesource.com/chromium/)|开源
 
 
+|显卡驱动||
+|---|---
+|[NVIDIA](https://www.nvidia.cn/geforce/drivers/)|NVIDIA显卡驱动
+|[AMD](https://www.amd.com/zh-hans/support)|AMD显卡驱动
+|[INTEL](https://www.intel.cn/content/www/cn/zh/download-center/home.html)|INTEL显卡驱动
+
+
 |生产||
 |---|---
 |[Krita](https://krita.org/zh/)|绘画
