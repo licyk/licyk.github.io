@@ -25,6 +25,9 @@ categories:
   - [隐藏windows10设置中的部分设置](#隐藏windows10设置中的部分设置)
   - [隐藏windows中控制面板的部分设置](#隐藏windows中控制面板的部分设置)
   - [cmd指令](#cmd指令)
+    - [强制关闭进程](#强制关闭进程)
+    - [创建软链接](#创建软链接)
+    - [删除软连接：](#删除软连接)
   - [其他软件使用](#其他软件使用)
   - [浏览器快捷键](#浏览器快捷键)
   - [firefox推荐插件](#firefox推荐插件)
@@ -53,6 +56,7 @@ categories:
     - [使用有线连接](#使用有线连接)
     - [使用无线连接](#使用无线连接)
   - [windows设置u盘工作模式](#windows设置u盘工作模式)
+  - [windows解决幽灵账户：](#windows解决幽灵账户)
   - [ ](#)
 - [安卓](#安卓)
   - [列出分区](#列出分区)
@@ -260,17 +264,17 @@ hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollmen
 
 &nbsp;
 ## cmd指令
-强制关闭进程
+### 强制关闭进程
 ```
 wmic process where name='进程名.exe' call terminate
 wmic process where processid="进程pid" delete
 wmic process 进程pid call terminate
 ```
-创建软链接
+### 创建软链接
 ```
 mklink /d "虚拟文件路径" "真实文件路径"
 ```
-删除软连接：
+### 删除软连接：
 ```
 rmdir "虚拟文件路径"
 ```
@@ -557,7 +561,7 @@ pacman -Sy
 3、在`名称`中填入`MinGW64`
 4、在`命令行`填入
 ```
-C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64”
+C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64
 ```
 （`C:\msys64`为安装目录，根据具体安装的目录修改）
 5、在`启动目录`勾选`使用父进程目录`
@@ -695,6 +699,12 @@ scrcpy
 >更好的性能:
 >优点：启用 Windows 中的写入缓存功能，确保完成所有缓存操作来保护U盘等外接移动设备上数据的完整性，加速传输速度
 >缺点：必须使用安全删除硬件，不能热插拔U盘等外接移动设备
+
+&nbsp;
+## windows解决幽灵账户：
+>当windows登陆微软帐号时，系统会要求用户设置pin登陆密码，但设置pin密码后，每次进入windows系统时都要输入密码，所以通过系统中的netplwiz设置自动登陆，但有时候会出现幽灵账户，导致系统无法正常自动登陆
+
+解决办法：将pin密码设置为和你所登陆的微软帐号的密码相同，再重新设置windows自动登陆就解决了
 
 &nbsp;
 ---
