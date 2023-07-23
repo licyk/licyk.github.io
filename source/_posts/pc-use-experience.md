@@ -302,42 +302,43 @@ bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 |||
 |---|---
 |[Translate Web Pages](https://addons.mozilla.org/zh-CN/firefox/addon/traduzir-paginas-web/)|网页实时翻译
-[AdBlock](https://addons.mozilla.org/zh-CN/firefox/addon/adblock-for-firefox/)|广告拦截
-[AdGuard](https://addons.mozilla.org/zh-CN/firefox/addon/adguard-adblocker/)|广告拦截，拦截效果比adblock好
-[Global Speed](https://addons.mozilla.org/zh-CN/firefox/addon/global-speed/)|视频速度控制
-[Image Search Options](https://addons.mozilla.org/zh-CN/firefox/addon/image-search-options/)|网页识图
-[Infinity](https://addons.mozilla.org/zh-CN/firefox/addon/infinity-new-tab-pro/)|自定义标签页
-[Tampermonkey](https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)|油猴脚本管理器
-[To Google Translate](https://addons.mozilla.org/zh-CN/firefox/addon/to-google-translate/)|网页翻译
-[User-Agent Switcher and Manager](https://addons.mozilla.org/zh-CN/firefox/addon/user-agent-string-switcher/)|浏览器UA修改
-[Video DownloadHelper](https://addons.mozilla.org/zh-CN/firefox/addon/video-downloadhelper/)|视频下载
-[bilibili哔哩哔哩下载助手]()|可下载哔哩哔哩视频
-[Mate Translate](https://addons.mozilla.org/zh-CN/firefox/addon/instant-translate/)|网页翻译
-[SteamDB](https://addons.mozilla.org/zh-CN/firefox/addon/steam-database/)|第三方steam数据库网站
-[Turbo Download Manager](https://addons.mozilla.org/zh-CN/firefox/addon/turbo-download-manager/)|下载器
-[OneTab](https://addons.mozilla.org/zh-CN/firefox/addon/onetab/)|标签页整理，省内存
-[New Tab Override](https://addons.mozilla.org/zh-CN/firefox/user/1351101/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link)|自定义新标签页
-[Tree Style Tab](https://addons.mozilla.org/zh-CN/firefox/addon/tree-style-tab/)|树形标签页
-[iTab](https://addons.mozilla.org/zh-CN/firefox/user/17087478/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link)|浏览器标签页
-[FoxyTab](https://addons.mozilla.org/zh-CN/firefox/addon/foxytab/)|扩展右键菜单
-[Firefox Multi-Account Containers](https://addons.mozilla.org/zh-CN/firefox/addon/multi-account-containers/)|firefox多用户容器
-[Firefox Color](https://addons.mozilla.org/zh-CN/firefox/addon/firefox-color/)|firefox主题编辑器
-[Easy Youtube Video Downloader Express](https://addons.mozilla.org/zh-CN/firefox/addon/easy-youtube-video-download/)|YouTube视频下载
-[DuckDuckGo Privacy Essentials](https://addons.mozilla.org/zh-CN/firefox/addon/duckduckgo-for-firefox/)|隐私搜索
-[Download with JDownloader](https://addons.mozilla.org/zh-CN/firefox/addon/download-with-jdownloader/)|下载器
-[Download Manager S3](https://addons.mozilla.org/zh-CN/firefox/addon/s3download-statusbar/)|下载器
-[无追搜索](https://addons.mozilla.org/zh-CN/firefox/addon/%E6%97%A0%E8%BF%BD%E6%90%9C%E7%B4%A2-%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2-%E4%B8%8D%E5%86%8D%E8%A2%AB%E8%BF%BD%E8%B8%AA/)|隐私搜索
-[图片助手](https://addons.mozilla.org/zh-CN/firefox/addon/ia-batch-image-downloader/)|批量图片下载器
-[腾讯翻译](https://addons.mozilla.org/zh-CN/firefox/addon/%E8%85%BE%E8%AE%AF%E7%BF%BB%E8%AF%91/)|翻译工具
-[浏览器盒子](https://addons.mozilla.org/zh-CN/firefox/addon/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%92%E5%AD%90-%E5%85%81%E8%AE%B8%E5%A4%8D%E5%88%B6/)|网页工具
-[关灯看视频](https://addons.mozilla.org/zh-CN/firefox/addon/turn-off-the-lights/)|网页黑暗模式
-[SuperCopy](https://addons.mozilla.org/zh-CN/firefox/addon/supercopy-enable-copy/)|解除复制限制
-[SponsorBlock for YouTube](https://addons.mozilla.org/zh-CN/firefox/addon/sponsorblock/)|跳过YouTube赞助商广告
-[I don't care about cookies](https://addons.mozilla.org/zh-CN/firefox/addon/i-dont-care-about-cookies/)|去除网页cookies提示
-[find+](https://addons.mozilla.org/zh-CN/firefox/addon/brandon1024-find/)|高级搜索
-[Dark Reader](https://addons.mozilla.org/zh-CN/firefox/addon/darkreader/)|网页黑暗模式
-[多线程下载管理器](https://addons.mozilla.org/zh-CN/firefox/addon/multithreaded-download-manager/)|下载器
-[singlefile](https://addons.mozilla.org/zh-CN/firefox/addon/single-file/)|将完整的页面保存到一个html文件中
+|[AdBlock](https://addons.mozilla.org/zh-CN/firefox/addon/adblock-for-firefox/)|广告拦截
+|[AdGuard](https://addons.mozilla.org/zh-CN/firefox/addon/adguard-adblocker/)|广告拦截，拦截效果比adblock好
+|[Global Speed](https://addons.mozilla.org/zh-CN/firefox/addon/global-speed/)|视频速度控制
+|[Image Search Options](https://addons.mozilla.org/zh-CN/firefox/addon/image-search-options/)|网页识图
+|[Infinity](https://addons.mozilla.org/zh-CN/firefox/addon/infinity-new-tab-pro/)|自定义标签页
+|[Tampermonkey](https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)|油猴脚本管理器
+|[To Google Translate](https://addons.mozilla.org/zh-CN/firefox/addon/to-google-translate/)|网页翻译
+|[User-Agent Switcher and Manager](https://addons.mozilla.org/zh-CN/firefox/addon/user-agent-string-switcher/)|浏览器UA修改
+|[Video DownloadHelper](https://addons.mozilla.org/zh-CN/firefox/addon/video-downloadhelper/)|视频下载
+|[bilibili哔哩哔哩下载助手]()|可下载哔哩哔哩视频
+|[Mate Translate](https://addons.mozilla.org/zh-CN/firefox/addon/instant-translate/)|网页翻译
+|[SteamDB](https://addons.mozilla.org/zh-CN/firefox/addon/steam-database/)|第三方steam数据库网站
+|[Turbo Download Manager](https://addons.mozilla.org/zh-CN/firefox/addon/turbo-download-manager/)|下载器
+|[OneTab](https://addons.mozilla.org/zh-CN/firefox/addon/onetab/)|标签页整理，省内存
+|[New Tab Override](https://addons.mozilla.org/zh-CN/firefox/user/1351101/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link)|自定义新标签页
+|[Tree Style Tab](https://addons.mozilla.org/zh-CN/firefox/addon/tree-style-tab/)|树形标签页
+|[iTab](https://addons.mozilla.org/zh-CN/firefox/user/17087478/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=addons-manager-user-profile-link)|浏览器标签页
+|[FoxyTab](https://addons.mozilla.org/zh-CN/firefox/addon/foxytab/)|扩展右键菜单
+|[Firefox Multi-Account Containers](https://addons.mozilla.org/zh-CN/firefox/addon/multi-account-containers/)|firefox多用户容器
+|[Firefox Color](https://addons.mozilla.org/zh-CN/firefox/addon/firefox-color/)|firefox主题编辑器
+|[Easy Youtube Video Downloader Express](https://addons.mozilla.org/zh-CN/firefox/addon/easy-youtube-video-download/)|YouTube视频下载
+|[DuckDuckGo Privacy Essentials](https://addons.mozilla.org/zh-CN/firefox/addon/duckduckgo-for-firefox/)|隐私搜索
+|[Download with JDownloader](https://addons.mozilla.org/zh-CN/firefox/addon/download-with-jdownloader/)|下载器
+|[Download Manager S3](https://addons.mozilla.org/zh-CN/firefox/addon/s3download-statusbar/)|下载器
+|[无追搜索](https://addons.mozilla.org/zh-CN/firefox/addon/%E6%97%A0%E8%BF%BD%E6%90%9C%E7%B4%A2-%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2-%E4%B8%8D%E5%86%8D%E8%A2%AB%E8%BF%BD%E8%B8%AA/)|隐私搜索
+|[图片助手](https://addons.mozilla.org/zh-CN/firefox/addon/ia-batch-image-downloader/)|批量图片下载器
+|[腾讯翻译](https://addons.mozilla.org/zh-CN/firefox/addon/%E8%85%BE%E8%AE%AF%E7%BF%BB%E8%AF%91/)|翻译工具
+|[浏览器盒子](https://addons.mozilla.org/zh-CN/firefox/addon/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%92%E5%AD%90-%E5%85%81%E8%AE%B8%E5%A4%8D%E5%88%B6/)|网页工具
+|[关灯看视频](https://addons.mozilla.org/zh-CN/firefox/addon/turn-off-the-lights/)|网页黑暗模式
+|[SuperCopy](https://addons.mozilla.org/zh-CN/firefox/addon/supercopy-enable-copy/)|解除复制限制
+|[SponsorBlock for YouTube](https://addons.mozilla.org/zh-CN/firefox/addon/sponsorblock/)|跳过YouTube赞助商广告
+|[I don't care about cookies](https://addons.mozilla.org/zh-CN/firefox/addon/i-dont-care-about-cookies/)|去除网页cookies提示
+|[find+](https://addons.mozilla.org/zh-CN/firefox/addon/brandon1024-find/)|高级搜索
+|[Dark Reader](https://addons.mozilla.org/zh-CN/firefox/addon/darkreader/)|网页黑暗模式
+|[多线程下载管理器](https://addons.mozilla.org/zh-CN/firefox/addon/multithreaded-download-manager/)|下载器
+|[singlefile](https://addons.mozilla.org/zh-CN/firefox/addon/single-file/)|将完整的页面保存到一个html文件中
+|[沉浸式翻译](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)|支持双语对照显示的翻译插件
 
 &nbsp;
 ## edge浏览器进入高级设置
