@@ -1,12 +1,15 @@
 ---
-title: sd-webui-tutorial
+title: stable diffusion webui教程
 date: 2023-08-01 17:09:18
 tags:
 categories:
  - 教程
 ---
-整理了stable diffusion webui的视频教程
+整理了stable diffusion webui的教程
 <!-- more -->
+***
+## 系统教程
+
 |系统的AI绘画教程 by bilibili@[Nenly同学](https://space.bilibili.com/1814756990) ||
 |---|---|
 |推荐观看该系列视频学习||
@@ -30,10 +33,113 @@ categories:
 |[模型推荐：AI再进化，这次竟然学会摄影了！一秒生成胶片风、拍立得，还能智能“修脸”！Stable Diffusion AI绘画真实系人像模型+Lora分享](https://www.bilibili.com/video/BV1DP41167bZ)|
 |[模型推荐：一流模型！10个高手都在用的二次元插画绘画风大模型推荐，内附模型下载渠道与出图参数提示词关键词模版](https://www.bilibili.com/video/BV1Us4y1M7x4)|
 
+
 |轩轩的sd webui教程 by bilibili@[靠谱的轩轩](https://space.bilibili.com/1642297)||
 |---|---
 |可作为补充学习Nenly同学未提到的东西
 |[入门](https://www.bilibili.com/video/BV1HT411e7Tf)|
 |[基础](https://www.bilibili.com/video/BV1LM4y1m7f7)|
 
-|||
+
+## 其他应用
+
+
+|[秋葉aaaki](https://space.bilibili.com/12566101)的教程||
+|---|---
+|[【AI绘画】从零开始的AI绘画入门教程——魔法导论](https://www.bilibili.com/read/cv22159609)|
+|[Dreambooth模型介绍和模型融合教程](https://www.bilibili.com/video/BV1Ae4y1s79r)||
+|[Dreambooth训练教程](https://www.bilibili.com/video/BV1SR4y1y7Lv)|
+|[LoRA模型训练教程](https://www.bilibili.com/video/BV1fs4y1x7p2)|
+|[Embedding 训练教程](https://www.bilibili.com/video/BV1C14y157nQ/)|
+|[ControlNet1.1 使用教程](https://www.bilibili.com/video/BV1fa4y1G71W)|
+|[深入理解Stable Diffusion!从原理到模型训练](https://www.bilibili.com/video/BV1x8411m76H)
+
+
+|Lora训练 by bilibili@[青龙圣者](https://space.bilibili.com/219296)||
+|---|---|
+|[【AI绘画设置优化】LORA训练加速100%速度](https://www.bilibili.com/video/BV1Ts4y1J76y)|
+|[【新算法优化】最新LoRA模型训练进阶教程1](https://www.bilibili.com/video/BV1pA411m7WA)|
+|[【快速打标/优化器对比】最新LoRA模型训练进阶教程2](https://www.bilibili.com/video/BV15j411F7nJ)|
+|[【正则化和卷积应用】最新LoRA模型训练进阶教程3](https://www.bilibili.com/video/BV1MM41177xv)|
+|[【正则化制作功能LoRA】最新LoRA模型训练进阶教程4](https://www.bilibili.com/video/BV1oP411f7fi)|
+|[【哈达玛积训练画风LoRA】最新LORA模型训练教程5](https://www.bilibili.com/video/BV1HM4y167Hg)|
+|[【LoRA训练用什么底模】最新LoRA训练进阶教程6](https://www.bilibili.com/video/BV1hk4y1Y7sc)|
+|[【动态lora！任意dim值选择】最新LoRA训练进阶教程7](https://www.bilibili.com/video/BV1Qc411n7V8)|
+|[【金字塔噪声，接近MJ的效果】最新LoRA训练进阶教程8](https://www.bilibili.com/video/BV12P411y76P)|
+|[【lora分层的底层原理】最新LoRA训练进阶教程9](https://www.bilibili.com/video/BV1th411F7CR)|
+|[【完美炼丹术，差异炼丹法】最新LoRA训练进阶教程10](https://www.bilibili.com/video/BV11m4y147WQ)|
+|[【神童优化器！全程自适应训练】最新lora训练教程11](https://www.bilibili.com/video/BV1nX4y1H7x5)|
+|[【0图流正负丹，减少手部崩坏】最新Lora训练AI高级教程12](https://www.bilibili.com/video/BV1dm4y1L7q3)|
+|[【SDXL8G优化训练，脚本更新】最新Lora训练AI高级教程13](https://www.bilibili.com/video/BV1tk4y137fo)|
+
+
+|其他lora训练教程|
+|---|---|
+|[lora训练进阶教程，6分半教会你怎么训练一个好的lora](https://www.bilibili.com/video/BV1jP411f7kV)|
+|[赛博德狗lora作者，c站前10下载量作者的lora训练心得](https://www.bilibili.com/video/BV1Nc411W7PG)|
+|[【AI绘画】较详细！正则化！从泛化性角度谈Lora模型训练心得](https://www.bilibili.com/video/BV1GM411E7vk)|
+|[【LORA训练】10分钟教你训练画风lora！](https://www.bilibili.com/video/BV15j411c7dL)|
+|[LoRA 角色模型训练-训练脚本作者亲自指导](https://www.bilibili.com/video/BV1Js4y1c7oU)|
+|[【AI绘画】训练LoRA模型最重要的一环：打标签](https://www.bilibili.com/video/BV1ZM411c7aj)|
+|[【AI绘画】Lora制作新时代！从大模型提取Lora , Lora合并 使用教程](https://www.bilibili.com/video/BV1t24y1J7Bk)|
+|[【AI绘画】超级模型融合插件详解，Lora提取，MBW大模型合并，Lora融合大模型，xy对比融合图](https://www.bilibili.com/video/BV1J84y1E7nn/)
+|[如何快速训练番剧画风lora](https://www.bilibili.com/video/BV1Rs4y1w76w/)
+
+
+|dreambooth训练 by bilibili@[小李xiaolxl](https://space.bilibili.com/34590220)||
+|---|---
+|[DreamBooth画风训练教程(基于NovelAI)](https://www.bilibili.com/video/BV18K411o7mG/)|
+|[DreamBooth人物训练与安装教程](https://www.bilibili.com/video/BV1g841187nc/)|
+|[Lora+OffsetNoise+Lion+locon全解(基于DreamBooth可视化训练插件)](https://www.bilibili.com/video/BV1sM4y1C7YZ/)
+
+
+|其他使用教程||
+|---|---
+|[超详细的局部重绘讲解](https://www.bilibili.com/video/BV1HN411N7GB)|
+|[stable diffusion AI绘画入门19 思维决定画面效果](https://www.bilibili.com/video/BV1X14y1o76e)|
+|[为什么你的AI绘画图片质量这么低？20分钟学会全方位提高画质的方法](https://www.bilibili.com/video/BV1Qk4y1i726)|
+|[【AI绘画】webUI中各种放大算法效果对比与原理简介](https://www.bilibili.com/video/BV13M4y1d7TU)|
+|[【AI绘画】openpose新插件poseX，360°3D旋转~秒杀editor，controlnet好助手](https://www.bilibili.com/video/BV13j411u7SZ)|
+|[【AI绘画】手势生成再进化？OpenPose-HAND对比Depth Library插件 全流程教学](https://www.bilibili.com/video/BV1ML41127fu/)|
+|[【主打开源】stable diffusion+blender 我今天就要画手](https://www.bilibili.com/video/BV1Ec41157Hp/)|
+|[【AI绘画】利用LoRA分层控制高效且有目的地融合画风](https://www.bilibili.com/video/BV1ms4y1E7zX/)|
+|[【AI绘画】在画面不同区域使用不同关键词！潜变量成对（latent couple）参数怎么填](https://www.bilibili.com/video/BV1NL411C7Ja/)|
+|[Latent Couple分区渲染详解+Lora防污染手段](https://www.bilibili.com/video/BV12h411G7T5/)|
+|[【AI绘画教程】B站最通俗易懂的loRA分层控制与融合教程⚡️5分钟解决污染](https://www.bilibili.com/video/BV1nP411U7me/)|
+|[Stable Diffusion Latent Couple、Composable LoRA完成多人](https://www.bilibili.com/video/BV1zL41127Sg)|
+|[AI绘画】Stable Diffusion Regional Prompter插件教学，实现多区域绘画自由](https://www.bilibili.com/video/BV1Jz4y1b7dJ)|
+|[【Ai绘画】VRM+ControlNET文生图+实景照片，控制最终画面](https://www.bilibili.com/video/BV1Rc411H7F4)|
+|[【AI绘画】利用ControlNet和线稿LoRA提取线稿的方法+一些新用法](https://www.bilibili.com/video/BV1Nv4y1a7ts/)|
+|[【AI绘画】使用ControlNet给线稿上色的技巧](https://www.bilibili.com/video/BV1pv4y18793)|
+|[【AI绘画】ControlNet Tile 工作流](https://www.bilibili.com/video/BV19m4y187o1/)|
+|[【AI绘画】利用ControlNet清理草稿](https://www.bilibili.com/video/BV1t54y1M76a/)|
+|[stable-diffusion动作+背景【全控】-controlnet seg+动作+深度图的用法](https://www.bilibili.com/video/BV1dP411Z7S8)|
+|[【AI绘画进阶教程】图生图 让AI模特穿上你喜欢的衣服](https://www.bilibili.com/video/BV1uM411u739)|
+|[【AI教学】草稿秒变成图？线稿快速上色？](https://www.bilibili.com/video/BV13o4y1z72w)|
+|[【AI绘画进阶教程】seg 语义分割控制网络 ControNet教你画景填人](https://www.bilibili.com/video/BV1Wg4y1x7Ur/)|
+|[【AI绘画】利用GroundingDINO+SAM快速修改图片局部的方法](https://www.bilibili.com/video/BV1Hh411j7b2)|
+|[拯救崩图！提高CFG影响的同时保持画面|stable diffusion webui实用插件推荐](https://www.bilibili.com/video/BV1tM411W7Ea/)|
+|[用PS控制Stablediffusion，听话的AI才是好AI](https://www.bilibili.com/video/BV1wh4y1G7kR/)|
+|[Stable Diffusion fp16(半精) vs fp32(单精), Pruned model vs Full mod,出图速度对比，图片质量对比](https://www.bilibili.com/video/BV1dX4y1e7Yr/)|
+|[AI绘画 多LoRA模型的使用与管理教程](https://www.bilibili.com/video/BV1j24y1g749)|
+|[StableDiffusion AI绘画工作流进阶教程-第五课：超采再放大](https://www.bilibili.com/video/BV1c14y1U7UF)|
+|[【AI绘画】如何绘制特殊比例超大图片](https://www.bilibili.com/video/BV1ij411c7iS/)|
+
+
+|stable diffusion原理 by bilibili@[FDX01](https://space.bilibili.com/23706358)||
+|---|---
+|[浅谈stable diffusion (一)](https://www.bilibili.com/read/cv22266484)
+|[浅谈stable diffusion (二)](https://www.bilibili.com/read/cv22533819)
+|[浅谈stable diffusion (三)](https://www.bilibili.com/read/cv22642045)
+|[浅谈stable diffusion (四)](https://www.bilibili.com/read/cv22817096)
+
+
+|stable diffusion工具||
+|---|---
+|[3D Openpose Editor](https://zhuyu1997.github.io/open-pose-editor/)|
+|[Segmentation](https://huggingface.co/spaces/shi-labs/OneFormer)|
+|[咒语生成器](https://www.wujieai.com/tag-generator)|
+|[魔咒百科词典](https://aitag.top/)|
+|[civitai](https://civitai.com/)|
+|[huggingface](https://huggingface.co)|
+|[esheep](https://www.esheep.com/)
