@@ -1,14 +1,16 @@
 ---
-title: stable diffusion webui教程
+title: stable diffusion教程
 date: 2023-08-01 17:09:18
 tags:
 categories:
  - 教程
 ---
-整理了stable diffusion webui的教程
+整理了stable diffusion的教程
 <!-- more -->
 ***
 &nbsp;
+# stable diffusion webui
+
 ## 系统教程
 
 >推荐观看该系列视频学习
@@ -203,3 +205,56 @@ categories:
 |[civitai](https://civitai.com/)|
 |[huggingface](https://huggingface.co)|
 |[esheep](https://www.esheep.com/)
+
+&nbsp;
+
+***
+
+&nbsp;
+
+# comfyui
+
+|comfyui教程 by bilibili@[只剩一瓶辣椒酱](https://space.bilibili.com/35723238)||
+|---|---
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 00安装与部署](https://www.bilibili.com/video/BV1Fo4y187HC)
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 01万法之基 文生图](https://www.bilibili.com/video/BV1zh4y1p761)
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 02推演变体 图生图](https://www.bilibili.com/video/BV16h411j74E)
+|[【专业向节点AI】SD ComfyUI大冒险 -基础篇 03高清输出 放大奥义](https://www.bilibili.com/video/BV1Jk4y1J7GP)
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 04数据微调 Lora与超网络](https://www.bilibili.com/video/BV1uh411j7Vd)
+|[【ComfyUI中文版】Blender x ComfyUI节点式AI绘画大冒险-F1番外-通过读取图像获取节点树](https://www.bilibili.com/video/BV1Uo4y1x7vY)
+|[【专业向节点AI】SD ComfyUI大冒险-05ControlNET进阶-概述](https://www.bilibili.com/video/BV1yV4y1176S)
+|[【专业向节点AI】SD ComfyUI大冒险-06ControlNET进阶-线の控制](https://www.bilibili.com/video/BV1BX4y1s7wr)
+|[【专业向节点AI】SD ComfyUI大冒险-07ControlNET进阶-深度和法线控制](https://www.bilibili.com/video/BV1zV411u7R4)
+|[【专业向节点AI】SD ComfyUI大冒险--08ControlNET进阶-姿态和面部表情控制](https://www.bilibili.com/video/BV1wh411N7VU)
+|[【专业向节点AI】SD ComfyUI大冒险-09ControlNET进阶-语义分割控制](https://www.bilibili.com/video/BV13z4y1p7xt)
+|[【专业向节点AI】SD ComfyUI大冒险-10ControlNET进阶-颜色色彩控制](https://www.bilibili.com/video/BV1Eh4y1u7wA)
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-11ControlNET进阶-Tile分块控制](https://www.bilibili.com/video/BV1DV411M7WL)
+|[【专业向节点AI已汉化】SD ComfyUI大冒险系统教程-12 ControlNET进阶-Inpaint内补绘制(局部重绘)&发型发色实例](https://www.bilibili.com/video/BV1hP411y7hg)
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-13 ControlNET进阶-Shuffle内容重组](https://www.bilibili.com/video/BV1WV4y1q7mE)
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-14 ControlNET进阶-IP2P以图生图](https://www.bilibili.com/video/BV17m4y1j7W5)
+
+&nbsp;
+
+|comfyui教程 by bilibili@[独立研究员-星空](https://space.bilibili.com/250989068)||
+|---|---
+|[未来已至，基于节点图的工作流才是AI绘画的未来](https://www.bilibili.com/video/BV1rM4y1r7S5)|
+|[AI绘画 为什么说Automatic1111 WebUI是工程师思维的产物?](https://www.bilibili.com/video/BV1ts4y1H7E1)|
+|[AI绘画 ComfyUI 生成高分辨率和丰富细节图像 本质是提升潜在空间分辨率](https://www.bilibili.com/video/BV1cs4y1o7oE)|
+|[AI绘画 ComfyUI 使用Latent Couple和多区域组合节点 生成双人合照](https://www.bilibili.com/video/BV1DL411Y7HF)|
+|[AI绘图 深入解析 分区渲染 Latent Couple](https://www.bilibili.com/video/BV1Fs4y1G7r6)|
+|[Stable Diffusion XL 架构解析](https://www.bilibili.com/video/BV1Qz4y177d6)|
+|[ComfyUI Stable Diffusion XL 最新工作流解读](https://www.bilibili.com/video/BV1WX4y1E7xm)|
+
+&nbsp;
+
+|官方教程|
+|---|---
+|[基础流程例子](https://comfyanonymous.github.io/ComfyUI_examples/)
+|[视觉小说教程](https://comfyanonymous.github.io/ComfyUI_tutorial_vn/)
+|[视觉小说教程(中文版)](https://comfyui.jpanda.cn/)
+
+&nbsp;
+
+|其他教程||
+|---|---
+|[Stable Diffusion ComfyUI 入门感受](https://zhuanlan.zhihu.com/p/620297462)
