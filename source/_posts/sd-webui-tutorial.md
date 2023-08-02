@@ -37,7 +37,7 @@ categories:
 
 &nbsp;
 
->可作为补充学习Nenly同学未提到的东西
+>这个系统教程虽然出的比较早，但是可作为补充学习Nenly同学未提到的东西
 
 |轩轩的sd webui教程 by bilibili@[靠谱的轩轩](https://space.bilibili.com/1642297)||
 |---|---
@@ -174,12 +174,14 @@ categories:
 |[【AI教学】草稿秒变成图？线稿快速上色？](https://www.bilibili.com/video/BV13o4y1z72w)|
 |[【AI绘画进阶教程】seg 语义分割控制网络 ControNet教你画景填人](https://www.bilibili.com/video/BV1Wg4y1x7Ur/)|
 |[【AI绘画】利用GroundingDINO+SAM快速修改图片局部的方法](https://www.bilibili.com/video/BV1Hh411j7b2)|
-|[拯救崩图！提高CFG影响的同时保持画面|stable diffusion webui实用插件推荐](https://www.bilibili.com/video/BV1tM411W7Ea/)|
+|[拯救崩图！提高CFG影响的同时保持画面stable diffusion webui实用插件推荐](https://www.bilibili.com/video/BV1tM411W7Ea/)|
 |[用PS控制Stablediffusion，听话的AI才是好AI](https://www.bilibili.com/video/BV1wh4y1G7kR/)|
 |[Stable Diffusion fp16(半精) vs fp32(单精), Pruned model vs Full mod,出图速度对比，图片质量对比](https://www.bilibili.com/video/BV1dX4y1e7Yr/)|
 |[AI绘画 多LoRA模型的使用与管理教程](https://www.bilibili.com/video/BV1j24y1g749)|
 |[StableDiffusion AI绘画工作流进阶教程-第五课：超采再放大](https://www.bilibili.com/video/BV1c14y1U7UF)|
 |[【AI绘画】如何绘制特殊比例超大图片](https://www.bilibili.com/video/BV1ij411c7iS/)|
+|[基于LyCoRIS的LoRA模型：LoHa](https://www.bilibili.com/video/BV1cj411A73a)
+|[Lycoris画风模型权重优化](https://www.bilibili.com/video/BV18c411J7Ms)
 
 &nbsp;
 
@@ -195,7 +197,7 @@ categories:
 |stable diffusion工具||
 |---|---
 |[3D Openpose Editor](https://zhuyu1997.github.io/open-pose-editor/)|
-|[Segmentation](https://huggingface.co/spaces/shi-labs/OneFormer)|
+|[语义分割工具](https://huggingface.co/spaces/shi-labs/OneFormer)|
 |[咒语生成器](https://www.wujieai.com/tag-generator)|
 |[魔咒百科词典](https://aitag.top/)|
 |[civitai](https://civitai.com/)|
