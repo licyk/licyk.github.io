@@ -14,7 +14,7 @@ date: 2023-07-13 11:59:18
 |---|---
 |[电脑使用经验](/2023/07/13/pc-use-experience)|[Windows激活](/2023/07/13/windows-activate)
 |[Windows设置优化](/2023/07/13/windows-optimize)|[Cinnamon设置优化](/2023/07/13/cinnamon-optimize)
-|[Linux命令教程](https://wangchujiang.com/linux-command/)|[SD-WebUI教程](/2023/08/01/stable-diffusion-tutorial)
+|[Linux命令教程](https://wangchujiang.com/linux-command/)|[Stable Diffusion教程](/2023/08/01/stable-diffusion-tutorial)
 
 
 |个人软件存档列表||
