@@ -127,7 +127,7 @@ categories:
 
 &nbsp;
 
-|其他lora训练教程|
+|其他lora训练教程||
 |---|---|
 |[lora训练进阶教程，6分半教会你怎么训练一个好的lora](https://www.bilibili.com/video/BV1jP411f7kV)|
 |[赛博德狗lora作者，c站前10下载量作者的lora训练心得](https://www.bilibili.com/video/BV1Nc411W7PG)|
