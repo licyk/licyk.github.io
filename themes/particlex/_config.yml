@@ -10,7 +10,7 @@ favicon: /images/favicon.png
 
 # Home page background image
 background:
-    - https://www.dmoe.cc/random.php #https://t.mwm.moe/ycy #https://api.dujin.org/pic/yuanshen/
+    - https://t.mwm.moe/ycy #https://www.dmoe.cc/random.php  #https://api.dujin.org/pic/yuanshen/
 #    - /images/background.jpg
 
 # ParticleX theme icon is adopts the Font Awesome 6
