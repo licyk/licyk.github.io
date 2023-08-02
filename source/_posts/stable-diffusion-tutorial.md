@@ -247,7 +247,7 @@ categories:
 
 &nbsp;
 
-|官方教程|
+|官方教程||
 |---|---
 |[基础流程例子](https://comfyanonymous.github.io/ComfyUI_examples/)
 |[视觉小说教程](https://comfyanonymous.github.io/ComfyUI_tutorial_vn/)
