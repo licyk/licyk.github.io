@@ -79,13 +79,6 @@ date: 2023-07-13 11:59:18
 |[教程](https://www.bilibili.com/video/BV1jG4y1x7z1/)|有效
 
 
-|Windows11跳过登陆教程||
-|---|---
-|[教程1](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
-[教程2](https://www.bilibili.com/video/BV1r24y1m7Jy/) |有效
-|[教程3](https://www.bilibili.com/video/BV14v4y1y7jd/)|有效
-
-
 |镜像站||||
 |---|---|---|---
 |flatpak镜像站|[SJTU](https://mirror.sjtu.edu.cn/docs/flathub)

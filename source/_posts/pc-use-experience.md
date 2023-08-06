@@ -30,6 +30,8 @@ categories:
     - [删除软连接：](#删除软连接)
     - [禁用驱动程序强制签名](#禁用驱动程序强制签名)
     - [启用驱动程序强制签名](#启用驱动程序强制签名)
+    - [windows11恢复旧版右键菜单](#windows11恢复旧版右键菜单)
+    - [windows11恢复新版右键菜单](#windows11恢复新版右键菜单)
   - [其他软件使用](#其他软件使用)
   - [浏览器快捷键](#浏览器快捷键)
   - [firefox推荐插件](#firefox推荐插件)
@@ -60,6 +62,7 @@ categories:
   - [windows设置u盘工作模式](#windows设置u盘工作模式)
   - [windows解决幽灵账户：](#windows解决幽灵账户)
   - [windows上帝模式](#windows上帝模式)
+  - [windows跳过登陆微软帐号](#windows跳过登陆微软帐号)
   - [ ](#)
 - [安卓](#安卓)
   - [列出分区](#列出分区)
@@ -205,6 +208,7 @@ categories:
 关闭当前窗口`Alt+F4`
 刷新`F5`
 全屏/取消全屏`F11`
+打开旧版windows右键菜单 `Shift+右键`
 
 &nbsp;
 ## windows程序
@@ -288,6 +292,14 @@ bcdedit.exe /set nointegritychecks on
 ### 启用驱动程序强制签名
 ```
 bcdedit.exe /set nointegritychecks off
+```
+### windows11恢复旧版右键菜单
+```
+reg.exe add “HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” /f
+```
+### windows11恢复新版右键菜单
+```
+reg.exe delete “HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}” /f
 ```
 
 &nbsp;
@@ -723,6 +735,10 @@ scrcpy
 1、右键桌面或者文件管理器空白的地方，创建一个新的文件夹
 2、将文件夹命名为`上帝模式.{ED7BA470-8E54-465E-825C-99712043E01C}`
 3、这时候文件夹图标会变成控制面板的图标，双击即可打开
+
+&nbsp;
+## windows跳过登陆微软帐号
+在OOBE界面中，到`你想要如何设置此设备`时，点击`针对个人使用进行设置`，点下一步，然后点登陆，到帐号输入界面，输入`1@1.com`或者`no@thanks.com`，或者类似的无效邮箱，点下一步，密码随便输，再点击登陆，当出现`哎呀，出错了`时就跳过成功了
 
 &nbsp;
 ---

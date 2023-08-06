@@ -178,6 +178,7 @@ Windows软件存档
 |[MyComputerManager](https://github.com/1357310795/MyComputerManager)|文件管理器快捷图标管理
 |[Protect-Windows-Context-Menu](https://github.com/HaujetZhao/Protect-Windows-Context-Menu)|右键菜单保护工具
 |[Windows 11 Classic Context Menu](https://www.sordum.org/14479/windows-11-classic-context-menu-v1-1/)|windows经典右键菜单还原
+|[ContextMenuForWindows11](https://github.com/ikas-mc/ContextMenuForWindows11)|自定义新版右键菜单
 
 
 |下载工具||

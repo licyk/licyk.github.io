@@ -15,7 +15,7 @@ windows系统激活方法和激活码
 逐条输入以下指令：
 
     slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-    slmgr -skms zh.us.to
+    slmgr -skms win.kms.pub
     slmgr -ato
     slmgr -dlv
 
@@ -26,7 +26,7 @@ windows系统激活方法和激活码
 ***
 
 # 可用的kms服务器地址：
-zh.us.to
+win.kms.pub
 kms.dwhd.org
 asura.myds.me
 kms.digiboy.ir
