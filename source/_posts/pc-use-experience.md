@@ -312,6 +312,8 @@ bandizip默认压缩编码为gbk，可根据需求更改为utf-8编码
 
 在桌面或文件管理器空白处按住 Shift 点鼠标右建，可以打开 PowerShell
 
+vmware在刚刚开机时一直按F2或者Esc可以进入虚拟机的bios
+
 &nbsp;
 ## 浏览器快捷键
 >支持firefox/chrome/其他浏览器
