@@ -57,6 +57,8 @@ categories:
 |[AnTuTu HTML5 Test](https://www.antutu.com/html5/)|
 |[显卡测试](https://cznull.github.io/vsbm)|
 |[测速网](http://m.speedtest.cn/)|
+|[speedtest](https://www.speedtest.net/)|
+
 
 |云游戏||
 |---|---
