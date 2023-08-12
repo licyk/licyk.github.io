@@ -3690,6 +3690,7 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 对于有`/etc/rc.d/rc.local`或`/etc/rc.local`文件的Linux发行版本，开机自启动只需要在`/etc/rc.local`文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
 注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看`/etc/rc.d/rc.local`文件是否具有可执行权限（`/etc/rc.local`只是`/etc/rc.d/rc.local`的软链接，添加`/etc/rc.local`文件的可执行权限是不管用的）。
 
+&nbsp;
 ## git-lfs使用
 在一些项目中有时会上传或者克隆一些超过10mb的大文件，如果只使用git就比较麻烦，这时就可以配合git-lfs管理大文件
 
