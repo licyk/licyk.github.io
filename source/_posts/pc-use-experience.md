@@ -167,6 +167,7 @@ categories:
     - [使用有线连接来连接手机](#使用有线连接来连接手机)
     - [使用无线连接来连接手机](#使用无线连接来连接手机)
   - [linux设置软件开机自启动](#linux设置软件开机自启动)
+  - [git-lfs使用](#git-lfs使用)
 
 &nbsp;
 ***
@@ -3689,3 +3690,44 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 对于有`/etc/rc.d/rc.local`或`/etc/rc.local`文件的Linux发行版本，开机自启动只需要在`/etc/rc.local`文件中添加上自己程序的路径即可，但如果程序是有界面的，仍然只能使用方法一来设置开机自启动。
 注：现在已经不提倡使用这种方式设置开机自启动了，如果使用过程中设置失败了，需要查看`/etc/rc.d/rc.local`文件是否具有可执行权限（`/etc/rc.local`只是`/etc/rc.d/rc.local`的软链接，添加`/etc/rc.local`文件的可执行权限是不管用的）。
 
+## git-lfs使用
+在一些项目中有时会上传或者克隆一些超过10mb的大文件，如果只使用git就比较麻烦，这时就可以配合git-lfs管理大文件
+
+启用git-lfs
+```bash
+git lfs install
+```
+克隆项目
+```
+git clone your_url
+```
+这时候就会把大文件(lfs)克隆下来
+如果不想要克隆大文件，可以禁用git-lfs
+```bash
+git lfs uninstall
+```
+
+为项目上传大文件
+首先启用git-lfs,然后对大文件进行追踪
+```bash
+git lfs track *.safetensors
+```
+>追踪safetensors格式的所有大文件
+```bash
+git lfs track test.safetensors
+```
+>追踪test.safetensors大文件
+
+将.gitattributes配置文件进行追踪(执行`git lfs track`之后的配置会在这个文件中保存)
+```bash
+git add .gitattributes
+```
+这时就可以把大文件添加到上传列表中
+```bash
+git add file
+```
+最后将项目进行推送
+```bash
+git commit -m "commit"
+git push
+```
