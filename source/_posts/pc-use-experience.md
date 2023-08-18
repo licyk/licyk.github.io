@@ -63,6 +63,7 @@ categories:
   - [windows解决幽灵账户：](#windows解决幽灵账户)
   - [windows上帝模式](#windows上帝模式)
   - [windows跳过登陆微软帐号](#windows跳过登陆微软帐号)
+  - [windows解决github的dns污染问题](#windows解决github的dns污染问题)
   - [ ](#)
 - [安卓](#安卓)
   - [列出分区](#列出分区)
@@ -746,6 +747,43 @@ scrcpy
 &nbsp;
 ## windows跳过登陆微软帐号
 在OOBE界面中，到`你想要如何设置此设备`时，点击`针对个人使用进行设置`，点下一步，然后点登陆，到帐号输入界面，输入`1@1.com`或者`no@thanks.com`，或者类似的无效邮箱，点下一步，密码随便输，再点击登陆，当出现`哎呀，出错了`时就跳过成功了
+
+&nbsp;
+## windows解决github的dns污染问题
+github因为一些原因，时不时的无法访问，这是宽带运营商将github的域名进行重定向，当访问github时就会重定向至本地的ip地址，导致无法访问
+解决的办法有几种：
+1、使用科学上网
+2、使用镜像站，比如https://ghproxy.com
+3、修改host文件
+
+这里介绍修改host文件的方法
+1、访问[ip138](https://www.ip138.com/),输入以下域名进行解析ip
+```
+github.com
+gist.github.com
+assets-cdn.github.com
+github.global.ssl.fastly.net
+raw.githubusercontent.com
+api.github.com
+```
+>解析得到的ip要检验是否能够访问，使用cmd，输入`ping 解析到的ip`进行检验
+
+2、打开文件管理器进入`C:\Windows\System32\drivers\etc\`,将hosts文件复制到其他地方(避免权限问题导致无法保存，当然也可以在开始菜单中找到记事本，右键选“以管理员身份运行”，再打开这个文件)，打开，用以下的格式填写域名和对应的ip，例如
+```
+20.205.243.166   github.com
+20.205.243.166   gist.github.com
+185.199.110.153   assets-cdn.github.com
+151.101.77.194   github.global.ssl.fastly.net
+182.43.124.6   raw.githubusercontent.com
+20.205.243.168 api.github.com
+```
+保存并退出，并将文件移动到原来的地方
+3、打开cmd，输入以下指令，刷新dns缓存
+```
+ipconfig /flushdns
+```
+如果之后出现无法访问，再使用ping命令找出无法访问的ip地址，并替换
+>在linux的也是类似的修改方法，使用`sudo vim /etc/hosts`修改hosts文件，再用`sudo /etc/init.d/NetworkManager restart`应用修改
 
 &nbsp;
 ---
