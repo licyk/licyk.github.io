@@ -783,7 +783,7 @@ api.github.com
 ipconfig /flushdns
 ```
 如果之后出现无法访问，再使用ping命令找出无法访问的ip地址，并替换
->在linux的也是类似的修改方法，使用`sudo vim /etc/hosts`修改hosts文件，再用`sudo /etc/init.d/NetworkManager restart`应用修改
+>在linux的也是类似的修改方法，使用`sudo vim /etc/hosts`修改hosts文件，再用`sudo systemctl restart systemd-networkd.service`应用修改
 
 &nbsp;
 ---
