@@ -11,7 +11,7 @@ windows系统激活方法和激活码
 ***
 # Windows(win10，win11)激活教程：
 
-首先 WIN+X 打开”PowerShell(管理员)”在win11中是"终端(管理员)")
+首先 WIN+X 打开”PowerShell(管理员)”在win11中是"终端(管理员)"
 逐条输入以下指令：
 
     slmgr -ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
@@ -33,7 +33,7 @@ kms.digiboy.ir
 www.zgbs.cc
 cy2617.jios.org
 
-kms服务器地址收录：
+>kms服务器地址收录：
 https://www.kms.pub/rank.html
 
 ***
