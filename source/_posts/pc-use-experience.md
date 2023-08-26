@@ -532,7 +532,7 @@ echo
 ## windows刷新dns缓存
 在cmd输入
 ```
-ipconfig/flushdns
+ipconfig /flushdns
 ```
 回车后即可
 
