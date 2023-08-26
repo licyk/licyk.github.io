@@ -140,6 +140,7 @@ Windows软件存档
 |[WearOS工具箱](https://www.wearosbox.com/)|手表安卓系统玩机工具
 |[秋之盒](https://www.atmb.top/)|安卓系统玩机工具
 |[白眼](https://epcdiy.org/)|性能测式
+|[Display Driver Uninstaller](https://www.wagnardsoft.com/display-driver-uninstaller-DDU-)|显卡驱动清理工具
 
 
 |美化||
@@ -250,6 +251,7 @@ Windows软件存档
 |[微信](https://weixin.qq.com/)|即时通讯工具
 |[Discord](https://discord.com/)|综合性社交媒体平台
 |[Telegram](https://telegram.org/)|即时通讯工具
+|[KOOK](https://www.kookapp.cn/)|语音沟通工具
 
 
 |音乐||
