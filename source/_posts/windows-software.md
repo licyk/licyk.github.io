@@ -237,6 +237,7 @@ Windows软件存档
 |[AMULET](https://www.amuletmc.com/)|地图编辑器
 |[chunker](https://chunker.app/)|地图编辑器
 |[MCC Tool Chest PE](https://www.kirimasharo.com/archives/MCC_Tool_Chest_PE.html)|地图编辑器
+|[Minecraft for Windows](https://www.xbox.com/zh-CN/games/store/minecraft-for-windows/9nblggh2jhxj?ocid=pdpshare)|我的世界基岩版
 
 
 |娱乐||
