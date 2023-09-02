@@ -248,7 +248,7 @@ Windows软件存档
 
 |社交||
 |---|---
-|[QQ](https://im.qq.com/index/)|即时通讯工具
+|[QQ](https://im.qq.com/pcqq)|即时通讯工具
 |[微信](https://weixin.qq.com/)|即时通讯工具
 |[Discord](https://discord.com/)|综合性社交媒体平台
 |[Telegram](https://telegram.org/)|即时通讯工具
