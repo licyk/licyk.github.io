@@ -101,6 +101,7 @@ Linux软件存档
 |virt-viewer virt-manager libvirt-clients virt-manager bridge-utils qemu qemu-kvm ovmf|kvm/qemu虚拟机软件包
 |[virtualbox](https://www.virtualbox.org/)|开源的虚拟机
 |[qemu](https://www.qemu.org/)|开源的虚拟机
+|[quickgui](https://github.com/quickemu-project/quickgui)|基于Flutter的虚拟机前端
 
 
 |下载工具||
