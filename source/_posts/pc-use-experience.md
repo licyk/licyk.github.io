@@ -35,6 +35,7 @@ categories:
   - [其他软件使用](#其他软件使用)
   - [浏览器快捷键](#浏览器快捷键)
   - [firefox推荐插件](#firefox推荐插件)
+  - [visual studio code插件](#visual-studio-code插件)
   - [edge浏览器进入高级设置](#edge浏览器进入高级设置)
   - [firefox浏览器进入高级设置](#firefox浏览器进入高级设置)
   - [edge浏览器关闭 使用推荐的浏览器设置 弹窗](#edge浏览器关闭-使用推荐的浏览器设置-弹窗)
@@ -227,6 +228,7 @@ categories:
 控制面板`control`
 directx诊断`dxdiag`
 自启动程序图标`shell:startup`
+系统属性`sysdm.cpl`
 
 &nbsp;
 ## windows开始菜单图标路径
@@ -366,6 +368,23 @@ vmware在刚刚开机时一直按F2或者Esc可以进入虚拟机的bios
 |[多线程下载管理器](https://addons.mozilla.org/zh-CN/firefox/addon/multithreaded-download-manager/)|下载器
 |[singlefile](https://addons.mozilla.org/zh-CN/firefox/addon/single-file/)|将完整的页面保存到一个html文件中
 |[沉浸式翻译](https://addons.mozilla.org/zh-CN/firefox/addon/immersive-translate/)|支持双语对照显示的翻译插件
+
+&nbsp;
+## visual studio code插件
+|||
+|---|---
+|[background-cover](https://github.com/AShujiao/vscode-background-cover)|背景切换
+|[CodeGeeX](https://github.com/THUDM/CodeGeeX2)|ai辅助编程
+|[ESLint](https://github.com/Microsoft/vscode-eslint)|代码格式化
+|[GitHub Actions](https://github.com/github/vscode-github-actions)|针对 VS Code 中托管存储库 github.com GitHub 操作工作流和运行
+|[GitHub Pull Requests and Issues](https://github.com/Microsoft/vscode-pull-request-github)|GitHub 的拉取请求和问题提供程序
+|[GitLens](https://github.com/gitkraken/vscode-gitlens)|在 VS Code 中增强 Git 
+|[Markdown](https://github.com/wsdo/vscode-markdown-img-qiniu)|可以简单地使用快捷键将粘贴板的图片上传到七牛图片床插件中，让您使用 vscode 编写 markdown，以获得更好的体验
+|[Markdown All in One](https://github.com/yzhang-gh/vscode-markdown)|编写 Markdown 所需的一切（键盘快捷键、目录、自动预览等）
+|[Markdown Preview Github Styling](https://github.com/mjbvz/vscode-github-markdown-preview-style)|Markdown预览
+|[Pylance](https://github.com/microsoft/pylance-release)|高性能、功能丰富的 VS Code Python 语言服务器
+|[Python](https://github.com/Microsoft/vscode-python)|智能感知（Pylance）、检查、调试（多线程、远程）、代码格式化、重构、单元测试等
+|[Continue](https://github.com/continuedev/continue)|ai辅助编程
 
 &nbsp;
 ## edge浏览器进入高级设置
