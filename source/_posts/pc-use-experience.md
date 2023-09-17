@@ -212,6 +212,7 @@ categories:
 刷新`F5`
 全屏/取消全屏`F11`
 打开旧版windows右键菜单 `Shift+右键`
+锁定Windows `win+l`
 
 &nbsp;
 ## windows程序
