@@ -53,6 +53,7 @@ categories:
   - [windows调整虚拟内存设置](#windows调整虚拟内存设置)
   - [windows安装并配置msys2](#windows安装并配置msys2)
   - [在windows终端配置msys2](#在windows终端配置msys2)
+  - [vscode配置msys2](#vscode配置msys2)
   - [windows删除卸载残留的右键菜单打开方式](#windows删除卸载残留的右键菜单打开方式)
   - [windows使用手机的代理](#windows使用手机的代理)
   - [windows安装office](#windows安装office)
@@ -616,6 +617,28 @@ C:\msys64\msys2_shell.cmd -defterm -no-start -use-full-path -here -mingw64
 6、在`图标`填入`C:\msys64\mingw64.ico`
 （`C:\msys64`为安装目录，根据具体安装的目录修改）
 7、保存后生效
+
+&nbsp;
+## vscode配置msys2
+在vscode的`settings.json`配置文件的`terminal.integrated.profiles.windows`参数下添加以下内容
+```json
+"MSYS2": {
+        "path": "D:\\Program Files\\MSYS2\\msys2_shell.cmd", //根据安装目录进行修改
+        "args": [
+          "-defterm",
+          "-no-start",
+          "-use-full-path",
+          "-here",
+          "-mingw64"
+        ],
+        "env": {
+          "MSYSTEM": "MINGW64",
+          "CHERE_INVOKING": "1"
+        }
+}
+```
+然后在vscode的设置搜索`Windows 上的默认终端配置文件`
+将选项改成`MSYS2`
 
 &nbsp;
 ## windows删除卸载残留的右键菜单打开方式
