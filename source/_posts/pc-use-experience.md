@@ -278,33 +278,33 @@ hide:yourinfo;sync;emailandaccounts;otherusers;signinoptions-launchfaceenrollmen
 &nbsp;
 ## cmd指令
 ### 强制关闭进程
-```bat
+```
 wmic process where name='进程名.exe' call terminate
 wmic process where processid="进程pid" delete
 wmic process 进程pid call terminate
 ```
 ### 创建软链接
-```bat
+```
 mklink /d "虚拟文件路径" "真实文件路径"
 ```
 ### 删除软连接：
-```bat
+```
 rmdir "虚拟文件路径"
 ```
 ### 禁用驱动程序强制签名
-```bat
+```
 bcdedit.exe /set nointegritychecks on
 ```
 ### 启用驱动程序强制签名
-```bat
+```
 bcdedit.exe /set nointegritychecks off
 ```
 ### windows11恢复旧版右键菜单
-```bat
+```
 reg.exe add “HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” /f
 ```
 ### windows11恢复新版右键菜单
-```bat
+```
 reg.exe delete “HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}” /f
 ```
 
