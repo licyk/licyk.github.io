@@ -141,6 +141,7 @@ Windows软件存档
 |[秋之盒](https://www.atmb.top/)|安卓系统玩机工具
 |[白眼](https://epcdiy.org/)|性能测式
 |[Display Driver Uninstaller](https://www.wagnardsoft.com/display-driver-uninstaller-DDU-)|显卡驱动清理工具
+|[Fan Control](https://getfancontrol.com/)|电脑风扇控制工具
 
 
 |美化||
