@@ -23,6 +23,8 @@ Android软件存档
 |[Magisk](https://github.com/topjohnwu/Magisk)|magisk管理器，支持插件的插件较多
 |[KernelSU](https://github.com/tiann/KernelSU)|KernelSU管理器，新的root选择
 |[KernelAdiutor](https://github.com/NHellFire/KernelAdiutor)|管理内核参数 
+|[清浊](https://www.dircleaner.com/)|简洁实用的清理工具
+
 
 |监测工具||
 |---|---
