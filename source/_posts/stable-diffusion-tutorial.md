@@ -9,7 +9,7 @@ categories:
 <!-- more -->
 ***
 &nbsp;
-# stable diffusion webui
+# Stable Diffusion Webui
 
 ## 系统教程
 
@@ -212,7 +212,7 @@ categories:
 
 &nbsp;
 
-# comfyui
+# ComfyUI
 
 |comfyui教程 by bilibili@[只剩一瓶辣椒酱](https://space.bilibili.com/35723238)||
 |---|---
@@ -258,3 +258,14 @@ categories:
 |其他教程||
 |---|---
 |[Stable Diffusion ComfyUI 入门感受](https://zhuanlan.zhihu.com/p/620297462)
+
+&nbsp;
+
+***
+
+&nbsp;
+
+# InvokeAI
+
+|[官方文档](https://invoke-ai.github.io/InvokeAI/)||
+|---|---
