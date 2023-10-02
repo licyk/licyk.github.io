@@ -43,53 +43,53 @@ categories:
 
 |轩轩的sd webui教程 by bilibili@[靠谱的轩轩](https://space.bilibili.com/1642297)||
 |---|---
-|[【基础01】新人必看！stable diiffusion大模型checkpoint放哪里？怎么加载?在哪里下？](https://www.bilibili.com/video/BV1mv4y187qk)
-|[【基础02】stable diffusion的VAE是啥？有啥用？怎么用？有啥效果？](https://www.bilibili.com/video/BV1LY411z7Wy)
-|[【基础03】stable diffusion的embedding是个啥？有啥用？怎么用？有啥效果？](https://www.bilibili.com/video/BV1Pg4y1t74E)
-|[【基础04】目前全网最贴心的Lora基础知识教程！stable diffusion新手福音，功能，下载地址，安装使用方法全知道（上篇）](https://www.bilibili.com/video/BV1ML411d7pR)
-|[【基础05】使用lora后效果不好？全网最贴心的Lora新手使用技巧教程](https://www.bilibili.com/video/BV1mL41197UM)
-|[【基础06】超贴心的hypernetwork基础知识教程！](https://www.bilibili.com/video/BV1ZL411Q7cy)
-|[【基础07】5秒钟分清模型类型，5分钟搞懂尾缀和模型关系。](https://www.bilibili.com/video/BV1aa4y1M7KZ)
-|[AI绘画软件比较与stable diffusion的优势](https://www.bilibili.com/video/BV1hc411W7Av)
-|[stable diffusion应用场景略讲](https://www.bilibili.com/video/BV1aa4y1K7bc)
-|[AI绘画用户画像](https://www.bilibili.com/video/BV1SN411A7uD)
-|[新手要理解的stable diffusion的一点点原理](https://www.bilibili.com/video/BV1TM4y1m7Nv)
-|[大模型-vae-clip跳过层讲解](https://www.bilibili.com/video/BV1Jh411g7aL)
-|[提示词功能-提示词超简单写作思路](https://www.bilibili.com/video/BV1nh411g7NN)
-|[提示词8类语法精讲](https://www.bilibili.com/video/BV1ps4y1m7od)
-|[采样迭代步数-采样方法讲解](https://www.bilibili.com/video/BV1AM4y117td)
-|[面部修复-高清修复讲解与技巧](https://www.bilibili.com/video/BV1r24y157h7)
-|[图片高度与宽度的注意点](https://www.bilibili.com/video/BV1UL41127iJ)
-|[生成批次-每批数量-CFG讲解](https://www.bilibili.com/video/BV1H24y1w7nx)
-|[随机种子-脚本XYZ图表讲解](https://www.bilibili.com/video/BV1EX4y1r7Pf)
-|[脚本提示词矩阵-脚本批量载入讲解](https://www.bilibili.com/video/BV1Bm4y1B7AA)
-|[重绘幅度denoise讲解](https://www.bilibili.com/video/BV1Dk4y1Y7cu)
-|[图生图提示词-图片输入](https://www.bilibili.com/video/BV1qv4y1H7bk)
-|[缩放模式-图片传送](https://www.bilibili.com/video/BV1CL41127SS)
-|[图生图绘图模式](https://www.bilibili.com/video/BV1Ys4y1K798)
-|[局部重绘设计原理-蒙版模糊](https://www.bilibili.com/video/BV1Ws4y117nh)
-|[蒙版模式-蒙版蒙住内容](https://www.bilibili.com/video/BV1mk4y1Y7qj)
-|[重绘区域-全图](https://www.bilibili.com/video/BV12m4y1B7QJ)
-|[蒙版模式-仅蒙版-边缘预留像素](https://www.bilibili.com/video/BV1ih411M7Sn)
-|[局部重绘（手涂蒙版）](https://www.bilibili.com/video/BV1um4y1m7S4)
-|[蒙版模式(上传蒙版)-批量处理](https://www.bilibili.com/video/BV1n24y1w7Xy)
-|[图片信息反推-Tag反推](https://www.bilibili.com/video/BV1NX4y1r7zX)
-|[图片高清放大-人脸修复](https://www.bilibili.com/video/BV1HX4y1r7x4)
-|[controlnet设计思路与设置修改](https://www.bilibili.com/video/BV1Vo4y187Bc)
-|[预处理器与controlnet模型](https://www.bilibili.com/video/BV1La4y1N7VZ)
-|[Controlnet线条约束](https://www.bilibili.com/video/BV1Ko4y1H7Po)
-|[Controlnet姿势约束与深度约束](https://www.bilibili.com/video/BV1vX4y1r7Eb)
-|[语义分割-色彩约束-风格约束](https://www.bilibili.com/video/BV11s4y117Sc)
-|[Controlnet剩余参数讲解](https://www.bilibili.com/video/BV19M4y1C72v)
-|[【习题01】如何定制AI模特](https://www.bilibili.com/video/BV1654y1F7SE)
-|[【习题02】如何生成高清模特大图](https://www.bilibili.com/video/BV1xg4y1u7Ad)
-|[【习题03】如何比较不同模型效果](https://www.bilibili.com/video/BV1ea4y1N7QW)
-|[【习题04】如何比较不同衣服提示词的效果？](https://www.bilibili.com/video/BV1XM4y1C77L)
-|[【习题05】图片如何风格转换](https://www.bilibili.com/video/BV1ks4y1171q)
-|[【习题06】产品、人像如何高清修复](https://www.bilibili.com/video/BV1ZL411f7x9)
-|[【习题07】如何把线稿上色](https://www.bilibili.com/video/BV1Ws4y1P7Z6)
-|[【习题08】根据线稿生成室内设计](https://www.bilibili.com/video/BV17s4y1P7xo)
-|[【习题9】如何转换室内装修风格与地板](https://www.bilibili.com/video/BV1yN411w7dX)
+|[【基础01】新人必看！stable diiffusion大模型checkpoint放哪里？怎么加载?在哪里下？](https://www.bilibili.com/video/BV1mv4y187qk)|
+|[【基础02】stable diffusion的VAE是啥？有啥用？怎么用？有啥效果？](https://www.bilibili.com/video/BV1LY411z7Wy)|
+|[【基础03】stable diffusion的embedding是个啥？有啥用？怎么用？有啥效果？](https://www.bilibili.com/video/BV1Pg4y1t74E)|
+|[【基础04】目前全网最贴心的Lora基础知识教程！stable diffusion新手福音，功能，下载地址，安装使用方法全知道（上篇）](https://www.bilibili.com/video/BV1ML411d7pR)|
+|[【基础05】使用lora后效果不好？全网最贴心的Lora新手使用技巧教程](https://www.bilibili.com/video/BV1mL41197UM)|
+|[【基础06】超贴心的hypernetwork基础知识教程！](https://www.bilibili.com/video/BV1ZL411Q7cy)|
+|[【基础07】5秒钟分清模型类型，5分钟搞懂尾缀和模型关系。](https://www.bilibili.com/video/BV1aa4y1M7KZ)|
+|[AI绘画软件比较与stable diffusion的优势](https://www.bilibili.com/video/BV1hc411W7Av)|
+|[stable diffusion应用场景略讲](https://www.bilibili.com/video/BV1aa4y1K7bc)|
+|[AI绘画用户画像](https://www.bilibili.com/video/BV1SN411A7uD)|
+|[新手要理解的stable diffusion的一点点原理](https://www.bilibili.com/video/BV1TM4y1m7Nv)|
+|[大模型-vae-clip跳过层讲解](https://www.bilibili.com/video/BV1Jh411g7aL)|
+|[提示词功能-提示词超简单写作思路](https://www.bilibili.com/video/BV1nh411g7NN)|
+|[提示词8类语法精讲](https://www.bilibili.com/video/BV1ps4y1m7od)|
+|[采样迭代步数-采样方法讲解](https://www.bilibili.com/video/BV1AM4y117td)|
+|[面部修复-高清修复讲解与技巧](https://www.bilibili.com/video/BV1r24y157h7)|
+|[图片高度与宽度的注意点](https://www.bilibili.com/video/BV1UL41127iJ)|
+|[生成批次-每批数量-CFG讲解](https://www.bilibili.com/video/BV1H24y1w7nx)|
+|[随机种子-脚本XYZ图表讲解](https://www.bilibili.com/video/BV1EX4y1r7Pf)|
+|[脚本提示词矩阵-脚本批量载入讲解](https://www.bilibili.com/video/BV1Bm4y1B7AA)|
+|[重绘幅度denoise讲解](https://www.bilibili.com/video/BV1Dk4y1Y7cu)|
+|[图生图提示词-图片输入](https://www.bilibili.com/video/BV1qv4y1H7bk)|
+|[缩放模式-图片传送](https://www.bilibili.com/video/BV1CL41127SS)|
+|[图生图绘图模式](https://www.bilibili.com/video/BV1Ys4y1K798)|
+|[局部重绘设计原理-蒙版模糊](https://www.bilibili.com/video/BV1Ws4y117nh)|
+|[蒙版模式-蒙版蒙住内容](https://www.bilibili.com/video/BV1mk4y1Y7qj)|
+|[重绘区域-全图](https://www.bilibili.com/video/BV12m4y1B7QJ)|
+|[蒙版模式-仅蒙版-边缘预留像素](https://www.bilibili.com/video/BV1ih411M7Sn)|
+|[局部重绘（手涂蒙版）](https://www.bilibili.com/video/BV1um4y1m7S4)|
+|[蒙版模式(上传蒙版)-批量处理](https://www.bilibili.com/video/BV1n24y1w7Xy)|
+|[图片信息反推-Tag反推](https://www.bilibili.com/video/BV1NX4y1r7zX)|
+|[图片高清放大-人脸修复](https://www.bilibili.com/video/BV1HX4y1r7x4)|
+|[controlnet设计思路与设置修改](https://www.bilibili.com/video/BV1Vo4y187Bc)|
+|[预处理器与controlnet模型](https://www.bilibili.com/video/BV1La4y1N7VZ)|
+|[Controlnet线条约束](https://www.bilibili.com/video/BV1Ko4y1H7Po)|
+|[Controlnet姿势约束与深度约束](https://www.bilibili.com/video/BV1vX4y1r7Eb)|
+|[语义分割-色彩约束-风格约束](https://www.bilibili.com/video/BV11s4y117Sc)|
+|[Controlnet剩余参数讲解](https://www.bilibili.com/video/BV19M4y1C72v)|
+|[【习题01】如何定制AI模特](https://www.bilibili.com/video/BV1654y1F7SE)|
+|[【习题02】如何生成高清模特大图](https://www.bilibili.com/video/BV1xg4y1u7Ad)|
+|[【习题03】如何比较不同模型效果](https://www.bilibili.com/video/BV1ea4y1N7QW)|
+|[【习题04】如何比较不同衣服提示词的效果？](https://www.bilibili.com/video/BV1XM4y1C77L)|
+|[【习题05】图片如何风格转换](https://www.bilibili.com/video/BV1ks4y1171q)|
+|[【习题06】产品、人像如何高清修复](https://www.bilibili.com/video/BV1ZL411f7x9)|
+|[【习题07】如何把线稿上色](https://www.bilibili.com/video/BV1Ws4y1P7Z6)|
+|[【习题08】根据线稿生成室内设计](https://www.bilibili.com/video/BV17s4y1P7xo)|
+|[【习题9】如何转换室内装修风格与地板](https://www.bilibili.com/video/BV1yN411w7dX)|
 
 &nbsp;
 
@@ -138,8 +138,8 @@ categories:
 |[LoRA 角色模型训练-训练脚本作者亲自指导](https://www.bilibili.com/video/BV1Js4y1c7oU)|
 |[【AI绘画】训练LoRA模型最重要的一环：打标签](https://www.bilibili.com/video/BV1ZM411c7aj)|
 |[【AI绘画】Lora制作新时代！从大模型提取Lora , Lora合并 使用教程](https://www.bilibili.com/video/BV1t24y1J7Bk)|
-|[【AI绘画】超级模型融合插件详解，Lora提取，MBW大模型合并，Lora融合大模型，xy对比融合图](https://www.bilibili.com/video/BV1J84y1E7nn/)
-|[如何快速训练番剧画风lora](https://www.bilibili.com/video/BV1Rs4y1w76w/)
+|[【AI绘画】超级模型融合插件详解，Lora提取，MBW大模型合并，Lora融合大模型，xy对比融合图](https://www.bilibili.com/video/BV1J84y1E7nn/)|
+|[如何快速训练番剧画风lora](https://www.bilibili.com/video/BV1Rs4y1w76w/)|
 
 &nbsp;
 
@@ -147,7 +147,7 @@ categories:
 |---|---
 |[DreamBooth画风训练教程(基于NovelAI)](https://www.bilibili.com/video/BV18K411o7mG/)|
 |[DreamBooth人物训练与安装教程](https://www.bilibili.com/video/BV1g841187nc/)|
-|[Lora+OffsetNoise+Lion+locon全解(基于DreamBooth可视化训练插件)](https://www.bilibili.com/video/BV1sM4y1C7YZ/)
+|[Lora+OffsetNoise+Lion+locon全解(基于DreamBooth可视化训练插件)](https://www.bilibili.com/video/BV1sM4y1C7YZ/)|
 
 &nbsp;
 
@@ -204,7 +204,7 @@ categories:
 |[魔咒百科词典](https://aitag.top/)|
 |[civitai](https://civitai.com/)|
 |[huggingface](https://huggingface.co)|
-|[esheep](https://www.esheep.com/)
+|[esheep](https://www.esheep.com/)|
 
 &nbsp;
 
@@ -215,23 +215,23 @@ categories:
 # ComfyUI
 
 |comfyui教程 by bilibili@[只剩一瓶辣椒酱](https://space.bilibili.com/35723238)||
-|---|---
-|[【专业向节点AI】SD ComfyUI大冒险-基础篇 00安装与部署](https://www.bilibili.com/video/BV1Fo4y187HC)
-|[【专业向节点AI】SD ComfyUI大冒险-基础篇 01万法之基 文生图](https://www.bilibili.com/video/BV1zh4y1p761)
-|[【专业向节点AI】SD ComfyUI大冒险-基础篇 02推演变体 图生图](https://www.bilibili.com/video/BV16h411j74E)
-|[【专业向节点AI】SD ComfyUI大冒险 -基础篇 03高清输出 放大奥义](https://www.bilibili.com/video/BV1Jk4y1J7GP)
-|[【专业向节点AI】SD ComfyUI大冒险-基础篇 04数据微调 Lora与超网络](https://www.bilibili.com/video/BV1uh411j7Vd)
-|[【ComfyUI中文版】Blender x ComfyUI节点式AI绘画大冒险-F1番外-通过读取图像获取节点树](https://www.bilibili.com/video/BV1Uo4y1x7vY)
-|[【专业向节点AI】SD ComfyUI大冒险-05ControlNET进阶-概述](https://www.bilibili.com/video/BV1yV4y1176S)
-|[【专业向节点AI】SD ComfyUI大冒险-06ControlNET进阶-线の控制](https://www.bilibili.com/video/BV1BX4y1s7wr)
-|[【专业向节点AI】SD ComfyUI大冒险-07ControlNET进阶-深度和法线控制](https://www.bilibili.com/video/BV1zV411u7R4)
-|[【专业向节点AI】SD ComfyUI大冒险--08ControlNET进阶-姿态和面部表情控制](https://www.bilibili.com/video/BV1wh411N7VU)
-|[【专业向节点AI】SD ComfyUI大冒险-09ControlNET进阶-语义分割控制](https://www.bilibili.com/video/BV13z4y1p7xt)
-|[【专业向节点AI】SD ComfyUI大冒险-10ControlNET进阶-颜色色彩控制](https://www.bilibili.com/video/BV1Eh4y1u7wA)
-|[【专业向节点AI】SD ComfyUI大冒险系统教程-11ControlNET进阶-Tile分块控制](https://www.bilibili.com/video/BV1DV411M7WL)
-|[【专业向节点AI已汉化】SD ComfyUI大冒险系统教程-12 ControlNET进阶-Inpaint内补绘制(局部重绘)&发型发色实例](https://www.bilibili.com/video/BV1hP411y7hg)
-|[【专业向节点AI】SD ComfyUI大冒险系统教程-13 ControlNET进阶-Shuffle内容重组](https://www.bilibili.com/video/BV1WV4y1q7mE)
-|[【专业向节点AI】SD ComfyUI大冒险系统教程-14 ControlNET进阶-IP2P以图生图](https://www.bilibili.com/video/BV17m4y1j7W5)
+|---|---|
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 00安装与部署](https://www.bilibili.com/video/BV1Fo4y187HC)|
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 01万法之基 文生图](https://www.bilibili.com/video/BV1zh4y1p761)|
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 02推演变体 图生图](https://www.bilibili.com/video/BV16h411j74E)||
+|[【专业向节点AI】SD ComfyUI大冒险 -基础篇 03高清输出 放大奥义](https://www.bilibili.com/video/BV1Jk4y1J7GP)|
+|[【专业向节点AI】SD ComfyUI大冒险-基础篇 04数据微调 Lora与超网络](https://www.bilibili.com/video/BV1uh411j7Vd)|
+|[【ComfyUI中文版】Blender x ComfyUI节点式AI绘画大冒险-F1番外-通过读取图像获取节点树](https://www.bilibili.com/video/BV1Uo4y1x7vY)|
+|[【专业向节点AI】SD ComfyUI大冒险-05ControlNET进阶-概述](https://www.bilibili.com/video/BV1yV4y1176S)|
+|[【专业向节点AI】SD ComfyUI大冒险-06ControlNET进阶-线の控制](https://www.bilibili.com/video/BV1BX4y1s7wr)|
+|[【专业向节点AI】SD ComfyUI大冒险-07ControlNET进阶-深度和法线控制](https://www.bilibili.com/video/BV1zV411u7R4)|
+|[【专业向节点AI】SD ComfyUI大冒险--08ControlNET进阶-姿态和面部表情控制](https://www.bilibili.com/video/BV1wh411N7VU)|
+|[【专业向节点AI】SD ComfyUI大冒险-09ControlNET进阶-语义分割控制](https://www.bilibili.com/video/BV13z4y1p7xt)|
+|[【专业向节点AI】SD ComfyUI大冒险-10ControlNET进阶-颜色色彩控制](https://www.bilibili.com/video/BV1Eh4y1u7wA)|
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-11ControlNET进阶-Tile分块控制](https://www.bilibili.com/video/BV1DV411M7WL)|
+|[【专业向节点AI已汉化】SD ComfyUI大冒险系统教程-12 ControlNET进阶-Inpaint内补绘制(局部重绘)&发型发色实例](https://www.bilibili.com/video/BV1hP411y7hg)|
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-13 ControlNET进阶-Shuffle内容重组](https://www.bilibili.com/video/BV1WV4y1q7mE)|
+|[【专业向节点AI】SD ComfyUI大冒险系统教程-14 ControlNET进阶-IP2P以图生图](https://www.bilibili.com/video/BV17m4y1j7W5)|
 
 &nbsp;
 
@@ -249,15 +249,15 @@ categories:
 
 |官方教程||
 |---|---
-|[基础流程例子](https://comfyanonymous.github.io/ComfyUI_examples/)
-|[视觉小说教程](https://comfyanonymous.github.io/ComfyUI_tutorial_vn/)
-|[视觉小说教程(中文版)](https://comfyui.jpanda.cn/)
+|[基础流程例子](https://comfyanonymous.github.io/ComfyUI_examples/)|
+|[视觉小说教程](https://comfyanonymous.github.io/ComfyUI_tutorial_vn/)|
+|[视觉小说教程(中文版)](https://comfyui.jpanda.cn/)|
 
 &nbsp;
 
 |其他教程||
 |---|---
-|[Stable Diffusion ComfyUI 入门感受](https://zhuanlan.zhihu.com/p/620297462)
+|[Stable Diffusion ComfyUI 入门感受](https://zhuanlan.zhihu.com/p/620297462)|
 
 &nbsp;
 
@@ -267,5 +267,6 @@ categories:
 
 # InvokeAI
 
-|[官方文档](https://invoke-ai.github.io/InvokeAI/)||
+|||
 |---|---
+|[官方文档](https://invoke-ai.github.io/InvokeAI/)||

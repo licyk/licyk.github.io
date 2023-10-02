@@ -10,26 +10,26 @@ Linux软件存档
 <!-- more -->
 |软件包寻找途径||
 |---|---
-|[flathub](https://flathub.org/)
-|[aur](https://aur.archlinux.org/)
-|[星火应用商店](https://spark-app.store/)
-|[pkgs](https://pkgs.org/)
-|[launchpad](https://launchpad.net/)
+|[flathub](https://flathub.org/)|
+|[aur](https://aur.archlinux.org/)|
+|[星火应用商店](https://spark-app.store/)|
+|[pkgs](https://pkgs.org/)|
+|[launchpad](https://launchpad.net/)|
 
 
 |桌面环境||
 |---|---
-|[gnome](https://www.gnome.org/)
-|[gnome flashback](https://wiki.gnome.org/Projects/GnomeFlashback)
-|[xfce](https://www.xfce.org/)
-|[kde plasma](https://kde.org/plasma-desktop/)
-|[cinnamon](https://github.com/linuxmint/cinnamon-desktop)
-|[mate](https://mate-desktop.org/)
-|[lxde](http://www.lxde.org/)
-|[lxqt](https://lxqt-project.org/)
-|[unity](https://ubuntuunity.org/)
-|[dde](https://www.deepin.org/zh/dde/)
-|[cutefish](https://github.com/cutefishos)
+|[gnome](https://www.gnome.org/)|
+|[gnome flashback](https://wiki.gnome.org/Projects/GnomeFlashback)|
+|[xfce](https://www.xfce.org/)|
+|[kde plasma](https://kde.org/plasma-desktop/)|
+|[cinnamon](https://github.com/linuxmint/cinnamon-desktop)|
+|[mate](https://mate-desktop.org/)|
+|[lxde](http://www.lxde.org/)|
+|[lxqt](https://lxqt-project.org/)|
+|[unity](https://ubuntuunity.org/)|
+|[dde](https://www.deepin.org/zh/dde/)|
+|[cutefish](https://github.com/cutefishos)|
 
 
 |系统||
@@ -63,10 +63,10 @@ Linux软件存档
 |[pulseeffects](https://github.com/wwmm/easyeffects)|音频均衡器
 |[vim](https://www.vim.org/download.php)|TUI文本编辑器
 |[nemo](https://github.com/linuxmint/nemo)|文件管理器
-|[mc](https://packages.debian.org/bookworm/mc)|TUI文件管理器
+|[mc](https://midnight-commander.org/)|TUI文件管理器
 |[tmux](https://github.com/tmux/tmux/wiki)|终端复用工具
 |[scrcpy](https://github.com/Genymobile/scrcpy)|电脑控制手机工具
-|[onboard](https://packages.debian.org/bookworm/onboard)|屏幕键盘
+|[onboard](https://launchpad.net/onboard)|屏幕键盘
 |[plank](https://github.com/ricotz/plank)|dock栏
 |[vlc](https://www.videolan.org/vlc/)|视频播放器
 |[rhythmbox](http://www.rhythmbox.org/)|音乐播放器
@@ -80,6 +80,18 @@ Linux软件存档
 |[AriaNg](https://github.com/mayswind/AriaNg)|图形化aria2工具
 |[win2xcur](https://github.com/quantum5/win2xcur)|windows鼠标指针转换成linux鼠标指针格式的工具
 |[ssfconv](https://github.com/fkxxyz/ssfconv)|搜狗输入法皮肤格式转换成fcitx输入法格式的工具
+|[flatseal](https://github.com/tchx84/Flatseal)|flatpak软件权限管理
+|[nethogs](https://github.com/raboof/nethogs)|查看进程占用带宽情况
+|[iozone](http://www.iozone.org/)|硬盘读取性能测试
+|[iotop](http://guichaz.free.fr/iotop/)|实时监控硬盘
+|[iptraf](https://github.com/iptraf-ng/iptraf-ng)|网络流量监控
+|[iftop](http://www.ex-parrot.com/~pdw/iftop/)|网络流量监控
+|[nmon](https://nmon.sourceforge.io/pmwiki.php)|系统资源监控
+|[multitail](https://packages.debian.org/bookworm/multitail)|多日志监控
+|[fail2ban](https://github.com/fail2ban/fail2ban)|SSH 暴力破解防护
+|[agedu](https://www.chiark.greenend.org.uk/~sgtatham/agedu/)|页面显示磁盘空间使用情况
+|[nmap](https://nmap.org/)|网络安全扫描工具
+|[httperf](https://github.com/httperf/httperf)|Web压力测试
 
 
 |wine||
@@ -146,6 +158,7 @@ Linux软件存档
 |[thunderbird](https://www.thunderbird.net/zh-CN/)|邮件管理
 |[slack](https://slack.com/intl/zh-cn/downloads/windows)|办公协作
 |[思源笔记](https://b3log.org/siyuan/download.html)|强大的笔记编辑和管理软件
+|[Audacity](https://www.audacityteam.org/)|音频处理
 
 
 |代理工具||
@@ -155,6 +168,7 @@ Linux软件存档
 |[zerotier](https://www.zerotier.com/)|内网穿透工具
 |[Watt Toolkit](https://steampp.net/)|代理工具
 |[v2raya](https://github.com/v2rayA/v2rayA)|代理工具
+|[warp](https://1.1.1.1/)|代理工具
 
 
 |社交||
