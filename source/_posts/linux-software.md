@@ -72,7 +72,7 @@ Linux软件存档
 |[rhythmbox](http://www.rhythmbox.org/)|音乐播放器
 |[htop](https://htop.dev/)|终端任务管理器
 |[xsensors](https://github.com/Mystro256/xsensors)|硬件温度监视
-|[MissionCenter](https://flathub.org/apps/io.missioncenter.MissionCenter)|任务管理器
+|[MissionCenter](https://missioncenter.io/)|任务管理器
 |[fcitx5](https://github.com/fcitx/fcitx5)|输入法框架
 |[ibus](https://github.com/ibus/ibus)|输入法框架
 |[carbonyl](https://github.com/fathyb/carbonyl)|终端浏览器
