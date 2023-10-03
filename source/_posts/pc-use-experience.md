@@ -83,16 +83,16 @@ categories:
     - [更新软件包缓存:](#更新软件包缓存)
     - [更新软件:](#更新软件)
     - [安装软件:](#安装软件)
-    - [编译deb安装包:(需安装`debhelper` `cmake` `make`)](#编译deb安装包需安装debhelper-cmake-make)
+    - [编译deb安装包](#编译deb安装包)
     - [linux mint解决中文不全](#linux-mint解决中文不全)
     - [安装vmtools](#安装vmtools)
   - [linux命令](#linux命令)
     - [关闭某个窗口:](#关闭某个窗口)
     - [列出硬盘与分区：](#列出硬盘与分区)
     - [启动硬盘分区编辑：](#启动硬盘分区编辑)
-    - [格式分区为指定文件系统(`ext3`可以替换成`fat32`,`ntfs`,`ext4`等):](#格式分区为指定文件系统ext3可以替换成fat32ntfsext4等)
-    - [修复ntfs分区不能写入文件(sda3为分区)：](#修复ntfs分区不能写入文件sda3为分区)
-    - [关闭软件(会关闭带有该关键词的进程)](#关闭软件会关闭带有该关键词的进程)
+    - [格式分区为指定文件系统](#格式分区为指定文件系统)
+    - [修复ntfs分区不能写入文件](#修复ntfs分区不能写入文件)
+    - [关闭软件](#关闭软件)
     - [qemu-kvm启用nat网络模块](#qemu-kvm启用nat网络模块)
     - [在tty终端中启动xorg](#在tty终端中启动xorg)
     - [终端在后台运行命令](#终端在后台运行命令)
@@ -944,7 +944,8 @@ sudo dpkg -i xxx.deb(安装本地安装包)
 sudo dpkg -i *.deb(安装所在目录下全部安装包)
 sudo apt --fix-broken install（修复依赖）
 ```
-### 编译deb安装包:(需安装`debhelper` `cmake` `make`)
+### 编译deb安装包
+>需安装`debhelper` `cmake` `make`
 ```bash
 dpkg-buildpackage -us -uc -nc
 make -j2 deb-pkg
@@ -978,15 +979,18 @@ lsblk
 ```bash
 cfdisk
 ```
-### 格式分区为指定文件系统(`ext3`可以替换成`fat32`,`ntfs`,`ext4`等):
+### 格式分区为指定文件系统
+>`ext3`可以替换成`fat32`,`ntfs`,`ext4`等
 ```bash
 mkfs -t ext3 /dev/sda4
 ```
-### 修复ntfs分区不能写入文件(sda3为分区)：
+### 修复ntfs分区不能写入文件
+>sda3为分区
 ```bash
 sudo ntfsfix /dev/sda3
 ```
-### 关闭软件(会关闭带有该关键词的进程) 
+### 关闭软件
+>会关闭带有该关键词的进程
 ```bash
 pkill 程序名
 ```
