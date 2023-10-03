@@ -77,17 +77,27 @@ categories:
   - [ ](#-1)
 - [linux](#linux)
   - [linux快捷键](#linux快捷键)
-  - [debian系linux发行版](#debian系linux发行版)
   - [tty终端快捷键](#tty终端快捷键)
   - [重新启动xorg](#重新启动xorg)
-  - [在tty终端中启动xorg](#在tty终端中启动xorg)
-  - [终端在后台运行命令](#终端在后台运行命令)
-  - [linux mint解决中文不全](#linux-mint解决中文不全)
-  - [debain系linux在虚拟机中安装vmtools](#debain系linux在虚拟机中安装vmtools)
-  - [debian系linux安装桌面](#debian系linux安装桌面)
-  - [linux桌面卡死解决方法](#linux桌面卡死解决方法)
-  - [linux安装grub2](#linux安装grub2)
-  - [qemu-kvm启用nat网络模块](#qemu-kvm启用nat网络模块)
+  - [debian系linux发行版](#debian系linux发行版)
+    - [更新软件包缓存:](#更新软件包缓存)
+    - [更新软件:](#更新软件)
+    - [安装软件:](#安装软件)
+    - [编译deb安装包:(需安装`debhelper` `cmake` `make`)](#编译deb安装包需安装debhelper-cmake-make)
+    - [linux mint解决中文不全](#linux-mint解决中文不全)
+    - [安装vmtools](#安装vmtools)
+  - [linux命令](#linux命令)
+    - [关闭某个窗口:](#关闭某个窗口)
+    - [列出硬盘与分区：](#列出硬盘与分区)
+    - [启动硬盘分区编辑：](#启动硬盘分区编辑)
+    - [格式分区为指定文件系统(`ext3`可以替换成`fat32`,`ntfs`,`ext4`等):](#格式分区为指定文件系统ext3可以替换成fat32ntfsext4等)
+    - [修复ntfs分区不能写入文件(sda3为分区)：](#修复ntfs分区不能写入文件sda3为分区)
+    - [关闭软件(会关闭带有该关键词的进程)](#关闭软件会关闭带有该关键词的进程)
+    - [qemu-kvm启用nat网络模块](#qemu-kvm启用nat网络模块)
+    - [在tty终端中启动xorg](#在tty终端中启动xorg)
+    - [终端在后台运行命令](#终端在后台运行命令)
+    - [桌面卡死解决方法](#桌面卡死解决方法)
+  - [安装grub2](#安装grub2)
   - [更改终端显示语言](#更改终端显示语言)
   - [bash环境配置文件](#bash环境配置文件)
   - [安装docker后进行apt upgrade时出现pending kernel upgrade选项的解决方法](#安装docker后进行apt-upgrade时出现pending-kernel-upgrade选项的解决方法)
@@ -903,57 +913,6 @@ https://gitee.com/skymysky/linux#tmoe-linux
 命令行中终止程序：`Ctrl+C`
 命令行中翻页：`shift+pageup/pagedown` 或`pageup/pagedown`
 
-&nbsp;
-## debian系linux发行版
-更新软件包缓存:
-```bash
-sudo apt update
-```
-更新软件:
-```bash
-sudo apt upgrade
-```
-安装软件:
-```bash
-sudo apt install 软件名
-sudo apt install --no-install-recommends 软件名(不安装推荐软件)
-sudo apt remove 软件名 --purge(彻底卸载软件包)
-sudo dpkg -i xxx.deb(安装本地安装包)
-sudo dpkg -i *.deb(安装所在目录下全部安装包)
-sudo apt --fix-broken install（修复依赖）
-```
-关闭某个窗口:
-```bash
-sudo xkill
-```
-(此时鼠标变为X，点击某个窗口即可关闭)
-Debain系Linux编译deb安装包:(需安装`debhelper` `cmake` `make`)
-```bash
-dpkg-buildpackage -us -uc -nc
-make -j2 deb-pkg
-```
-列出硬盘与分区：
-```bash
-lsblk
-```
-启动硬盘分区编辑：
-```bash
-cfdisk
-```
-格式分区为指定文件系统(`ext3`可以替换成`fat32`,`ntfs`,`ext4`等):
-```bash
-mkfs -t ext3 /dev/sda4
-```
-修复ntfs分区不能写入文件(sda3为分区)：
-```bash
-sudo ntfsfix /dev/sda3
-```
-关闭软件(会关闭带有该关键词的进程) 
-```bash
-pkill 程序名
-```
-
-&nbsp;
 ## tty终端快捷键
 停止屏幕输出`Ctrl+S`
 恢复屏幕输出`Ctrl+Q`
@@ -963,69 +922,104 @@ pkill 程序名
 暂停目前命令`Ctrl+Z`
 命令补全/文件补齐/参数补齐`Tab`
 
-&nbsp;
 ## 重新启动xorg
 `Ctrl+Alt+backspace`
 
 &nbsp;
-## 在tty终端中启动xorg
+## debian系linux发行版
+### 更新软件包缓存:
 ```bash
-startx
+sudo apt update
 ```
-（需注意没有其他x.org被启用）
-
-&nbsp;
-## 终端在后台运行命令
+### 更新软件:
 ```bash
-nohup 命令 &
+sudo apt upgrade
 ```
-
-&nbsp;
-## linux mint解决中文不全
->此方法适用于基于ubuntu的版本
-
+### 安装软件:
+```bash
+sudo apt install 软件名
+sudo apt install --no-install-recommends 软件名(不安装推荐软件)
+sudo apt remove 软件名 --purge(彻底卸载软件包)
+sudo dpkg -i xxx.deb(安装本地安装包)
+sudo dpkg -i *.deb(安装所在目录下全部安装包)
+sudo apt --fix-broken install（修复依赖）
+```
+### 编译deb安装包:(需安装`debhelper` `cmake` `make`)
+```bash
+dpkg-buildpackage -us -uc -nc
+make -j2 deb-pkg
+```
+### linux mint解决中文不全
+>此方法适用于基于ubuntu系发行版
 ```bash
 sudo apt-get install language-pack-zh-hans language-pack-gnome-zh-hans libreoffice-l10n-zh-cn thunderbird-locale-zh-hans firefox-locale-zh-hans
 ```
- 
-&nbsp;
-## debain系linux在虚拟机中安装vmtools
+### 安装vmtools
 ```bash
 sudo apt install open-vm-tools open-vm-tools-desktop
 ```
-
-&nbsp;
-## debian系linux安装桌面
+###安装桌面
 ```bash
 sudo tasksel
 ```
 
 &nbsp;
-## linux桌面卡死解决方法
+## linux命令
+### 关闭某个窗口:
+```bash
+sudo xkill
+```
+(此时鼠标变为X，点击某个窗口即可关闭)
+### 列出硬盘与分区：
+```bash
+lsblk
+```
+### 启动硬盘分区编辑：
+```bash
+cfdisk
+```
+### 格式分区为指定文件系统(`ext3`可以替换成`fat32`,`ntfs`,`ext4`等):
+```bash
+mkfs -t ext3 /dev/sda4
+```
+### 修复ntfs分区不能写入文件(sda3为分区)：
+```bash
+sudo ntfsfix /dev/sda3
+```
+### 关闭软件(会关闭带有该关键词的进程) 
+```bash
+pkill 程序名
+```
+### qemu-kvm启用nat网络模块
+```bash
+sudo virsh net-start --network default
+```
+### 在tty终端中启动xorg
+```bash
+startx
+```
+### 终端在后台运行命令
+```bash
+nohup 命令 &
+```
+### 桌面卡死解决方法
 ```bash
 sudo systemctl restart lightdm
 ```
 >lightdm为桌面管理器，可替换为sddm或gdm
-
-&nbsp;
-## linux安装grub2
+## 安装grub2
 >sda为硬盘，可更换为sda1或其他硬盘分区
 
 ```bash
 sudo grub-install /dev/sda
 ```
 
-&nbsp;
-## qemu-kvm启用nat网络模块
-```bash
-sudo virsh net-start --network default
-```
 
 &nbsp;
 ## 更改终端显示语言
 显示目前所支持语系：
 ```bash
-$ locale
+locale
 LANG=zh.CN.utf8
 (省略)
 LC_ALL=
