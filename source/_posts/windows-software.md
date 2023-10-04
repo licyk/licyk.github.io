@@ -142,6 +142,7 @@ Windows软件存档
 |[白眼](https://epcdiy.org/)|性能测式
 |[Display Driver Uninstaller](https://www.wagnardsoft.com/display-driver-uninstaller-DDU-)|显卡驱动清理工具
 |[Fan Control](https://getfancontrol.com/)|电脑风扇控制工具
+|[ohook](https://github.com/asdcorp/ohook)|office激活工具(使用新的激活方式，非kms激活)
 
 
 |美化||
