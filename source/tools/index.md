@@ -81,7 +81,8 @@ date: 2023-07-13 11:59:18
 
 |镜像站||||
 |---|---|---|---
+|镜像站合集|[校园网联合镜像站](https://mirrors.cernet.edu.cn/)
 |flatpak镜像站|[SJTU](https://mirror.sjtu.edu.cn/docs/flathub)
 |pip镜像站|[SJTU](https://mirror.sjtu.edu.cn/docs/pypi/web/simple)|[BFSU](https://mirrors.bfsu.edu.cn/help/pypi/)|[TUNA](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
-|pytorch镜像站|[SJTU](https://mirror.sjtu.edu.cn/pytorch-wheels)
+|pytorch镜像站|[SJTU](https://mirror.sjtu.edu.cn/pytorch-wheels)|[aliyun](https://developer.aliyun.com/mirror/pytorch-wheels)
 
