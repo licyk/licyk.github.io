@@ -143,6 +143,7 @@ Windows软件存档
 |[Display Driver Uninstaller](https://www.wagnardsoft.com/display-driver-uninstaller-DDU-)|显卡驱动清理工具
 |[Fan Control](https://getfancontrol.com/)|电脑风扇控制工具
 |[ohook](https://github.com/asdcorp/ohook)|office激活工具(使用新的激活方式，非kms激活)
+|[WizTree](https://www.diskanalyzer.com/)|目录占用分析，以可视化块状的方式展示哪些文件和文件夹使用的磁盘空间
 
 
 |美化||
