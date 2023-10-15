@@ -147,6 +147,7 @@ Windows软件存档
 |[space sniffee](http://www.uderzo.it/main_products/space_sniffer/)|目录占用分析
 |[Geek uninstall](https://geekuninstaller.com/)|强大的卸载工具，轻巧，能够卸载残留
 |[iobit uninstaller](http://www.iobit.com/en/update/uninstaller/)|强大的卸载工具
+|[wise disk clear](https://www.wisecleaner.com/wise-disk-cleaner.html)|强大的垃圾清理工具
 
 
 |美化||
@@ -205,6 +206,7 @@ Windows软件存档
 |[7zip](https://7-zip.org/)|开源的解压缩工具
 |[VLC](https://www.videolan.org/)|开源的视频播放器
 |[迅飞输入法](https://srf.xunfei.cn/#/)|简洁，语音识别准确度高
+|[wiseclear](https://www.wisecleaner.com/products.html)|wiseclear系列全家桶
 
 
 |网盘||
