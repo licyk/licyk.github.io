@@ -144,6 +144,9 @@ Windows软件存档
 |[Fan Control](https://getfancontrol.com/)|电脑风扇控制工具
 |[ohook](https://github.com/asdcorp/ohook)|office激活工具(使用新的激活方式，非kms激活)
 |[WizTree](https://www.diskanalyzer.com/)|目录占用分析，以可视化块状的方式展示哪些文件和文件夹使用的磁盘空间
+|[space sniffee](http://www.uderzo.it/main_products/space_sniffer/)|目录占用分析
+|[Geek uninstall](https://geekuninstaller.com/)|强大的卸载工具，轻巧，能够卸载残留
+|[iobit uninstaller](http://www.iobit.com/en/update/uninstaller/)|强大的卸载工具
 
 
 |美化||
@@ -197,7 +200,6 @@ Windows软件存档
 |---|---
 |[火绒安全软件](https://www.huorong.cn/)|杀毒软件，能让windows defender安静下来
 |[Traffic monitor](https://github.com/zhongyang219/TrafficMonitor)|网速和硬件监测工具
-|[Geek uninstall](https://geekuninstaller.com/)|卸载工具，能够卸载残留
 |[华为应用市场](https://uowap.hicloud.com/appdl-uomp-cn/campaignpreview/b96271d7-fc63-4477-889d-26e121259d9e/index.html)|华为自家应用市场
 |[Bandizip](https://www.bandisoft.com/bandizip/)|强大的解压缩工具
 |[7zip](https://7-zip.org/)|开源的解压缩工具
