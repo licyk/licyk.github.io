@@ -83,7 +83,7 @@ Windows软件存档
 |[Gradio](https://www.gradio.app/)|快速创建图形用户界面(GUI)的Python库
 |[Pytorch](https://pytorch.org/)|开源的Python机器学习库
 |[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
-|[microsoft visual c++](https://learn.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170)|Windows系统的c++库
+|[microsoft visual c++](https://learn.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170)|Windows系统的c++运行库
 
 
 |串流||
