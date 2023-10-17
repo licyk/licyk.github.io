@@ -67,6 +67,9 @@ categories:
   - [windows上帝模式](#windows上帝模式)
   - [windows跳过登陆微软帐号](#windows跳过登陆微软帐号)
   - [windows解决github的dns污染问题](#windows解决github的dns污染问题)
+  - [windows系统使用microsoft activation scripts激活windows系统和office](#windows系统使用microsoft-activation-scripts激活windows系统和office)
+    - [使用powershell下载microsoft activation scripts](#使用powershell下载microsoft-activation-scripts)
+    - [使用传统方法下载microsoft activation scripts](#使用传统方法下载microsoft-activation-scripts)
   - [ ](#)
 - [安卓](#安卓)
   - [列出分区](#列出分区)
@@ -846,6 +849,23 @@ ipconfig /flushdns
 ```
 如果之后出现无法访问，再使用ping命令找出无法访问的ip地址，并替换
 >在linux的也是类似的修改方法，使用`sudo vim /etc/hosts`修改hosts文件，再用`sudo systemctl restart systemd-networkd.service`应用修改
+
+&nbsp;
+## windows系统使用microsoft activation scripts激活windows系统和office
+Microsoft-Activation-Scripts支持激活Windows系统和office办公工具，开源，小巧，支持HWID/Ohook/KMS38/Online KMS激活方式。Ohook激活方式仅支持激活office，但是支持永久激活，不会有KMS激活的180天的期限，推荐使用
+
+### 使用powershell下载microsoft activation scripts
+这是官方推荐方法，先打开powershell，然后输入下面命令
+```
+irm https://massgrave.dev/get | iex
+```
+下载成功后会自动弹出Microsoft-Activation-Scripts窗口，根据提示进行激活操作
+>这种方法并不会下载文件到硬盘中，所以在结束Microsoft-Activation-Scripts运行后不会留下任何文件，下次使用时需要再次使用上面的命令下载
+
+### 使用传统方法下载microsoft activation scripts
+从官网链接下载[Microsoft Activation Scripts下载](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)
+如果下载失败，可以选择github镜像站下载[github镜像站下载](https://ghproxy.com/https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)  
+下载得到压缩包后，解压，然后依次打开`MAS\All-In-One-Version`，双击MAS_AIO.cmd启动Microsoft Activation Scripts，根据提示进行激活操作
 
 &nbsp;
 ---
