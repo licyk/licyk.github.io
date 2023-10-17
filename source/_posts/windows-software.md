@@ -83,6 +83,7 @@ Windows软件存档
 |[Gradio](https://www.gradio.app/)|快速创建图形用户界面(GUI)的Python库
 |[Pytorch](https://pytorch.org/)|开源的Python机器学习库
 |[nvm](https://github.com/nvm-sh/nvm)|node.js版本管理器
+|[microsoft visual c++](https://learn.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170)|Windows系统的c++运行库
 
 
 |串流||
@@ -145,6 +146,10 @@ Windows软件存档
 |[ohook](https://github.com/asdcorp/ohook)|开源的office激活工具，使用新的方法激活（非KMS激活），仅支持Windows10及以上版本
 |[WizTree](https://www.diskanalyzer.com/)|目录占用分析，以可视化块状的方式展示哪些文件和文件夹使用的磁盘空间
 |[Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)|Windows系统，office激活脚本，小巧，开源
+|[space sniffee](http://www.uderzo.it/main_products/space_sniffer/)|目录占用分析
+|[Geek uninstall](https://geekuninstaller.com/)|强大的卸载工具，轻巧，能够卸载残留
+|[iobit uninstaller](http://www.iobit.com/en/update/uninstaller/)|强大的卸载工具
+|[wise disk clear](https://www.wisecleaner.com/wise-disk-cleaner.html)|强大的垃圾清理工具
 
 
 |美化||
@@ -198,12 +203,12 @@ Windows软件存档
 |---|---
 |[火绒安全软件](https://www.huorong.cn/)|杀毒软件，能让windows defender安静下来
 |[Traffic monitor](https://github.com/zhongyang219/TrafficMonitor)|网速和硬件监测工具
-|[Geek uninstall](https://geekuninstaller.com/)|卸载工具，能够卸载残留
 |[华为应用市场](https://uowap.hicloud.com/appdl-uomp-cn/campaignpreview/b96271d7-fc63-4477-889d-26e121259d9e/index.html)|华为自家应用市场
 |[Bandizip](https://www.bandisoft.com/bandizip/)|强大的解压缩工具
 |[7zip](https://7-zip.org/)|开源的解压缩工具
 |[VLC](https://www.videolan.org/)|开源的视频播放器
 |[迅飞输入法](https://srf.xunfei.cn/#/)|简洁，语音识别准确度高
+|[wiseclear](https://www.wisecleaner.com/products.html)|wiseclear系列全家桶
 
 
 |网盘||
