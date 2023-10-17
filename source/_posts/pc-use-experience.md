@@ -865,7 +865,7 @@ irm https://massgrave.dev/get | iex
 ### 使用传统方法下载microsoft activation scripts
 从官网链接下载[Microsoft Activation Scripts下载](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)
 如果下载失败，可以选择github镜像站下载[github镜像站下载](https://ghproxy.com/https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)  
-下载得到压缩包后，解压，然后依次打开`MAS\All-In-One-Version`，双击MAS_AIO.cmd启动Microsoft Activation Scripts，根据提示进行激活操作
+下载得到压缩包后，解压，然后依次打开`Microsoft-Activation-Scripts\MAS\All-In-One-Version`，双击MAS_AIO.cmd启动Microsoft Activation Scripts，根据提示进行激活操作
 
 &nbsp;
 ---
