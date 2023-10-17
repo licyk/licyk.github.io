@@ -142,8 +142,9 @@ Windows软件存档
 |[白眼](https://epcdiy.org/)|性能测式
 |[Display Driver Uninstaller](https://www.wagnardsoft.com/display-driver-uninstaller-DDU-)|显卡驱动清理工具
 |[Fan Control](https://getfancontrol.com/)|电脑风扇控制工具
-|[ohook](https://github.com/asdcorp/ohook)|office激活工具(使用新的激活方式，非kms激活)
+|[ohook](https://github.com/asdcorp/ohook)|开源的office激活工具，使用新的方法激活（非KMS激活），仅支持Windows10及以上版本
 |[WizTree](https://www.diskanalyzer.com/)|目录占用分析，以可视化块状的方式展示哪些文件和文件夹使用的磁盘空间
+|[Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)|Windows系统，office激活脚本，小巧，开源
 
 
 |美化||
