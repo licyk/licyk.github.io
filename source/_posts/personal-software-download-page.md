@@ -17,8 +17,8 @@ categories:
 ||下载地址|
 |---|---
 |↓|[`源码`](https://github.com/licyk/sd-webui-script)
-|↓|<a href="https://ghproxy.com/https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh?response-content-type=application%2Foctet-stream" download>`下载地址1`</a>
-|↓|<a href="https://raw.githubusercontent.com/licyk/sd-webui-script/main/term-sd.sh?response-content-type=application%2Foctet-stream" download>`下载地址2`</a>
+|↓|[`下载地址1`](https://ghproxy.com/https://github.com/licyk/term-sd/releases/download/v0.6.0/term-sd.sh)
+|↓|[`下载地址2`](https://github.com/licyk/term-sd/releases/download/v0.6.0/term-sd.sh)
 
 ***
 
