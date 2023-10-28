@@ -3849,3 +3849,4 @@ git add file
 git commit -m "commit"
 git push
 ```
+>如果无法推送，可以先执行`git lfs push origin 分支`，再执行`git push`
