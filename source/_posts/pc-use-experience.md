@@ -3806,6 +3806,11 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 ```bash
 git lfs install
 ```
+或者设置环境变量
+```
+export GIT_LFS_SKIP_SMUDGE=0
+```
+
 克隆项目
 ```
 git clone your_url
@@ -3814,6 +3819,10 @@ git clone your_url
 如果不想要克隆大文件，可以禁用git-lfs
 ```bash
 git lfs uninstall
+```
+或者设置环境变量
+```
+export GIT_LFS_SKIP_SMUDGE=1
 ```
 
 为项目上传大文件
