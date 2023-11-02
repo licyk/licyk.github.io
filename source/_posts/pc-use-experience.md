@@ -598,7 +598,7 @@ BOOT文件夹中的文件
 3、在打开的窗口中，点击`高级`选项卡下`性能`选项组的`设置`按钮。
 4、打开性能选项窗口后，点击`高级`选项卡中的`更改`按钮
 5、在打开的窗口中，首先取消勾选`自动管理所有驱动器的分页文件大小`。
-6、接下来选择`自定义大小`，然后手动设置初始大小以及最大值，先点`设置`(不然不会保存),然后点击`确定`按钮。
+6、接下来选择`自定义大小`，然后手动设置初始大小以及最大值。接下来先点`设置`(不然不会保存),然后点击`确定`按钮。
 
 &nbsp;
 ## windows安装并配置msys2
@@ -607,7 +607,7 @@ BOOT文件夹中的文件
 3、在桌面`此电脑`图标上点击鼠标右键，然后选择`属性`选项
 4、打开系统窗口后，点击`高级系统设置`选项。
 5、在打开的窗口中，点击`高级`选项卡下`环境变量`
-6、在`系统变量`部分双击`Path`，点击`新建`，输入以下路径
+6、（可选）在`系统变量`部分双击`Path`，点击`新建`，输入以下路径
 ```
 C:\msys64\mingw64\bin
 C:\msys64\usr\bin
@@ -3806,6 +3806,11 @@ http://www.jinbuguo.com/systemd/systemd.service.html
 ```bash
 git lfs install
 ```
+或者设置环境变量
+```
+export GIT_LFS_SKIP_SMUDGE=0
+```
+
 克隆项目
 ```
 git clone your_url
@@ -3814,6 +3819,10 @@ git clone your_url
 如果不想要克隆大文件，可以禁用git-lfs
 ```bash
 git lfs uninstall
+```
+或者设置环境变量
+```
+export GIT_LFS_SKIP_SMUDGE=1
 ```
 
 为项目上传大文件
@@ -3840,3 +3849,4 @@ git add file
 git commit -m "commit"
 git push
 ```
+>如果无法推送，可以先执行`git lfs push origin 分支`，再执行`git push`
