@@ -86,3 +86,8 @@ steps:
 当部署完成后，在 `gh-pages` 分支可以找到生成的网页。
 在 GitHub 储存库中，前往 `Settings > Pages > Source`, 并将 `branch`` 改为 `gh-pages`。
 前往 `https://<你的 GitHub 用户名>.github.io/<repository 的名字>` 查看网站。
+
+# 为hexo安装依赖包
+```
+npm install <package_name> --save
+```
