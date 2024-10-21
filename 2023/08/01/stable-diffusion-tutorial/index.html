@@ -1,0 +1,1680 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="整理了stable diffusion相关链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stable diffusion相关链接">
+<meta property="og:url" content="http://licyk.github.io/2023/08/01/stable-diffusion-tutorial/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="整理了stable diffusion相关链接">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-01T09:09:18.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:58:56.065Z">
+<meta property="article:author" content="licyk">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>stable diffusion相关链接 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tools/" target="_self">
+                <i class="iconfont icon-briefcase"></i>
+                <span>工具</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="stable diffusion相关链接"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-01 17:09" pubdate>
+          2023年8月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">stable diffusion相关链接</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>整理了stable diffusion相关链接</p>
+<span id="more"></span>
+<hr>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>stable-diffusion模型下载</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/">huggingface</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.liblib.ai/">liblib</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.esheep.com/">esleep</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://tusiart.com/">吐司</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>up主推荐</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">@秋葉aaaki</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/219296">@青龙圣者</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/35723238">@只剩一瓶辣椒酱</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/55123">@大江户战士</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/250989068">@独立研究员-星空</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/27688282">@自带马赛克属性的阿尼</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/1814756990">@Nenly同学</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Stable-Diffusion-Webui"><a href="#Stable-Diffusion-Webui" class="headerlink" title="Stable Diffusion Webui"></a>Stable Diffusion Webui</h1><h2 id="系统教程"><a href="#系统教程" class="headerlink" title="系统教程"></a>系统教程</h2><blockquote>
+<p>推荐观看该系列视频学习</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>系统的AI绘画教程 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/1814756990">Nenly同学</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正式课</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16u411j7u3">先导课：了解AI绘画的发展现状</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1As4y127HW">第一课：20分钟，光速入门AI绘画!原理解析+配置要求+应用安装+基本步骤</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12X4y1r7QB">第二课：史上最细的AI绘画提示词与参数设置攻略</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Lh411u7vs">第三课：打破次元壁！AI图生图“重绘”照片和CG</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Us4y117Rg">第四课：AI绘画模型新手包！“画风”自由切换，有哪些你不知道的模型使用技巧？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11m4y12727">第五课：拒绝低质量出图！3种快速提高AI绘画分辨率的方式，十分钟讲完！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th4y1p7fH">第六课：Embeddings , LoRa , Hypernetwork概念简析</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uL411e7Uk">第七课：AI绘画的救星！定向修手修脸，手把手教你玩转局部重绘！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hz4y1a76M">第八课：提示词补全翻译反推，“终极”放大脚本与细节优化插件，这些AI绘画扩展真的泰厉害辣！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nL411B7XT">第九课：LoRA从原理到实践，零基础打造赛博Coser、一键更换服饰，无所不能！5大应用方向剖析 &amp; 保姆级讲解！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ds4y1e7ZB">第十课：30分钟零基础掌握ControlNet！绝对是你看过最好懂的控制网原理分析、基本操作、插件安装与5大模型应用</a></td>
+<td></td>
+</tr>
+<tr>
+<td>加餐课</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Su4y1d7Dp">扩展应用：Multi Diffusion + Tiled VAE + ControlNet Tile模型，低显存打造AI绘画超高清6K分辨率体验！SD扩展插件教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gX4y1J7ei">扩展应用：“牛逼”的教程来了！一次学会AI二维码+艺术字+光影光效+创意Logo生成</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Su411b7Nm">扩展应用：15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uX4y1H7U3">扩展应用：10倍效率，打造无闪烁丝滑AI动画！EbSynth插件全流程操作解析与原理分析，超智能的“补帧”动画制作揭秘</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1DP41167bZ">模型推荐：AI再进化，这次竟然学会摄影了！一秒生成胶片风、拍立得，还能智能“修脸”！Stable Diffusion AI绘画真实系人像模型+Lora分享</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Us4y1M7x4">模型推荐：一流模型！10个高手都在用的二次元插画绘画风大模型推荐，内附模型下载渠道与出图参数提示词关键词模版</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<blockquote>
+<p>已过时</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>轩轩的sd webui教程 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/1642297">靠谱的轩轩</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mv4y187qk">【基础01】新人必看！stable diiffusion大模型checkpoint放哪里？怎么加载?在哪里下？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LY411z7Wy">【基础02】stable diffusion的VAE是啥？有啥用？怎么用？有啥效果？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Pg4y1t74E">【基础03】stable diffusion的embedding是个啥？有啥用？怎么用？有啥效果？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ML411d7pR">【基础04】目前全网最贴心的Lora基础知识教程！stable diffusion新手福音，功能，下载地址，安装使用方法全知道（上篇）</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mL41197UM">【基础05】使用lora后效果不好？全网最贴心的Lora新手使用技巧教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZL411Q7cy">【基础06】超贴心的hypernetwork基础知识教程！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aa4y1M7KZ">【基础07】5秒钟分清模型类型，5分钟搞懂尾缀和模型关系。</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hc411W7Av">AI绘画软件比较与stable diffusion的优势</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aa4y1K7bc">stable diffusion应用场景略讲</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SN411A7uD">AI绘画用户画像</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TM4y1m7Nv">新手要理解的stable diffusion的一点点原理</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jh411g7aL">大模型-vae-clip跳过层讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nh411g7NN">提示词功能-提示词超简单写作思路</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ps4y1m7od">提示词8类语法精讲</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AM4y117td">采样迭代步数-采样方法讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1r24y157h7">面部修复-高清修复讲解与技巧</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UL41127iJ">图片高度与宽度的注意点</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1H24y1w7nx">生成批次-每批数量-CFG讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EX4y1r7Pf">随机种子-脚本XYZ图表讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bm4y1B7AA">脚本提示词矩阵-脚本批量载入讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Dk4y1Y7cu">重绘幅度denoise讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qv4y1H7bk">图生图提示词-图片输入</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CL41127SS">缩放模式-图片传送</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ys4y1K798">图生图绘图模式</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ws4y117nh">局部重绘设计原理-蒙版模糊</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mk4y1Y7qj">蒙版模式-蒙版蒙住内容</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12m4y1B7QJ">重绘区域-全图</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ih411M7Sn">蒙版模式-仅蒙版-边缘预留像素</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1um4y1m7S4">局部重绘（手涂蒙版）</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n24y1w7Xy">蒙版模式(上传蒙版)-批量处理</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NX4y1r7zX">图片信息反推-Tag反推</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HX4y1r7x4">图片高清放大-人脸修复</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vo4y187Bc">controlnet设计思路与设置修改</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1La4y1N7VZ">预处理器与controlnet模型</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ko4y1H7Po">Controlnet线条约束</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vX4y1r7Eb">Controlnet姿势约束与深度约束</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11s4y117Sc">语义分割-色彩约束-风格约束</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19M4y1C72v">Controlnet剩余参数讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1654y1F7SE">【习题01】如何定制AI模特</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xg4y1u7Ad">【习题02】如何生成高清模特大图</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ea4y1N7QW">【习题03】如何比较不同模型效果</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XM4y1C77L">【习题04】如何比较不同衣服提示词的效果？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ks4y1171q">【习题05】图片如何风格转换</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZL411f7x9">【习题06】产品、人像如何高清修复</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ws4y1P7Z6">【习题07】如何把线稿上色</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17s4y1P7xo">【习题08】根据线稿生成室内设计</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yN411w7dX">【习题9】如何转换室内装修风格与地板</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<h2 id="其他应用"><a href="#其他应用" class="headerlink" title="其他应用"></a>其他应用</h2><table>
+<thead>
+<tr>
+<th><a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">秋葉aaaki</a>的教程</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22159609">【AI绘画】从零开始的AI绘画入门教程——魔法导论</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ae4y1s79r">Dreambooth模型介绍和模型融合教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SR4y1y7Lv">Dreambooth训练教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fs4y1x7p2">LoRA模型训练教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1C14y157nQ/">Embedding 训练教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fa4y1G71W">ControlNet1.1 使用教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x8411m76H">深入理解Stable Diffusion!从原理到模型训练</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<blockquote>
+<p>学习训练Lora的推荐该系列教程</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Lora训练 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/219296">青龙圣者</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ts4y1J76y">【AI绘画设置优化】LORA训练加速100%速度</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pA411m7WA">【新算法优化】最新LoRA模型训练进阶教程1</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15j411F7nJ">【快速打标&#x2F;优化器对比】最新LoRA模型训练进阶教程2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MM41177xv">【正则化和卷积应用】最新LoRA模型训练进阶教程3</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1oP411f7fi">【正则化制作功能LoRA】最新LoRA模型训练进阶教程4</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HM4y167Hg">【哈达玛积训练画风LoRA】最新LORA模型训练教程5</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hk4y1Y7sc">【LoRA训练用什么底模】最新LoRA训练进阶教程6</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Qc411n7V8">【动态lora！任意dim值选择】最新LoRA训练进阶教程7</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12P411y76P">【金字塔噪声，接近MJ的效果】最新LoRA训练进阶教程8</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th411F7CR">【lora分层的底层原理】最新LoRA训练进阶教程9</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11m4y147WQ">【完美炼丹术，差异炼丹法】最新LoRA训练进阶教程10</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nX4y1H7x5">【神童优化器！全程自适应训练】最新lora训练教程11</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dm4y1L7q3">【0图流正负丹，减少手部崩坏】最新Lora训练AI高级教程12</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tk4y137fo">【SDXL8G优化训练，脚本更新】最新Lora训练AI高级教程13</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>其他lora训练教程</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1jP411f7kV">lora训练进阶教程，6分半教会你怎么训练一个好的lora</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Nc411W7PG">赛博德狗lora作者，c站前10下载量作者的lora训练心得</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GM411E7vk">【AI绘画】较详细！正则化！从泛化性角度谈Lora模型训练心得</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15j411c7dL">【LORA训练】10分钟教你训练画风lora！</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Js4y1c7oU">LoRA 角色模型训练-训练脚本作者亲自指导</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZM411c7aj">【AI绘画】训练LoRA模型最重要的一环：打标签</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1t24y1J7Bk">【AI绘画】Lora制作新时代！从大模型提取Lora , Lora合并 使用教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1J84y1E7nn/">【AI绘画】超级模型融合插件详解，Lora提取，MBW大模型合并，Lora融合大模型，xy对比融合图</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rs4y1w76w/">如何快速训练番剧画风lora</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>dreambooth训练 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/34590220">小李xiaolxl</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18K411o7mG/">DreamBooth画风训练教程(基于NovelAI)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g841187nc/">DreamBooth人物训练与安装教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sM4y1C7YZ/">Lora+OffsetNoise+Lion+locon全解(基于DreamBooth可视化训练插件)</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>其他使用教程</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HN411N7GB">超详细的局部重绘讲解</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X14y1o76e">stable diffusion AI绘画入门19 思维决定画面效果</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Qk4y1i726">为什么你的AI绘画图片质量这么低？20分钟学会全方位提高画质的方法</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13M4y1d7TU">【AI绘画】webUI中各种放大算法效果对比与原理简介</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13j411u7SZ">【AI绘画】openpose新插件poseX，360°3D旋转~秒杀editor，controlnet好助手</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ML41127fu/">【AI绘画】手势生成再进化？OpenPose-HAND对比Depth Library插件 全流程教学</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ec41157Hp/">【主打开源】stable diffusion+blender 我今天就要画手</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ms4y1E7zX/">【AI绘画】利用LoRA分层控制高效且有目的地融合画风</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NL411C7Ja/">【AI绘画】在画面不同区域使用不同关键词！潜变量成对（latent couple）参数怎么填</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12h411G7T5/">Latent Couple分区渲染详解+Lora防污染手段</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nP411U7me/">【AI绘画教程】B站最通俗易懂的loRA分层控制与融合教程⚡️5分钟解决污染</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zL41127Sg">Stable Diffusion Latent Couple、Composable LoRA完成多人</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jz4y1b7dJ">AI绘画】Stable Diffusion Regional Prompter插件教学，实现多区域绘画自由</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rc411H7F4">【Ai绘画】VRM+ControlNET文生图+实景照片，控制最终画面</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Nv4y1a7ts/">【AI绘画】利用ControlNet和线稿LoRA提取线稿的方法+一些新用法</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pv4y18793">【AI绘画】使用ControlNet给线稿上色的技巧</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19m4y187o1/">【AI绘画】ControlNet Tile 工作流</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1t54y1M76a/">【AI绘画】利用ControlNet清理草稿</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dP411Z7S8">stable-diffusion动作+背景【全控】-controlnet seg+动作+深度图的用法</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uM411u739">【AI绘画进阶教程】图生图 让AI模特穿上你喜欢的衣服</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13o4y1z72w">【AI教学】草稿秒变成图？线稿快速上色？</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wg4y1x7Ur/">【AI绘画进阶教程】seg 语义分割控制网络 ControNet教你画景填人</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Hh411j7b2">【AI绘画】利用GroundingDINO+SAM快速修改图片局部的方法</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tM411W7Ea/">拯救崩图！提高CFG影响的同时保持画面stable diffusion webui实用插件推荐</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wh4y1G7kR/">用PS控制Stablediffusion，听话的AI才是好AI</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dX4y1e7Yr/">Stable Diffusion fp16(半精) vs fp32(单精), Pruned model vs Full mod,出图速度对比，图片质量对比</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1j24y1g749">AI绘画 多LoRA模型的使用与管理教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c14y1U7UF">StableDiffusion AI绘画工作流进阶教程-第五课：超采再放大</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ij411c7iS/">【AI绘画】如何绘制特殊比例超大图片</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cj411A73a">基于LyCoRIS的LoRA模型：LoHa</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18c411J7Ms">Lycoris画风模型权重优化</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>stable diffusion原理 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/23706358">FDX01</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22266484">浅谈stable diffusion (一)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22533819">浅谈stable diffusion (二)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22642045">浅谈stable diffusion (三)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22817096">浅谈stable diffusion (四)</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>stable diffusion工具</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://zhuyu1997.github.io/open-pose-editor/">3D Openpose Editor</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/shi-labs/OneFormer">语义分割工具</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.wujieai.com/tag-generator">咒语生成器</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://aitag.top/">魔咒百科词典</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>文字版教程</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22159609">从零开始的AI绘画入门教程——魔法导论</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.qq.com/pdf/DR2V2ZlhHbnJUVHBa">重绘学派法术绪论</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.kdocs.cn/l/cre0TwbMkdx3">Stable Diffusion汇总文档</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://hazn93ygkcs.feishu.cn/wiki/JRydwXpCti1bxJkN6zNc4a8qnAe">Stable Diffusion 信息并联&amp;入门教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/p/230e7ada2a60d8e347d639edd5521f5e62332fe9">Stable Diffusion 潜工具书</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ivonblog.com/posts/stable-diffusion-webui-manuals/zh-cn">Stable Diffusion WebUI使用手册</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DU3ZudG1UZ1hiU01K">SD常见报错合集</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://support.qq.com/products/488228">绘世启动器帮助</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://sd.wa9.cn/html/135995266.html">stable diffusion 常见错误收集及对应解决方案</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="draw.dianas.cyou">StableDiffusionBook</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://stable-diffusion-book.vercel.app/">StableDiffusionBook</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<h1 id="ComfyUI"><a href="#ComfyUI" class="headerlink" title="ComfyUI"></a>ComfyUI</h1><table>
+<thead>
+<tr>
+<th>comfyui教程 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/35723238">只剩一瓶辣椒酱</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fo4y187HC">【专业向节点AI】SD ComfyUI大冒险-基础篇 00安装与部署</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zh4y1p761">【专业向节点AI】SD ComfyUI大冒险-基础篇 01万法之基 文生图</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16h411j74E">【专业向节点AI】SD ComfyUI大冒险-基础篇 02推演变体 图生图</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jk4y1J7GP">【专业向节点AI】SD ComfyUI大冒险 -基础篇 03高清输出 放大奥义</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uh411j7Vd">【专业向节点AI】SD ComfyUI大冒险-基础篇 04数据微调 Lora与超网络</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Uo4y1x7vY">【ComfyUI中文版】Blender x ComfyUI节点式AI绘画大冒险-F1番外-通过读取图像获取节点树</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yV4y1176S">【专业向节点AI】SD ComfyUI大冒险-05ControlNET进阶-概述</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BX4y1s7wr">【专业向节点AI】SD ComfyUI大冒险-06ControlNET进阶-线の控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zV411u7R4">【专业向节点AI】SD ComfyUI大冒险-07ControlNET进阶-深度和法线控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wh411N7VU">【专业向节点AI】SD ComfyUI大冒险–08ControlNET进阶-姿态和面部表情控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13z4y1p7xt">【专业向节点AI】SD ComfyUI大冒险-09ControlNET进阶-语义分割控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eh4y1u7wA">【专业向节点AI】SD ComfyUI大冒险-10ControlNET进阶-颜色色彩控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1DV411M7WL">【专业向节点AI】SD ComfyUI大冒险系统教程-11ControlNET进阶-Tile分块控制</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hP411y7hg">【专业向节点AI已汉化】SD ComfyUI大冒险系统教程-12 ControlNET进阶-Inpaint内补绘制(局部重绘)&amp;发型发色实例</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1WV4y1q7mE">【专业向节点AI】SD ComfyUI大冒险系统教程-13 ControlNET进阶-Shuffle内容重组</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17m4y1j7W5">【专业向节点AI】SD ComfyUI大冒险系统教程-14 ControlNET进阶-IP2P以图生图</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>comfyui教程 by bilibili@<a target="_blank" rel="noopener" href="https://space.bilibili.com/250989068">独立研究员-星空</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rM4y1r7S5">未来已至，基于节点图的工作流才是AI绘画的未来</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ts4y1H7E1">AI绘画 为什么说Automatic1111 WebUI是工程师思维的产物?</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cs4y1o7oE">AI绘画 ComfyUI 生成高分辨率和丰富细节图像 本质是提升潜在空间分辨率</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1DL411Y7HF">AI绘画 ComfyUI 使用Latent Couple和多区域组合节点 生成双人合照</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fs4y1G7r6">AI绘图 深入解析 分区渲染 Latent Couple</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Qz4y177d6">Stable Diffusion XL 架构解析</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1WX4y1E7xm">ComfyUI Stable Diffusion XL 最新工作流解读</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>文字版教程</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://comfyanonymous.github.io/ComfyUI_examples/">基础流程例子</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://comfyanonymous.github.io/ComfyUI_tutorial_vn/">视觉小说教程</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://comfyui.jpanda.cn/">视觉小说教程(中文版)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://comfyanonymous.github.io/ComfyUI_examples/">工作流示范</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/cubiq/ComfyUI_Workflows">一个更加完整的ComfyUI工作流存储可以帮助你更好的理解ComfyUI（非官方）</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://comfyui.creamlab.net/">ComfyUI手册（非官方，偏硬核）</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://blenderneko.github.io/ComfyUI-docs/">节点指南</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/WASasquatch/comfyui-plugins">扩展列表 by @WASasquatch</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://wyrde.github.io/ComfyResources/nodes">扩展列表 by @wyrde</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/620297462">Stable Diffusion ComfyUI 入门感受</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<h1 id="InvokeAI"><a href="#InvokeAI" class="headerlink" title="InvokeAI"></a>InvokeAI</h1><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://invoke-ai.github.io/InvokeAI/">官方文档</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>stable diffusion相关链接</div>
+      <div>http://licyk.github.io/2023/08/01/stable-diffusion-tutorial/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

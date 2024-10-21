@@ -1,0 +1,1222 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="给自己训练过的 LoRA 做个记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stable Diffusion 的 LoRA 模型合集">
+<meta property="og:url" content="http://licyk.github.io/2024/10/05/my-sd-model-list/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="给自己训练过的 LoRA 做个记录。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-05T14:00:18.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:58:56.061Z">
+<meta property="article:author" content="licyk">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Stable Diffusion 的 LoRA 模型合集 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tools/" target="_self">
+                <i class="iconfont icon-briefcase"></i>
+                <span>工具</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Stable Diffusion 的 LoRA 模型合集"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-05 22:00" pubdate>
+          2024年10月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          510 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Stable Diffusion 的 LoRA 模型合集</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>给自己训练过的 LoRA 做个记录。</p>
+<span id="more"></span>
+
+<h2 id="模型列表"><a href="#模型列表" class="headerlink" title="模型列表"></a>模型列表</h2><table>
+<thead>
+<tr>
+<th>Civitai</th>
+<th>训练集</th>
+<th>触发词</th>
+<th>Animagine XL 3.1</th>
+<th>Illustrious XL 0.1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/614561/artist-style">Artist Style: 甘城なつき</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/gan_cheng.zip">gan_cheng.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/624428/artist-style-rurudo">Artist Style: rurudo</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/rurudo.zip">rurudo.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/626807/artist-style-deyui">Artist Style: Deyui</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/deyui.zip">deyui.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/626902/artist-style">Artist Style: ちょみます</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/tyomimas.zip">tyomimas.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/627124/artist-style-linhai">Artist Style: linhai</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/linhai.zip">linhai.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/628378/aritst-style-viclim-monou">Aritst Style: viclim monou</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/viclim-monou.zip">viclim-monou.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/628782/artist-style-yeurei">Artist Style: yeurei</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/yeurei.zip">yeurei.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/629526/artist-style">Artist Style: 遠坂あさぎ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/asagi_0398.zip">asagi_0398.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/631225/artist-style-noyu">Artist Style: Noyu</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Noyu.zip">Noyu.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/631663/artist-style">Artist Style: 胡麻乃りお</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/gomalio_y.zip">gomalio_y.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/633812/artist-style">Artist Style: 千千結</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/qian_qian_jie.zip">qian_qian_jie.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/640621/artist-style-sheya">Artist Style: Sheya</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Sheya1.zip">Sheya1.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/642656/style-blue-archive-flat-color">Style: Blue Archive Flat Color</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Blue_Archive_Official_2.zip">Blue_Archive_Official_2.zip</a></td>
+<td>None</td>
+<td>1.1</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/645266/artist-style-sei-umehara">Artist Style: sei umehara</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/sei_umehara.zip">sei_umehara.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/645654/artist-style-rafa">Artist Style: rafa</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/rafa.zip">rafa.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/654575/artist-style">Artist Style: 夢ノ内</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/yume335.zip">yume335.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/655349/artist-style-yunouou10">Artist Style: Yunouou10</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Yunouou10.zip">Yunouou10.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/658699/artist-style-renren">Artist Style: Renren</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Renren.zip">Renren.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/658955/artist-style-al">Artist Style: AL光</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/AL17460600.zip">AL17460600.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/661281/artist-style">Artist Style: フルーツラビット</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/fruitsrabbit.zip">fruitsrabbit.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/663332/character">Character: 星穹铁道 - 知更鸟</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/robin_1.zip">robin_1.zip</a></td>
+<td>robin \(honkai: star rail\)</td>
+<td>1.0</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/665807/artist-style-void0">Artist Style: void_0</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/void_0.zip">void_0.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/666854/artist-style">Artist Style: 上倉エク</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ekureea.zip">ekureea.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/681054/artist-style">Artist Style: ノーコピーライトガール</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/nocopyrightgirl_1.zip">nocopyrightgirl_1.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/696384/artist-style">Artist Style: 紺屋鴉江</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/KonYa666.zip">KonYa666.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/723908/artist-style-momoimon">Artist Style: momoimon</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/momoimon.zip">momoimon.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/726331/artist-style-a20">Artist Style: a20</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/a20.zip">a20.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/726390/artist-style">Artist Style: いかり</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ikari.zip">ikari.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/726415/artist-style">Artist Style: にんげんまめ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ningen_mame.zip">ningen_mame.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/729677/artist-style-jyt">Artist Style: JYT</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/jyt.zip">jyt.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/744280/artist-style-suzume">Artist Style: suzume</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/suzume.zip">suzume.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/756952/artist-style-deieaf">Artist Style: DEiEAF</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/deieaf.zip">deieaf.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/779110/artist-style-hk3">Artist Style: HK3</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/hk3.zip">hk3.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/779347/artist-style-matchach">Artist Style: matchach</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/matchach.zip">matchach.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/781348/artist-style-quan">Artist Style: QuAn</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/quan_1.zip">quan_1.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/783253/artist-style">Artist Style: 藤ちょこ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/fuzichoco.zip">fuzichoco.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/783307/artist-style-torino">Artist Style: torino</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/torino.zip">torino.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/785062/artist-style">Artist Style: ねぎまぷりん</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/negimapurinn.zip">negimapurinn.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/785115/artist-style-anon">Artist Style: anon</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/anon.zip">anon.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/786617/style-honkai-star-rail-official-expression">Style: Honkai: Star Rail Official Expression</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/honkai_star_rail_expression_2.zip">honkai_star_rail_expression_2.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/786440/artist-style-lanubis">Artist Style: LanuBis</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/lanubis_3.zip">lanubis_3.zip</a></td>
+<td>None</td>
+<td>1.1</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/811335/artist-style-wanke">Artist Style: wanke</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/wanke.zip">wanke.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/811347/artist-style-ixy">Artist Style: ixy</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ixy.zip">ixy.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/811350/artist-style">Artist Style: 萩森じあ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/jirujiaru826.zip">jirujiaru826.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/811365/artist-style">Artist Style: スコッティ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Sco_ttie.zip">Sco_ttie.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/811369/artist-style">Artist Style: 不熬夜乐</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/2_lplpsg.zip">2_lplpsg.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/772405/character-murasame-senren">Character: murasame senren</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/murasame_(senren).zip">murasame_(senren).zip</a></td>
+<td>murasame \(senren\)</td>
+<td>1.0</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/814746/artist-style">Artist Style: みわべさくら</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/sakurapion.zip">sakurapion.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/816740/style-pvc">Style: pvc</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/pvc.zip">pvc.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/860263/artist-style-guo-jiang-mullay">Artist Style: Guo Jiang Mullay</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/guo_jiang_mullay.zip">guo_jiang_mullay.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/860670/artist-style-wlop">Artist Style: wlop</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/wlop.zip">wlop.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/865740/artist-style">Artist Style: ころんびぁ</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Colon_BR.zip">Colon_BR.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/865753/artist-style-daylightallure">Artist Style: DaylightAllure</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/DaylightAllure.zip">DaylightAllure.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/865757/artist-style">Artist Style: 香川悠作</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/kagawayusaku_1.zip">kagawayusaku_1.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/871665/artist-style-pote">Artist Style: 荻pote</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ogipote.zip">ogipote.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/871710/artist-style">Artist Style: しらたま❄</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/shiratama_shiratamaco.zip">shiratama_shiratamaco.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/871722/artist-style">Artist Style: 米山舞</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/yoneyama_mai.zip">yoneyama_mai.zip</a></td>
+<td>None</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://civitai.com/models/802658/artists-all-in-one">Artists All In One</a></td>
+<td><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Blue_Archive_Official_2.zip">Blue_Archive_Official_2.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/deieaf.zip">deieaf.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/deyui.zip">deyui.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/fruitsrabbit.zip">fruitsrabbit.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/fuzichoco.zip">fuzichoco.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/gomalio_y.zip">gomalio_y.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/hk3.zip">hk3.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ikari.zip">ikari.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/jyt.zip">jyt.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/KonYa666.zip">KonYa666.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/linhai.zip">linhai.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/matchach.zip">matchach.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/momoimon.zip">momoimon.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/gan_cheng.zip">gan_cheng.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/negimapurinn.zip">negimapurinn.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ningen_mame.zip">ningen_mame.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/nocopyrightgirl_1.zip">nocopyrightgirl_1.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Noyu.zip">Noyu.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/qian_qian_jie.zip">qian_qian_jie.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/quan_1.zip">quan_1.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Renren.zip">Renren.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/sei_umehara.zip">sei_umehara.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Sheya1.zip">Sheya1.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/torino.zip">torino.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/tyomimas.zip">tyomimas.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/viclim-monou.zip">viclim-monou.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/void_0.zip">void_0.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/yeurei.zip">yeurei.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/Yunouou10.zip">Yunouou10.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/AL17460600.zip">AL17460600.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/asagi_0398.zip">asagi_0398.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/ekureea.zip">ekureea.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/rafa.zip">rafa.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/rurudo.zip">rurudo.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/yume335.zip">yume335.zip</a>,</br><a target="_blank" rel="noopener" href="https://modelscope.cn/models/licyks/sd_anything/resolve/master/training_data/a20.zip">a20.zip</a>,</br></td>
+<td>style blue archive official,</br>style deieaf,</br>style deyui,</br>style fruitsrabbit,</br>style fuzichoco,</br>style gomalio y,</br>style hk3,</br>style ikari,</br>style jyt,</br>style KonYa666,</br>style linhai,</br>style matchach,</br>style momoimon,</br>style nachoneko,</br>style negimapurinn,</br>style ningen mame,</br>style nocopyrightgirl,</br>style Noyu,</br>style qian qian jie,</br>style quan,</br>style Renren,</br>style sei umehara,</br>style sheya,</br>style torino,</br>style tyomimas,</br>style viclim monou,</br>style void,</br>style yeurei,</br>style Yunouou10,</br>style AL17460600,</br>style asagi,</br>style ekureea,</br>style rafa,</br>style rurudo,</br>style yume335,</br>style a20,</br></td>
+<td>1.0</td>
+<td>None</td>
+</tr>
+</tbody></table>
+<h2 id="训练参数"><a href="#训练参数" class="headerlink" title="训练参数"></a>训练参数</h2><p>1. </p>
+<ul>
+<li>resolution: 1024x1024</li>
+<li>enable_bucket: true</li>
+<li>min_bucket_reso: 256</li>
+<li>max_bucket_reso: 1536</li>
+<li>bucket_reso_steps: 64</li>
+<li>max_train_epochs: 40</li>
+<li>train_batch_size: 12</li>
+<li>gradient_checkpoint: true</li>
+<li>network_train_unet_only: true</li>
+<li>learning_rate: 1.2e-4</li>
+<li>unet_lr: 1.2e-4</li>
+<li>lr_scheduler: cosine_with_restarts</li>
+<li>lr_warmup_steps: 0</li>
+<li>lr_scheduler_num_cycles: 1</li>
+<li>optimizer_type: Lionbit</li>
+<li>network_module: lycoris.kohya</li>
+<li>network_dim: 100000</li>
+<li>network_alpha: 100000</li>
+<li>lycoris_algo: lokr</li>
+<li>conv_dim: 100000</li>
+<li>conv_alpha: 100000</li>
+<li>dropout: 0</li>
+<li>train_norm: true</li>
+<li>lokr_factor: 8</li>
+<li>shuffle_caption: true</li>
+<li>max_token_length: 255</li>
+<li>mixed_precision: fp16</li>
+</ul>
+<div class="note note-info">
+            <p>训练人物 LoRA 有时候会使用<code>scale_weight_norms: 1</code>，降低过拟合程度。</p>
+          </div>
+
+
+<p>2. </p>
+<ul>
+<li>resolution: 1024x1024</li>
+<li>enable_bucket: true</li>
+<li>min_bucket_reso: 256</li>
+<li>max_bucket_reso: 1536</li>
+<li>bucket_reso_steps: 64</li>
+<li>max_train_epochs: 40</li>
+<li>train_batch_size: 12</li>
+<li>gradient_checkpoint: true</li>
+<li>network_train_unet_only: true</li>
+<li>learning_rate: 1.2e-4</li>
+<li>unet_lr: 1.2e-4</li>
+<li>lr_scheduler: constant_with_warmup</li>
+<li>lr_warmup_steps: 100</li>
+<li>optimizer_type: Lionbit</li>
+<li>network_module: lycoris.kohya</li>
+<li>network_dim: 100000</li>
+<li>network_alpha: 100000</li>
+<li>lycoris_algo: lokr</li>
+<li>conv_dim: 100000</li>
+<li>conv_alpha: 100000</li>
+<li>dropout: 0</li>
+<li>train_norm: true</li>
+<li>lokr_factor: 8</li>
+<li>shuffle_caption: true</li>
+<li>max_token_length: 255</li>
+<li>mixed_precision: fp16</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Stable Diffusion 的 LoRA 模型合集</div>
+      <div>http://licyk.github.io/2024/10/05/my-sd-model-list/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/01/merge-lora-to-stable-diffusion-model/" title="将 LoRA 模型融合进 Stable Diffusion 模型中">
+                        <span class="hidden-mobile">将 LoRA 模型融合进 Stable Diffusion 模型中</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1989 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="随手记录有关 Stable Diffusion 的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stable Diffusion 那些事">
+<meta property="og:url" content="http://licyk.github.io/2023/12/23/learn-sd-note/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="随手记录有关 Stable Diffusion 的笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-23T10:39:40.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:58:56.061Z">
+<meta property="article:author" content="licyk">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Stable Diffusion 那些事 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tools/" target="_self">
+                <i class="iconfont icon-briefcase"></i>
+                <span>工具</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Stable Diffusion 那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-23 18:39" pubdate>
+          2023年12月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          18k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          152 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Stable Diffusion 那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>随手记录有关 Stable Diffusion 的笔记</p>
+<span id="more"></span>
+
+<h1 id="stable-diffusion"><a href="#stable-diffusion" class="headerlink" title="stable diffusion"></a>stable diffusion</h1><p>链接汇总：<br><a href="%3Ehttps://docs.qq.com/doc/p/230e7ada2a60d8e347d639edd5521f5e62332fe9">Stable Diffusion 潜工具书</a>（非常推荐）<br><a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki">Home · AUTOMATIC1111&#x2F;stable-diffusion-webui Wiki</a><br><a href="%3Ehttps://stable-diffusion-art.com/tutorials">Tutorials - Stable Diffusion Art</a><br><a target="_blank" rel="noopener" href="https://draw.dianas.cyou/">AiDraw - AiDraw</a><br><a target="_blank" rel="noopener" href="https://hazn93ygkcs.feishu.cn/wiki/JRydwXpCti1bxJkN6zNc4a8qnAe">Stable Diffusion 信息并联&amp;入门教程 - 飞书云文档</a><br><a target="_blank" rel="noopener" href="https://support.qq.com/products/488228">绘世启动器帮助</a><br><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DU3ZudG1UZ1hiU01K">SD常见报错合集（更新到2023.12.27）</a><br><a target="_blank" rel="noopener" href="https://www.lightflow.ai/">stable diffusion工作流分享</a><br><a target="_blank" rel="noopener" href="https://novelai.dev/">NovelAI.Dev</a><br><a target="_blank" rel="noopener" href="https://guide.novelai.dev/">AiDraw | AiDraw</a><br><a target="_blank" rel="noopener" href="https://latentcouple.hanamizuki.ai/">Latent Couple 可视化区域设置</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/skytnt/anime-remove-background">Anime Remove Background - a Hugging Face Space by skytnt</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/shi-labs/OneFormer">OneFormer - a Hugging Face Space by shi-labs</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/yizhangliu/Grounded-Segment-Anything">Grounded Segment Anything - a Hugging Face Space by yizhangliu</a><br><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DRVBjRVdBWld4THBV">密码的nai3 tag创想(AI绘画tag分享)</a><br><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DSU9CZHhLRERRbllw">森林的NAI-V3法典</a><br><a target="_blank" rel="noopener" href="https://comfyanonymous.github.io/ComfyUI_examples/">ComfyUI Examples | ComfyUI_examples</a><br><a target="_blank" rel="noopener" href="https://github.com/cubiq/ComfyUI_Workflows">cubiq&#x2F;ComfyUI_Workflows</a><br><a target="_blank" rel="noopener" href="https://comfyui.creamlab.net/">ComfyUI 解説 (wiki ではない)</a><br><a target="_blank" rel="noopener" href="https://blenderneko.github.io/ComfyUI-docs/">ComfyUI Community Manual</a><br><a target="_blank" rel="noopener" href="https://github.com/WASasquatch/comfyui-plugins">WASasquatch&#x2F;comfyui-plugins</a><br><a target="_blank" rel="noopener" href="https://ltdrdata.github.io/">ComfyUI Nodes Info</a><br><a target="_blank" rel="noopener" href="https://comfyworkflows.com/">Comfy Workflows</a><br><a target="_blank" rel="noopener" href="https://openart.ai/workflows">ComfyUI Workflows - Developer Community</a><br><a target="_blank" rel="noopener" href="https://github.com/wyrde/wyrde-comfyui-workflows">wyrde&#x2F;wyrde-comfyui-workflows</a><br><a target="_blank" rel="noopener" href="https://github.com/atlasunified/Templates-ComfyUI-">atlasunified&#x2F;Templates-ComfyUI-</a><br><a target="_blank" rel="noopener" href="https://www.aigodlike.com/">AIGODLIKE社区</a><br><a target="_blank" rel="noopener" href="https://comfyanonymous.github.io/ComfyUI_tutorial_vn/">ComfyUI Tutorial</a><br><a target="_blank" rel="noopener" href="https://comfyui.jpanda.cn/">ComfyUI Tutorial - 中文</a><br><a target="_blank" rel="noopener" href="https://invoke-ai.github.io/InvokeAI/">Home - InvokeAI Documentation</a></p>
+<hr>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>一些比较好的解析<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv21564981">【AI绘画】大魔导书：AI 是如何绘画的？Stable Diffusion 原理全解（一） - 哔哩哔哩</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/627133524">深入浅出讲解Stable Diffusion原理，新手也能看明白 - 知乎</a><br><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models">What are Diffusion Models? | Lil’Log</a></p>
+<hr>
+<h1 id="提示词书写"><a href="#提示词书写" class="headerlink" title="提示词书写"></a>提示词书写</h1><h2 id="正向提示词书写通式："><a href="#正向提示词书写通式：" class="headerlink" title="正向提示词书写通式："></a>正向提示词书写通式：</h2><p>质量前缀(可忽略)+前置画风引导+前置镜头效果+前置光照效果+[带描述的主物+主物的各种次要物+镜头效果和光照]*X+全局光照效果+全局镜头效果+画风滤镜</p>
+<p>其中，各主物之间优先按预期构图重要度顺序排序，各次要物优先按含主物的联想关系顺序排序，在无明显顺序差异时颜色相同的主物或次要物应靠近。例外在于存在错误元素绑定、需要隔离时，相关元素尽可能互相远离。所有镜头、光照和画风均为可选项，且为避免反应过于复杂而建议各不超过 3 种<br>质量提示词只对融合<code>novelai</code>的模型有效，距离<code>novelai</code>越远越不需要质量提示词</p>
+<h2 id="提示词的数量"><a href="#提示词的数量" class="headerlink" title="提示词的数量"></a>提示词的数量</h2><p>首先，prompt 并不可以随意堆积，不是越多越好。<br>模型读取 promot 有着明确的先后顺序，这体现为理解顺序的不同<br>prompt 的顺序将影响画面的组织方式，越靠前的 prompt 对构图的影响越“重”，而越靠后的则往往会成为靠前 prompt 的点缀或附加物。顺序对于构图的影响在大多数情况下甚至大于权重的影响。<br>不过在少数情况或极其复杂的场景中，叠加式构图有可能因为其它尚未在此介绍的原因而失效</p>
+<h2 id="权与重"><a href="#权与重" class="headerlink" title="权与重"></a>权与重</h2><p>一对小括号意味着把括起来的 prompt 权重 * 1.1，中括号则是 &#x2F; 1.1，大括号在 WEB-UI 中无调整权重作用，且会被作为文本而解析。</p>
+<p>如果因为某些需求而要大量抬升权重，可以对 prompt 进行多次括号，比如((((prompt))))，这意味着将它的权重 * 1.1 四次，也就是 1.4641。但这个写法太吓人了，数括号也很浪费时间，所以应该直接为一个 prompt 赋予权重：<br>(prompt:权重乘数)<br>外层一定是小括号而非其它括号。比如 (red hair:1.5) 将直接给 red hair 赋予 * 1.5 权重，清晰简洁，便于自己回顾和他人理解，强烈推荐。<br>但务必请不要做出诸如 ((red hair:1.5)) 的奇怪写法。虽然在大多数情况下，它们的确会产生互相叠乘的正常效果，但在某些离谱的情况下则会导致权重无效。</p>
+<p>而除了整词权重之外，也可以进行部分权重，比如如下例子：<br>1 girl, white long (messy:1.2) hair, red eyes<br>将专门对 messy 部分赋予 * 1.2 权重，其它部分不受影响。</p>
+<p>高权重的元素会在画面中有着更大的占比或更强烈的存在感或更多的数量，是能可观地影响构图的原因之一。笔者非常不建议给出十分离谱的权重值，三个小括号也只有 1.3 左右，而一般来说 1.6 就已经很极端地占据画面了，再高至例如 2.0 只会在大多数情况下让咒语变成召  唤  古  神。</p>
+<h2 id="高级咒术解析"><a href="#高级咒术解析" class="headerlink" title="高级咒术解析"></a>高级咒术解析</h2><p>上述的小括号、中括号与带权重小括号都属于低阶语法，比如(((prompt)))。而接下来要介绍的是更长更复杂一些的高阶语法。<br>高阶语法都以 [] 作为外层包括，包括分步描绘、融合描绘两种，使用高阶语法时这一对中括号不会让权重降低。高阶语法内可以嵌套低阶语法，低阶语法内也可以嵌套高阶语法——但为了交流方便不建议嵌套，高阶语法之间能否互相嵌套因具体情况不同而异，下文会做出介绍。<br>下列介绍全部基于编纂本篇时推出的最新版 WEB-UI，对于 NAIFU 或较旧版 WEB-UI 可能不适用。</p>
+<p>首先介绍分步描绘的各种形式：<br>[from:to:step]<br>[from::step] (to 为空)<br>[:to:step] (from 为空)<br>[to:step] (奇怪但没问题的格式，非常不建议)<br>它的作用是让 prompt 在达到 step 之前被视为 from，在达到后视为 to。若是在对应位置留空则视为无对应元素。step 为大于 1 的整数时表示步数，为小于 1 的正小数时表示总步数的百分比。<br>比如 a girl with [green hair:red hair flower:0.2] 会在前 20% 步数被视为 a girl with green hair，在后 80% 步数被视为 a girl with red hair flower。需要注意这两个描述之间的兼容性和覆盖——在步数合适的情况下，最后形成的人物会拥有绿色头发和红色花饰，但也可能因为颜色溢出导致头发也变为红色，毕竟后 80% 没有绿色头发的限定，AI 完全可以自己理解一个随机的发色。</p>
+<p>在最新版中，分步描绘可以嵌套，形如 [from:[to:end:step2]:step1] 的语句是可以被正确识别的。且分步描绘现在支持逗号分割，形如 [1 girl, red hair: 2 girls, white hair:0.3] 的语句也可以被正确识别。<br>分步描绘不特别擅长细化细节，与其分步描绘不如将细化部分直接写入持续生效的部分。分步描绘更擅长在画面初期建立引导，大幅影响后续构图或画面生成。<br>需要注意的是，分步描绘具有视觉延后性——当要求 AI 在比如第 20 步开始描绘另一个不同的物体时，可能在比如第 24 步(或更晚)才能从人眼视觉上感知到另一个物体勉强出现在画面中。这是因为 AI 看待图片的方式和人眼看待图片的方式不同，在 AI 的认知里图片已经初具新物体的特性的时候，人眼可能依然看不出来。</p>
+<p>然后介绍融合描绘的两种形式：<br>[A | B]<br>[A:w1 | B:w2]<br>它们还有分别对应的可无限延长版：<br>[A | B | C | …]<br>[A:w1 | B:w2 | C:w3 | …]<br>对于形如 [A | B] 的第一种，AI 将在第一步画 A、第二步画 B、第三步画 A…交替进行。而对于无限延长版，则变为第一步画 A、第二步画 B、第三步画 C…循环往复交替进行。<br>对于形如 [A:w1 | B:w2] 的第二种带权重版本，截至这句话被写下时仍由 NAIFU 端独占(且本语法在 NAIFU 端的中括号是不必要的)，它的实际效果不是先画 w1 步 A 然后再画 w2 步 B，虽然成品效果类似。若在 WEB-UI 端上强行使用则会导致权重数字被作为文本读取，虽然会让画面变得不同但实际上并非加权导致的效果。它的运作方式和双端都支持的 [A | B] 略有不同但效果类似，相较而言有着支持自定义比例的独特优势。</p>
+<p>当然，WEB-UI 有着看上去类似的 [(A:w1) | (B:w2)] 语法，但它的本质其实是嵌套了一层加权，也同样不是可以自定义各部分的步数。这样的加权是对于整个咒语而言而非对于中括号内的其它部分而言的，作用域不同，所以笔者不认为这和 NAIFU 端的写法完全相同。<br>融合描绘不可嵌套，但同样支持逗号分割。融合描绘擅长将两种事物混合为一起，比如 a [dog | frog] in black background。</p>
+<p>这两个高阶语法有着明显的区别，尤其是在高步数下更不可以一概而论。分步描绘的 40 步 A 再加上 40 步 B 最后可能形成一个带有 B 基底特征的 A，但它会表现出明显的分立感。而融合描绘的 40 步 A 再加上 40 步 B 最后将形成简直像是化在一起的融合体。</p>
+<h2 id="短元素，中元素与长元素"><a href="#短元素，中元素与长元素" class="headerlink" title="短元素，中元素与长元素"></a>短元素，中元素与长元素</h2><p>咏唱大致有着三种不同形式——最常见的直接咏唱、稍不常见的短句咏唱和堪称行为艺术一般的长咏唱。<br>假设要生成一个有着黄色头发、蓝色眼眸、白色上衣、红色裙子、黑色裤袜的全身坐姿二次元美少女，且强调服饰颜色，那么这三种咏唱分别看上去大概是这样的：</p>
+<p>直接咏唱(pitch 式咏唱)：<br>masterpiece, best quality, 1 girl, (blue eyes), (yellow hair), (white clothes), (red skirt), (black leggings), sitting, full body</p>
+<p>短句咏唱(AND 强调咏唱)：<br>masterpiece, best quality, 1 girl, (blue eyes) AND (yellow hair), (white clothes) AND (red skirt) AND (black leggings), sitting, full body</p>
+<p>长咏唱(自然语言咏唱)：<br>masterpiece, best quality, (1 girl with blue eyes and yellow hair wearing white clothes and red skirt with black leggings), sitting, full body</p>
+<p>注意短句咏唱的 AND 必须是三个大写字母，AND 两侧的小括号是不必要的(但建议加上)，这是一个专用语法，不过因为效果仍未明晰所以不单独介绍。此外，该语法并不能应用于所有采样方法，例如 DDIM 就不支持 AND，会导致报错。</p>
+<p>不同咏唱方法不会显著改变咒语的解析方式，<code>直接咏唱</code>总是难以很好地绑定元素颜色，<code>短句式咏唱</code>会有明显元素颜色错误，但是错误的视觉占比变小，<code>长咏唱</code>没有出现明显元素颜色错误，很好地处理了各个颜色与元素的绑定关系<br>长咏唱能加强主体与元素之间的绑定关系、提高不同元素之间的区分度，在有明确绑定需求的情况下优于 pitch 式咏唱；直接咏唱则更擅长处理关系要求不强的情景，往往能营造更多样化的场面；短句式咏唱介于两者之间<br>咏唱的关键在于也几乎必须要用一个小括号包括整个句子，以略微提升权重(权重略大于 1.0 的情况下表现最佳，但太大就有点过头了)，否则无法和直接咏唱拉开差距。</p>
+<p>这即为“元素污染”这一概念的根本原因和初级建议应对方法。</p>
+<h2 id="提示词关联性"><a href="#提示词关联性" class="headerlink" title="提示词关联性"></a>提示词关联性</h2><p>采用直接咏唱的方式，但不难发现输入的咒语依然一定程度上具备自然语言的特征—-以逗号隔开，词与词之间有着形如自然语言间隔一样的距离，而且在一定程度上的顺序加持下表现更好<br>在考虑到了顺序的大关系之后，词与词之间的距离这一更细节的构成也是十分重要的。距离较近的词的确更容易产生关联、进行叠加，而更远的则倾向于降低互相的关联性、进而互相隔离</p>
+<h2 id="占位提示词"><a href="#占位提示词" class="headerlink" title="占位提示词"></a>占位提示词</h2><p>占位词可以用于进一步调整词与词的距离，从而加强切割某些不希望绑定在一起的元素，是“元素污染”情况的又一有力解决方案<br>词与词之间也不能毫无节制地加入占位词来降低关系。词与词之间的关联度似乎和距离有着一定程度上的反比例关系或保底关联度，因此加入过多占位词不会有额外的好处，适量添加即可<br>在sd中，每75个单词为一段，每两段描述之间几乎是弱关联或者无关联，通常使用这个特性来防止元素混乱<br>75个单词之后的作用效果很弱，除非强行提高权重<br>而<code>BREAK</code>为sd的标准占位符，意思是占满75个单词的剩余所有位置<br><code>BREAK</code>打断的是整体的关联，BREAK后面的部分跟前面的部分不会有强关联</p>
+<h2 id="提示词的联想关系"><a href="#提示词的联想关系" class="headerlink" title="提示词的联想关系"></a>提示词的联想关系</h2><p>许多 tag 有着逻辑上合理的“前置”关系，比如存在 sword 这个 tag 的作品往往还存在 weapon 这个 tag、存在 sleeves past finger 这个 tag 的作品往往还存在 sleeve past wrists 这个 tag。<br>这样在训练集中往往共存且有强关联的 tag，最终会让模型处理包含它的咒语时产生一层联想关系。<br>在出现联想关系的情况下，词与被联想的词的距离是最小的<br>联想词之间极易互相强化，进而提高画面的稳定性。例如给人物稳定添加一把剑的最好做法不是仅加上 sword，而是加上 weapon, sword。同理，其他存在强联想且希望出现的元素也推荐同时在咒语内连续出现。<br>为了在画面内取消两个词之间的联想，最简单但不一定有效的做法是将被联想词写入负面咒语并加上较高权重。如果没有效果，那么不妨试一试在咒语内加上被联想词的对立面，比如用 aged up 对抗 flat chest 对于 child 的强联想。</p>
+<h2 id="emoji的使用"><a href="#emoji的使用" class="headerlink" title="emoji的使用"></a>emoji的使用</h2><p>Emoji 是单个字符，可以无视 SD 框架对它识别时的一切拆分尝试，以最短的字符长度代表出一个概念。<br>它的信息密度的分母是最小的，信息量与其它词相比却差不多，所以信息密度高到吓人，因而导致其准确度高到可怕。<br>而还因为它信息密度如此之高，它受权重影响也大得难以描述，一对小括号就能体感上产生(prompt:1.35)左右的强大效果。<br>想要修手？用✋或其它想要的手势。想要群像？👪屡试不爽。想要烟花背景？🎇驱散一切问题。想要难以被描绘的骷髅头骨？💀出场就是现在。铅笔画风？✏秒了。浮世绘？🎏解决。哪怕是最难凹的海盗船，也只需要一个🏴‍☠️就能展现了！甚至，只需要♿和动态模糊(motion blur)的描述，就能即时上演轮椅漂移的戏码。<br>想要解决一切问题？看看有没有EMOJI可以表达它。</p>
+<blockquote>
+<p>emoji大全：<br><a target="_blank" rel="noopener" href="https://www.emojiall.com/zh-hans">Emoji大全 | Emoji表情符号词典 📓 | EmojiAll中文官方网站</a></p>
+</blockquote>
+<blockquote>
+<p>可参考资料：<br><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DWFdSTHJtQWRzYk9k">元素同典：确实不完全科学的魔导书</a><br><a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DSHBGRmRUUURjVmNM">Tags基本编写逻辑及三段术式入门与解析v3</a><br><a target="_blank" rel="noopener" href="https://docs.qq.com/pdf/DUFJUZGFsd2JPSnJw">浅考sd-webui大括号{}处理.pdf</a><br><a target="_blank" rel="noopener" href="https://civitai.com/models/62473">[C站&#x2F;社区常用高质量提示词]High quality parameters on Civitai&amp;community - v2.0 | Stable Diffusion Other | Civitai</a></p>
+</blockquote>
+<hr>
+<h1 id="图片高分"><a href="#图片高分" class="headerlink" title="图片高分"></a>图片高分</h1><h2 id="高分辨率修复"><a href="#高分辨率修复" class="headerlink" title="高分辨率修复"></a>高分辨率修复</h2><p>可用的放大算法（可自行添加而外的放大算法）</p>
+<table>
+<thead>
+<tr>
+<th>放大算法</th>
+<th>描述</th>
+<th>推荐重绘幅度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Latent</td>
+<td>基于 VAE 模型的图像增强算法,通过将原始图像编码成潜在向量,并对其进行随机采样和重构,从而增强图像的质量、对比度和清晰度。一般情况下，这个算法就能得到不错的效果，和4x-UltraSharp、R-ESRGAN等相比，显存消耗比较小，但效果不是最优</td>
+<td>&gt;0.5，小于0.5会导致画面出现模糊（可用于制作景深效果）</td>
+</tr>
+<tr>
+<td>Lanczos</td>
+<td>将对称矩阵通过正交相似变换变成对称三对角矩阵的算法（鸡肋，通常不用）</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>ESRGAN</td>
+<td>是对SRGAN关键部分网络结构、对抗损失、感知损失的增强。从这里开始就不是单纯的图像算法，进入人工智能的领域了。实测确实增加了很多看上去很真实的纹理，但是有时又会把一张图片弄得全是锯齿或怪异的纹理。可能对待处理的图片类型有要求</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>4x-UltraSharp</td>
+<td>基于ESRGAN做了优化模型，更适合常见的图片格式。真人模型最佳选择</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>ESRGAN 4x</td>
+<td>完全使用纯合成数据去尽量贴近真实数据，然后去对现实生活中数据进行超分的一个方法</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>R-ESRGAN 4x+（推荐）</td>
+<td>基于Real ESRGAN的优化模型，针对照片效果不错</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>R-ESRGAN 4x+ Anime6B（推荐）</td>
+<td>基于Real ESRGAN的优化模型，二次元最佳，如果你的模型是动漫类的，该选项是最佳选择</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>SwinIR_4x</td>
+<td>使用Swin Transformer思想，采用一个长距离连接,将低频信息直接传输给重建模块,可以帮助深度特征提取模块专注于高频信息,稳定训练</td>
+<td>0.2~0.4</td>
+</tr>
+<tr>
+<td>LDSR</td>
+<td>Stable Diffusion最基础的算法模型，但速度比较慢</td>
+<td>0.2~0.4</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>高分迭代步数<br>设置进行高分辨率修复的步数</p>
+</li>
+<li><p>重绘幅度<br>高分辨率修复时在原图上铺噪声的强度，幅度越高，画面的变化越大</p>
+</li>
+</ul>
+<h2 id="文生图放大"><a href="#文生图放大" class="headerlink" title="文生图放大"></a>文生图放大</h2><p>启用<code>高分辨率修复 (Hires. fix)</code>，放大算法选择<code>R-ESRGAN 4x+ Anime6B</code>（三次元选择<code>R-ESRGAN 4x+</code>），重绘幅度在<code>0.2~0.4</code><br>放大倍数调的比较大的时候，开启<code>Tiled VAE</code>降低显存占用</p>
+<h2 id="图生图放大"><a href="#图生图放大" class="headerlink" title="图生图放大"></a>图生图放大</h2><p>放大有以下几种放大</p>
+<ul>
+<li>直接图生图</li>
+<li>Ultimate SD upscale 扩展</li>
+<li>Tiled Diffusion 扩展</li>
+<li>ControlNet Tile</li>
+<li>StableSR</li>
+</ul>
+<p>放大的时候建议打开<code>Tiled VAE</code>降低显存占用</p>
+<hr>
+<h1 id="采样器说明"><a href="#采样器说明" class="headerlink" title="采样器说明"></a>采样器说明</h1><ul>
+<li>1、采样器基础：</li>
+</ul>
+<p>带a的采样器，祖先采样器：生成的画面不收敛<br>带Karras的采样器：渲染时间一样，但在大约8步采样后，噪点就会比不带Karras的少了<br>带Exponential算法：画面会更柔和一些，背景更干净一些，但细节会少一些<br>3M新算法：速度和2M一致没有改变，需要更多的采样步骤，适当调低一点点CFG效果会更好，大于30步采样可以选用</p>
+<ul>
+<li>2、老派采样器：</li>
+</ul>
+<p>LMS：线性多步法，速度和Euler差不多，实测没Euler稳定，容易出色块<br>LMS Karras：LMS的Karras算法<br>Heun：Euler的改进算法，但速度慢一倍<br>Euler：经典ODE采样器，简单直接，不容易出错，中规中矩，收敛<br>Euller a：Euler祖先采样器，不收敛<br>DDIM：最早的采样器，已经过时<br>PLMS：最早的采样器，已经过时</p>
+<ul>
+<li>3、DPM采样器：</li>
+</ul>
+<p>DPM2：DPM的2代算法，画质更好，但速度比1代慢一倍<br>DPM2a：DPM的2代祖先采样器<br>DPM++2S a：DPM单步算法<br>DPM++2S a Karras：DPM单步Karras算法<br>DPM++2M：DPM 2阶多步算法<br>DPM++2M Karras：推荐算法，收敛，速度快，质量ok<br>DPM++SDE：随机微分方程，调用了祖先采样，速度慢，生成高通真度的图像<br>DPM++SDE Karras：SDE的karras算法，渲染真实系人物时推荐<br>DPM++2M SDE：不收敛，2M和SDE两者的平衡，速度保持2M一致<br>DPM++2M SDE Karras：2M SDE的karras算法<br>DPM++2M SDE Exponential：2M SDE的Exponential算法<br>DPM++2M SDE Heun：2M+SDE+Heun算法<br>DPM++2M SDE Heun Karras：2M+SDE+Heun的Karras算法<br>DPM++2M SDE Heun Exponential：2M+SDE+Heun的Exponential算法<br>DPM++3M SDE：3M SDE算法，速度和2M一致没有改变，需要更多的采样步骤，适当调低一点点CFG，效果会更好，大于30步采样可以选用<br>DPM++3M SDE Karras：3MSDE的Karras算法<br>DPM++3M SDE Exponential：3MSDE的Exponential算法，画面会更柔和一些，背景更干净一些，但细节会少一些<br>DPM2 Karras：DPM的2代算法，画质更好，但速度比1代慢一倍<br>DPM2 a Karras：DPM的2代算法，画质更好，但速度比1代慢一倍<br>DPM fast：DPM快速算法，效果很差，基本不用<br>DPM adaptive：不考虑采样步数，自适应时长来渲染画面，渲染时间很长</p>
+<ul>
+<li>4、新派采祥器：</li>
+</ul>
+<p>UniPC：UniPC(Unified Predictor-Corrector)2023年新算法，统一预测校正器，兼容性很好，收敛，10步左右就能生成可用画面<br>Restart：每步渲染速度慢一些，但几步就有效果，比UniPC还少步数，就能生成质量不错的画面</p>
+<h2 id="推荐的预处理器搭配"><a href="#推荐的预处理器搭配" class="headerlink" title="推荐的预处理器搭配"></a>推荐的预处理器搭配</h2><ul>
+<li>Eular a + uniform &#x2F; exponential | 20 步</li>
+<li>DPM++系 + exponentia &#x2F; rho &#x3D; 0.666 的 polyexponential | 20 步</li>
+<li>Restart + 自动 | 10 步</li>
+<li>Unipc + 自动 | 13 步</li>
+</ul>
+<blockquote>
+<p>exponential 就是 rho &#x3D; 1 的 polyexponential</p>
+</blockquote>
+<hr>
+<h1 id="FP32-FP16-FP8-的区别"><a href="#FP32-FP16-FP8-的区别" class="headerlink" title="FP32 FP16 FP8 的区别"></a>FP32 FP16 FP8 的区别</h1><p>fp32、fp16、fp8 这其实是三种精度格式，fp是floating-point的缩写，它的另一个叫法是float，全称是half-precision floating-point，其实就是半精度浮点数<br>在AI模型中就是三种存储格式，fp32指的是用32位二进制表示的浮点数，fp16就是16位，fp8就是8位<br>fp32最完整，可以携带和存储的信息最多，所以在大部分时候，默认使用的是fp32，也就是你看到的那些controlnet模型，每一个都是1.35G的原因<br>实际上在webUI中，默认使用的是FP16。即便你提供FP32的模型，它在运算之前还是会先转换为FP16的再使用，因此实际上对于普通用户来说，直接使用FP16模型才是最优选择，因为反正都要转为FP16的，与其安装FP32再让程序转为FP16，还不如一开始就下载FP16的模型，尺寸小了一半，效果不会有任何区别——因为本来程序就要转为FP16<br>FP16要比FP32运行速度更快，理论极限是2倍速度差，但因为实际运行比较复杂，肯定不可能这么高，但总之能够提高很大的速度<br>而FP8跟FP32到FP16的原理一样，8是16的一半，所以速度更快<br>FP32和FP16的运行结果完全一致，但FP8的运行结果确实与FP16和FP32有细微区别，但这种区别微乎其微，而且不存在好坏的区别，FP8甚至会看起来更加舒适<br>总的来说，无论是大模型还是什么类型的模型，只要有FP16就用FP16，有FP8就用FP8，可以有效提高载入和运行速度<br>但是，最后有一点需要特别注意，FP16和FP8的模型，理论上只适合使用GPU运行，CPU模式运行下似乎只能使用FP32的</p>
+<blockquote>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv26279169">【AI绘画】模型修剪教程：8G模型顶级精细？全是垃圾！嘲笑他人命运，尊重他人命运 - 哔哩哔哩</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SQ4y147xh">[琥珀開發紀錄] 4G顯存就能跑SDXL?!? FP8優化簡介_哔哩哔哩_bilibili</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/657886517">LLM大模型之精度问题（FP16，FP32，BF16）详解与实践 - 知乎</a></p>
+</blockquote>
+<hr>
+<h1 id="Lora"><a href="#Lora" class="headerlink" title="Lora"></a>Lora</h1><h2 id="Lora-作用层及作用"><a href="#Lora-作用层及作用" class="headerlink" title="Lora 作用层及作用"></a>Lora 作用层及作用</h2><p>lora作用在U-NET中，在 SD1.5 中总共作用在17层中，如下</p>
+<table>
+<thead>
+<tr>
+<th>lora的作用位置</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BASE</td>
+<td>1</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>2,3,4,5,6,7</td>
+</tr>
+<tr>
+<td>MID</td>
+<td>8</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td>9,10,11,12,13,14,15,16,17</td>
+</tr>
+</tbody></table>
+<p>lora作用的不同层对出图的影响</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>效果</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>固定</td>
+<td>必须写1，不然不稳定</td>
+</tr>
+<tr>
+<td>2，3，4，5</td>
+<td>角色的服装特征与背景</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>背景</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>躯干服装与动作</td>
+<td>效果大，数值保守写</td>
+</tr>
+<tr>
+<td>8</td>
+<td>躯干动作</td>
+<td></td>
+</tr>
+<tr>
+<td>9，10</td>
+<td>面部、躯干的动作与角色特征</td>
+<td>效果中等，数值写0.8~1</td>
+</tr>
+<tr>
+<td>12，13，14，15</td>
+<td>背景</td>
+<td></td>
+</tr>
+<tr>
+<td>16，17</td>
+<td>上色风格</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>这些权重可使用lora-block-weight插件进行调整，调用lora的时候可这样写</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;lora:lora的名字:lora权重:分层权重&gt;</td>
+<td>&lt;lora:Hutao:0.75:lbw&#x3D;0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0&gt;</td>
+</tr>
+<tr>
+<td>&lt;lora:lora的名字:lora权重:分层权重预设&gt;</td>
+<td>&lt;lora:Hutao:0.75:lbw&#x3D;ALL&gt;</td>
+</tr>
+</tbody></table>
+<p>一些lora分层的预设</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># 身体</span><br><span class="hljs-attribute">BODY</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span><br><span class="hljs-attribute">BODY0</span>.<span class="hljs-number">5</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span><br><br><span class="hljs-comment"># 脸部（脸型、发型、眼型、瞳色等）</span><br><span class="hljs-attribute">FACE</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><span class="hljs-attribute">FACE0</span>.<span class="hljs-number">5</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><span class="hljs-attribute">FACE0</span>.<span class="hljs-number">2</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>.<span class="hljs-number">6</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 修手专用</span><br><span class="hljs-attribute">HAND</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 服装（搭配tag使用）</span><br><span class="hljs-attribute">CLOTHING</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 动作（搭配tag使用）</span><br><span class="hljs-attribute">POSE</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 上色风格（搭配tag使用）</span><br><span class="hljs-attribute">PALETTE</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span><br><br><span class="hljs-comment"># 角色（去风格化）</span><br><span class="hljs-attribute">KEEPCHAR</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 背景（去风格化）</span><br><span class="hljs-attribute">KEEPBG</span>:<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span><br><br><span class="hljs-comment"># 减弱过拟合（等同于OUTALL）</span><br><span class="hljs-attribute">REDUCEFIT</span>:<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Lora 分层的值需根据实际进行测试，不同 LoRA 的每一层控制的内容都不一致。</p>
+</blockquote>
+<p>其他种类的 Lora 所控制的层数需参考：<a target="_blank" rel="noopener" href="https://github.com/hako-mikan/sd-webui-lora-block-weight">hako-mikan&#x2F;sd-webui-lora-block-weight</a><br>类似的插件：<a target="_blank" rel="noopener" href="https://github.com/bbc-mc/sdweb-merge-block-weighted-gui">Merge Block Weight</a><br>帮助文档：<a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DTklkTllGQmdac3Jl">Merge Block Weight 魔法密录</a></p>
+<hr>
+<h1 id="ControlNet"><a href="#ControlNet" class="headerlink" title="ControlNet"></a>ControlNet</h1><p>ControlNet是一种神经网络结构，通过添加额外的条件来控制扩散模型，使生成的图像更可控</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>低显存模式</li>
+</ul>
+<p>降低Controlnet模型对显存的占用</p>
+<ul>
+<li>完美像素模式</li>
+</ul>
+<p>让ControlNet自适应预处理分辨率，开启后<code>Preprocessor Resolution</code>将隐藏</p>
+<ul>
+<li>允许预览</li>
+</ul>
+<p>预处理器处理完图片后展示处理解决</p>
+<ul>
+<li>控制权重</li>
+</ul>
+<p>Controlnet对画面的控制强度</p>
+<ul>
+<li>引导介入时机</li>
+</ul>
+<p>Controlnet介入生图过程并引导生图过程的时机</p>
+<ul>
+<li>引导终止时机</li>
+</ul>
+<p>Controlnet退出生图过程的时机</p>
+<h2 id="缩放模式"><a href="#缩放模式" class="headerlink" title="缩放模式"></a>缩放模式</h2><ul>
+<li>仅调整大小</li>
+</ul>
+<p>调整图像大小并拉伸以适应新的纵横比</p>
+<ul>
+<li>裁剪后缩放</li>
+</ul>
+<p>在保持纵横比的同时进行缩放，直到图像完全覆盖该区域（将切断纵横比的差异）</p>
+<ul>
+<li>缩放后填充空白</li>
+</ul>
+<p>缩放直到图像完全在框内，缺失的空间将为黑色</p>
+<h2 id="控制模式"><a href="#控制模式" class="headerlink" title="控制模式"></a>控制模式</h2><ul>
+<li>均衡</li>
+</ul>
+<p>提示词和controlnet共同对生图过程起作用</p>
+<ul>
+<li>更偏向提示词</li>
+</ul>
+<p>增强提示词对生图过程的作用，减少controlnet对生图过程的作用</p>
+<ul>
+<li>更偏向ControlNet</li>
+</ul>
+<p>原<code>无提示词模式</code>，增强controlnet对生图过程的作用，减少提示词对生图过程的作用</p>
+<h2 id="控制类型"><a href="#控制类型" class="headerlink" title="控制类型"></a>控制类型</h2><ul>
+<li>Canny (硬边缘)</li>
+</ul>
+<p>使用粗略的线条描绘图片中物体的边缘（没有lineart那么细致），生成线稿图。生图过程中使用线稿图约束物体的边缘</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>canny</td>
+<td>硬边缘检测，提取图像的轮廓</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Depth (深度)</li>
+</ul>
+<p>生成一个灰度图，通过灰度的深浅描述物品的前后远近关系，指导大模型生成图片时物品的远近关系</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>depth_leres</td>
+<td>LeReS 深度图估算，细节更多，但也倾向于渲染背景</td>
+</tr>
+<tr>
+<td>depth_leres++</td>
+<td>LeReS 深度图估算++，更多细节</td>
+</tr>
+<tr>
+<td>depth_midas</td>
+<td>MiDaS 深度图估算，经典的深度估算器，也用于官方v2深度到图像模型</td>
+</tr>
+<tr>
+<td>depth_zoe</td>
+<td>ZoE 深度图估算，细节水平介于 Midas 和 Leres 之间</td>
+</tr>
+</tbody></table>
+<ul>
+<li>NormalMap (法线贴图)</li>
+</ul>
+<p>生成从输入图像派生的基本法线贴图，该图像使用了三种颜色：红色、绿色和蓝色。在3D程序领域，这些颜色用于确定物体表面的感知光滑度或凹凸度。每个颜色通道对应于一个特定的方向，例如左&#x2F;右、上&#x2F;下和朝&#x2F;远，从而可以在三维环境中模拟复杂的表面特征</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>normal_bae</td>
+<td>Bae 法线贴图提取，使用Bae等人提出的正态不确定性方法估计法线图</td>
+</tr>
+<tr>
+<td>normal_midas</td>
+<td>Midas 法线贴图提取，跟据Midas深度图估计法线贴图</td>
+</tr>
+</tbody></table>
+<ul>
+<li>OpenPose (姿态)</li>
+</ul>
+<p>将图片中的人物动作分析出来，并生成骨骼图，指导大模型绘制人物时的动作</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>animal_openpose</td>
+<td>动物姿态提取</td>
+</tr>
+<tr>
+<td>dw_openpose_full</td>
+<td>二阶蒸馏 - 全身姿态估计，OpenPose_full的增强版本</td>
+</tr>
+<tr>
+<td>openpose</td>
+<td>OpenPose 姿态，检测眼睛、鼻子、眼睛、颈部、肩部、肘部、手腕、膝盖和脚踝</td>
+</tr>
+<tr>
+<td>openpose_face</td>
+<td>OpenPose 姿态及脸部</td>
+</tr>
+<tr>
+<td>openpose_faceonly</td>
+<td>OpenPose 仅脸部</td>
+</tr>
+<tr>
+<td>openpose_full</td>
+<td>OpenPose 姿态、手部及脸部</td>
+</tr>
+<tr>
+<td>openpose_hand</td>
+<td>OpenPose 姿态及手部</td>
+</tr>
+</tbody></table>
+<ul>
+<li>MLSD (直线)</li>
+</ul>
+<p>将图片中的场景（不包括人物）使用直线进行轮廓的大致描绘，生成大致的线条结构图。在生图过程通过线条结构图约束场景中大物件的边缘，常用于场景设计</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mlsd</td>
+<td>M-LSD 直线线条检测，提取具有直边的轮廓，例如室内设计、建筑物、街景、相框和纸张边，曲线将被忽略</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Lineart (线稿)</li>
+</ul>
+<p>使用更加精细的线条对图片进行描绘，生成线稿图。在生图过程中通过线稿图约束物体的边缘，常用于比较精细地还原物品的结构，保持构图结构</p>
+<table>
+<thead>
+<tr>
+<th>可用处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lineart_standard</td>
+<td>标准线稿提取 - 白底黑线反色</td>
+</tr>
+<tr>
+<td>lineart_realistic</td>
+<td>写实线稿提取，此预处理器旨在生成逼真的线条。它旨在捕捉传统手绘素描或插图的细微差别和特征，模拟更逼真、更自然的线条质量</td>
+</tr>
+<tr>
+<td>lineart_coarse</td>
+<td>粗略线稿提取，粗线条粗略预处理器可生成具有较重权重的逼真样式的线条。它强调大胆的笔触和较粗的线条，从而产生更明显和大胆的外观</td>
+</tr>
+<tr>
+<td>lineart_anime_denoise</td>
+<td>动漫线稿提取 - 去噪，线条艺术预处理的这种变体侧重于生成细节较少的动漫风格线条。它应用降噪算法来简化和平滑线条，从而使外观更干净、更复杂</td>
+</tr>
+<tr>
+<td>lineart_anime</td>
+<td>动漫线稿提取，此预处理器专门用于生成动漫风格的线条。它应用了一种线条渲染技术，模仿了日本动画艺术作品中常见的独特线条</td>
+</tr>
+</tbody></table>
+<ul>
+<li>SoftEdge (软边缘)</li>
+</ul>
+<p>将图片中物体的边缘用软边缘线条进行描绘，生成线条图。在生图过程中通过线条图约束物体的边缘，常用于还原物品的大致结构，保持构图结构</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>softedge_hed</td>
+<td>软边缘检测 - HED</td>
+</tr>
+<tr>
+<td>softedge_hedsafe</td>
+<td>软边缘检测 - 保守 HED 算法</td>
+</tr>
+<tr>
+<td>softedge_pidinet</td>
+<td>软边缘检测 - PiDiNet 算法</td>
+</tr>
+<tr>
+<td>softedge_pidisafe</td>
+<td>软边缘检测 - 保守 PiDiNet 算法</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Scribble&#x2F;Sketch (涂鸦&#x2F;草图)</li>
+</ul>
+<p>将图片处理成涂鸦，类似手绘的效果，然后利用生成的涂鸦图片指导大模型生图，常用于自己画一张粗糙的涂鸦，使用该涂鸦来生成一张效果不错的图片</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scribble_hed</td>
+<td>涂鸦 - 整体嵌套，适用于重新着色和重新设计图像</td>
+</tr>
+<tr>
+<td>scribble_pidinet</td>
+<td>涂鸦 - 像素差分，结果类似于 HED，但通常会导致线条更清晰，细节更少</td>
+</tr>
+<tr>
+<td>scribble_xdog</td>
+<td>涂鸦 - 强化边缘</td>
+</tr>
+<tr>
+<td>t2ia_sketch_pidi</td>
+<td>文本到图像自适应控制 - 草绘边缘像素差分</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Segmentation (语义分割)</li>
+</ul>
+<p>Segmentation将图片进行语义分割，将不同的画面元素用不同的颜色进行标注，生成语义分割图。在生图的过程中使用语义分割图指导大模型在对应的区域绘制不同颜色对应的物品，常用于大致规划图片构图</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>seg_anime_face</td>
+<td>语义分割 - 动漫面部</td>
+</tr>
+<tr>
+<td>seg_ofade20k</td>
+<td>语义分割 - OneFormer 算法 - ADE20k 协议</td>
+</tr>
+<tr>
+<td>seg_ofcoco</td>
+<td>语义分割 - OneFormer 算法 - COCO 协议</td>
+</tr>
+<tr>
+<td>seg_ufade20k</td>
+<td>语义分割 - UniFormer 算法 - ADE20k 协议</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Shuffle (随机洗牌)</li>
+</ul>
+<p>Shuffle将图片进行随机变换，然后将变换后的图像作为参考，指导图片生成的过程（风格迁移？）</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>shuffle</td>
+<td>随机洗牌，“搅动”或重新排列输入图像的像素值。它引入了颜色的随机洗牌或排列，从而产生原始图像的修改版本。这个过程可以通过改变图像中的颜色分布和排列来产生有趣且不可预测的视觉效果</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Tile&#x2F;Blur (分块&#x2F;模糊)</li>
+</ul>
+<p>Tile将图片分割成一个个小区快，在对每个小区快进行重绘，同时降低显存的压力。Tile不仅可以用作图片放大，增加图片的细节，也可以保持图片的整体构图不被改变，可用于风格转换<br>Blur将图片进行高斯模糊，用作生成图片的参考，有点类似图生图，但整体构图不会改变太多</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tile_resample</td>
+<td>分块 - 重采样</td>
+</tr>
+<tr>
+<td>tile_colorfix+sharp</td>
+<td>分块 - 固定颜色 + 锐化</td>
+</tr>
+<tr>
+<td>tile_colorfix</td>
+<td>分块 - 固定颜色</td>
+</tr>
+<tr>
+<td>blur_gaussian</td>
+<td>模糊 - 高斯模糊</td>
+</tr>
+</tbody></table>
+<ul>
+<li>局部重绘</li>
+</ul>
+<p>重绘画笔涂抹过的区域，和stable diffusion webui自带的局部重绘功能类似，但可以实现更好的效果</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>inpaint_only</td>
+<td>仅局部重绘</td>
+</tr>
+<tr>
+<td>inpaint_only+lama</td>
+<td>仅局部重绘 + 大型蒙版</td>
+</tr>
+<tr>
+<td>inpaint_Global_Harmonious</td>
+<td>重绘 - 全局融合算法</td>
+</tr>
+</tbody></table>
+<ul>
+<li>InstructP2P</li>
+</ul>
+<p>将提示词作为命令，指定修改图片中的元素</p>
+<ul>
+<li>Reference (参考)<br>将输入的图片作为参考，有点类似图生图。相对于图生图的效果，画面有着更多样的变化，不会过于呆板，输入图的风格也能迁移到生成出来的图片中</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference_adain</td>
+<td>仅参考输入图 - 自适应实例规范</td>
+</tr>
+<tr>
+<td>reference_adain+attn</td>
+<td>仅参考输入图 - 自适应实例规范 + Attention链接</td>
+</tr>
+<tr>
+<td>reference_only</td>
+<td>仅参考输入图</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Recolor (重上色)</li>
+</ul>
+<p>根据提示词的描述，对黑白的图片进行上色</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>recolor_intensity</td>
+<td>重上色 - 调节 “图像强度” 以去色</td>
+</tr>
+<tr>
+<td>recolor_luminance</td>
+<td>重上色 - 调节 “图像亮度” 以去色</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Revision</li>
+</ul>
+<p>使用CLIP分析图片，并指导图片的生成（反推tag并使用tag指导生图？），但对图片的控制效果不强，弱于Reference，并且预处理过程会消耗较大的内存</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>revision_clipvision</td>
+<td>CLIP 集成嵌入图像提示 - 作为补充</td>
+</tr>
+<tr>
+<td>revision_ignore_prompt</td>
+<td>CLIP 集成嵌入图像提示 - 忽略原有提示词</td>
+</tr>
+</tbody></table>
+<ul>
+<li>T2I-Adapter</li>
+</ul>
+<p>T2I-Adapter和Controlnet的功能类似，但控制原理和Controlnet不同。虽然控制能力比Controlnet弱，但控制模型的体积更小。T2I-Adapter既可以使用自己配套的预处理器，也可以使用Controlnet的预处理器</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T2ia_Color_Grid</td>
+<td>文本到图像自适应控制 - 色彩像素化</td>
+</tr>
+<tr>
+<td>T2ia_Sketch_PiDi</td>
+<td>文本到图像自适应控制 - 草绘边缘像素差分</td>
+</tr>
+<tr>
+<td>T2ia_Style_Clipvision</td>
+<td>文本到图像自适应控制 - 风格迁移</td>
+</tr>
+</tbody></table>
+<ul>
+<li>IP-Adapter</li>
+</ul>
+<p>IP-Adapter使用CLIP分析输入图片的信息，并将得出的信息作用于图像的生成过程中（将图片作为了提示词，并且对输入图片的理解能力更强，出图效果更好，总体效果比<code>Revision</code>要好）。IP-Adapter常用于迁移画风，并搭配其他控制构图的Controlnet一起使用</p>
+<table>
+<thead>
+<tr>
+<th>可用预处理器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ip-adapter_clip_sd15</td>
+<td>图像提示词自适应控制 - CLIP - SD1.5</td>
+</tr>
+<tr>
+<td>ip-adapter_clip_sdxl</td>
+<td>图像提示词自适应控制 - CLIP - SDXL</td>
+</tr>
+<tr>
+<td>ip-adapter_clip_sdxl_plus_vith</td>
+<td>图像提示词自适应控制 - CLIP - SDXL（升级版）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://stable-diffusion-art.com/controlnet">ControlNet: A Complete Guide - Stable Diffusion Art</a><br><a target="_blank" rel="noopener" href="https://learn.rundiffusion.com/controlnet-1-1">ControlNet</a><br><a target="_blank" rel="noopener" href="https://github.com/lllyasviel/ControlNet-v1-1-nightly">lllyasviel&#x2F;ControlNet-v1-1-nightly</a><br><a target="_blank" rel="noopener" href="https://github.com/Mikubill/sd-webui-controlnet/discussions/2039">[Major Update] sd-webui-controlnet 1.1.400 · Mikubill&#x2F;sd-webui-controlnet · Discussion #2039</a><br><a target="_blank" rel="noopener" href="https://github.com/tencent-ailab/IP-Adapter">tencent-ailab&#x2F;IP-Adapter</a><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/StableDiffusion/comments/12wjz5t/controlfit_which_resize_mode_do_you_use">ControlFit - Which resize mode do you use? : r&#x2F;StableDiffusion</a></p>
+</blockquote>
+<hr>
+<h1 id="ControlNet-的应用"><a href="#ControlNet-的应用" class="headerlink" title="ControlNet 的应用"></a>ControlNet 的应用</h1><h2 id="线稿提取"><a href="#线稿提取" class="headerlink" title="线稿提取"></a>线稿提取</h2><p>准备需要提取线稿的图片和白色背景的图片，进入图生图界面<br>正向提示词框填入<code>lineart</code>，<code>posing sketch</code>，<code>monochrome</code>这些描述线稿的提示词，然后将白色背景导入图生图界面中<br>启用第一个controlnet，勾选<code>上传独立的控制图像</code>，导入需要提取线稿的图片，预处理器选择<code>lineart_anime</code>，controlnet模型选择<code>lineart_anime</code><br>生图参数中，重绘幅度调至<code>0.95</code>（重绘幅度越高，线稿的线条越深），然后生图</p>
+<h2 id="线稿清理"><a href="#线稿清理" class="headerlink" title="线稿清理"></a>线稿清理</h2><p>将线稿图片导入tagger插件进行反推，把提示词导入图生图中，填写好反向提示词<br>将重绘幅度调至<code>0.5</code>，如果线稿比较潦草时可以调高重绘幅度</p>
+<blockquote>
+<p>重绘幅度较高时，图片会带有淡淡的色彩，加上<code>lineart</code>，<code>posing sketch</code>，<code>monochrome</code>这些描述线稿的提示词可以稍微抑制这种效果</p>
+</blockquote>
+<p>启用第一个controlnet，导入线稿图片，预处理器选择<code>invert</code>，controlnet模型选择<code>scribble</code>，控制权重可以适当提高一点<br>然后进行图片生成，如果效果不理想可多生成几次，得到想要的效果后可以对线稿进行放大<br>将重绘尺寸调大，并且重绘尺寸的比例和线稿图片的比例相同<br>把原先的controlnet模型改成<code>canny</code>，如果显存较小，开启<code>Tiled VAE</code>降低显存占用<br>然后进行生图，得到的图片不仅分辨率大了，线条也变得比较干净</p>
+<h2 id="线稿上色"><a href="#线稿上色" class="headerlink" title="线稿上色"></a>线稿上色</h2><p>将线稿图片使用tagger插件进行tag反推，然后将tag导入文生图界面，删去不需要的tag并补充一些tag来描述画面<br>启用第一个controlnet，导入线稿图片<br>预处理器选择<code>invert/canny</code>或者<code>lineart/lineart_anime/lineart_standard</code>，controlnet模型选择<code>canny</code>或者<code>lineart/lineart_anime</code><br>然后进行生图，如果出现色彩问题，可适当降低控制权重</p>
+<blockquote>
+<p>预处理器如果选择<code>invert</code>，有概率导致控制效果变差</p>
+</blockquote>
+<p>如果想要将上色好的图片进行放大，则将图片发送到图生图中，调整重绘尺寸倍数，重绘幅度调至<code>0.5</code>，开启<code>Tiled VAE</code><br>然后启用第一个controlnet，勾选<code>上传独立的控制图像</code>，参数和上面步骤的相同，然后进行生图</p>
+<h2 id="图像特征迁移与人物换装"><a href="#图像特征迁移与人物换装" class="headerlink" title="图像特征迁移与人物换装"></a>图像特征迁移与人物换装</h2><p>准备一张用于迁移特征的原图和一张用于接收特征的原图<br>将用于迁移特征的原图导入tagger插件中进行图片tag反推，然后将tag发送到文生图中，删除掉不需要的tag<br>启用三个controlnet，分别设置参数<br>controlnet1：<br>导入用于迁移特征的原图，预处理器选择<code>reference_adain+attn</code>，用于指导生成人物特征<br>controlnet2：<br>导入用于接受特征的原图，预处理器选择<code>softedge_hed</code>，controlnet模型选择<code>softedge</code><br>控制权重调到<code>0.6</code>，控制模式选择<code>更偏向提示词</code>，用于指导还原人物外形<br>controlnet3：<br>导入用于接受特征的原图，在人物上用画笔绘制需要接受特征的位置的遮罩<br>预处理器选择<code>inpaint_global_harmonious</code>，模型选择<code>inpaint</code>，控制模式选择<code>更偏向ControlNet</code><br>然后开始生图，生成的图片中遮罩部分有了特征图的特征<br>可以用绘制遮罩指定接受特征的位置，也可以更换迁移特征的原图，得到类似的换装的效果</p>
+<h2 id="为人物生成多套服装"><a href="#为人物生成多套服装" class="headerlink" title="为人物生成多套服装"></a>为人物生成多套服装</h2><p>进入文生图界面，提示词框写描写人物服饰的tag<br>启用3个controlnet，将需要进行生成服饰的图片导入：<br>controlnet1：<br>预处理器选择<code>openpose/dw_openpose_full</code>，模型选择<code>openpose</code>，控制权重调至<code>2</code>。控制模式选择<code>更偏向 ControlNet</code><br>controlnet2：<br>将人物原本的服饰用画笔涂上蒙版，预处理器选择<code>inpaint_global_harmonious</code>，模型选择<code>inpaint</code><br>controlnet3（可选）：<br>模型选择<code>ip2p</code>，控制权重调至<code>0.6</code>，用于保持画面一致性<br>然后生成图片</p>
+<h2 id="为服装生成人物"><a href="#为服装生成人物" class="headerlink" title="为服装生成人物"></a>为服装生成人物</h2><p>准备好服装的图片（最好白色背景），将图片tag进行反推，然后将tag复制到文生图中，并检查、修改提示词，调整生图分辨率<br>启用第一个controlnet，导入服装的图片<br>预处理器选择<code>tile_resample</code>，controlnet模型选择<code>tile</code>，控制权重调至<code>0.75</code><br>控制模式选择<code>更偏向 ControlNet</code>，缩放模式选择<code>缩放后填充空白</code><br>然后生图，生成的图像已经出现了人物，但人物受到白色背景的影响而发白<br>这时把图片和参数发送至图生图，启用第一个controlnet<br>预处理器选择<code>lineart/lineart_anime</code>，controlnet模型选择<code>lineart/lineart_anime</code><br>然后进行生图，再次生成的图像中人物的颜色就鲜艳很多了</p>
+<h2 id="使用图像提示融合图像与风格重建"><a href="#使用图像提示融合图像与风格重建" class="headerlink" title="使用图像提示融合图像与风格重建"></a>使用图像提示融合图像与风格重建</h2><p>进入文生图界面，启用第一个controlnet，导入风格图像，预处理器选择<code>ip-adapter_clip</code>，controlnet模型选择<code>ip-adapter/ip-adapter_plus</code><br>启用第二个controlnet，导入用于控制构图的图片，预处理器和controlnet模型的类型可选择<code>canny/lineart/depth</code>等用于控制图像整体构图组合<br>正向&#x2F;反向提示词根据需求填写，然后生图</p>
+<blockquote>
+<p>ip-adapt把图片作为提示词进行输入，和文本提示词、controlnet模型一起配合完成图片生成</p>
+</blockquote>
+<h2 id="扩充图片区域"><a href="#扩充图片区域" class="headerlink" title="扩充图片区域"></a>扩充图片区域</h2><p>反推需要扩充的图片的tag，并适当增加描述<br>将需要扩充图片区域的图片提前扩充区域，然后导入第一个controlnet，使用画笔工具将需要扩充的区域涂上蒙版<br>预处理器选择<code>inpaint_global_harmonious</code>，controlnet模型选择<code>inpaint</code>，控制模式选择<code>更偏向提示词</code><br>第二个controlnet导入参考图，用于给扩充区域进行参考，预处理器选择<code>reference_only</code></p>
+<h2 id="图片风格融合"><a href="#图片风格融合" class="headerlink" title="图片风格融合"></a>图片风格融合</h2><p>在图生图界面中，导入需要被融合风格的图片<br>启用第一个controlnet，预处理器选择<code>lineart_anime_denoise</code>&#x2F;<code>lineart_anime</code>，控制模型选择<code>lineart</code><br>启用第二个controlnet，勾选“上传独立的控制图像”，导入用于统一风格的图片，预处理器选择<code>tile_resample</code>，控制模型选择<code>tile</code>，控制权重调到<code>0.1</code><br>设置完这些后即可进行生图，当然还可以加上提示词来控制图片<br>在文生图界面中也是类似操作只是导入被融合的图像的位置改成controlnet的选项卡中</p>
+<h2 id="去除图片中的人物"><a href="#去除图片中的人物" class="headerlink" title="去除图片中的人物"></a>去除图片中的人物</h2><p>将需要去除人物的图片进行裁剪，截取背景的部分（不包含人物），对该部分进行tag反推<br>将反推得到的tag复制到文生图的提示词框中，检查提示词是否有问题<br>检查完成后，将需要去除人物的图片导入controlnet中，将人物用画笔进行涂抹<br>预处理器选择<code>inpaint_global_harmonious</code>，controlnet模型选择<code>inpaint</code>，控制模式选择<code>更偏向提示词</code><br>控制权重可适当提高</p>
+<h2 id="为人物添加背景"><a href="#为人物添加背景" class="headerlink" title="为人物添加背景"></a>为人物添加背景</h2><p>准备好背景的tag（可以加上人物的tag），复制到文生图的提示词框中<br>将需要添加为人物添加背景的图片导入3个controlnet中<br>第一个controlnet的预处理器选择<code>lineart_anime_denoise</code>&#x2F;<code>lineart_anime</code>，controlnet模型选择<code>lineart</code><br>第二个controlnet的预处理器选择<code>t2ia_color_grid</code>，controlnet模型选择<code>t2iadapter_color</code>，控制权重调成<code>0.5</code>，引导时机为<code>0~0.5</code><br>第三个controlnet的预处理器选择<code>tile_resample</code>，controlnet模型选择<code>tile</code>，控制权重调成<code>0.5</code>，引导时机为<code>0.5~1</code></p>
+<p>大致原理：使用lineart生成线稿控制人物的形体，t2ia_color为线稿填充颜色，tile细化画面</p>
+<h2 id="图片局部替换"><a href="#图片局部替换" class="headerlink" title="图片局部替换"></a>图片局部替换</h2><p>打开文生图界面，启用第一个controlnet，导入需要进行局部替换的图，然后使用画笔工具涂抹图片中需要替换的物品<br>预处理器选择<code>inpaint_global_harmonious</code>，模型选择<code>inpaint</code><br>提示词描述写上对新物品的描述，最后开始生图，新物品就会替换被涂抹区域的物品了</p>
+<blockquote>
+<p>controlnet的inpaint相对于stable-diffusion-webui的局部重绘，重绘区域和非重绘区域之间的过渡更加和谐<br>因为controlnet的inpaint模型不仅把把被涂抹的区域进行重绘，也把未被涂抹的区域进行了重绘，所以重绘效果会更好</p>
+</blockquote>
+<h2 id="命令修改图片内容"><a href="#命令修改图片内容" class="headerlink" title="命令修改图片内容"></a>命令修改图片内容</h2><p>进入文生图界面，启用第一个controlnet，导入图片，预处理器选择<code>none</code>，controlnet模型选择<code>ip2p</code><br>正向提示词写上需要修改的内容的描述，反向提示词正常填写<br>最后生成图片，此时就会发现图片整体保持原样，但是被描述的东西被画成你所描述的样子</p>
+<blockquote>
+<p><code>ip2p</code>相当于命令SD根据你的描述去修改图片中的内容</p>
+</blockquote>
+<h2 id="人物设计概念生成"><a href="#人物设计概念生成" class="headerlink" title="人物设计概念生成"></a>人物设计概念生成</h2><p>进入图生图界面，导入参考图<br>启用第一个controlnet，预处理器选择<code>shuffle</code>，controlnet模型选择<code>shuffle</code><br>控制模式选择<code>更偏向提示词</code>，提示词根据你想要的结果去描述，然后生成图片<br>最后的图片整体布局不会有太大的变化，但是设计风格和样子已经随着提示词而改变</p>
+<h2 id="ControlNet-inpaint-only替换背景优化方法：潜空间图像修复"><a href="#ControlNet-inpaint-only替换背景优化方法：潜空间图像修复" class="headerlink" title="ControlNet inpaint only替换背景优化方法：潜空间图像修复"></a>ControlNet inpaint only替换背景优化方法：潜空间图像修复</h2><p>进入文生图界面。启用第一个controlnet，导入需要重绘背景的图片，将背景用画笔画出遮罩<br>预处理器选择<code>inpaint_only</code>，controlnet模型选择<code>inpaint</code><br>提示词填入描述新背景的图片，然后开始生图，这时候得到一张人物与背景融合不是很完美的图片<br>打开<code>高分辨率修复 (Hires. fix)</code>，放大算法选择<code>latent</code>，高分迭代步数选择<code>2</code>，重绘幅度选择<code>0.01</code>，固定图片的种子</p>
+<blockquote>
+<p>1、高分迭代步数选择<code>1</code>会出现<code>UnboundLocalError: local variable &#39;h&#39; referenced before assignment</code><br>2、重绘幅度选择<code>0.01</code>会出现<code>RuntimeError: min(): Expected reduction dim to be specified for input.numel() == 0. Specify the reduction dim with the &#39;dim&#39; argument.</code></p>
+</blockquote>
+<p>然后进行生图，这样就可以得到一张放大的潜空间图像（latent space image），而且遮罩外面的部分得到了保留<br>发送图片到图生图，将重绘幅度设置为<code>0.2~0.4</code>，保证图片整体不会有太大的变化<br>启用<code>Loopback</code>脚本，重绘幅度曲线设置为<code>激进（Aggressive）</code>，在每次迭代时添加何种反推模型反推出的提示词设置为<code>DeepBooru</code><br>点击生成，得到的图像中，人物和背景比较好的融合在一起，并且背景有一点柔和的景深效果</p>
+<blockquote>
+<p>这个方法本质是就是高清修复的工作过程，利用前面的几个步骤在文生图中生成低分辨率的图像，再使用放大器保留或增强细节，然后发送到图生图中重绘<br>参考：<br><a target="_blank" rel="noopener" href="https://github.com/Mikubill/sd-webui-controlnet/discussions/1464">[1.1.202 Inpaint] Improvement: Everything Related to Adobe Firefly Generative Fill · Mikubill&#x2F;sd-webui-controlnet · Discussion #1464</a><br><a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/discussions/65">New High res fix · AUTOMATIC1111&#x2F;stable-diffusion-webui · Discussion #6509</a>09</p>
+</blockquote>
+<h2 id="去除背景的景深效果"><a href="#去除背景的景深效果" class="headerlink" title="去除背景的景深效果"></a>去除背景的景深效果</h2><p>进入图生图界面，输入描述图片背景的tag，tag可以使用tagger插件进行反推<br>将图片导入<code>PBRemTools</code>插件，在<code>蒙版设置</code>启用选项卡，<code>图像切分提示词</code>填入需要切割出来的内容，比如1girl<br>然后点击提交，生成蒙版，将蒙版保存下来（蒙版可以使用ps之类的图片编辑软件制作）<br>回到图生图界面，选择<code>上传重绘蒙版</code>，导入原图和蒙版图片（蒙版用于保护蒙版区域不会被重绘）<br>蒙版模式选择<code>重绘非蒙版内容</code>，重绘区域选择<code>仅蒙版区域</code>，重绘幅度调到<code>0.5</code><br>启用第一个controlnet，预处理器选择<code>tile_resample</code>，controlnet模型选择<code>tile</code><br>控制权重适当提高，提高画面的还原能力，控制模式选择<code>更偏向提示词</code><br>启用<code>回送（Loopback）</code>脚本，最终重绘幅度适当拉高，最后生成图像</p>
+<hr>
+<h1 id="Tiled-VAE-和-Tiled-Diffusion-的使用"><a href="#Tiled-VAE-和-Tiled-Diffusion-的使用" class="headerlink" title="Tiled VAE 和 Tiled Diffusion 的使用"></a>Tiled VAE 和 Tiled Diffusion 的使用</h1><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/wiki">Home · pkuliyi2015&#x2F;multidiffusion-upscaler-for-automatic1111 Wiki</a></p>
+</blockquote>
+<h2 id="Tiled-Diffusion"><a href="#Tiled-Diffusion" class="headerlink" title="Tiled Diffusion"></a>Tiled Diffusion</h2><ul>
+<li>Tiled Diffusion</li>
+</ul>
+<p>该功能用于放大图片，增加图片的清晰度<br>启用后，Tiled Diffusion 将图片分割成多个小块并送入潜空间进行降噪，再将这些分块融合成一张图片，该步骤将重复多次<br>注意，Tiled Diffusion 需配合 Tiled VAE 一起使用</p>
+<p>可选方案</p>
+<ul>
+<li>MultiDiffusion</li>
+<li>Mixture of Diffusion</li>
+</ul>
+<p>推荐使用 Mixture of Diffusion 这个放大方案，该方案可选择更小的<code>潜空间分块重叠</code>值</p>
+<ul>
+<li>潜空间分块宽度与高度</li>
+</ul>
+<p>这个值设置了将图片分块后，送入潜空间时其大小，通常该值的设置与模型推荐的出图分辨率有关。若模型推荐的出图分辨率为<code>768~1024</code>，则将该值除以<code>8</code>后将得到<code>96~128</code>这个推荐的值。该值越高，占用的显存越高</p>
+<blockquote>
+<p>个人测试的时候这个值建议调高而不是调低，该值较高的时候可缓解放大后出现鬼影的问题</p>
+</blockquote>
+<ul>
+<li>潜空间分块重叠</li>
+</ul>
+<p>重叠可减少融合时的接缝，减少分块融合时带来的瑕疵的影响。但当该值越大时，生成图片所需的时间越长。</p>
+<p>插件作者建议的值</p>
+<ul>
+<li>MultiDiffusion：32~48</li>
+<li>Mixture of Diffusion：16~32</li>
+</ul>
+<blockquote>
+<p>将该值调高可缓解放大后出现鬼影的问题，但是不如调高<code>潜空间分块宽度与高度</code>那么有效</p>
+</blockquote>
+<ul>
+<li>潜空间分块单批数量</li>
+</ul>
+<p>该值用于设定同时处理的分块数量，该值越高，所需的显存越高</p>
+<ul>
+<li>放大算法</li>
+</ul>
+<p>该选项可选择放大时选择使用的算法</p>
+<ul>
+<li>放大倍数</li>
+</ul>
+<p>这个值就是放大图片分辨率的倍数了</p>
+<p>下面列举一个可以参考的值</p>
+<ul>
+<li>方案：Mixture of Diffusion</li>
+<li>潜空间分块宽度与高度：128</li>
+<li>潜空间分块重叠：16</li>
+<li>潜空间分块单批数量：8</li>
+<li>放大算法：R-ESRGAN 4x+ Anime6B</li>
+<li>放大倍数：3</li>
+</ul>
+<p>如果放大后出现鬼影的情况，可将正向提示词中用于具体描写内容的提示词删去，只留下画风提示词和质量提示词（插件作者推荐）</p>
+<blockquote>
+<p>其实不删也行，比如我就是不删的。如果出现鬼影的情况，我选择调高<code>潜空间分块宽度与高度</code>和<code>潜空间分块重叠</code></p>
+</blockquote>
+<h2 id="Tiled-VAE"><a href="#Tiled-VAE" class="headerlink" title="Tiled VAE"></a>Tiled VAE</h2><p>减少 VAE 编码&#x2F;解码时的显存占用，降低爆显存的概率</p>
+<ul>
+<li>编码&#x2F;解码器分块大小</li>
+</ul>
+<p>设置 VAE 编码&#x2F;解码时分块的大小，在没有出现爆显存的情况时尽量使用比较大的值以提高速度，如果爆显存后就适当降低该值</p>
+<ul>
+<li>使用快速编码&#x2F;解码器</li>
+</ul>
+<p>加快分块处理速度</p>
+<ul>
+<li>快速编码器颜色修复</li>
+</ul>
+<p>当使用快速编码器时出现方法出来的图发灰可启用该选项</p>
+<p>如果要使用 Tiled VAE 时直接勾选启用就行，一般不需要调整设置</p>
+<h2 id="噪声反转"><a href="#噪声反转" class="headerlink" title="噪声反转"></a>噪声反转</h2><p>类似于图生图，但是放大后和原图一致性更高，不改变原图的构图<br>这个功能可使放大后的图片细节更好，但是会导致一些笔触被改变。比如水彩风的图片放大后就没有那么水彩了</p>
+<ul>
+<li>反转步数</li>
+</ul>
+<p>用于调节进行反转噪声需要走的步数。步数较高时，放大出来的图细节会比较好。步数较低时，出来的图细节就没那么多（有种朦胧感）</p>
+<ul>
+<li>修复程度</li>
+</ul>
+<p>适当调高该值可以提高放大后图片的细节</p>
+<blockquote>
+<p>我也说不出这东西具体是什么，wiki上也没相关对这个选项的说明</p>
+</blockquote>
+<ul>
+<li>重铺噪声强度</li>
+</ul>
+<p>反转噪声的强度，一般不用调，因为反转的步数足够时，调高这个值带来的细节提升不是很明显（虽然有一点点提升，但肉眼也很难看出）</p>
+<ul>
+<li>重铺噪声大小</li>
+</ul>
+<p>这个值比较高时，放大出来的图和原图一致性更强（貌似）</p>
+<p>启用噪声反转后一般可以保持参数默认，或者适当调高<code>反转步数</code>和<code>修复程度</code>的值</p>
+<blockquote>
+<p>以下为反转噪声的原理参考：<br><a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/issues/162">Tiled Noise Inversion for better upscaling 方法原理 · Issue #162 · pkuliyi2015&#x2F;multidiffusion-upscaler-for-automatic1111</a><br><a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/issues/289">noise inversion implementation principle? · Issue #289 · pkuliyi2015&#x2F;multidiffusion-upscaler-for-automatic1111</a></p>
+</blockquote>
+<h2 id="分区提示词控制"><a href="#分区提示词控制" class="headerlink" title="分区提示词控制"></a>分区提示词控制</h2><p>这个功能用于分区绘制一张图，实现不同区域绘制不同的内容</p>
+<blockquote>
+<p>该选项在 Tiled Diffusion 中，启用<code>分区提示词控制</code>后分块大小将失效，可忽略调节该值</p>
+</blockquote>
+<p>下面列举两个例子</p>
+<ul>
+<li>绘制多人图</li>
+</ul>
+<p>SD WebUI 的正面提示词只填写质量提示词或者画师提示词（不能出现具体描述画面内容的提示词），负面提示词填写通用的提示词<br>启用分区提示词控制后，点击<code>创建文生图画布</code>，勾选区域 1、2、3。</p>
+<p>区域 1：<br>铺满整个画布，类型选择<code>背景</code>，正面提示词填写描述背景内容的</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">house,</span>tree,sunlight,sky,cloud,potted plant,hill,<br></code></pre></td></tr></table></figure>
+
+<p>区域 2：<br>只框选部分画布，类型选择<code>前景</code>，正面提示词填写描述人物的</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-number">1</span>girl,white hair,<span class="hljs-keyword">blue </span>eyes,white dress,<br></code></pre></td></tr></table></figure>
+
+<p>区域 3：<br>只框选部分画布，类型选择<code>前景</code>，正面提示词填写描述人物的</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq"><span class="hljs-number">1</span>girl,<span class="hljs-built_in">red</span> hair,<span class="hljs-built_in">red</span> eyes,lolita,<br></code></pre></td></tr></table></figure>
+
+<p>这样可以画出多人图，且保证每个人不出现特征污染<br>注意，该方法画出的人物很难做到互动效果，如果需要实现互动效果，请使用<code>Regional Prompter</code>&#x2F;<code>Latent Couple</code>扩展</p>
+<ul>
+<li>绘制超大背景</li>
+</ul>
+<p>SD WebUI 的正面提示词只填写质量提示词或者画师提示词（不能出现具体描述画面内容的提示词），负面提示词填写通用的提示词<br>启用分区提示词控制后，点击<code>创建文生图画布</code>，勾选区域 1、2。</p>
+<p>区域 1：<br>铺满整个画布，类型选择<code>背景</code>，正面提示词填写描述背景内容的</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">house,</span>tree,sunlight,sky,cloud,potted plant,hill,<br></code></pre></td></tr></table></figure>
+
+<p>区域 2：<br>只框选部分画布，类型选择<code>前景</code>，正面提示词填写描述人物的（可以加背景的描述）</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-number">1</span>girl,white hair,<span class="hljs-keyword">blue </span>eyes,white dress,<br>house,tree,sunlight,sky,<span class="hljs-keyword">cloud,potted </span>plant,wind,hill,<br></code></pre></td></tr></table></figure>
+
+<p>这样可以画出高分辨率的背景但又保证人物在高分辨率的情况不出现变形的问题</p>
+<h1 id="使用-Latent-Couple-插件进行分区绘制"><a href="#使用-Latent-Couple-插件进行分区绘制" class="headerlink" title="使用 Latent Couple 插件进行分区绘制"></a>使用 Latent Couple 插件进行分区绘制</h1><p>插件：<a target="_blank" rel="noopener" href="https://github.com/ashen-sensored/stable-diffusion-webui-two-shot">ashen-sensored&#x2F;stable-diffusion-webui-two-shot</a></p>
+<p>在Latent Couple插件选项卡勾选启用，并使用<code>AND</code>语法进行编写</p>
+<p>提示词例子</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-number">2</span>girls,pastel colors,watercolor,hugging,<br><span class="hljs-keyword">AND,2girls,(loli:1.1),cat </span>ears,animal ear fluff,hair ribbon,pink eyes,grey hair,<span class="hljs-keyword">short </span>hair,<span class="hljs-keyword">bangs,hair </span><span class="hljs-keyword">between </span>eyes,eyebrows visible through hair,<span class="hljs-keyword">blush,closed </span>mouth,light smile,neck ribbon,white lolita,fashion lolita,frilled_collar,crease,flat chest,<br>arms <span class="hljs-keyword">behind </span><span class="hljs-keyword">back,looking </span>looking <span class="hljs-built_in">at</span> viewer,from side,<br><span class="hljs-keyword">cloud,sky,day,mountain,tree,grass,bridge,river,bird,blue </span>sky,<br><span class="hljs-keyword">AND,2girls,cherry </span><span class="hljs-keyword">blossoms,hair </span>flower,hair ribbon,cat ears,animal ear fluff,<span class="hljs-keyword">blue </span>eyes,grey hair,<span class="hljs-keyword">short </span>hair,<span class="hljs-keyword">bangs,hair </span><span class="hljs-keyword">between </span>eyes,eyebrows visible through hair,<span class="hljs-keyword">blush,closed </span>mouth,light smile,neck ribbon,white sleeveless dress,crease,frilled_collar,detached_sleeves,flat chest,<br>hand on own chest,looking <span class="hljs-built_in">at</span> viewer,pov,<br><span class="hljs-keyword">cloud,sky,day,mountain,tree,grass,bridge,river,bird,blue </span>sky,<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">hiten,miyase_mahiro,ray tracing,<span class="hljs-number">2</span>girls, faceoff, hug, yuri,looking <span class="hljs-built_in">at</span> another,face to face, full <span class="hljs-keyword">body, </span><br><span class="hljs-keyword">AND, </span>hiten,miyase_mahiro,ray tracing,<span class="hljs-keyword">blonde </span>hair, <span class="hljs-keyword">blue </span>eyes, one side up,long hair, medium <span class="hljs-keyword">breasts, </span>white veil, cross necklace,light smile, faceoff, hug, yuri,looking <span class="hljs-built_in">at</span> another,<br><span class="hljs-keyword">AND,hiten,miyase_mahiro,ray </span>tracing,silver hair, long hair,red eyes, loli, <span class="hljs-keyword">bat </span>wings, lolita fashion, faceoff, hug, yuri,looking <span class="hljs-built_in">at</span> another,flying,<br>Negative prompt: lowres,<span class="hljs-keyword">bad </span>anatomy,<span class="hljs-keyword">bad </span>hands,text,error,missing fingers,<span class="hljs-keyword">extra </span><span class="hljs-keyword">digit,fewer </span><span class="hljs-keyword">digits,cropped,worst </span>quality,low quality,<span class="hljs-keyword">normal </span>quality,<span class="hljs-keyword">jpeg </span>artifacts,monochrome,signature,watermark,username,<span class="hljs-keyword">blurry,mutation,poorly </span>drawn,uncoordinated <span class="hljs-keyword">body,one </span>hand with more than <span class="hljs-number">5</span> fingers,one hand with less than <span class="hljs-number">5</span> fingers,solo<br><span class="hljs-symbol">Steps:</span> <span class="hljs-number">20</span>, Sampler: Euler a, CFG <span class="hljs-keyword">scale: </span><span class="hljs-number">7</span>, Seed: <span class="hljs-number">3619499167</span>, Size: <span class="hljs-number">960</span>x1344, Model hash: <span class="hljs-number">1449</span>e<span class="hljs-symbol">5b</span><span class="hljs-symbol">0b</span>9, Model: animagineXLV3_v30, Clip skip: <span class="hljs-number">2</span>, ENSD: <span class="hljs-number">31337</span>, Latent Couple: <span class="hljs-string">&quot;divisions=1:1,1:2,1:2 positions=0:0,0:0,0:1 weights=0.2,0.8,0.8 end at step=20&quot;</span>, <span class="hljs-keyword">Discard </span>penultimate sigma: True, <span class="hljs-keyword">Schedule </span>type: exponential, Eta: <span class="hljs-number">0</span>.<span class="hljs-number">667</span>, Version: <span class="hljs-built_in">v1</span>.<span class="hljs-number">7</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">pastel style,watercolor,<br><span class="hljs-number">2</span>girls,faceoff,detail light,<br>flower,<span class="hljs-keyword">cloud,sky,day,mountain,tree,grass,bridge,river,yellow </span>flower,<span class="hljs-keyword">blue </span>sky,road,water,nature,landscape,<span class="hljs-keyword">building,sun,field,</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">AND,pastel </span>sttyle,watercolor,<br>cherry <span class="hljs-keyword">blossoms,hair </span>flower,hair ribbon,cat ears,animal ear fluff,<span class="hljs-keyword">blue </span>eyes,grey hair,<span class="hljs-keyword">short </span>hair,<span class="hljs-keyword">bangs,hair </span><span class="hljs-keyword">between </span>eyes,eyebrows visible through hair,<span class="hljs-keyword">blush,closed </span>mouth,smile,neck ribbon,white sleeveless dress,crease,frilled_collar,detached_sleeves,flat chest,<br>yuri,looking <span class="hljs-built_in">at</span> another,kiss,faceoff,<br>simple <span class="hljs-keyword">background,white </span><span class="hljs-keyword">background,detail </span>light,<br><span class="hljs-keyword">AND,pastel </span>sttyle,watercolor,<br>silver hair,long hair,red eyes,(loli:<span class="hljs-number">1</span>.<span class="hljs-number">2</span>),<span class="hljs-keyword">bat </span>wings,lolita fashion,light smile,<br>yuri,looking <span class="hljs-built_in">at</span> another,kiss,faceoff,<br>simple <span class="hljs-keyword">background,black </span><span class="hljs-keyword">background,detail </span>light,<br></code></pre></td></tr></table></figure>
+
+
+<p>插件使用A1111 SD WebUI的特性：<a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#composable-diffusion">Features · AUTOMATIC1111&#x2F;stable-diffusion-webui Wiki</a></p>
+<blockquote>
+<p>待完成</p>
+</blockquote>
+<hr>
+<h1 id="四种放大策略的简单比较"><a href="#四种放大策略的简单比较" class="headerlink" title="四种放大策略的简单比较"></a>四种放大策略的简单比较</h1><blockquote>
+<p>文档来自Novel AI中文频道@<a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015">追光者</a></p>
+</blockquote>
+<p>本测试简单比较了Stable Diffusion WebUl下的四种图像放大策略。他们都可以有效地将低分<br>辨率图像转化为4k高质量高清图片</p>
+<h2 id="相关插件"><a href="#相关插件" class="headerlink" title="相关插件"></a>相关插件</h2><p>测试的四种方法涉及到四个插件</p>
+<p>放大插件:</p>
+<ul>
+<li>Tiled Diffusion &amp; Tiled VAE: <a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015/multidiffusion-upscaler-for-">https://github.com/pkuliyi2015/multidiffusion-upscaler-for-</a><br>automatic1111.git</li>
+<li>Ultimate SD Upscaler: <a target="_blank" rel="noopener" href="https://github.com/Coyote-A/ultimate-upscale-for-automatic11">https://github.com/Coyote-A/ultimate-upscale-for-automatic11</a><br>11.git</li>
+</ul>
+<p>UNet控制插件:</p>
+<ul>
+<li>ControlNet v1.1 Tile Model: <a target="_blank" rel="noopener" href="https://github.com/Mikubil/sd-webui-controlnet.git">https://github.com/Mikubil/sd-webui-controlnet.git</a></li>
+<li>StableSR: <a target="_blank" rel="noopener" href="https://github.com/pkuliyi2015/sd-webui-stablesr.git">https://github.com/pkuliyi2015/sd-webui-stablesr.git</a></li>
+</ul>
+<p>四个插件产生了四种非常强力的图像放大策略，是目前生成高质量4K AIGC图片的主要手段</p>
+<h2 id="比较的方法及其参数"><a href="#比较的方法及其参数" class="headerlink" title="比较的方法及其参数"></a>比较的方法及其参数</h2><p>原图为漫画图，尺寸1920x1536，2x放大后为3840x3072。均使用StableSR官方VQVAE以获<br>得最清晰的放大结果</p>
+<h3 id="TiledDiffusion-StableSR"><a href="#TiledDiffusion-StableSR" class="headerlink" title="TiledDiffusion + StableSR"></a>TiledDiffusion + StableSR</h3><p>官网推荐配置完全不变。具体来讲有下面这些影响生成图片的参数:</p>
+<ul>
+<li><p>主要设置</p>
+<ul>
+<li>没有Prompt，采样器 Euler a，步数20步</li>
+</ul>
+</li>
+<li><p>TiledDiffusion</p>
+<ul>
+<li>CFG Scale &#x3D;2</li>
+<li>Method &#x3D; Mixture of Diffusers</li>
+<li>Latent Tile Size &#x3D; 64</li>
+<li>Latent Tie Overlay &#x3D;32(目前看来设置成这么大效果最好)</li>
+<li>Upscaler&#x3D;None</li>
+</ul>
+</li>
+<li><p>StableSR</p>
+<ul>
+<li>Pure Noise 启用 (开启这个选项，插件将无视重绘幅度，添加尽可能多的细节)</li>
+<li>Color Fix&#x3D; wavelet</li>
+</ul>
+</li>
+</ul>
+<p>注意Tiled VAE会影而早存爆炸与不，对结里不构成干扰，比小不列参类</p>
+<h3 id="其他三种方法"><a href="#其他三种方法" class="headerlink" title="其他三种方法"></a>其他三种方法</h3><p>他们均依赖ControlNet Tile且有大量共同参数，此处先行列出:</p>
+<ul>
+<li>模型:Anything V4.5</li>
+<li>Positive Prompt: masterpiece, best quality, highres, very clear, city, sky scratchers</li>
+<li>Negative Prompt: ng_deepnegative_v1 75t, EasyNegative, (signature:1.5), (watermark:1.5)</li>
+<li>采样步数20步，采样器DPM++ 2M Karras</li>
+<li>初始放大器4x foolhary_Remacri</li>
+</ul>
+<h4 id="Tiled-Diffusion-Noise-Inversion-ControlNet-Tile"><a href="#Tiled-Diffusion-Noise-Inversion-ControlNet-Tile" class="headerlink" title="Tiled Diffusion + Noise Inversion + ControlNet Tile"></a>Tiled Diffusion + Noise Inversion + ControlNet Tile</h4><ul>
+<li>重绘幅度0.6</li>
+<li>Method &#x3D; Mixture of Diffusers</li>
+<li>Latent Tile Size &#x3D; 96</li>
+<li>Latent Tile Overlay&#x3D;8</li>
+<li>启用Noise Inversion</li>
+<li>Noise Inversion Steps &#x3D; 30</li>
+<li>Renoise Strength &#x3D; 0.4</li>
+</ul>
+<p>注意overlay是影响速度的最关键因素。其他保持默认即可</p>
+<h4 id="Tiled-Diffusion-ControlNet-Tile"><a href="#Tiled-Diffusion-ControlNet-Tile" class="headerlink" title="Tiled Diffusion + ControlNet Tile"></a>Tiled Diffusion + ControlNet Tile</h4><ul>
+<li>关闭Noise Inversion</li>
+<li>重绘幅度0.4和0.6都做了测试<br>。其他参数与前面相同</li>
+</ul>
+<h4 id="Ultimate-SD-Upscaler-ControlNet-Tile"><a href="#Ultimate-SD-Upscaler-ControlNet-Tile" class="headerlink" title="Ultimate SD Upscaler + ControlNet Tile"></a>Ultimate SD Upscaler + ControlNet Tile</h4><ul>
+<li>重绘幅度0.4和0.6都做了测试</li>
+<li>Tile width &#x3D; 768, Tile height &#x3D; 768</li>
+<li>Mask blur &#x3D;24, padding &#x3D; 32</li>
+<li>没有开缝隙修复，因为原图纹理较为复杂不规则，不易发现缝隙</li>
+</ul>
+<h3 id="用时记录"><a href="#用时记录" class="headerlink" title="用时记录"></a>用时记录</h3><ul>
+<li><p>借了一张16 GB Tesla V100上完成测试，每种方法都跑了三次取平均时长</p>
+</li>
+<li><p>显存足够，因此Tiled Diffusion的Latent Tile Batch Size可以设置为8来加速</p>
+</li>
+<li><p>从快到慢排序</p>
+<ul>
+<li>TiledDiffusion + ControlNet: 1分09秒(重绘0.4)1分26秒(重绘0.6)</li>
+<li>Ultimate SD Uoscaler:1分54秒(重绘0.4)2分03秒(重绘0.6)</li>
+<li>TiledDiffusion+ StableSR: 2分38秒</li>
+<li>TiledDiffusion + Noise Inversion + ControlNet Tile: 3分04秒<br>  注:测了一下Ultimate SD Upscaler的缝隙修复功能，发现时间暴涨50%，每种修复的时间增量还都不一样，因此没有继续测试</li>
+</ul>
+</li>
+<li><p>显存足够时TiledDiffusion + ControlNet最快，否则他与Ultimate SD Upscaler不开缝隙修<br>复接近，只相差几秒钟</p>
+<ul>
+<li>这很容易理解，同样是分块绘制，Tiled Diffusion能8块一起画</li>
+</ul>
+</li>
+<li><p>Tiled Diffusion + StableSR为什么慢很多</p>
+<ul>
+<li>这是因为StableSR是64的尺寸，32的overlap，比TiledDiffusion多出5倍的tile数量(32 -&gt;160)</li>
+<li>此外Pure Noise是文生图，会多出7个采样步数(13-20)</li>
+<li>也就是多算了892&#x2F;2&#x3D;448张512*512小图。按每8张小图1.5秒计算，差不多就慢了一分半</li>
+</ul>
+</li>
+<li><p>Tiled Diffusion + Noise Inversion + ControlNet Tile为什么最慢</p>
+<ul>
+<li>多出来的时长都是Noise Inversion的锅，显然30步Noise Inversion太多了，应酌情减</li>
+<li>经测试10步就够了，耗时相对Tiled Diffusion增加20秒左右，效果依然可用(然而比30步略糊一些)</li>
+</ul>
+</li>
+</ul>
+<h2 id="出图结果对比"><a href="#出图结果对比" class="headerlink" title="出图结果对比"></a>出图结果对比</h2><p>我提供了图包，也有在线对比:<a target="_blank" rel="noopener" href="https://imgsli.com/MTgwNzg0/1/5">https://imgsli.com/MTgwNzg0/1/5</a></p>
+<h3 id="Tiled-Diffusion-StableSR"><a href="#Tiled-Diffusion-StableSR" class="headerlink" title="Tiled Diffusion + StableSR"></a>Tiled Diffusion + StableSR</h3><ul>
+<li>这个方法是最优越的，因此首先介绍</li>
+<li>优点:<ul>
+<li>几乎完全忠实于原图。没有任何原图不存在的小物体或色斑等，人物的面部及瞳色等没有明显改变</li>
+<li>大幅提高清晰度，图片比其他方法看上去都更加清晰锐利，细节细致不糊</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>需要下载一个5.21GB的SD 2.1 512模型，一个400MB的SRModule，和一个700MB的VAE</li>
+<li>耗时并不短，需要消耗最快方法的2.5倍时间</li>
+</ul>
+</li>
+<li>然而瑕不掩瑜，就效果而言此方法最理想，测试的其他三种方法不仅会明显改图，且都比<br>它糊</li>
+</ul>
+<h3 id="Tiled-Diffusion-ControlNet-Tile-1"><a href="#Tiled-Diffusion-ControlNet-Tile-1" class="headerlink" title="Tiled Diffusion + ControlNet Tile"></a>Tiled Diffusion + ControlNet Tile</h3><ul>
+<li>优点:<ul>
+<li>借助ControlNet Tile model的力量为原图添加丰富的细节。</li>
+<li>在Latent Tile Batch Size 能设置为8时(要求显存&gt;&#x3D;12GB)该方法最快，比第二快的Ultimate SD Upscaler快40%<ul>
+<li>在显存 &lt;&#x3D; 6GB 时须设置Latent Tile Batch Size为1，该方法的速度降低到1分47秒，两者时间接近</li>
+<li>注意不要按官方默认设置的Overlap&#x3D;48，请设置Overlap为8，否则出图差不多但是消耗时间2.5倍</li>
+</ul>
+</li>
+<li>与Ultimate SD Upscaler相比，仔细观察也没有肉眼可见的缝隙。纯色背景(如蓝天)下这个优势更加明显</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>与Ultimate SD Upscaler结里类似</li>
+<li>清晰度不太够，画面有轻微朦胧感。换用初始upscaler为UltraSharp或者RealESRGAN Anime6B改善有限</li>
+<li>虽然会增加细节，但细节缺少整洁感，画面显得凌乱。在高重绘(0.6)下产生大量不合理细节，人物瞳色也变了</li>
+</ul>
+</li>
+<li>该方法能在速度和质量上都超过Ultimate SD Upscaler + ControlNet Tile</li>
+</ul>
+<h3 id="Ultimate-SD-Upscaler-ControlNet-Tile-1"><a href="#Ultimate-SD-Upscaler-ControlNet-Tile-1" class="headerlink" title="Ultimate SD Upscaler + ControlNet Tile"></a>Ultimate SD Upscaler + ControlNet Tile</h3><ul>
+<li>优点:<ul>
+<li>最大的优点还是功能少，用起来简单的多</li>
+<li>出图细节和Tiled Diffusion + ControlNet Tile差不多</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>对于纯色的背景或者区域，易产生缝隙，需要开启缝隙修复</li>
+<li>一旦开启缝隙修复则时间暴增，耗时超过Tiled Diffusion+ StableSR，得不偿失</li>
+<li>其他缺点和Tiled Diffusion + ControlNet Tile-样</li>
+</ul>
+</li>
+</ul>
+<h3 id="Tiled-Diffusion-Noise-Inversion-ControlNet-Tile-1"><a href="#Tiled-Diffusion-Noise-Inversion-ControlNet-Tile-1" class="headerlink" title="Tiled Diffusion + Noise Inversion + ControlNet Tile"></a>Tiled Diffusion + Noise Inversion + ControlNet Tile</h3><ul>
+<li>优点:<ul>
+<li>在为图片补充细节的同时，可没有多余的细节，画面整洁干净</li>
+<li>出图线条清晰，边缘锐利，对比度高，审美上较好</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>太慢了。耗时是最快方法的近三倍</li>
+<li>依然会改图。效果类似StableSR和ControlNet之间的折衷</li>
+</ul>
+</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>比较结果:</p>
+<ul>
+<li>出图高清程度:Tiled Dlffusion + StableSR &gt;&gt;Tiled Diffusion + Noise Inversion + ControlNet Tile&gt;剩下两个方法(重绘幅度0.4，0.6都差不多)<ul>
+<li>注意高清不一定是好事。有的图就是要朦胧产生美，清晰了就变丑了(狗头)</li>
+</ul>
+</li>
+<li>出图速度:Tiled Diffusion + ControlNet Tile &gt;Ultimate SD Upscaler(不开seam fix)&gt;Tiled Diffusion + StableSR &gt; Tiled Diffusion + Noise Inversion + ControlNet Tile<ul>
+<li>出图速度前两名的两个方法都会添加大量细节，重绘幅度越高添加细节越多</li>
+<li>注意额外的细节不一定是好事，反而可能破坏画面，显得脏乱</li>
+</ul>
+</li>
+</ul>
+<p>根据画图目的，可以做如下划分:<br>1.放大图像，想要非常清晰的细节，又不想大幅改变图片内容:Tiled Diffusion+StableSR<br>2.原图太干净，想要添加很多细节:Tiled Diffusion + ControlNet Tile Model&#x2F;Ultimate SD Upscaler，效果差不多，前者速度快<br>3.想要适当补充合理细节，又时间充裕:Tiled Diffusion+Noise Inversion + ControlNet<br>Tile</p>
+<p>我个人无脑选择Tiled Diffusion + Stable SR<br>然而作为Tiled Difusion插件作者，我认为虽然其功能和出图性能都更加强大，但Ultimate SD Upscaler能作为其简单替代品</p>
+<h3 id="Tiled-Diffusion插件的缺点"><a href="#Tiled-Diffusion插件的缺点" class="headerlink" title="Tiled Diffusion插件的缺点:"></a>Tiled Diffusion插件的缺点:</h3><ul>
+<li>必须要配合Tiled VAE，否则炸显存。但两个插件加在一起选项变得很多，难以快速上手</li>
+<li>不支持很多AMD GPU(因为DirectML有个bug，大张量左下角会归0，我也没法修)</li>
+<li>在不使用StableSR时，overlap有陷阱。调高则耗时暴涨，结果却没有明显改善<ul>
+<li>实际上4到8就够了，我默认却给的48。主要是那个时候还没有ControlNet Tile Model</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ultimate-SD-Upscaler插件的优点"><a href="#Ultimate-SD-Upscaler插件的优点" class="headerlink" title="Ultimate SD Upscaler插件的优点:"></a>Ultimate SD Upscaler插件的优点:</h3><ul>
+<li>兼容AMD GPU，不会在左下角产生黑图。可能是黑图的AMD GPU的唯一解</li>
+<li>功能单一，容易学习，你即便调错参数也不会导致耗时暴涨，适合入门选手</li>
+<li>图是一块一块的生成，不开Tiled VAE也不会炸显存</li>
+</ul>
+<p>在如下三种情况下可以使用Ultimate SD Upscaler:<br>1.AMD GPU用户，发现Tiled Diffusion出图左下角有黑块<br>2.不想学习复杂的插件参数</p>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h1 id="解决SDXL鬼图的"><a href="#解决SDXL鬼图的" class="headerlink" title="解决SDXL鬼图的"></a>解决SDXL鬼图的</h1><p><code>设置</code> -&gt; <code>SD</code>，把<code>强调模式</code>改为<code>No norm</code></p>
+<h1 id="调整-模型卡片的大小"><a href="#调整-模型卡片的大小" class="headerlink" title="调整  模型卡片的大小"></a>调整  模型卡片的大小</h1><p>打开<code>设置</code>-&gt;<code>扩展</code>-&gt;，在<code>扩展模型卡片宽度</code>和<code>扩展模型卡片高度</code>修改模型卡片的大小</p>
+<h1 id="禁用-SD-WebUI-自动隐藏不匹配大模型版本的模型的功能"><a href="#禁用-SD-WebUI-自动隐藏不匹配大模型版本的模型的功能" class="headerlink" title="禁用 SD WebUI 自动隐藏不匹配大模型版本的模型的功能"></a>禁用 SD WebUI 自动隐藏不匹配大模型版本的模型的功能</h1><p><code>设置</code> -&gt; <code>扩展模型</code>，将<code>在 Lora 页面保持显示所有模型 (否则, 将隐藏不兼容当前加载的 Stable Diffusion 模型版本的模型)</code>选项勾上</p>
+<h1 id="HuggingFace-设置镜像"><a href="#HuggingFace-设置镜像" class="headerlink" title="HuggingFace 设置镜像"></a>HuggingFace 设置镜像</h1><ul>
+<li><p>1、</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> HF_ENDPOINT=<span class="hljs-string">&quot;https://huggingface.sukaka.top&quot;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>2、</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>os.environ[<span class="hljs-string">&quot;HF_ENDPOINT&quot;</span>] = <span class="hljs-string">&quot;https://huggingface.sukaka.top&quot;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="ComfyUI-和-SD-WebUI-共享模型目录"><a href="#ComfyUI-和-SD-WebUI-共享模型目录" class="headerlink" title="ComfyUI 和 SD WebUI 共享模型目录"></a>ComfyUI 和 SD WebUI 共享模型目录</h1><p>编辑ComfyUI目录中的<code>extra_model_paths.yaml.example</code><br>找到a111选项，把base_path的路径修改为stable-diffusion-webui的路径</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#Rename this to extra_model_paths.yaml and ComfyUI will load it</span><br><br><br><span class="hljs-comment">#config for a1111 ui</span><br><span class="hljs-comment">#all you have to do is change the base_path to where yours is installed</span><br><span class="hljs-attr">a111:</span><br>    <span class="hljs-attr">base_path:</span> <span class="hljs-string">E:/Softwares/stable-diffusion-webui</span> <span class="hljs-comment"># 填写sd-webui的路径</span><br><br>    <span class="hljs-attr">checkpoints:</span> <span class="hljs-string">models/Stable-diffusion</span><br>    <span class="hljs-attr">configs:</span> <span class="hljs-string">models/Stable-diffusion</span><br>    <span class="hljs-attr">vae:</span> <span class="hljs-string">models/VAE</span><br>    <span class="hljs-attr">loras:</span> <span class="hljs-string">|</span><br><span class="hljs-string">         models/Lora</span><br><span class="hljs-string">         models/LyCORIS</span><br><span class="hljs-string"></span>    <span class="hljs-attr">upscale_models:</span> <span class="hljs-string">|</span><br><span class="hljs-string">                  models/ESRGAN</span><br><span class="hljs-string">                  models/RealESRGAN</span><br><span class="hljs-string">                  models/SwinIR</span><br><span class="hljs-string"></span>    <span class="hljs-attr">embeddings:</span> <span class="hljs-string">embeddings</span><br>    <span class="hljs-attr">hypernetworks:</span> <span class="hljs-string">models/hypernetworks</span><br>    <span class="hljs-attr">controlnet:</span> <span class="hljs-string">models/Controlnet</span><br>    <span class="hljs-attr">ipadapter:</span> <span class="hljs-string">models/Controlnet</span> <span class="hljs-comment"># ipadapter模型</span><br>    <span class="hljs-attr">clip_vision:</span> <span class="hljs-string">extensions/sd-webui-controlnet/annotator/downloads/clip_vision</span> <span class="hljs-comment"># clip_vision模型</span><br>    <span class="hljs-comment"># animatediff模型共享的说明: https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved?tab=readme-ov-file#model-setup</span><br>    <span class="hljs-attr">animatediff_models:</span> <span class="hljs-string">extensions/sd-webui-animatediff/model</span> <span class="hljs-comment"># animatediff模型</span><br>    <span class="hljs-attr">animatediff_motion_lora:</span> <span class="hljs-string">extensions/sd-webui-animatediff/model</span> <span class="hljs-comment"># animatediff lora模型</span><br><br><br><span class="hljs-comment">#config for comfyui</span><br><span class="hljs-comment">#your base path should be either an existing comfy install or a central folder where you store all of your models, loras, etc.</span><br><br><span class="hljs-attr">comfyui:</span><br><span class="hljs-comment">#     base_path: path/to/comfyui/</span><br><span class="hljs-comment">#     checkpoints: models/checkpoints/</span><br><span class="hljs-comment">#     clip: models/clip/</span><br><span class="hljs-comment">#     configs: models/configs/</span><br><span class="hljs-comment">#     controlnet: models/controlnet/</span><br><span class="hljs-comment">#     embeddings: models/embeddings/</span><br><span class="hljs-comment">#     loras: models/loras/</span><br><span class="hljs-comment">#     upscale_models: models/upscale_models/</span><br><span class="hljs-comment">#     vae: models/vae/</span><br><br><br><span class="hljs-comment">#other_ui:</span><br><span class="hljs-comment">#    base_path: path/to/ui</span><br><span class="hljs-comment">#    checkpoints: models/checkpoints</span><br><span class="hljs-comment">#    gligen: models/gligen</span><br><span class="hljs-comment">#    custom_nodes: path/custom_nodes</span><br></code></pre></td></tr></table></figure>
+<p>将<code>extra_model_paths.yaml.example</code>文件的名字改为<code>extra_model_paths.yaml</code><br>重启ComfyUI后生效</p>
+<hr>
+<h1 id="Lora-训练"><a href="#Lora-训练" class="headerlink" title="Lora 训练"></a>Lora 训练</h1><h2 id="正则训练的原理"><a href="#正则训练的原理" class="headerlink" title="正则训练的原理"></a>正则训练的原理</h2><p>正則的簡單攻略：<br>假設你有一系列A的圖，打標a</p>
+<p>但是實際上它可能是<br>ab → AB<br>abc → ABC</p>
+<p>那你現在只打標a，那就會變成<br>a → AB<br>a → ABC</p>
+<p>使用的時候可能就會變成<br>ade → ABCDE</p>
+<p>為什麼？因為模型學到的不是a→A,是a→AB&#x2F;ABC</p>
+<p>那麼要怎麼解決這個問題呢？<br>很簡單，讓模型知道B&#x2F;C是什麼就好：</p>
+<p>所以你變成<br>a → AB<br>a → ABC<br>b → B<br>c → C</p>
+<p>這時候模型就知道B&#x2F;C跟a無關<br>而是跟b&#x2F;c綁定<br>於是你單走a就會輸出A，而不是ABC</p>
+<p>而b→B c→C就是正則</p>
+<h2 id="dim"><a href="#dim" class="headerlink" title="dim"></a>dim</h2><p>Dim 为网络维度，影响模型的大小（Dim 越大，模型越大，但某些参数下 Dim 的值将失效）、训练时显存的占用大小（和 Dim 值成正比）。Dim 并不是越大越好，通常来说训练单人物 &#x2F; 单画风 用 Dim 8 就行，用 Dim 4 也可以达到比较好的效果。</p>
+<h2 id="batcb-size"><a href="#batcb-size" class="headerlink" title="batcb size"></a>batcb size</h2><p>训练批量大小，指训练时同时进行训练的图片张数，该值越高显存占用越大。在其他参数不变的情况下，Batch Size 较大时将会出现类似囫囵吞枣的情况，也就是学习的速度慢了，在较高的 Epoch 下才看到比较好的训练效果，这时就需要更高的学习率</p>
+<h2 id="梯度累加步数"><a href="#梯度累加步数" class="headerlink" title="梯度累加步数"></a>梯度累加步数</h2><p>通过时间换空间，增加 batch size 的大小，当 batch size 设置为 2，梯度累加步数设为 4，则等效 batch size 为 8.</p>
+<h2 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h2><p>名字带有 8bit 的优化器为启用 int8 的优化器，显存占用率较低。</p>
+<p>Lion 优化器需要较高 Batch Size，但在高 Batch Size 下需要调整学习率时可使用该优化器。，通常情况下 Lion 需要的学习率比 AdamW 要低。<br>Lion 在学习速度上较快，如果使用较高的学习率可能会导致出现比较奇怪的结果 &#x2F; 过拟合。</p>
+<p>如果使用较低的 batch size，建议使用 AdamW。</p>
+<p>Lion 拟合速度快的特效适合搭配 cosine_with_restarts 学习率调度器。</p>
+<blockquote>
+<p>关于 Lion 优化器的论文：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.06675">[2302.06675] Symbolic Discovery of Optimization Algorithms</a></p>
+</blockquote>
+<h2 id="lokr"><a href="#lokr" class="headerlink" title="lokr"></a>lokr</h2><p>建议触发 full dim（full matrix）来使用，可通过将 network dim 和 conv dim 同时设置为一个非常大的值（非正常的值）进行触发，如<code>100000</code>，此时 network dim 和 conv dim 的值将被忽略。</p>
+<p>学习的深度由 lokr factor 进行调整，该值越小，模型学习的深度越高，学得的东西越多，可使学习的效果更容易迁移，即 LoRA 模型可在别的模型上也有较好的表现，而 LoRA 模型的体积将越大。</p>
+<p>lokr factor 较小时，可能需要较小的学习率防止过拟合。</p>
+<p>使用 lokr 训练二次元的 LoRA 时可尝试的参数：<code>factor=8</code>，<code>full_matrix=True</code>（通过 full dim 触发），<code>lr=1e-4~1e-3</code></p>
+<h2 id="train-norm"><a href="#train-norm" class="headerlink" title="train norm"></a>train norm</h2><p>启用后将训练 layernorm 和 groupnorm，增强学习能力，并且训练的时候对初始值的依赖度会降低（如学习率等），提高容错率，泛化率，或者间接防止过拟合。</p>
+<p>实测中启用该值后可能需要调小学习率。</p>
+<h2 id="梯度检查点"><a href="#梯度检查点" class="headerlink" title="梯度检查点"></a>梯度检查点</h2><p>模拟高 batch size（？），启用后可以降低显存占用。</p>
+<h2 id="ARB-桶"><a href="#ARB-桶" class="headerlink" title="ARB 桶"></a>ARB 桶</h2><p>启用后可以不用将图片进行裁剪就可以进行训练。</p>
+<p>注意，ARB 桶分辨率必须大于训练分辨率，如果素材中存在较低分辨率的图片，建议使用放大工具（可使用 SD WebUI 的后期处理）将图片进行放大，因为 ARB 桶的放大算法可能会造成图片缩放后质量更低，影响训练效果。</p>
+<h2 id="仅训练-U-Net"><a href="#仅训练-U-Net" class="headerlink" title="仅训练 U-Net"></a>仅训练 U-Net</h2><p>在训练 SDXL 的 LoRA 时推荐启用，训练画风也推荐启用，<del>训练人物 LoRA 时则关闭</del>。</p>
+<p>NovelAI 在训练模型时并没有训练 Text Encoder。Text Encoder 并不容易训练，而且容易训练烂，所以仅训练 U-Net 比较适合。</p>
+<p>仅训练 U-Net 时打标也起作用，在训练多画风 LoRA 时使用了触发词进行训练并启用了仅训练 U-Net，训练得到的模型也能够正常使用触发词触发画风，也就是仅训练 U-Net 也能把触发词练进去。</p>
+<h2 id="多卡训练"><a href="#多卡训练" class="headerlink" title="多卡训练"></a>多卡训练</h2><p>多卡训练默认为多 BS，当训练参数中 BS 设为 1，但使用 2 张显卡进行训练，则实际上的 BS 为 2。</p>
+<h2 id="full-fp16"><a href="#full-fp16" class="headerlink" title="full fp16"></a>full fp16</h2><p>可降低内存和显存占用。</p>
+<h1 id="最大范数正则化"><a href="#最大范数正则化" class="headerlink" title="最大范数正则化"></a>最大范数正则化</h1><p>提高泛化性，限制训练时不偏离模型太远，防止过拟合，但会使训练拟合的速度变慢。</p>
+<h1 id="Loss、学习率、学习率调度器、优化器的关系"><a href="#Loss、学习率、学习率调度器、优化器的关系" class="headerlink" title="Loss、学习率、学习率调度器、优化器的关系"></a>Loss、学习率、学习率调度器、优化器的关系</h1><p>把 Loss 简化成三维的面，梯度下降算法就是不断的找出当前点周围坡最陡的地方，一步步向下。学习率大相当于每步迈的大，假如坑比较小，每步都会跨到坑另一边，就会不断的循环震荡。学习率退火相当于走的越来越慢，会逐步的向面中的某个坑靠拢，最后停在坑中相对较低的地方。</p>
+<h1 id="noise-offset"><a href="#noise-offset" class="headerlink" title="noise offset"></a>noise offset</h1><p>使训练出来的模型能更好的表现暗处和亮处，而不是生成</p>
+<p>有关偏移噪声的说明：<a target="_blank" rel="noopener" href="https://www.crosslabs.org//blog/diffusion-with-offset-noise">Diffusion with Offset Noise</a></p>
+<h1 id="零终端信噪比"><a href="#零终端信噪比" class="headerlink" title="零终端信噪比"></a>零终端信噪比</h1><p>zero_terminal_snr 可以使模型在暗处和亮处的表现更好，并且解决颜色污染问题，NovelAI 3 就使用了 zero_terminal_snr 改善模型在此部分的表现效果。</p>
+<p>NovelAI 3 的技术报告：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.15997">[2409.15997] Improvements to SDXL in NovelAI Diffusion V3</a></p>
+<h2 id="训练集处理"><a href="#训练集处理" class="headerlink" title="训练集处理"></a>训练集处理</h2><h3 id="训练画风"><a href="#训练画风" class="headerlink" title="训练画风"></a>训练画风</h3><p>将图片中的所有元素进行标记，尽量去除训练集中有画风不一致的图。</p>
+<h3 id="训练人物"><a href="#训练人物" class="headerlink" title="训练人物"></a>训练人物</h3><p>将需要保留的人物特征的标签删除，但对人物特征的更改更难。</p>
+<p>另一种方法是将图片中所有的元素进行标记，但写上触发词，使用 LoRA 时通过触发词使 LoRA 生效（推荐）。</p>
+<p>训练人物一般不需要使用正则化，这会降低拟合度，使角色还原度降低，如果要练人物身上的衣服或者其他装饰才需要正则化，使装饰和人物不再绑定。</p>
+<h3 id="处理工具"><a href="#处理工具" class="headerlink" title="处理工具"></a>处理工具</h3><table>
+<thead>
+<tr>
+<th>数据集处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/deepghs/imgutils">imgutils</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/KohakuBlueleaf/HakuBooru">HakuBooru</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/deepghs/cheesechaser">cheesechaser</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/jiayev/GPT4V-Image-Captioner">GPT4V-Image-Captioner</a></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Akegarasu/lora-scripts">lora-scripts</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">sd-scripts</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/deepghs/waifuc">waifuc</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Nerogar/OneTrainer">OneTrainer</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/bghira/SimpleTuner">SimpleTuner</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/bmaltais/kohya_ss">kohya_ss</a></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>可供参考的：<br><a target="_blank" rel="noopener" href="https://arxiv.org/html/2309.14859v2">https://arxiv.org/html/2309.14859v2</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/KBlueLeaf/Kohaku-XL-Delta/blob/main/docs/train_script.sh">https://huggingface.co/KBlueLeaf/Kohaku-XL-Delta/blob/main/docs/train_script.sh</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.14859v2">https://arxiv.org/abs/2309.14859v2</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.09353v6">https://arxiv.org/abs/2402.09353v6</a><br><a target="_blank" rel="noopener" href="https://github.com/KohakuBlueleaf/LyCORIS/blob/main/example_configs/training_configs/kohya/lokr_config.toml">https://github.com/KohakuBlueleaf/LyCORIS/blob/main/example_configs/training_configs/kohya/lokr_config.toml</a><br><a target="_blank" rel="noopener" href="https://github.com/KohakuBlueleaf/LyCORIS/blob/main/docs/Algo-List.md">https://github.com/KohakuBlueleaf/LyCORIS/blob/main/docs/Algo-List.md</a><br><a target="_blank" rel="noopener" href="https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters">https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters</a><br><a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts?tab=readme-ov-file#links-to-usage-documentation">https://github.com/kohya-ss/sd-scripts?tab=readme-ov-file#links-to-usage-documentation</a></p>
+</blockquote>
+<h2 id="可用的一些训练参数"><a href="#可用的一些训练参数" class="headerlink" title="可用的一些训练参数"></a>可用的一些训练参数</h2><p>SD Trainer 默认的训练参数：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">model_train_type</span> = <span class="hljs-string">&quot;sd-lora&quot;</span><br><span class="hljs-attr">pretrained_model_name_or_path</span> = <span class="hljs-string">&quot;./sd-models/model.safetensors&quot;</span><br><span class="hljs-attr">v2</span> = <span class="hljs-literal">false</span><br><span class="hljs-attr">train_data_dir</span> = <span class="hljs-string">&quot;./train/aki&quot;</span><br><span class="hljs-attr">prior_loss_weight</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;512,512&quot;</span><br><span class="hljs-attr">enable_bucket</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">min_bucket_reso</span> = <span class="hljs-number">256</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1024</span><br><span class="hljs-attr">bucket_reso_steps</span> = <span class="hljs-number">64</span><br><span class="hljs-attr">output_name</span> = <span class="hljs-string">&quot;aki&quot;</span><br><span class="hljs-attr">output_dir</span> = <span class="hljs-string">&quot;./output&quot;</span><br><span class="hljs-attr">save_model_as</span> = <span class="hljs-string">&quot;safetensors&quot;</span><br><span class="hljs-attr">save_precision</span> = <span class="hljs-string">&quot;fp16&quot;</span><br><span class="hljs-attr">save_every_n_epochs</span> = <span class="hljs-number">2</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">10</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">false</span><br><span class="hljs-attr">network_train_unet_only</span> = <span class="hljs-literal">false</span><br><span class="hljs-attr">network_train_text_encoder_only</span> = <span class="hljs-literal">false</span><br><span class="hljs-attr">learning_rate</span> = <span class="hljs-number">0.0001</span><br><span class="hljs-attr">unet_lr</span> = <span class="hljs-number">0.0001</span><br><span class="hljs-attr">text_encoder_lr</span> = <span class="hljs-number">0.00001</span><br><span class="hljs-attr">lr_scheduler</span> = <span class="hljs-string">&quot;cosine_with_restarts&quot;</span><br><span class="hljs-attr">lr_warmup_steps</span> = <span class="hljs-number">0</span><br><span class="hljs-attr">lr_scheduler_num_cycles</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">optimizer_type</span> = <span class="hljs-string">&quot;AdamW8bit&quot;</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;networks.lora&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">32</span><br><span class="hljs-attr">network_alpha</span> = <span class="hljs-number">32</span><br><span class="hljs-attr">log_with</span> = <span class="hljs-string">&quot;tensorboard&quot;</span><br><span class="hljs-attr">logging_dir</span> = <span class="hljs-string">&quot;./logs&quot;</span><br><span class="hljs-attr">caption_extension</span> = <span class="hljs-string">&quot;.txt&quot;</span><br><span class="hljs-attr">shuffle_caption</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">keep_tokens</span> = <span class="hljs-number">0</span><br><span class="hljs-attr">max_token_length</span> = <span class="hljs-number">255</span><br><span class="hljs-attr">seed</span> = <span class="hljs-number">1337</span><br><span class="hljs-attr">clip_skip</span> = <span class="hljs-number">2</span><br><span class="hljs-attr">mixed_precision</span> = <span class="hljs-string">&quot;fp16&quot;</span><br><span class="hljs-attr">xformers</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">lowram</span> = <span class="hljs-literal">false</span><br><span class="hljs-attr">cache_latents</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">cache_latents_to_disk</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">persistent_data_loader_workers</span> = <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>下方的训练参数基于默认参数进行修改。</p>
+<ul>
+<li>1、<br>使用 LyCORIS 中的 lokr 算法训练 SDXL 的画风 LoRA，使用 RTX 4090 进行训练，显存占用在 21GB 左右。</li>
+</ul>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">12</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_train_unet_only</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">optimizer_type</span> = <span class="hljs-string">&quot;Lion8bit&quot;</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">train_norm</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>要更快的学习速度，可以把学习率升到 15e-5，不过要注意高学习率可能会导致的画面崩坏（肢体容易崩），12e-5 会比较好点。<br>如果不想让肢体那么容易崩坏，用 1e-4 的学习率就行了，学得慢就调高 epoch。</p>
+</blockquote>
+<p>2、<br>使用 LyCORIS 中的 lokr 算法训练 SDXL 的画风 LoRA，使用 RTX 4090 进行训练，显存占用在 21GB 左右。LoRA 体积较小，牺牲了训练结果可迁移性。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">12</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">learning_rate</span> = <span class="hljs-number">1</span>e-<span class="hljs-number">3</span><br><span class="hljs-attr">unet_lr</span> = <span class="hljs-number">1</span>e-<span class="hljs-number">3</span><br><span class="hljs-attr">network_train_unet_only</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">optimizer_type</span> = <span class="hljs-string">&quot;Lion8bit&quot;</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">train_norm</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">32</span><br></code></pre></td></tr></table></figure>
+
+<p>3、<br>使用 LyCORIS 中的 lokr 算法训练 SDXL 的画风 LoRA，使用 RTX 4060 Laptop 进行训练，显存占用在 5.6GB 左右。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">save_every_n_epochs</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_train_unet_only</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">network_alpha</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">fp8_base</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">conv_alpha</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">8</span><br><span class="hljs-attr">train_norm</span>=<span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<p>4、<br>使用 LyCORIS 中的 lokr 算法训练 SDXL 的画风 LoRA，使用 RTX 4060 Laptop 进行训练，显存占用在 7.2GB 左右。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">save_every_n_epochs</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">learning_rate</span> = <span class="hljs-number">14</span>e-<span class="hljs-number">5</span><br><span class="hljs-attr">unet_lr</span> = <span class="hljs-number">14</span>e-<span class="hljs-number">5</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">3</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_train_unet_only</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">network_alpha</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">fp8_base</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">conv_alpha</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">8</span><br><span class="hljs-attr">train_norm</span>=<span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果想训练更快，可以将学习率调到 2e-4，实测调到 23e-5 时就会出现轻微崩坏。</p>
+</blockquote>
+<p>5、<br>使用 LyCORIS 中的 lokr 算法训练 SDXL 的人物 LoRA，使用 Tesla T4 x 2 进行训练。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">save_every_n_epochs</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">unet_lr</span> = <span class="hljs-number">1</span>e-<span class="hljs-number">4</span><br><span class="hljs-attr">text_encoder_lr</span> = <span class="hljs-number">1</span>e-<span class="hljs-number">5</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">3</span><br><span class="hljs-attr">scale_weight_norms</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">network_alpha</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">fp8_base</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">conv_alpha</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">8</span><br><span class="hljs-attr">train_norm</span>=<span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>使用 LyCORIS 中的 lokr 算法训练 SDXL 的人物 LoRA，使用 Tesla T4 x 2 进行训练。</li>
+</ol>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">resolution</span> = <span class="hljs-string">&quot;1024,1024&quot;</span><br><span class="hljs-attr">max_bucket_reso</span> = <span class="hljs-number">1536</span><br><span class="hljs-attr">max_train_epochs</span> = <span class="hljs-number">50</span><br><span class="hljs-attr">save_every_n_epochs</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">unet_lr</span> = <span class="hljs-number">1</span>e-<span class="hljs-number">4</span><br><span class="hljs-attr">text_encoder_lr</span> = <span class="hljs-number">1.4</span>e-<span class="hljs-number">5</span><br><span class="hljs-attr">train_batch_size</span> = <span class="hljs-number">3</span><br><span class="hljs-attr">scale_weight_norms</span> = <span class="hljs-number">1</span><br><span class="hljs-attr">gradient_checkpointing</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">network_module</span> = <span class="hljs-string">&quot;lycoris.kohya&quot;</span><br><span class="hljs-attr">network_dim</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">network_alpha</span> = <span class="hljs-number">100000</span><br><span class="hljs-attr">fp8_base</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">conv_dim</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">conv_alpha</span>=<span class="hljs-number">100000</span><br><span class="hljs-attr">algo</span>=lokr<br><span class="hljs-attr">factor</span>=<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>未完成</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Stable Diffusion 那些事</div>
+      <div>http://licyk.github.io/2023/12/23/learn-sd-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/03/06/how-to-use-cloudflare-worker-and-pages-services-to-proxy/" title="如何使用cloudflare的workers、pages功能进行网络加速">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">如何使用cloudflare的workers、pages功能进行网络加速</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/18/how-to-use-github-action-to-sync-repo/" title="如何使用Github Action同步代码到其他平台">
+                        <span class="hidden-mobile">如何使用Github Action同步代码到其他平台</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
