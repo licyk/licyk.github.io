@@ -1,0 +1,1456 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录一下在 Vercel + Neon 自部署 Umami，并接入 Hexo Fluid 作为博客 PV&#x2F;UV 统计的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为 Hexo Fluid 接入 Umami 浏览量统计">
+<meta property="og:url" content="https://licyk.netlify.app/2026/06/05/add-umami-pageview-to-hexo-fluid/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="记录一下在 Vercel + Neon 自部署 Umami，并接入 Hexo Fluid 作为博客 PV&#x2F;UV 统计的方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-05T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T10:34:00.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="umami">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>为 Hexo Fluid 接入 Umami 浏览量统计 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="为 Hexo Fluid 接入 Umami 浏览量统计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-05 12:00" pubdate>
+          2026年6月5日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          15k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          130 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">为 Hexo Fluid 接入 Umami 浏览量统计</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年6月8日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近给博客浏览量统计又折腾了一圈。之前用过 LeanCloud，也写过一篇把 Fluid 接到 Waline 浏览量统计的文章，后来又看过 OpenKounter。几个方案都能用，但各自都有一点小尾巴。</p>
+<p>LeanCloud 后面要停止对外提供服务，继续用的话迟早还要迁移。Waline 虽然能做文章浏览量，但全站 PV&#x2F;UV 需要自己绕一层虚拟路径。OpenKounter 更偏向轻量计数，如果只是显示数字当然够用，但想看访问来源、设备、地区这些数据，就不太像一个完整统计后台了。</p>
+<p>所以这次换成 <a target="_blank" rel="noopener" href="https://umami.is/">Umami</a>。它是一个开源的网站访问统计工具，支持自部署，也有 API，可以同时负责后台统计和 Fluid 前台显示 PV&#x2F;UV。嗯，至少不用再一边补计数逻辑一边安慰自己“能跑就行”。</p>
+<p>这篇文章记录一下：怎么用 Vercel + Neon 自部署 Umami，然后把它接到 Hexo Fluid 主题里，用来显示博客的全站 PV&#x2F;UV 和文章阅读量。</p>
+<!-- more -->
+
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>开始之前，先把需要的东西列一下：</p>
+<ul>
+<li>一个 GitHub 账号，用来 Fork Umami 项目。</li>
+<li>一个 Vercel 账号，用来部署 Umami。</li>
+<li>一个 Neon PostgreSQL 数据库，可以直接通过 Vercel Storage 创建。</li>
+<li>一个使用 Hexo Fluid 主题的博客。</li>
+</ul>
+<div class="note note-info">
+            <p>Fluid 的 Umami 统计展示依赖自部署 Umami 的 API。如果只是想让 Umami 后台记录访问数据，只配置 tracking script 就行；但如果还想在博客页脚和文章页显示 PV&#x2F;UV，就需要额外配置 <code>website_id</code>、<code>token</code>、<code>api_server</code> 等字段。</p> 
+          </div>
+
+<h1 id="Fork-Umami-项目"><a href="#Fork-Umami-项目" class="headerlink" title="Fork Umami 项目"></a>Fork Umami 项目</h1><p>先打开 Umami 的 GitHub 仓库：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://github.com/umami-software/umami<br></code></pre></td></tr></table></figure>
+
+<p>点击右上角 <code>Fork</code>，把项目 Fork 到自己的 GitHub 账号下面。后面 Vercel 和 Netlify 都会从这个 Fork 后的仓库导入项目。</p>
+<h1 id="创建-Neon-数据库"><a href="#创建-Neon-数据库" class="headerlink" title="创建 Neon 数据库"></a>创建 Neon 数据库</h1><p>数据库这里不用单独跑去 Neon 官网创建，直接在 <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a> 的 Storage 里新建一个 Neon 数据库就行。</p>
+<ol>
+<li>打开 Vercel Dashboard。</li>
+<li>进入 <code>Storage</code>。</li>
+<li>点击 <code>Create Database</code>。</li>
+<li>选择 <code>Neon</code>。</li>
+<li>数据库名称可以填 <code>blog-umami</code>，名字填其他的也行。</li>
+<li>创建完成后进入数据库详情，点击 <code>Show secret</code> 显示隐藏的数据库信息。</li>
+<li>找到连接信息，复制 <code>DATABASE_URL</code>。</li>
+</ol>
+<p><code>DATABASE_URL</code> 大概长这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">postgresql://username:password@host/database?sslmode=require<br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p><code>DATABASE_URL</code> 是数据库连接密钥，不要写到博客文章、前端代码或者公开仓库里。后面只应该把它填到 Vercel &#x2F; Netlify 项目的环境变量里。</p> 
+          </div>
+
+<h1 id="部署-Umami-到-Vercel"><a href="#部署-Umami-到-Vercel" class="headerlink" title="部署 Umami 到 Vercel"></a>部署 Umami 到 Vercel</h1><p>数据库准备好后，就可以把 Umami 部署起来了。</p>
+<ol>
+<li>回到 Vercel Dashboard。</li>
+<li>点击 <code>Add New...</code>。</li>
+<li>选择 <code>Project</code>。</li>
+<li>导入刚刚 Fork 的 <code>umami</code> 仓库。</li>
+<li>在环境变量里添加：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">DATABASE_URL=刚刚复制的 Neon 数据库连接地址<br></code></pre></td></tr></table></figure>
+
+<p>然后点击部署。第一次部署时，Umami 会初始化数据库表。部署完成后，Vercel 会给出一个访问地址，例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-umami.vercel.app<br></code></pre></td></tr></table></figure>
+
+<p>这个地址后面会作为 Umami 后台地址，也会作为 Fluid 配置里的 <code>api_server</code>。先记下来，后面会反复用到。</p>
+<div class="note note-info">
+            <p>Umami 官方也提供了安装、Vercel 部署和 Neon 部署说明，可以配合参考：</p> <ul> <li><a target="_blank" rel="noopener" href="https://umami.is/docs/install">Umami Installation</a></li> <li><a target="_blank" rel="noopener" href="https://umami.is/docs/guides/running-on-vercel">Running on Vercel</a></li> <li><a target="_blank" rel="noopener" href="https://umami.is/docs/guides/running-on-neon">Running on Neon</a></li> </ul> 
+          </div>
+
+<h1 id="复用数据库部署到-Netlify"><a href="#复用数据库部署到-Netlify" class="headerlink" title="复用数据库部署到 Netlify"></a>复用数据库部署到 Netlify</h1><p>如果 Vercel 部署后访问不够稳定，也可以把同一个 Umami 项目再部署到 Netlify。这里不用重新建库，直接复用前面在 Vercel Storage &#x2F; Neon 中创建好的 <code>DATABASE_URL</code> 就行。</p>
+<p>进入 <a target="_blank" rel="noopener" href="https://www.netlify.com/">Netlify</a> 控制台后：</p>
+<ol>
+<li>点击 <code>Add new project</code>。</li>
+<li>选择 <code>Import a Git repository</code>。</li>
+<li>选择 <code>GitHub</code>。</li>
+<li>选择前面 Fork 的 <code>umami</code> 仓库。</li>
+<li>在 <code>Build settings</code> 中设置构建参数：<ul>
+<li><code>Build command</code> 填 <code>yarn run build</code></li>
+<li><code>Publish directory</code> 填 <code>.next</code></li>
+</ul>
+</li>
+<li>在 <code>Environment variables</code> 中点击 <code>Add environment variables</code>。</li>
+<li>选择 <code>Add key/value pairs</code>。</li>
+<li>添加环境变量：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">DATABASE_URL=前面复制的 Neon 数据库连接地址<br></code></pre></td></tr></table></figure>
+
+<p>然后点击 <code>Deploy</code>。部署完成后，Netlify 会给出一个访问地址，例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-umami.netlify.app<br></code></pre></td></tr></table></figure>
+
+<p>因为 Netlify 这边复用的是同一个 Neon 数据库，所以 Umami 后台里的用户、Team、网站、统计数据都会和前面 Vercel 部署共用。换句话说，它只是多了一个服务入口，不是新开了一个 Umami 实例。</p>
+<p>后面配置博客时，只需要把示例里的 Vercel 地址替换成 Netlify 地址即可：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-umami.vercel.app  -&gt;  https://your-umami.netlify.app<br></code></pre></td></tr></table></figure>
+
+<p>也就是：</p>
+<ul>
+<li><code>src</code> 改成 <code>https://your-umami.netlify.app/script.js</code></li>
+<li><code>api_server</code> 改成 <code>https://your-umami.netlify.app</code></li>
+<li>获取 token 时的 <code>/api/auth/login</code> 请求地址也换成 Netlify 地址</li>
+</ul>
+<p><code>website_id</code> 和账号信息来自同一个数据库，不需要重新创建。这个体验还是挺舒服的，至少不用再配一遍后台。</p>
+<h1 id="初始化-Umami-后台"><a href="#初始化-Umami-后台" class="headerlink" title="初始化 Umami 后台"></a>初始化 Umami 后台</h1><p>接下来打开部署好的 Umami 地址：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-umami.vercel.app<br></code></pre></td></tr></table></figure>
+
+<p>首次自部署 Umami 默认账号通常是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">username: admin<br>password: umami<br></code></pre></td></tr></table></figure>
+
+<p>登录后第一件事就是修改管理员账号的用户名和密码。默认密码不要继续用，不然这个后台等于半开门，实在有点刺激。</p>
+<p>然后新建一个专门给博客前端读取统计数据用的账号：</p>
+<ol>
+<li>使用管理员账号进入 Umami 后台。</li>
+<li>点击左下角头像。</li>
+<li>进入 <code>Admin</code>。</li>
+<li>打开 <code>Users</code>。</li>
+<li>创建一个新账号。</li>
+<li>角色选择 <code>View only</code>。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">username: blog-viewer<br>password: your-view-only-password<br>role: View only<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>这里建议单独创建 <code>View only</code> 账号，而不是直接把管理员 token 放到博客配置里。博客前端只需要读取统计数据，不应该拥有管理权限。</p> 
+          </div>
+
+<h1 id="创建团队并加入账号"><a href="#创建团队并加入账号" class="headerlink" title="创建团队并加入账号"></a>创建团队并加入账号</h1><p>这一步比较容易漏。我一开始也以为只要账号能登录，API 就能读到网站数据，结果实际请求 <code>/stats</code> 时直接给了一个 <code>401 Unauthorized</code>。</p>
+<p>原因是：新建的 <code>View only</code> 账号虽然有效，但没有目标网站的访问权限。</p>
+<p>比较稳妥的做法是把网站放到 Team 里，然后让 <code>View only</code> 账号加入这个 Team。</p>
+<p>管理员账号操作：</p>
+<ol>
+<li>点击左下角头像。</li>
+<li>进入 <code>Admin</code>。</li>
+<li>打开 <code>Teams</code>。</li>
+<li>创建一个 Team，例如 <code>team1</code>。</li>
+<li>复制 Team 的 <code>Access code</code>。</li>
+</ol>
+<p>然后退出管理员账号，登录刚刚创建的 <code>View only</code> 账号：</p>
+<ol>
+<li>进入 <code>Settings</code>。</li>
+<li>找到 <code>Teams</code>。</li>
+<li>点击 <code>Join team</code>。</li>
+<li>输入刚才复制的 <code>Access code</code>。</li>
+</ol>
+<p>加入 Team 之后，建议再用管理员账号确认一次这个账号在 Team 里的权限：</p>
+<ol>
+<li>使用管理员账号登录。</li>
+<li>点击左下角头像。</li>
+<li>进入 <code>Admin</code>。</li>
+<li>打开 <code>Teams</code>。</li>
+<li>点击刚刚创建的 <code>team1</code>。</li>
+<li>在用户列表里找到 <code>blog-viewer</code>。</li>
+<li>把这个用户在 Team 里的权限改成 <code>View only</code>。</li>
+</ol>
+<p>这里容易混淆的是，Umami 里有两层权限：一层是 <code>Users</code> 里的账号角色，另一层是 <code>Teams</code> 里的团队成员权限。博客前端只需要读取统计数据，所以这两层都收敛到 <code>View only</code> 就行，不要给管理员或者团队管理权限。</p>
+<p>加入成功后，这个 <code>View only</code> 账号就可以读取 Team 里的站点统计数据了。后面用它获取 token，权限就比较收敛。</p>
+<h1 id="添加博客网站"><a href="#添加博客网站" class="headerlink" title="添加博客网站"></a>添加博客网站</h1><p>重新使用管理员账号进入 Umami 后台，并切换到刚刚创建的 Team。</p>
+<p>然后添加博客网站：</p>
+<ol>
+<li>进入 <code>Websites</code>。</li>
+<li>点击 <code>Add website</code>。</li>
+<li><code>Name</code> 填博客名称，例如 <code>My Blog</code>。</li>
+<li><code>Domain</code> 填博客域名，例如 <code>your-blog.example.com</code>。</li>
+<li>保存。</li>
+</ol>
+<p>注意这里的域名不要带 <code>https://</code>，只填主机名就行。</p>
+<h1 id="获取-Tracking-Code"><a href="#获取-Tracking-Code" class="headerlink" title="获取 Tracking Code"></a>获取 Tracking Code</h1><p>网站创建完成后，进入网站设置，找到 <code>Tracking code</code>。它大概长这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://your-umami.vercel.app/script.js&quot;</span> <span class="hljs-attr">data-website-id</span>=<span class="hljs-string">&quot;the-website-id-is-this&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里要复制两个值，后面会填到 <code>_config.fluid.yml</code>：</p>
+<ul>
+<li><code>src</code>：例如 <code>https://your-umami.vercel.app/script.js</code></li>
+<li><code>data-website-id</code>：例如 <code>the-website-id-is-this</code></li>
+</ul>
+<p>另外还需要记住 Umami 的部署地址：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-umami.vercel.app<br></code></pre></td></tr></table></figure>
+
+<p>这个地址后面要填到 <code>api_server</code>。注意 <code>api_server</code> 不要带 <code>/script.js</code>，不然拼出来的 API 地址会不对。</p>
+<div class="note note-info">
+            <p>如果使用的是 Netlify 部署地址，后面的示例命令和配置同理把 <code>https://your-umami.vercel.app</code> 换成 <code>https://your-umami.netlify.app</code>。</p> 
+          </div>
+
+<h1 id="获取-View-Only-Token"><a href="#获取-View-Only-Token" class="headerlink" title="获取 View Only Token"></a>获取 View Only Token</h1><p>接下来用刚刚创建的 <code>View only</code> 账号获取 API token。这个 token 是给 Fluid 前端请求统计数据用的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -X POST <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/auth/login&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span> \<br>  -d <span class="hljs-string">&#x27;&#123;&quot;username&quot;:&quot;blog-viewer&quot;,&quot;password&quot;:&quot;your-view-only-password&quot;&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>正常会返回类似下面的 JSON：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;token-is-this&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;user&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;username&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;blog-viewer&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;view-only&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;createdAt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-06-04T16:08:46.359Z&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;isAdmin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;teams&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;abcdef-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;team1&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;logoUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">]</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>把 <code>token</code> 的值复制下来，后面要填到 Fluid 配置里。</p>
+<p>先别急着填配置，可以先验证 token 是否有效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">UMAMI_TOKEN=<span class="hljs-string">&#x27;token-is-this&#x27;</span><br><br>curl -X POST <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/auth/verify&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \<br>  -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$UMAMI_TOKEN</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果想确认这个账号能不能访问目标网站，可以查询它能看到的网站列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -G <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/me/websites&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \<br>  -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$UMAMI_TOKEN</span>&quot;</span> \<br>  --data-urlencode <span class="hljs-string">&#x27;includeTeams=true&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果返回里看不到刚才创建的网站，说明 Team 权限还没配好。这个时候访问 stats 接口大概率会返回：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Unauthorized&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;unauthorized&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">401</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="配置-Fluid"><a href="#配置-Fluid" class="headerlink" title="配置 Fluid"></a>配置 Fluid</h1><p>后台和 token 都准备好后，就可以回到博客这边改配置了。打开 <code>_config.fluid.yml</code>，找到 <code>web_analytics</code> 里的 <code>umami</code> 配置。</p>
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">web_analytics:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">follow_dnt:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-attr">umami:</span><br>    <span class="hljs-comment"># Umami tracking script 地址</span><br>    <span class="hljs-attr">src:</span> <span class="hljs-string">https://your-umami.vercel.app/script.js</span><br><br>    <span class="hljs-comment"># Tracking code 里的 data-website-id</span><br>    <span class="hljs-attr">website_id:</span> <span class="hljs-string">the-website-id-is-this</span><br><br>    <span class="hljs-comment"># 限制统计域名，多个域名用逗号分隔；不需要可以留空</span><br>    <span class="hljs-attr">domains:</span><br><br>    <span class="hljs-comment"># 统计 PV/UV 的起始时间</span><br>    <span class="hljs-attr">start_time:</span> <span class="hljs-number">2024-01-01</span><br><br>    <span class="hljs-comment"># view-only 账号通过 /api/auth/login 获取到的 token</span><br>    <span class="hljs-attr">token:</span> <span class="hljs-string">token-is-this</span><br><br>    <span class="hljs-comment"># Umami 部署地址，不要带 /script.js</span><br>    <span class="hljs-attr">api_server:</span> <span class="hljs-string">https://your-umami.vercel.app</span><br></code></pre></td></tr></table></figure>
+
+<p>然后把页脚站点统计来源改成 <code>umami</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">footer:</span><br>  <span class="hljs-attr">statistics:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;umami&quot;</span><br>    <span class="hljs-attr">pv_format:</span> <span class="hljs-string">&quot;总访问量 &#123;&#125; 次&quot;</span><br>    <span class="hljs-attr">uv_format:</span> <span class="hljs-string">&quot;总访客数 &#123;&#125; 人&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>再把文章浏览量来源改成 <code>umami</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">meta:</span><br>    <span class="hljs-attr">views:</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;umami&quot;</span><br>      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;&#123;&#125; 次&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>配置完成后重新生成并部署博客。如果一切正常，页脚会显示全站 PV&#x2F;UV，文章页也会显示当前文章浏览量。</p>
+<h1 id="临时修复-Umami-API-兼容问题"><a href="#临时修复-Umami-API-兼容问题" class="headerlink" title="临时修复 Umami API 兼容问题"></a>临时修复 Umami API 兼容问题</h1><p>这里有个小坑。当前 Fluid 主题里的 <code>themes/fluid/source/js/umami-view.js</code> 仍然使用旧版 Umami API 写法。我已经提交了修复 PR：<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/pull/1249">fluid-dev&#x2F;hexo-theme-fluid#1249</a>。如果主题还没有合并新版 API 的兼容修复，那么只改配置可能会在浏览器控制台看到类似这样的错误：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">TypeError: can&#x27;t access property &quot;value&quot;, data.visitors is undefined<br></code></pre></td></tr></table></figure>
+
+<p>原因是旧代码会读取 <code>data.visitors.value</code> 和 <code>data.pageviews.value</code>，但新版 Umami API 返回的是数字形式的 <code>data.visitors</code> 和 <code>data.pageviews</code>。另外，旧版页面过滤参数是 <code>url</code>，新版变成了 <code>path</code>。</p>
+<p>所以在 Fluid 合并修复前，可以先手动修改主题文件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">themes/fluid/source/js/umami-view.js<br></code></pre></td></tr></table></figure>
+
+<p>把这个文件替换成下面的兼容版本：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 从配置文件中获取 umami 的配置</span><br><span class="hljs-keyword">const</span> website_id = <span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span>.<span class="hljs-property">umami</span>.<span class="hljs-property">website_id</span>;<br><span class="hljs-comment">// 拼接请求地址</span><br><span class="hljs-keyword">const</span> request_url = <span class="hljs-string">`<span class="hljs-subst">$&#123;CONFIG.web_analytics.umami.api_server&#125;</span>/api/websites/<span class="hljs-subst">$&#123;website_id&#125;</span>/stats`</span>;<br><br><span class="hljs-keyword">const</span> start_time = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span>.<span class="hljs-property">umami</span>.<span class="hljs-property">start_time</span>).<span class="hljs-title function_">getTime</span>();<br><span class="hljs-keyword">const</span> end_time = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getTime</span>();<br><span class="hljs-keyword">const</span> token = <span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span>.<span class="hljs-property">umami</span>.<span class="hljs-property">token</span>;<br><br><span class="hljs-comment">// 检查配置是否为空</span><br><span class="hljs-keyword">if</span> (!website_id) &#123;<br>  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Umami website_id is empty&quot;</span>);<br>&#125;<br><span class="hljs-keyword">if</span> (!request_url) &#123;<br>  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Umami request_url is empty&quot;</span>);<br>&#125;<br><span class="hljs-keyword">if</span> (!start_time) &#123;<br>  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Umami start_time is empty&quot;</span>);<br>&#125;<br><span class="hljs-keyword">if</span> (!token) &#123;<br>  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Umami token is empty&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// 构造请求参数</span><br><span class="hljs-keyword">const</span> params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(&#123;<br>  <span class="hljs-attr">startAt</span>: start_time,<br>  <span class="hljs-attr">endAt</span>: end_time,<br>&#125;);<br><span class="hljs-comment">// 构造请求头</span><br><span class="hljs-keyword">const</span> request_header = &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,<br>    <span class="hljs-string">&quot;Authorization&quot;</span>: <span class="hljs-string">&quot;Bearer &quot;</span> + token,<br>  &#125;,<br>&#125;;<br><br><span class="hljs-comment">// 兼容 Umami v2 的 &#123; value &#125; 和 v3 的数字返回格式</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getStatValue</span>(<span class="hljs-params">data, key</span>) &#123;<br>  <span class="hljs-keyword">const</span> value = data &amp;&amp; data[key];<br><br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">&quot;number&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> value;<br>  &#125;<br><br>  <span class="hljs-keyword">if</span> (value &amp;&amp; <span class="hljs-keyword">typeof</span> value.<span class="hljs-property">value</span> === <span class="hljs-string">&quot;number&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> value.<span class="hljs-property">value</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">requestStats</span>(<span class="hljs-params">queryParams</span>) &#123;<br>  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;request_url&#125;</span>?<span class="hljs-subst">$&#123;queryParams&#125;</span>`</span>, request_header);<br>  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();<br><br>  <span class="hljs-keyword">if</span> (!response.<span class="hljs-property">ok</span>) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Umami API error <span class="hljs-subst">$&#123;response.status&#125;</span>: <span class="hljs-subst">$&#123;<span class="hljs-built_in">JSON</span>.stringify(data)&#125;</span>`</span>);<br>  &#125;<br><br>  <span class="hljs-keyword">if</span> (!data || <span class="hljs-keyword">typeof</span> data.<span class="hljs-property">pageviews</span> === <span class="hljs-string">&quot;undefined&quot;</span>) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Invalid Umami stats response: <span class="hljs-subst">$&#123;<span class="hljs-built_in">JSON</span>.stringify(data)&#125;</span>`</span>);<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> data;<br>&#125;<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">requestPageStats</span>(<span class="hljs-params">path</span>) &#123;<br>  <span class="hljs-keyword">const</span> v3Params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(params);<br>  v3Params.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;path&quot;</span>, path);<br><br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestStats</span>(v3Params);<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> data.<span class="hljs-property">pageviews</span> === <span class="hljs-string">&quot;number&quot;</span>) &#123;<br>      <span class="hljs-keyword">return</span> data;<br>    &#125;<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&quot;Failed to fetch Umami stats with v3 path filter, fallback to v2 url filter.&quot;</span>, error);<br>  &#125;<br><br>  <span class="hljs-keyword">const</span> v2Params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(params);<br>  v2Params.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;url&quot;</span>, path);<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">requestStats</span>(v2Params);<br>&#125;<br><br><span class="hljs-comment">// 获取站点统计数据</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">siteStats</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestStats</span>(params);<br>    <span class="hljs-keyword">const</span> uniqueVisitors = <span class="hljs-title function_">getStatValue</span>(data, <span class="hljs-string">&quot;visitors&quot;</span>); <span class="hljs-comment">// 获取独立访客数</span><br>    <span class="hljs-keyword">const</span> pageViews = <span class="hljs-title function_">getStatValue</span>(data, <span class="hljs-string">&quot;pageviews&quot;</span>); <span class="hljs-comment">// 获取页面浏览量</span><br><br>    <span class="hljs-keyword">let</span> pvCtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-site-pv-container&quot;</span>);<br>    <span class="hljs-keyword">if</span> (pvCtn) &#123;<br>      <span class="hljs-keyword">let</span> ele = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-site-pv&quot;</span>);<br>      <span class="hljs-keyword">if</span> (ele) &#123;<br>        ele.<span class="hljs-property">textContent</span> = pageViews; <span class="hljs-comment">// 设置页面浏览量</span><br>        pvCtn.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&quot;inline&quot;</span>; <span class="hljs-comment">// 将元素显示出来</span><br>      &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">let</span> uvCtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-site-uv-container&quot;</span>);<br>    <span class="hljs-keyword">if</span> (uvCtn) &#123;<br>      <span class="hljs-keyword">let</span> ele = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-site-uv&quot;</span>);<br>      <span class="hljs-keyword">if</span> (ele) &#123;<br>        ele.<span class="hljs-property">textContent</span> = uniqueVisitors;<br>        uvCtn.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&quot;inline&quot;</span>;<br>      &#125;<br>    &#125;<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;-1&quot;</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 获取页面浏览量</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">pageStats</span>(<span class="hljs-params">path</span>) &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestPageStats</span>(path);<br>    <span class="hljs-keyword">const</span> pageViews = <span class="hljs-title function_">getStatValue</span>(data, <span class="hljs-string">&quot;pageviews&quot;</span>);<br><br>    <span class="hljs-keyword">let</span> viewCtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-page-views-container&quot;</span>);<br>    <span class="hljs-keyword">if</span> (viewCtn) &#123;<br>      <span class="hljs-keyword">let</span> ele = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-page-views&quot;</span>);<br>      <span class="hljs-keyword">if</span> (ele) &#123;<br>        ele.<span class="hljs-property">textContent</span> = pageViews;<br>        viewCtn.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&quot;inline&quot;</span>;<br>      &#125;<br>    &#125;<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;-1&quot;</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-title function_">siteStats</span>();<br><br><span class="hljs-comment">// 获取页面容器</span><br><span class="hljs-keyword">let</span> viewCtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#umami-page-views-container&quot;</span>);<br><span class="hljs-comment">// 如果页面容器存在，则获取页面浏览量</span><br><span class="hljs-keyword">if</span> (viewCtn) &#123;<br>  <span class="hljs-keyword">let</span> path = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>;<br>  <span class="hljs-keyword">let</span> target = path<br>    .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/(\/[^/]+\.html)\/$/</span>, <span class="hljs-string">&quot;$1&quot;</span>)  <span class="hljs-comment">// 如果是 &#x27;/xxxx.html/&#x27; 格式的路径，则去掉最后那个 &#x27;/&#x27;</span><br>    .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\/index\.html$/</span>, <span class="hljs-string">&quot;/&quot;</span>);      <span class="hljs-comment">// 如果是 &#x27;/index.html&#x27; 格式，则合并成 &#x27;/&#x27;</span><br>  <span class="hljs-title function_">pageStats</span>(target);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这段代码会优先按新版 Umami API 使用 <code>path</code> 参数请求页面统计，如果失败或检测到旧版返回结构，再回退到 v2 的 <code>url</code> 参数。同时读取统计值时也兼容 <code>data.pageviews</code> 和 <code>data.pageviews.value</code> 两种格式。</p>
+<p>等 Fluid 主题正式合并这个兼容修复后，就不用再手动替换这个文件了。</p>
+<h1 id="测试统计接口"><a href="#测试统计接口" class="headerlink" title="测试统计接口"></a>测试统计接口</h1><p>先别急着看页面显示，可以先用 <code>curl</code> 测一下 Umami stats 接口。接口能通，前端显示才有继续排查的意义。</p>
+<p>新版 Umami API 使用 <code>path</code> 过滤页面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">UMAMI_TOKEN=<span class="hljs-string">&#x27;token-is-this&#x27;</span><br>END_AT=<span class="hljs-string">&quot;<span class="hljs-subst">$(node -e &#x27;console.log(Date.now()</span>)&#x27;)&quot;</span><br><br>curl -G <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/websites/the-website-id-is-this/stats&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \<br>  -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$UMAMI_TOKEN</span>&quot;</span> \<br>  --data-urlencode <span class="hljs-string">&#x27;startAt=1704067200000&#x27;</span> \<br>  --data-urlencode <span class="hljs-string">&quot;endAt=<span class="hljs-variable">$END_AT</span>&quot;</span> \<br>  --data-urlencode <span class="hljs-string">&#x27;path=/2026/06/04/example/&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果要查全站统计，不带 <code>path</code> 参数即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -G <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/websites/the-website-id-is-this/stats&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \<br>  -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$UMAMI_TOKEN</span>&quot;</span> \<br>  --data-urlencode <span class="hljs-string">&#x27;startAt=1704067200000&#x27;</span> \<br>  --data-urlencode <span class="hljs-string">&quot;endAt=<span class="hljs-variable">$END_AT</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>新版返回结果里，<code>pageviews</code> 和 <code>visitors</code> 通常就是数字：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;pageviews&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">123</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;visitors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;visits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;bounces&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;totaltime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1000</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="API-返回-401"><a href="#API-返回-401" class="headerlink" title="API 返回 401"></a>API 返回 401</h2><p>如果 <code>/api/auth/verify</code> 能返回用户信息，但 <code>/api/websites/:websiteId/stats</code> 返回 401，一般不是 token 失效，而是权限问题。</p>
+<p>重点检查：</p>
+<ul>
+<li>token 是否来自 <code>view-only</code> 账号。</li>
+<li>这个账号是否加入了包含该网站的 Team。</li>
+<li>这个账号在 Team 里的权限是否也是 <code>View only</code>。</li>
+<li>网站是否创建在正确的 Team 下。</li>
+<li><code>website_id</code> 是否复制错。</li>
+</ul>
+<p>可以用下面命令确认账号能看到哪些网站：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -G <span class="hljs-string">&#x27;https://your-umami.vercel.app/api/me/websites&#x27;</span> \<br>  -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \<br>  -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$UMAMI_TOKEN</span>&quot;</span> \<br>  --data-urlencode <span class="hljs-string">&#x27;includeTeams=true&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="页面显示-TypeError"><a href="#页面显示-TypeError" class="headerlink" title="页面显示 TypeError"></a>页面显示 TypeError</h2><p>如果浏览器控制台出现类似错误：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">TypeError: can&#x27;t access property &quot;value&quot;, data.visitors is undefined<br></code></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">TypeError: can&#x27;t access property &quot;value&quot;, data.pageviews is undefined<br></code></pre></td></tr></table></figure>
+
+<p>多半是 Umami API 版本不兼容。旧版 Umami v2 的 stats 返回结构类似：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">data.<span class="hljs-property">pageviews</span>.<span class="hljs-property">value</span><br>data.<span class="hljs-property">visitors</span>.<span class="hljs-property">value</span><br></code></pre></td></tr></table></figure>
+
+<p>新版 Umami API 返回的是数字：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">data.<span class="hljs-property">pageviews</span><br>data.<span class="hljs-property">visitors</span><br></code></pre></td></tr></table></figure>
+
+<p>同时页面过滤参数也从旧版的 <code>url</code> 变成了新版的 <code>path</code>。如果使用的 Fluid 版本还没有兼容新版 Umami API，需要更新主题或按前面的方式修改 <code>umami-view.js</code>，让它同时兼容 v2 和新版 API。</p>
+<p>相关文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://v2.umami.is/docs/api/website-stats-api">Umami v2 Website statistics API</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/api/website-stats">Umami Website statistics API</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/cloud/api-changelog">Umami API changelog</a></li>
+</ul>
+<h2 id="Token-不要写进公开前端代码吗"><a href="#Token-不要写进公开前端代码吗" class="headerlink" title="Token 不要写进公开前端代码吗"></a>Token 不要写进公开前端代码吗</h2><p>Fluid 这里的 token 会被前端请求使用，所以它确实会出现在生成后的页面配置里。这个点绕不过去，毕竟前端要直接请求 Umami API。</p>
+<p>这也是为什么前面建议创建单独的 <code>view-only</code> 账号，并且只给它读取对应 Team 网站统计数据的权限。不要使用管理员账号 token。</p>
+<h1 id="迁移-LeanCloud-历史浏览量到-Umami"><a href="#迁移-LeanCloud-历史浏览量到-Umami" class="headerlink" title="迁移 LeanCloud 历史浏览量到 Umami"></a>迁移 LeanCloud 历史浏览量到 Umami</h1><p>如果之前已经用 Fluid 的 LeanCloud 计数统计跑了一段时间，直接切换到 Umami 后，历史浏览量不会自动过去。啊这，旧数据丢了总觉得有点膈应，所以这里顺手把迁移方法也记一下。</p>
+<p>LeanCloud 和 Waline 这类浏览量统计，本质上更接近聚合计数：</p>
+<ul>
+<li>LeanCloud <code>Counter.target</code> 表示统计目标。</li>
+<li>LeanCloud <code>Counter.time</code> 表示访问次数。</li>
+<li>Waline <code>wl_counter.url</code> 表示统计目标。</li>
+<li>Waline <code>wl_counter.time</code> 表示访问次数。</li>
+</ul>
+<p>但是 Umami 不只是一个计数表。它会把访问记录写到数据库中的事件表里，核心是：</p>
+<ul>
+<li><code>&quot;session&quot;</code>：访问会话和访客信息。</li>
+<li><code>website_event</code>：页面访问和事件记录。</li>
+</ul>
+<p>所以迁移到 Umami 不能简单做 <code>target -&gt; url_path</code> 的字段映射，而是要把旧的聚合计数展开成一条条 Umami pageview 事件。听起来麻烦一点，但写个转换脚本就还好。</p>
+<div class="note note-warning">
+            <p>先检查 LeanCloud 导出的 <code>Counter.json</code>。如果里面有文章路径，比如 <code>/2024/06/14/example/</code>，就可以迁移文章历史阅读量。如果里面只有 <code>site-pv</code> 和 <code>site-uv</code>，那就只能迁移全站 PV&#x2F;UV，不能恢复每篇文章的历史阅读量。</p> 
+          </div>
+
+<p>例如我这份导出数据只有站点计数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">site-pv: 50378<br>site-uv: 33581<br>page path records: 0<br></code></pre></td></tr></table></figure>
+
+<p>这种情况下，迁移脚本会把 <code>site-pv</code> 导入为一个合成路径：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">__legacy_site_pv<br></code></pre></td></tr></table></figure>
+
+<p>这样可以让 Umami 的全站 PV 包含旧数据，但不会假装这些访问属于某一篇文章。</p>
+<h2 id="生成迁移-SQL"><a href="#生成迁移-SQL" class="headerlink" title="生成迁移 SQL"></a>生成迁移 SQL</h2><p>这里使用一个辅助脚本 <code>leancloud-counter-to-umami-sql.js</code>，可以通过下面的按钮下载：</p>
+<a class="btn" href="/js/leancloud-counter-to-umami-sql.js"  title="leancloud-counter-to-umami-sql.js 下载" target="_blank">leancloud-counter-to-umami-sql.js</a>
+
+<p>下载后，把它和 LeanCloud 导出的 <code>Counter_xxxxxxxx_xxxxxx.json</code> 放到同一个目录，然后运行转换命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">node leancloud-counter-to-umami-sql.js Counter_xxxxxxxx_xxxxxx.json \<br>  --website-id the-website-id-is-this \<br>  --hostname your-blog.example.com \<br>  --created-at 2024-06-10T12:43:04.830Z \<br>  --site-pv-path __legacy_site_pv \<br>  &gt; umami-legacy-pageviews.sql<br></code></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li><code>--website-id</code>：Umami 网站 ID，也就是 tracking code 里的 <code>data-website-id</code>。</li>
+<li><code>--hostname</code>：博客域名，例如 <code>your-blog.example.com</code>。</li>
+<li><code>--created-at</code>：给旧数据使用的导入时间。</li>
+<li><code>--site-pv-path</code>：当导出文件只有 <code>site-pv</code> 时使用的合成路径。</li>
+<li><code>--session-count</code>：可选，用来控制导入时构造多少个历史 session；不填时优先使用 <code>site-uv</code>。</li>
+</ul>
+<p>生成的 SQL 会使用：</p>
+<ul>
+<li><code>tag = &#39;legacy-leancloud&#39;</code> 标记导入的 pageview。</li>
+<li><code>distinct_id LIKE &#39;legacy-leancloud-%&#39;</code> 标记导入的 session。</li>
+</ul>
+<p>这样重复导入时，SQL 可以先删除旧的 legacy 数据，再重新插入。万一第一次参数填错了，也不至于把数据库弄成一团糟。</p>
+<h2 id="导入到-Umami-数据库"><a href="#导入到-Umami-数据库" class="headerlink" title="导入到 Umami 数据库"></a>导入到 Umami 数据库</h2><p>如果可以在本地连接数据库，可以直接执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">psql <span class="hljs-string">&quot;<span class="hljs-variable">$DATABASE_URL</span>&quot;</span> -f umami-legacy-pageviews.sql<br></code></pre></td></tr></table></figure>
+
+<p>如果使用的是 Vercel Storage &#x2F; Neon，可以进入 Neon 的 SQL Editor，把 <code>umami-legacy-pageviews.sql</code> 的内容粘进去运行。</p>
+<p>生成的 SQL 会使用 <code>gen_random_uuid()</code> 创建 UUID，所以会先执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> EXTENSION IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> pgcrypto;<br></code></pre></td></tr></table></figure>
+
+<p>导入完成后，最后应该能看到类似结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">legacy sessions   33581<br>legacy pageviews  50378<br></code></pre></td></tr></table></figure>
+
+<p>也可以手动检查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>)<br><span class="hljs-keyword">FROM</span> website_event<br><span class="hljs-keyword">WHERE</span> website_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;the-website-id-is-this&#x27;</span><br>  <span class="hljs-keyword">AND</span> tag <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;legacy-leancloud&#x27;</span>;<br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>)<br><span class="hljs-keyword">FROM</span> &quot;session&quot;<br><span class="hljs-keyword">WHERE</span> website_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;the-website-id-is-this&#x27;</span><br>  <span class="hljs-keyword">AND</span> distinct_id <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;legacy-leancloud-%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>导入前建议先备份 Umami 数据库。虽然脚本只会清理带有 <code>legacy-leancloud</code> 标记的导入数据，但数据库迁移还是值得谨慎一点。</p> 
+          </div>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到这里，Umami 自部署、后台初始化、Team 权限、网站添加、token 获取、Fluid 配置和历史 LeanCloud 数据迁移就都串起来了。</p>
+<p>日常使用时，博客前端会加载 Umami 的 tracking script，Fluid 再通过 Umami API 读取统计值并显示到页脚和文章页。如果后面更换 Umami 部署域名，记得同时更新 <code>src</code> 和 <code>api_server</code>。这两个地方一个负责统计脚本，一个负责 API 请求，少改一个都会让人排查半天。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://umami.is/docs/install">Umami Installation</a></li>
+<li><a target="_blank" rel="noopener" href="https://umami.is/docs/guides/running-on-vercel">Running on Vercel</a></li>
+<li><a target="_blank" rel="noopener" href="https://umami.is/docs/guides/running-on-neon">Running on Neon</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/login">Umami Login</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/api/authentication">Umami API Authentication</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/api/website-stats">Umami Website statistics API</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.umami.is/docs/cloud/api-changelog">Umami API changelog</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+        <a href="/tags/umami/" class="print-no-link">#umami</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>为 Hexo Fluid 接入 Umami 浏览量统计</div>
+      <div>https://licyk.netlify.app/2026/06/05/add-umami-pageview-to-hexo-fluid/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/06/09/add-giscus-comment-to-hexo-fluid/" title="为 Hexo Fluid 接入 Giscus 评论系统">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">为 Hexo Fluid 接入 Giscus 评论系统</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/05/29/add-waline-pageview-to-hexo-fluid/" title="为 Hexo Fluid 接入 Waline 浏览量统计">
+                        <span class="hidden-mobile">为 Hexo Fluid 接入 Waline 浏览量统计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

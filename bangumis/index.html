@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content=":root{--bangumi-bg:#fff;--bangumi-surface:#f7f9fc;--bangumi-surface-strong:#eef3f8;--bangumi-text:#1d2733;--bangumi-muted:#697586;--bangumi-border:#dde5ee;--bangumi-accent:#2f80ed;--bangumi-accent-str">
+<meta property="og:type" content="website">
+<meta property="og:title" content="追番列表">
+<meta property="og:url" content="https://licyk.netlify.app/bangumis/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content=":root{--bangumi-bg:#fff;--bangumi-surface:#f7f9fc;--bangumi-surface-strong:#eef3f8;--bangumi-text:#1d2733;--bangumi-muted:#697586;--bangumi-border:#dde5ee;--bangumi-accent:#2f80ed;--bangumi-accent-str">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/24/d6/569161_MtUOQ.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/0f/0b/387822_nHUhn.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/af/0d/181090_o2hGw.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/ae/03/524707_1quxk.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/28/38/51_z0Ly8.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/e2/e7/328609_2EHLJ.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/13/c5/400602_ZI8Y9.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/31/1c/44693_YS9kU.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/e5/69/265_Z5Uou.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/7e/ca/378862_24TnR.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/7c/de/243787_b8Zgz.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/43/d9/14588_bDB2r.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/f2/9f/28900_PB3pC.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/cb/57/9717_sAVag.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/b3/26/541285_CYBZc.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/9f/2f/88287_h4xKo.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/f6/0f/604826_2XWRN.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/ff/14/1851_ZFEg7.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/e7/a7/428735_1v11n.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/77/c3/454684_ZH5tU.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/bc/72/243981_J20I2.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/0f/a4/282372_pqp0S.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/d3/5d/531159_BayD9.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/e4/dc/464376_NsZRw.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/94/8e/416777_xcDCg.jpg">
+<meta property="og:image" content="https://lain.bgm.tv/r/400/pic/cover/l/e2/68/240828_H4uLo.jpg">
+<meta property="article:author" content="licyk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lain.bgm.tv/r/400/pic/cover/l/24/d6/569161_MtUOQ.jpg">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>追番列表 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><style>:root{--bangumi-bg:#fff;--bangumi-surface:#f7f9fc;--bangumi-surface-strong:#eef3f8;--bangumi-text:#1d2733;--bangumi-muted:#697586;--bangumi-border:#dde5ee;--bangumi-accent:#2f80ed;--bangumi-accent-strong:#1766c2;--bangumi-accent-soft:#e8f2ff;--bangumi-shadow:rgba(25, 39, 52, 0.09)}.bangumi-container{color:var(--bangumi-text);color-scheme:light}.bangumi-container.bangumi-theme-dark,.theme-dark .bangumi-container.bangumi-theme-auto,[data-theme=dark] .bangumi-container.bangumi-theme-auto{--bangumi-bg:#171b22;--bangumi-surface:#202630;--bangumi-surface-strong:#29313d;--bangumi-text:#edf2f7;--bangumi-muted:#a5b1bf;--bangumi-border:#333d4a;--bangumi-accent:#7bb7ff;--bangumi-accent-strong:#9fcbff;--bangumi-accent-soft:#1f354d;--bangumi-shadow:rgba(0, 0, 0, 0.32);color-scheme:dark}@media (prefers-color-scheme:dark){.bangumi-container.bangumi-theme-auto{--bangumi-bg:#171b22;--bangumi-surface:#202630;--bangumi-surface-strong:#29313d;--bangumi-text:#edf2f7;--bangumi-muted:#a5b1bf;--bangumi-border:#333d4a;--bangumi-accent:#7bb7ff;--bangumi-accent-strong:#9fcbff;--bangumi-accent-soft:#1f354d;--bangumi-shadow:rgba(0, 0, 0, 0.32);color-scheme:dark}}.bangumi-quote{position:relative;overflow:hidden;margin:18px 0;padding:16px 18px 16px 48px;border:1px solid var(--bangumi-border);border-left:4px solid var(--bangumi-accent);border-radius:8px;color:var(--bangumi-text);background:linear-gradient(135deg,var(--bangumi-accent-soft),var(--bangumi-bg));box-shadow:0 10px 26px var(--bangumi-shadow)}.bangumi-quote::before{content:"“";position:absolute;top:8px;left:15px;color:var(--bangumi-accent);font-size:40px;font-weight:700;line-height:1;opacity:.6}.bangumi-quote>p{position:relative;margin:0;color:inherit;font-size:15px;line-height:1.8}.bangumi-tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;padding:6px;border:1px solid var(--bangumi-border);border-radius:8px;background:var(--bangumi-surface)}.bangumi-tab{flex:1 1 110px;min-width:0;padding:9px 12px;border-radius:7px;color:var(--bangumi-muted);text-align:center;line-height:1.3;transition:background .2s,color .2s,box-shadow .2s}a.bangumi-tab{text-decoration:none}.bangumi-tab:hover{color:var(--bangumi-accent-strong);background:var(--bangumi-accent-soft)}.bangumi-active{color:var(--bangumi-accent-strong);background:var(--bangumi-bg);box-shadow:0 6px 16px var(--bangumi-shadow)}.bangumi-item{display:flex;gap:20px;align-items:flex-start;container-type:inline-size;position:relative;clear:both;min-height:184px;margin:14px 0;padding:18px 20px;border:1px solid var(--bangumi-border);border-radius:8px;background:var(--bangumi-bg);box-shadow:0 10px 28px var(--bangumi-shadow)}.bangumi-picture{position:static;flex:0 0 110px;margin-left:4px;width:110px}.bangumi-picture img{display:block;width:110px;max-width:100%;margin:0!important;border-radius:7px;box-shadow:0 8px 18px var(--bangumi-shadow)}.bangumi-info{flex:1 1 auto;min-width:0;min-height:152px;margin-top:0;padding-left:0}.bangumi-title{margin-bottom:10px;font-size:18px;font-weight:700;line-height:1.35}.bangumi-title a{color:var(--bangumi-text);line-height:1.35;text-decoration:none}.bangumi-title a:hover{color:var(--bangumi-accent-strong)}.bangumi-meta{min-height:54px;height:auto;padding-right:0;font-size:12px}.bangumi-info-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:8px;width:100%;height:auto;padding-top:0;color:var(--bangumi-muted);float:none;line-height:1.2}.bangumi-info-item{display:block;width:auto;min-width:0;height:auto;min-height:46px;padding:7px 6px;border:1px solid var(--bangumi-border);border-radius:7px;background:var(--bangumi-surface);text-align:center}.bangumi-info-label{display:block;color:var(--bangumi-muted);line-height:1.2}.bangumi-info-item em{display:block;overflow:hidden;padding-top:5px;color:var(--bangumi-text);font-style:normal;font-weight:700;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}.bangumi-info-total{display:block;padding-top:8px;color:var(--bangumi-text);font-weight:700;line-height:1.35}.bangumi-info-item-score{border-right:1px solid var(--bangumi-border)}.bangumi-info-label-em{color:transparent;opacity:0;visibility:hidden;line-height:6px!important;padding:0!important}.bangumi-comments,.bangumi-summary{margin-top:11px;color:var(--bangumi-muted);font-size:13px;line-height:1.7}.bangumi-comments>p,.bangumi-summary>p{display:-webkit-box;overflow:hidden;height:auto;margin:0;word-break:break-word;white-space:normal;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3}.bangumi-summary>p.has-bangumi-progress{-webkit-line-clamp:2;line-clamp:2}.bangumi-my-comments{padding:8px 10px;border:1px dashed var(--bangumi-border);border-radius:7px;background:var(--bangumi-surface)}.bangumi-pagination{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:18px 0 10px;text-align:center}.bangumi-button,.bangumi-pagenum{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid var(--bangumi-border);border-radius:7px;color:var(--bangumi-muted);background:var(--bangumi-bg);line-height:1.2}.bangumi-button:hover{color:var(--bangumi-accent-strong);background:var(--bangumi-accent-soft)}.bangumi-hide{display:none!important}.bangumi-show{display:block}.bangumi-starstop{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 100% 100%/10px 19.5px repeat-x;height:10px;width:50px;display:inline-block;float:none}.bangumi-starlight{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 0 0/10px 19.5px repeat-x;height:10px;display:block;width:100%}.bangumi-starlight.stars1{width:5px}.bangumi-starlight.stars2{width:10px}.bangumi-starlight.stars3{width:15px}.bangumi-starlight.stars4{width:20px}.bangumi-starlight.stars5{width:25px}.bangumi-starlight.stars6{width:30px}.bangumi-starlight.stars7{width:35px}.bangumi-starlight.stars8{width:40px}.bangumi-starlight.stars9{width:45px}.bangumi-starlight.stars10{width:50px}.bangumi-info .bangumi-progress{position:relative;overflow:hidden;width:100%;height:24px;margin-top:16px!important;border-radius:7px;background-color:var(--bangumi-surface-strong);font-size:13px;text-align:center}.bangumi-info .bangumi-progress-text{position:relative;z-index:100;color:var(--bangumi-text);font-weight:700;line-height:24px}.bangumi-info .bangumi-progress .progress-bar{position:absolute;top:0;z-index:50;height:100%;border-radius:7px;background-color:var(--bangumi-accent);opacity:.7}@container (max-width:650px){.bangumi-coin,.bangumi-follow,.bangumi-info-item-follow,.bangumi-type{display:none}}@container (max-width:590px){.bangumi-danmaku,.bangumi-wish{display:none}}@container (max-width:520px){.bangumi-doing,.bangumi-play{display:none}}@container (max-width:480px){.bangumi-collect{display:none}}@container (max-width:400px){.bangumi-area,.bangumi-tag{display:none}}@container (max-width:270px){.bangumi-info-item-score{display:none}}.bangumi-tabs{margin-bottom:15px;margin-top:15px;display:flex;justify-content:center}.bangumi-item{position:relative;clear:both;padding:25px 20px;min-height:180px}.bangumi-meta{font-size:12px;margin-top:15px;padding-right:10px;height:45px}.bangumi-title{display:flex;justify-content:center;font-size:18px}.bangumi-info-items{font-size:12px;padding-top:10px;line-height:1;display:flex;width:100%;justify-content:center}.bangumi-comments{font-size:12px;margin-top:10px}.bangumi-picture{position:static;flex:0 0 110px;margin-left:4px;width:110px}</style><script>function ownKeys(e,t){var i=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),i.push.apply(i,n)}return i}function _objectSpread(e){for(var t=1;t<arguments.length;t++){var i=null!=arguments[t]?arguments[t]:{};t%2?ownKeys(Object(i),!0).forEach(function(t){_defineProperty(e,t,i[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(i)):ownKeys(Object(i)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(i,t))})}return e}function _defineProperty(e,t,i){return(t=_toPropertyKey(t))in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}function _toPropertyKey(e){var t=_toPrimitive(e,"string");return"symbol"==typeof t?t:t+""}function _toPrimitive(e,t){if("object"!=typeof e||!e)return e;var i=e[Symbol.toPrimitive];if(void 0!==i){var n=i.call(e,t||"default");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}function initPagination(){function e(){this.classList.add("bangumi-active");let e=this.siblings();for(let t=0;t<e.length;t++)e[t].classList.remove("bangumi-active");const t=this.id.replace("tab","item"),i=document.getElementById(t);i.classList.remove("bangumi-hide"),i.classList.add("bangumi-show"),e=document.getElementById(t).siblings();for(let t=0;t<e.length;t++)e[t].classList.remove("bangumi-show"),e[t].classList.add("bangumi-hide")}Element.prototype.siblings=function(){const e=[],t=this.parentNode.children;for(let i=0;i<t.length;i++)t[i]!==this&&e.push(t[i]);return e};const t=document.getElementsByClassName("bangumi-tab");for(let i=0;i<t.length;i++)t[i].onclick=e,t[i].onclick.apply(t[i]);function i(e){"function"!=typeof requestIdleCallback?setTimeout(()=>{e({timeRemaining:()=>0})},16):requestIdleCallback(e)}function n(e){const t=function(){if(hexoBilibiliBangumiOptions.pug&&"function"==typeof hexoBilibiliBangumiOptions.pug.compile){const e=hexoBilibiliBangumiOptions.pug.compile(hexoBilibiliBangumiOptions.pugTemplate);return function(t){return e(_objectSpread({item:t},hexoBilibiliBangumiOptions.pugOptions))}}return function(e){return hexoBilibiliBangumiOptions.pug.render(hexoBilibiliBangumiOptions.pugTemplate,_objectSpread({item:e},hexoBilibiliBangumiOptions.pugOptions))}}();let n=0;!function o(){if(n>=e.length)return;const r=e[n];n++,function(e,t,n){const o=[];let r=0;i(function l(u){let s=!1;for(;r<e.length&&(!s||u.timeRemaining()>0);)o.push(t(e[r])),r++,s=!0;r<e.length?i(l):n(o.join("\n"))})}(r.items,t,e=>{document.querySelectorAll(r.selector)[0].insertAdjacentHTML("beforeBegin",e),o()})}()}void 0===hexoBilibiliBangumiOptions.pagenumsPre||document.querySelectorAll(".bangumi-tabs")[0].getAttribute("fetched")||(document.querySelectorAll(".bangumi-tabs")[0].setAttribute("fetched","true"),fetch(new URL("../bangumis.json",window.location.href)).then(e=>e.json()).then(e=>{e&&n([{items:e.wantWatch.slice(10),selector:"#bangumi-item1>.bangumi-pagination"},{items:e.watching.slice(10),selector:"#bangumi-item2>.bangumi-pagination"},{items:e.watched.slice(10),selector:"#bangumi-item3>.bangumi-pagination"}])})),document.getElementsByClassName("bangumi-tab")[hexoBilibiliBangumiOptions.show].click()}function pagination(){const e=document.getElementsByClassName("bangumi-firstpage"),n=document.getElementsByClassName("bangumi-previouspage"),t=document.getElementsByClassName("bangumi-nextpage"),i=document.getElementsByClassName("bangumi-lastpage"),a=document.getElementsByClassName("bangumi-pagenum");function s(e,n){return`${e+1} / ${Math.ceil(n.length/10==0?1:Math.ceil(n.length/10))}`}function l(){const e=this.parentNode.siblings();u(e,0),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(0,e)}function g(){const e=this.parentNode.siblings();let n=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;n=n.substr(0,n.indexOf("/")-1),n=parseInt(n,10)-1,n>0&&n--,u(e,n),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(n,e)}function m(){const e=this.parentNode.siblings();let n=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;n=n.substr(0,n.indexOf("/")-1),n=parseInt(n,10)-1,n<Math.ceil(e.length/10)-1&&n++,u(e,n),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(n,e)}function o(){const e=this.parentNode.siblings();u(e,Math.ceil(e.length/10)-1),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(Math.ceil(e.length/10)-1==-1?0:Math.ceil(e.length/10)-1,e)}function u(e,n){for(let t=0;t<e.length;t++)if(Math.floor(t/10)===n){e[t].classList.remove("bangumi-hide");const[n]=e[t].getElementsByTagName("img");hexoBilibiliBangumiOptions.bangumiLazyload&&(n.src=n.getAttribute("data-bangumi-src"))}else e[t].classList.add("bangumi-hide")}for(let s=0;s<e.length;s++){var c;e[s].onclick=l,n[s].onclick=g,t[s].onclick=m,i[s].onclick=o;const u=void 0!==hexoBilibiliBangumiOptions.pagenumsPre&&null!==(c=hexoBilibiliBangumiOptions.pagenumsPre[s])&&void 0!==c?c:a[s].parentNode.siblings().length;e[s].click(),a[s].innerText=`1 / ${0===Math.ceil(u/10)?1:Math.ceil(u/10)}`}}</script><script>function renderBilibiliBangumi() {
+    if (!window.hexoBilibiliBangumiOptions) {
+        window.hexoBilibiliBangumiOptions = {
+            bangumiLazyload: true,
+            show: 2
+        }
+    }
+    if (false && !document.querySelectorAll('.bangumi-tabs')[0].getAttribute('pagination')) {
+        document.querySelectorAll('.bangumi-tabs')[0].setAttribute('pagination', 'true');
+        window.hexoBilibiliBangumiOptions.pugTemplate = ``;
+        window.hexoBilibiliBangumiOptions.pugOptions = {
+            metaColor: '',
+            type: 'bangumi',
+            color: '',
+            lazyload: true,
+            showMyComment: false,
+            srcValue: '__image__'
+        }
+        window.hexoBilibiliBangumiOptions.pagenumsPre = [15,1,10];
+        (function waitForPug() {
+            if (typeof require !== 'undefined' && require('pug')) {
+                window.hexoBilibiliBangumiOptions.pug = require('pug');
+                initPagination();
+                pagination();
+            } else {
+                setTimeout(waitForPug, 100);
+            }
+        })();
+    } else {
+        initPagination();
+        pagination();
+    }
+}
+document.addEventListener('DOMContentLoaded', renderBilibiliBangumi);
+window.addEventListener('pjax:complete', renderBilibiliBangumi);</script><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="追番列表"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <style>:root{--bangumi-bg:#fff;--bangumi-surface:#f7f9fc;--bangumi-surface-strong:#eef3f8;--bangumi-text:#1d2733;--bangumi-muted:#697586;--bangumi-border:#dde5ee;--bangumi-accent:#2f80ed;--bangumi-accent-strong:#1766c2;--bangumi-accent-soft:#e8f2ff;--bangumi-shadow:rgba(25, 39, 52, 0.09)}.bangumi-container{color:var(--bangumi-text);color-scheme:light}.bangumi-container.bangumi-theme-dark,.theme-dark .bangumi-container.bangumi-theme-auto,[data-theme=dark] .bangumi-container.bangumi-theme-auto{--bangumi-bg:#171b22;--bangumi-surface:#202630;--bangumi-surface-strong:#29313d;--bangumi-text:#edf2f7;--bangumi-muted:#a5b1bf;--bangumi-border:#333d4a;--bangumi-accent:#7bb7ff;--bangumi-accent-strong:#9fcbff;--bangumi-accent-soft:#1f354d;--bangumi-shadow:rgba(0, 0, 0, 0.32);color-scheme:dark}@media (prefers-color-scheme:dark){.bangumi-container.bangumi-theme-auto{--bangumi-bg:#171b22;--bangumi-surface:#202630;--bangumi-surface-strong:#29313d;--bangumi-text:#edf2f7;--bangumi-muted:#a5b1bf;--bangumi-border:#333d4a;--bangumi-accent:#7bb7ff;--bangumi-accent-strong:#9fcbff;--bangumi-accent-soft:#1f354d;--bangumi-shadow:rgba(0, 0, 0, 0.32);color-scheme:dark}}.bangumi-quote{position:relative;overflow:hidden;margin:18px 0;padding:16px 18px 16px 48px;border:1px solid var(--bangumi-border);border-left:4px solid var(--bangumi-accent);border-radius:8px;color:var(--bangumi-text);background:linear-gradient(135deg,var(--bangumi-accent-soft),var(--bangumi-bg));box-shadow:0 10px 26px var(--bangumi-shadow)}.bangumi-quote::before{content:"“";position:absolute;top:8px;left:15px;color:var(--bangumi-accent);font-size:40px;font-weight:700;line-height:1;opacity:.6}.bangumi-quote>p{position:relative;margin:0;color:inherit;font-size:15px;line-height:1.8}.bangumi-tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;padding:6px;border:1px solid var(--bangumi-border);border-radius:8px;background:var(--bangumi-surface)}.bangumi-tab{flex:1 1 110px;min-width:0;padding:9px 12px;border-radius:7px;color:var(--bangumi-muted);text-align:center;line-height:1.3;transition:background .2s,color .2s,box-shadow .2s}a.bangumi-tab{text-decoration:none}.bangumi-tab:hover{color:var(--bangumi-accent-strong);background:var(--bangumi-accent-soft)}.bangumi-active{color:var(--bangumi-accent-strong);background:var(--bangumi-bg);box-shadow:0 6px 16px var(--bangumi-shadow)}.bangumi-item{display:flex;gap:20px;align-items:flex-start;container-type:inline-size;position:relative;clear:both;min-height:184px;margin:14px 0;padding:18px 20px;border:1px solid var(--bangumi-border);border-radius:8px;background:var(--bangumi-bg);box-shadow:0 10px 28px var(--bangumi-shadow)}.bangumi-picture{position:static;flex:0 0 110px;margin-left:4px;width:110px}.bangumi-picture img{display:block;width:110px;max-width:100%;margin:0!important;border-radius:7px;box-shadow:0 8px 18px var(--bangumi-shadow)}.bangumi-info{flex:1 1 auto;min-width:0;min-height:152px;margin-top:0;padding-left:0}.bangumi-title{margin-bottom:10px;font-size:18px;font-weight:700;line-height:1.35}.bangumi-title a{color:var(--bangumi-text);line-height:1.35;text-decoration:none}.bangumi-title a:hover{color:var(--bangumi-accent-strong)}.bangumi-meta{min-height:54px;height:auto;padding-right:0;font-size:12px}.bangumi-info-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:8px;width:100%;height:auto;padding-top:0;color:var(--bangumi-muted);float:none;line-height:1.2}.bangumi-info-item{display:block;width:auto;min-width:0;height:auto;min-height:46px;padding:7px 6px;border:1px solid var(--bangumi-border);border-radius:7px;background:var(--bangumi-surface);text-align:center}.bangumi-info-label{display:block;color:var(--bangumi-muted);line-height:1.2}.bangumi-info-item em{display:block;overflow:hidden;padding-top:5px;color:var(--bangumi-text);font-style:normal;font-weight:700;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}.bangumi-info-total{display:block;padding-top:8px;color:var(--bangumi-text);font-weight:700;line-height:1.35}.bangumi-info-item-score{border-right:1px solid var(--bangumi-border)}.bangumi-info-label-em{color:transparent;opacity:0;visibility:hidden;line-height:6px!important;padding:0!important}.bangumi-comments,.bangumi-summary{margin-top:11px;color:var(--bangumi-muted);font-size:13px;line-height:1.7}.bangumi-comments>p,.bangumi-summary>p{display:-webkit-box;overflow:hidden;height:auto;margin:0;word-break:break-word;white-space:normal;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3}.bangumi-summary>p.has-bangumi-progress{-webkit-line-clamp:2;line-clamp:2}.bangumi-my-comments{padding:8px 10px;border:1px dashed var(--bangumi-border);border-radius:7px;background:var(--bangumi-surface)}.bangumi-pagination{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:18px 0 10px;text-align:center}.bangumi-button,.bangumi-pagenum{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid var(--bangumi-border);border-radius:7px;color:var(--bangumi-muted);background:var(--bangumi-bg);line-height:1.2}.bangumi-button:hover{color:var(--bangumi-accent-strong);background:var(--bangumi-accent-soft)}.bangumi-hide{display:none!important}.bangumi-show{display:block}.bangumi-starstop{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 100% 100%/10px 19.5px repeat-x;height:10px;width:50px;display:inline-block;float:none}.bangumi-starlight{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 0 0/10px 19.5px repeat-x;height:10px;display:block;width:100%}.bangumi-starlight.stars1{width:5px}.bangumi-starlight.stars2{width:10px}.bangumi-starlight.stars3{width:15px}.bangumi-starlight.stars4{width:20px}.bangumi-starlight.stars5{width:25px}.bangumi-starlight.stars6{width:30px}.bangumi-starlight.stars7{width:35px}.bangumi-starlight.stars8{width:40px}.bangumi-starlight.stars9{width:45px}.bangumi-starlight.stars10{width:50px}.bangumi-info .bangumi-progress{position:relative;overflow:hidden;width:100%;height:24px;margin-top:16px!important;border-radius:7px;background-color:var(--bangumi-surface-strong);font-size:13px;text-align:center}.bangumi-info .bangumi-progress-text{position:relative;z-index:100;color:var(--bangumi-text);font-weight:700;line-height:24px}.bangumi-info .bangumi-progress .progress-bar{position:absolute;top:0;z-index:50;height:100%;border-radius:7px;background-color:var(--bangumi-accent);opacity:.7}@container (max-width:650px){.bangumi-coin,.bangumi-follow,.bangumi-info-item-follow,.bangumi-type{display:none}}@container (max-width:590px){.bangumi-danmaku,.bangumi-wish{display:none}}@container (max-width:520px){.bangumi-doing,.bangumi-play{display:none}}@container (max-width:480px){.bangumi-collect{display:none}}@container (max-width:400px){.bangumi-area,.bangumi-tag{display:none}}@container (max-width:270px){.bangumi-info-item-score{display:none}}.bangumi-tabs{margin-bottom:15px;margin-top:15px;display:flex;justify-content:center}.bangumi-item{position:relative;clear:both;padding:25px 20px;min-height:180px}.bangumi-meta{font-size:12px;margin-top:15px;padding-right:10px;height:45px}.bangumi-title{display:flex;justify-content:center;font-size:18px}.bangumi-info-items{font-size:12px;padding-top:10px;line-height:1;display:flex;width:100%;justify-content:center}.bangumi-comments{font-size:12px;margin-top:10px}.bangumi-picture{position:static;flex:0 0 110px;margin-left:4px;width:110px}</style><div class="bangumi-container bangumi-theme-auto"><blockquote class="bangumi-quote"><p>呐，这是我的追番列表哦～</p></blockquote><div class="bangumi-tabs"><a class="bangumi-tab" id="bangumi-tab1" href="javascript:;" rel="external" target="_self" onclick="return false">想看
+(15)</a><a class="bangumi-tab" id="bangumi-tab2" href="javascript:;" rel="external" target="_self" onclick="return false">在看
+(1)</a><a class="bangumi-tab" id="bangumi-tab3" href="javascript:;" rel="external" target="_self" onclick="return false">已看
+(10)</a></div><div><div id="bangumi-item1"><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/24/d6/569161_MtUOQ.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/24/d6/569161_MtUOQ.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/569161">一叠间漫画咖啡屋生活！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全11话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>芳文社</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>4021</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/11</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：女高中生 in 漫画咖啡屋！
+住在秋田的高中生森田芽衣子，某天被选为千金名门女校「天宫女学院」的特别插班生！怀着对憧憬已久的东京校园生活的期待与不安，前往东京的芽衣子――。然而，等待着芽衣子的，竟然是漫画咖啡屋「HEDGEHOG」！在兼作...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/0f/0b/387822_nHUhn.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/0f/0b/387822_nHUhn.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/387822">白圣女与黑牧师</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>恋爱</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>13744</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>6.7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：某国的教会住着长相可爱但有着懒洋洋小毛病的圣女——塞西莉亚，以及外表严肃却十分温柔，对圣女过度保护、家务全能的牧师——劳伦斯，两人一起度过的每一天，无时无刻都在不自觉地放闪。
+圣女×牧师×同居=奇迹般令人心焦！在幻想世界中展开的“不自觉的...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/af/0d/181090_o2hGw.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/af/0d/181090_o2hGw.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/181090">奇异太郎少年的妖怪绘日记</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>泡面番</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>3150</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>6.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/13</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：由于进入了禁止入内的仓库而被逐出本宅，并被下令住到别馆的“奇异太郎”。他在那里遇到了座敷童子“铃”，并开始了同居生活（？）。妖狐、雪女、雪娘等各种各样的怪异来到了别馆。面对奇异太郎和铃，怪异们时而让他们欢笑，时而让他们困扰，时而帮助他们加深...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/ae/03/524707_1quxk.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/ae/03/524707_1quxk.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/524707">我们不可能成为恋人！绝对不行。 (※似乎可行？)</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>33854</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.4</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：「勝ち取るんだ最高の学園生活を！」 
+
+ぼっちな中学生時代から変わるため、高校デビューを果たした甘織れな子。しかし根が陰キャ気質のせいで、憧れの陽キャ生活に馴染めず窒息寸前に…。 
+
+現役モデルの完璧美少女、王塚真唯
+優しくてふわ...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/28/38/51_z0Ly8.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/28/38/51_z0Ly8.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/51">CLANNAD</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全23话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>Clannad</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>58771</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.4</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/23</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：故事发生在一个小镇上，冈崎朋也是光坂高中在校生，因为家庭原因他一直过着浑浑噩噩的生活。他不参加任何社团活动，唯一的朋友是春原阳平。
+某天的上学途中，在樱花飞舞的坡道上，他邂逅了一名少女——古河渚，从此他的生活发生改变。渚因病休学一年，重返...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/e2/e7/328609_2EHLJ.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/e2/e7/328609_2EHLJ.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/328609">孤独摇滚！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>芳文社</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>76725</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.4</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：作为网络吉他手“吉他英雄”而广受好评的后藤一里，在现实中却是个什么都不会的沟通障碍者。一里有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/13/c5/400602_ZI8Y9.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/13/c5/400602_ZI8Y9.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/400602">葬送的芙莉莲</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全28话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>治愈</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>74865</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.5</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/28</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：魔法使芙莉莲和勇者辛美尔等人一起，历经十年的冒险之后击败了魔王，为世界带来了和平。
+身为能活上一千多年的精灵族，她于是和辛美尔等人约定再次相见后，踏上了独自一人的旅途。
+自那以后，50年过去，芙莉莲又前往拜访辛美尔，相比于和50年前一点...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/31/1c/44693_YS9kU.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/31/1c/44693_YS9kU.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/44693">剧场版 魔法少女小圆 [新篇] 叛逆的物语</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全1话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>剧场版</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>33907</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/1</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：やっと逢えたね　運命に叛いたとき、物語は新たなる結末へ。
+待望の完全新作。映画化第三弾。
+
+魔法少女は絶望から救われたのか――
+“円環の理”に導かれて、少女たちの新たな物語がはじまる。
+
+鹿目まどか。かつて
+幸せな日々をおくっ...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/e5/69/265_Z5Uou.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/e5/69/265_Z5Uou.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/265">新世纪福音战士</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全26话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>EVA</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>64466</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/26</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：2000年，一个科学探险队在南极洲针对被称作“第一使徒”亚当的“光之巨人”进行探险。在对其进行接触实验时，“光之巨人”自毁，从而发生了“第二次冲击”，进而导致世界大战。最后，人类人口减半，地轴偏转、气候改变。根据对“第二次冲击”的调查，...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/7e/ca/378862_24TnR.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/7e/ca/378862_24TnR.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/378862">别当欧尼酱了！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>性转</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>41705</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：某天，家里蹲的啃老族绪山真寻一觉醒来发现自己变成了“女孩子”！？正当真寻不知道镜子里的美少女是自己而陷入混乱的时候，跳级进入大学的科学家妹妹绪山美波里出现了。她透露在饮料里加了一种奇怪的药物！
+真寻最近2年一直疯狂宅家玩小黄游，偶尔不得已...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/7c/de/243787_b8Zgz.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/7c/de/243787_b8Zgz.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/243787">摇曳百合、</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全1话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>OVA</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>6377</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.5</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/1</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：変わらない毎日が帰ってきた！
+
+赤座あかり・歳納京子・船見結衣・吉川ちなつの
+４人が行っている部活動「ごらく部」。
+
+それに目をつけ、ちょっかい（？）を
+出し続ける「生徒会」。
+
+愛が溢れまくりで明日から元気に生きていけるこ...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/43/d9/14588_bDB2r.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/43/d9/14588_bDB2r.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/14588">摇曳百合</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>22027</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：在七森中学的校园里，无所事事四人帮——女主角赤座灯里、暴走的岁纳京子、吐糟役的船见结衣，以及在人前会伪装成可爱女孩的吉川千夏，擅自把废了部的茶道社部室据为己用，并且自称地建立了娱乐部。擅自使用课室又引来了学生会的介入，于是各种百合妄想也在作...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/f2/9f/28900_PB3pC.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/f2/9f/28900_PB3pC.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/28900">摇曳百合♪♪</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>17049</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：占据了旧茶道部的活动室、继续擅自进行“娱乐部”活动（虽说如此也没啥明确的活动内容）的4人组。
+对她们的行为持续关注、继续多管闲事（？）的学生会。
+延续第一季的爱意满载、每天元气满满的轻松百合故事。...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/cb/57/9717_sAVag.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/cb/57/9717_sAVag.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/9717">魔法少女小圆</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>虚渊玄</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>71298</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/12</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：大好きな家族がいて、親友がいて、時には笑い、時には泣く、そんなどこにでもある日常。
+見滝原中学校に通う、普通の中学二年生・鹿目まどかも、そんな日常の中で暮らす一人。
+ある日、彼女に不思議な出会いが訪れる。
+この出会いは偶然なのか、必然...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/b3/26/541285_CYBZc.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/b3/26/541285_CYBZc.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/541285">与你相恋到生命尽头</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>12852</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：0/13</div><div class="progress-bar" style="width: 0%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：这所秘密孤儿院收容孤儿少女，培养成战争用的武器，死亡对她们来说是家常便饭。14岁的席娜对这样的宿命感到迷茫，直到遇见全身浴血却意志坚定的神秘少女美美。两人在试图抹杀人类情感的残酷世界中，相互扶持并紧紧抓住了生存的希望。
+
+
+
+[简介...</p></div></div></div><div class="bangumi-pagination"><a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false">首页</a><a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">上一页</a><span class="bangumi-pagenum">2 / 3</span><a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">下一页</a><a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">尾页</a></div></div><div id="bangumi-item2"><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/9f/2f/88287_h4xKo.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/9f/2f/88287_h4xKo.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/88287">请问您今天要来点兔子吗？</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>24390</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.4</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：5/12</div><div class="progress-bar" style="width: 42%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：为了便于上高中，高中入学新生心爱准备搬来这由石板路、木制房组成的街道。她在寻找寄宿的地点时迷路了，迷茫之中来到了一家名为“rabbit house”的咖啡店门前。看到这间名字都充满小兔风格的可爱咖啡店，心爱忍不住踏进了店门。在店里，她遇见了...</p></div></div></div><div class="bangumi-pagination"><a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false">首页</a><a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">上一页</a><span class="bangumi-pagenum">2 / 3</span><a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">下一页</a><a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">尾页</a></div></div><div id="bangumi-item3"><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/f6/0f/604826_2XWRN.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/f6/0f/604826_2XWRN.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/604826">超辉夜姬！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全1话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>43758</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8.1</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：1/1</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：在梦想与希望汇聚的虚拟空间&lt;月夜见&gt;，少女们相遇，以及离别的舞台，就此拉开帷幕——
+在近未来的时代，酒寄彩叶是就读于东京重点高中的17岁女高中生，她同时兼顾打工与学业，每天忙得不可开交。月见八千代是互联网虚拟空间&lt;月夜见&gt;的管理员兼超人气...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/ff/14/1851_ZFEg7.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/ff/14/1851_ZFEg7.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/1851">天使的心跳！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>麻枝准</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>44842</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：15/13</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：故事从男主角死亡之后从“死后的世界”醒来开始，在“死后的世界”中的学校里，他与一位名为由利(ゆり)、在“死后的世界”率领着一个名为“死んだ(Shinda)世界(Sekai)战线(Sensen)”简称“SSS”的组织的少女相遇了。“SSS...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/e7/a7/428735_1v11n.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/e7/a7/428735_1v11n.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/428735">BanG Dream! It's MyGO!!!!!</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>BanGDream</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>57220</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.9</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：14/13</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：「能一辈子和我搞乐队吗？」
+
+在高一的春季即将结束之时，羽丘女子学园里人人都在参加乐队活动。
+入学较晚的爱音，也为了尽快融入班级，急忙寻找乐队成员。
+在寻找时，她发现被称为「羽丘的不可思议少女」的灯还没有参加乐队，
+于是爱音不由得...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/77/c3/454684_ZH5tU.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/77/c3/454684_ZH5tU.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/454684">BanG Dream! Ave Mujica</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>BanGDream</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>40091</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>4.1</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：13/13</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：「言ったでしょう？残りの人生、わたくしに下さいと」
+
+豊川祥子がメンバーを招き入れたバンド・Ave Mujicaは、
+ライブやメディア露出など、商業的な成功を収めていた。
+
+運命をともにすると誓った仲間も、生まれ育った家も失った...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/bc/72/243981_J20I2.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/bc/72/243981_J20I2.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/243981">终将成为你</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全13话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>27253</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.8</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：13/13</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：不明白与人恋爱的心情，为此感到烦恼的小糸侑，在初中毕业时被要好的男生告白，却无法给予回应。
+她在此时邂逅的学生会成员七海灯子，不论被谁告白，都无法喜欢上对方。
+与灯子感到共鸣的侑，将自己的烦恼坦诚相告，却反而从灯子那里听到了意想不到的话...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/0f/a4/282372_pqp0S.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/0f/a4/282372_pqp0S.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/282372">安达与岛村</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>19019</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.3</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：12/12</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：我和安达是在体育馆的二楼偶然认识的逃课伙伴。
+偶尔一起打打乒乓这种程度的关系，
+对于基本上把与人交往视作麻烦的我来说，
+是刚好合适的距离。
+但是，最近安达的样子有点奇怪。
+就好比，明明是只对人没有兴趣的猫咪，
+变得越来越像条狗狗...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/d3/5d/531159_BayD9.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/d3/5d/531159_BayD9.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/531159">时光流逝，饭菜依旧美味</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>原创</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>29018</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>7.7</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：12/12</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：可爱×美味=最强美食
+五名刚刚成为大学生的女孩们共同演绎的日常故事。
+热爱美食，想和大家一起尽情玩耍，学习也要稍加努力，如此这般，尽情享受大学生活吧！...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/e4/dc/464376_NsZRw.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/e4/dc/464376_NsZRw.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/464376">败犬女主太多了！</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>恋爱</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>58352</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>8</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：12/12</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：没能赢得心上人恋情的女孩——“败犬女主”。
+爱吃的青梅竹马系女主·八奈见杏菜。
+活力充沛的运动系女主·烧盐柠檬。
+怕生的小动物系女主·小鞠知花。
+被有点缺憾的败犬女主——败女们环绕，新感觉、乱糟糟的败走系青春故事就此揭幕。
+因失败...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/94/8e/416777_xcDCg.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/94/8e/416777_xcDCg.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/416777">蔚蓝档案 动画版</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>游戏改</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>7648</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>5.3</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：12/12</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：“因为这里，是我们的归宿。”
+通过数以千计的学校形成的巨大学园都市“基沃托斯”。在这里，拿着枪的学生们的拌嘴，成了日常的风景。其中，被沙漠环绕的“阿拜多斯高中”面临停办的危机。为了摆脱这一状况而奋斗的“对策委员会”5名学生，遇见了被称作“...</p></div></div></div><div class="bangumi-item"><div class="bangumi-picture"><img src="https://lain.bgm.tv/r/400/pic/cover/l/e2/68/240828_H4uLo.jpg" srcset="/img/config/loading.gif" lazyload data-bangumi-src="https://lain.bgm.tv/r/400/pic/cover/l/e2/68/240828_H4uLo.jpg" referrerpolicy="no-referrer" loading="lazy" width="110" style="width:110px;margin:20px auto;"/></div><div class="bangumi-info"><div class="bangumi-title"><a target="_blank" href="https://bangumi.tv/subject/240828">Happy Sugar Life</a></div><div class="bangumi-meta"><span class="bangumi-info-items"><span class="bangumi-info-item"><span class="bangumi-info-total">全12话</span><em class="bangumi-info-label-em">0</em></span><span class="bangumi-info-item bangumi-type"><span class="bangumi-info-label">类型</span><em>动画</em></span><span class="bangumi-info-item bangumi-tag"><span class="bangumi-info-label">标签</span><em>百合</em></span><span class="bangumi-info-item bangumi-info-item-follow"><span class="bangumi-info-label">关注</span><em>11360</em></span><span class="bangumi-info-item bangumi-info-item-score"><span class="bangumi-info-label">评分</span><em>6.6</em></span></span></div><div class="bangumi-progress" style="margin-top:10px;"><div class="bangumi-progress-text">追番进度：12/12</div><div class="progress-bar" style="width: 100%;"></div></div><div class="bangumi-summary"><p class="has-bangumi-progress">简介：——她的爱情，甜蜜又痛苦。
+松坂砂糖有了喜欢的人
+只要和那个人互相接触，心里就会涌起非常甜蜜的心情
+这肯定就是「爱」了吧，她这么想道
+为了守护这份感情，无论做出什么都可以被原谅
+去欺骗、去侵犯、去掠夺、去杀害也是可以的哟
+『神嫁...</p></div></div></div><div class="bangumi-pagination"><a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false">首页</a><a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">上一页</a><span class="bangumi-pagenum">2 / 3</span><a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">下一页</a><a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">尾页</a></div></div></div></div><script>function ownKeys(e,t){var i=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),i.push.apply(i,n)}return i}function _objectSpread(e){for(var t=1;t<arguments.length;t++){var i=null!=arguments[t]?arguments[t]:{};t%2?ownKeys(Object(i),!0).forEach(function(t){_defineProperty(e,t,i[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(i)):ownKeys(Object(i)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(i,t))})}return e}function _defineProperty(e,t,i){return(t=_toPropertyKey(t))in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}function _toPropertyKey(e){var t=_toPrimitive(e,"string");return"symbol"==typeof t?t:t+""}function _toPrimitive(e,t){if("object"!=typeof e||!e)return e;var i=e[Symbol.toPrimitive];if(void 0!==i){var n=i.call(e,t||"default");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}function initPagination(){function e(){this.classList.add("bangumi-active");let e=this.siblings();for(let t=0;t<e.length;t++)e[t].classList.remove("bangumi-active");const t=this.id.replace("tab","item"),i=document.getElementById(t);i.classList.remove("bangumi-hide"),i.classList.add("bangumi-show"),e=document.getElementById(t).siblings();for(let t=0;t<e.length;t++)e[t].classList.remove("bangumi-show"),e[t].classList.add("bangumi-hide")}Element.prototype.siblings=function(){const e=[],t=this.parentNode.children;for(let i=0;i<t.length;i++)t[i]!==this&&e.push(t[i]);return e};const t=document.getElementsByClassName("bangumi-tab");for(let i=0;i<t.length;i++)t[i].onclick=e,t[i].onclick.apply(t[i]);function i(e){"function"!=typeof requestIdleCallback?setTimeout(()=>{e({timeRemaining:()=>0})},16):requestIdleCallback(e)}function n(e){const t=function(){if(hexoBilibiliBangumiOptions.pug&&"function"==typeof hexoBilibiliBangumiOptions.pug.compile){const e=hexoBilibiliBangumiOptions.pug.compile(hexoBilibiliBangumiOptions.pugTemplate);return function(t){return e(_objectSpread({item:t},hexoBilibiliBangumiOptions.pugOptions))}}return function(e){return hexoBilibiliBangumiOptions.pug.render(hexoBilibiliBangumiOptions.pugTemplate,_objectSpread({item:e},hexoBilibiliBangumiOptions.pugOptions))}}();let n=0;!function o(){if(n>=e.length)return;const r=e[n];n++,function(e,t,n){const o=[];let r=0;i(function l(u){let s=!1;for(;r<e.length&&(!s||u.timeRemaining()>0);)o.push(t(e[r])),r++,s=!0;r<e.length?i(l):n(o.join("\n"))})}(r.items,t,e=>{document.querySelectorAll(r.selector)[0].insertAdjacentHTML("beforeBegin",e),o()})}()}void 0===hexoBilibiliBangumiOptions.pagenumsPre||document.querySelectorAll(".bangumi-tabs")[0].getAttribute("fetched")||(document.querySelectorAll(".bangumi-tabs")[0].setAttribute("fetched","true"),fetch(new URL("../bangumis.json",window.location.href)).then(e=>e.json()).then(e=>{e&&n([{items:e.wantWatch.slice(10),selector:"#bangumi-item1>.bangumi-pagination"},{items:e.watching.slice(10),selector:"#bangumi-item2>.bangumi-pagination"},{items:e.watched.slice(10),selector:"#bangumi-item3>.bangumi-pagination"}])})),document.getElementsByClassName("bangumi-tab")[hexoBilibiliBangumiOptions.show].click()}function pagination(){const e=document.getElementsByClassName("bangumi-firstpage"),n=document.getElementsByClassName("bangumi-previouspage"),t=document.getElementsByClassName("bangumi-nextpage"),i=document.getElementsByClassName("bangumi-lastpage"),a=document.getElementsByClassName("bangumi-pagenum");function s(e,n){return`${e+1} / ${Math.ceil(n.length/10==0?1:Math.ceil(n.length/10))}`}function l(){const e=this.parentNode.siblings();u(e,0),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(0,e)}function g(){const e=this.parentNode.siblings();let n=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;n=n.substr(0,n.indexOf("/")-1),n=parseInt(n,10)-1,n>0&&n--,u(e,n),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(n,e)}function m(){const e=this.parentNode.siblings();let n=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;n=n.substr(0,n.indexOf("/")-1),n=parseInt(n,10)-1,n<Math.ceil(e.length/10)-1&&n++,u(e,n),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(n,e)}function o(){const e=this.parentNode.siblings();u(e,Math.ceil(e.length/10)-1),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=s(Math.ceil(e.length/10)-1==-1?0:Math.ceil(e.length/10)-1,e)}function u(e,n){for(let t=0;t<e.length;t++)if(Math.floor(t/10)===n){e[t].classList.remove("bangumi-hide");const[n]=e[t].getElementsByTagName("img");hexoBilibiliBangumiOptions.bangumiLazyload&&(n.src=n.getAttribute("data-bangumi-src"))}else e[t].classList.add("bangumi-hide")}for(let s=0;s<e.length;s++){var c;e[s].onclick=l,n[s].onclick=g,t[s].onclick=m,i[s].onclick=o;const u=void 0!==hexoBilibiliBangumiOptions.pagenumsPre&&null!==(c=hexoBilibiliBangumiOptions.pagenumsPre[s])&&void 0!==c?c:a[s].parentNode.siblings().length;e[s].click(),a[s].innerText=`1 / ${0===Math.ceil(u/10)?1:Math.ceil(u/10)}`}}</script><script>function renderBilibiliBangumi() {
+    if (!window.hexoBilibiliBangumiOptions) {
+        window.hexoBilibiliBangumiOptions = {
+            bangumiLazyload: true,
+            show: 2
+        }
+    }
+    if (false && !document.querySelectorAll('.bangumi-tabs')[0].getAttribute('pagination')) {
+        document.querySelectorAll('.bangumi-tabs')[0].setAttribute('pagination', 'true');
+        window.hexoBilibiliBangumiOptions.pugTemplate = ``;
+        window.hexoBilibiliBangumiOptions.pugOptions = {
+            metaColor: '',
+            type: 'bangumi',
+            color: '',
+            lazyload: true,
+            showMyComment: false,
+            srcValue: '__image__'
+        }
+        window.hexoBilibiliBangumiOptions.pagenumsPre = [15,1,10];
+        (function waitForPug() {
+            if (typeof require !== 'undefined' && require('pug')) {
+                window.hexoBilibiliBangumiOptions.pug = require('pug');
+                initPagination();
+                pagination();
+            } else {
+                setTimeout(waitForPug, 100);
+            }
+        })();
+    } else {
+        initPagination();
+        pagination();
+    }
+}
+document.addEventListener('DOMContentLoaded', renderBilibiliBangumi);
+window.addEventListener('pjax:complete', renderBilibiliBangumi);</script>
+
+  
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1371 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="HuggingFace 和 ModelScope 不限速还免费？白嫖！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 HuggingFace &#x2F; ModelScope 保存和下载文件">
+<meta property="og:url" content="https://licyk.netlify.app/2025/01/16/use-huggingface-or-modelscope-to-save-file/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="HuggingFace 和 ModelScope 不限速还免费？白嫖！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/open_huggingface_official_website.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/click_sign_up_to_make_an_account.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/comfigure_profile.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/go_to_email_to_activate_account.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/click_avatar_to_open_menu.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/create_model_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/open_profile_to_view_person_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/go_to_repo_and_upload_file.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/upload_files_to_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/view_repo_files.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/edit_file_in_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/edit_text_file_in_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/install_python.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/disable_path_length_limit.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/check_python_is_avaliable.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/get_huggingface_cli_help.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/configure_token.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/login_huggingface_cli.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/get_cli_upload_help.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_cli_to_upload_folder_to_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_cli_to_upload_folder_to_repo_result.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/get_git_cmd.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_clone_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_push_repo.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/login_modelscope.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/create_model_repo_on_modelscope.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_modelscope_website_upload_file.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/get_modelscope_cli_help.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/configure_modelscope_token.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_modelscope_cli_to_upload_folder.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_download_modelscope_repo.png">
+<meta property="article:published_time" content="2025-01-16T04:51:06.000Z">
+<meta property="article:modified_time" content="2025-08-25T03:59:06.000Z">
+<meta property="article:author" content="licyk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licyk.netlify.app/img/use_huggingface_or_modelscope_to_save_file/open_huggingface_official_website.png">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>使用 HuggingFace / ModelScope 保存和下载文件 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 HuggingFace / ModelScope 保存和下载文件"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-16 12:51" pubdate>
+          2025年1月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          101 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 HuggingFace / ModelScope 保存和下载文件</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年8月25日 中午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>HuggingFace 和 ModelScope 可以用于保存模型，数据集等，并且上传和下载不会限速，这对于存储一些大文件是非常友好的，但是 HuggingFace 和 ModelScope 并不像其他网盘易于使用，所以下面介绍怎么使用 HuggingFace 和 ModelScope 存储文件。</p>
+<!--more-->
+
+<h2 id="注册-HuggingFace"><a href="#注册-HuggingFace" class="headerlink" title="注册 HuggingFace"></a>注册 HuggingFace</h2><p>打开 <a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a> 这个地址进入 HuggingFace 的官网。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/open_huggingface_official_website.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>进入官网后点击右上角的 Sign Up（注册）按钮注册一个 HuggingFace 账号。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/click_sign_up_to_make_an_account.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>在注册账号页面填上 Email Address（邮箱地址）和 Password（密码），填写完成后点击 Next（下一步）。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/comfigure_profile.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>这步是完善个人信息，必须填写 Username（用户名）和 Full name（完整名字），Username 决定了个人 HuggingFace 账号的个人页面地址， Full name 则是在个人页面展示的名字。</p>
+<p>Avatar（头像），Github username（Github 用户名）这些在后面标注着<code>(optional)</code>（可选的）的选项可以不用填写，填写完成后需要勾选<code>I have read and agree with the Terms of Service and the Code of Conduct</code>（我已阅读并同意服务条款和行为准则），再点击 Create Account（创建账号），此时账号基本创建完成了。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/go_to_email_to_activate_account.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>此时 HuggingFace 在顶部提示<code>Please check your email address for a confirmation link</code>（请在您的邮箱地址检查完成账号配置的链接），此时需要打开刚刚自己填写的邮箱，检查是否有 HuggingFace 发送的邮件，并点击邮件内的链接完成最后一步配置，如果没有收到邮件，可以等待几分钟后刷新邮件列表。</p>
+<p>点击配置账号链接后，此时 HuggingFace 账号就完成了注册。</p>
+<p>此时可以尝试去创建仓库去存放文件，点击右上角的头像可以打开菜单。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/click_avatar_to_open_menu.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>点击 Profile（个人信息）可以查看自己创建的模型仓库，训练集仓库等，但现在没有创建任何仓库，所以需要新建一个。</p>
+<p>New Model（新建模型仓库），New Dataset（新建数据集仓库），New Space（新建在线运行空间仓库）分别可以创建模型 &#x2F; 数据集 &#x2F; 在线运行空间仓库，现在尝试去创建一个模型仓库，点击 New Model（新建模型仓库），</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/create_model_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>Model name（模型名称）随意填写一个名称，使用英文 &#x2F; 数字 &#x2F; 下划线 &#x2F; 短横线去命名。</p>
+<p>License（许可证）是可选的，可以不用选择。</p>
+<p>选择 Public（公开）将会把仓库公开，其他人可以看到。选择 Private（私有）则会隐藏仓库，只有自己能够看到。</p>
+<p>选择完成后点击 Create（创建仓库）创建一个模型仓库，同理，使用 New Dataset（新建数据集仓库）创建一个数据集仓库。</p>
+<p>创建完成后点击 Profile（个人信息）可以看到自己创建好的仓库。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/open_profile_to_view_person_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>Model（模型）可以看到自己创建的 licyk&#x2F;test_model_1 模型仓库，Dataset（数据集）可以看到自己创建的 licyk&#x2F;test_dataset_1 数据集仓库，点击其中某个仓库可以进入仓库详情。</p>
+<h2 id="使用网页端管理文件"><a href="#使用网页端管理文件" class="headerlink" title="使用网页端管理文件"></a>使用网页端管理文件</h2><p>HuggingFace 网页端支持简单的仓库文件管理，这里点击 licyk&#x2F;test_model_1 进入刚刚创建的模型仓库，在 Files and versions 可以看到仓库中的文件。</p>
+<h3 id="使用网页上传文件"><a href="#使用网页上传文件" class="headerlink" title="使用网页上传文件"></a>使用网页上传文件</h3><p>点击 Add files（添加文件） -&gt; Upload files（上传文件）可以进入上传文件的界面。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/go_to_repo_and_upload_file.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>在 Upload file(s)（上传文件）的下方可以选择要上传的文件，点击后可以打开系统的文件管理器，选择要上传的文件 &#x2F; 文件夹，或者直接在系统的文件管理器中选择文件 &#x2F; 文件夹，拖动到网页 Upload file(s)（上传文件）的下方，可以一次性上传多个文件。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/upload_files_to_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>选择要上传的文件后，点击 Commit changes to main 可以将选择好的文件上传到该仓库中。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/view_repo_files.png" srcset="/img/config/loading.gif" lazyload></p>
+<h3 id="使用网页管理文件"><a href="#使用网页管理文件" class="headerlink" title="使用网页管理文件"></a>使用网页管理文件</h3><p>现在可以看到选择的文件已经上传到该仓库中，在文件的右侧有个 ↓（Download file &#x2F; 下载文件）按钮，点击后可以下载该文件，或者右键后选择复制下载链接。</p>
+<p>如果需要在某个文件夹中上传文件，可以进入那个文件夹，再点击 Add files（添加文件） -&gt; Upload files（上传文件），使用前面的操作上传文件。</p>
+<p>点击其中一个文件后可以看到该文件的信息。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/edit_file_in_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>如果文件不是文本文件，可以选择的操作有：</p>
+<p>download（下载），Copy download link（复制文件下载链接），history（查看文件的修改历史），blame（查看文件的修改处由谁修改），rename（重命名 &#x2F; 移动文件），delete（删除文件）。</p>
+<p>如果使用的是 rename（重命名 &#x2F; 移动文件），delete（删除文件）操作，在点击操作后网页的左下角会有个 Commit changes to main 按钮，这是用于保存这些操作的结果。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/edit_text_file_in_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>如果文件是文本文件，可以选择的操作有：</p>
+<p>raw（查看原始文件），Copy download link（复制文件下载链接），history（查看文件的修改历史），blame（查看文件的修改处由谁修改），edit（编辑 &#x2F; 重命名 &#x2F; 移动文件），delete（删除文件）。</p>
+<p>上述的方法在数据集仓库中同样适用。</p>
+<h2 id="使用-HuggingFace-CLI-管理文件"><a href="#使用-HuggingFace-CLI-管理文件" class="headerlink" title="使用 HuggingFace CLI 管理文件"></a>使用 HuggingFace CLI 管理文件</h2><p>HuggingFace 提供一个命令行工具对仓库进行管理，该工具基于 Python，需要安装 Python 后才能使用。</p>
+<p>如果系统是 Windows 10，建议在 Microsoft Store（微软应用商店）搜索 Windows Terminal 并安装。</p>
+<h3 id="配置-HuggingFace-CLI"><a href="#配置-HuggingFace-CLI" class="headerlink" title="配置 HuggingFace CLI"></a>配置 HuggingFace CLI</h3><p>如果系统里没有安装 Python，需要先安装一个 Python。打开 <a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe">https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe</a> 下载 Python 安装包，双击打开后选择 Add python.exe to PATH，再点击 Install Now。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/install_python.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>安装完成后如果出现 Disable path length limit，就点击一下。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/disable_path_length_limit.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>安装结束后，右键桌面或者文件管理器空白处，在右键菜单选择<code>在终端打开</code>，此时将启动 PowerShell（默认情况下），在 PowerShell 中输入下面的命令查看是否安装成功。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">python <span class="hljs-literal">--version</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/check_python_is_avaliable.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>能够输出 Python 版本就说明 Python 已经正确安装了。</p>
+<p>接下来就可以安装 HuggingFace CLI，在安装 HuggingFace CLI 前先配置一下 Pip 镜像源，加速 Python 软件包的下载。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pip config <span class="hljs-built_in">set</span> global.index<span class="hljs-literal">-url</span> <span class="hljs-string">&quot;https://mirrors.cernet.edu.cn/pypi/web/simple&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>再安装 HuggingFace CLI。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pip install <span class="hljs-string">&quot;huggingface_hub[cli]&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>安装好后输入下面的命令就可以看到 HuggingFace CLI 可用的命令。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> <span class="hljs-literal">--help</span><br><br><span class="hljs-comment"># 新版命令</span><br>hf <span class="hljs-literal">--help</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/get_huggingface_cli_help.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>使用 HuggingFace CLI 管理个人的仓库需要 HuggingFace Token 获取权限，此时回到 HuggingFace 官网，点击右上角的头像，选择 Access Tokens -&gt; Create new token，此时将打开 HuggingFace Token 创建界面，</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/configure_token.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>Token name（令牌名字）随意填写一个，然后在 Repositories（仓库）的选项勾选下方的 3 个选项。</p>
+<p>配置完成后点击下方的 Create token（创建令牌），此时将弹出 Save your Access Token（保存您的访问令牌）窗口，下方为 HuggingFace Token，点击右侧的 Copy（复制）按钮可以把 HuggingFace Token 复制下来。注意，HuggingFace Toekn 只会显示一次，所以需要将该 HuggingFace Token 好好保存起来，如果丢失了只能新建一个。</p>
+<p>点击 Done（完成）后回到 PowerShell 界面中，输入下面的命令登陆 HuggingFace。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> login<br><br><span class="hljs-comment"># 新版命令</span><br>hf auth login<br></code></pre></td></tr></table></figure>
+
+<p>此时将提示 Enter your token (input will not be visible)（输入您的令牌 (输入的内容将不会显示出来)），将刚刚复制下来的 HuggingFace Token 使用 Ctrl + V 粘贴到 PowerShell 中，粘贴后并不会看到已经粘贴的内容，这个不需要担心，回车继续即可，之后提示 Add token as git credential? (Y&#x2F;n)（添加令牌作为 Git 凭证？(Y&#x2F;n)），这步直接回车即可。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/login_huggingface_cli.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>运行时可能会看到红色的错误信息，这无需理会，当最后一行的信息为 Login successful（登陆成功）时则证明使用 HuggingFace CLI 登陆 HuggingFace 账号成功了，接下来就可以使用 HuggingFace CLI 管理自己的仓库文件。</p>
+<h3 id="使用-HuggingFace-CLI-上传文件"><a href="#使用-HuggingFace-CLI-上传文件" class="headerlink" title="使用 HuggingFace CLI 上传文件"></a>使用 HuggingFace CLI 上传文件</h3><p>可以查询一下上传文件的命令使用方法，其他命令的使用方法也可以用这个方法查询。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> upload <span class="hljs-literal">-h</span><br><br><span class="hljs-comment"># 新版命令</span><br>hf upload <span class="hljs-literal">--help</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/get_cli_upload_help.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>该文件夹中的文件夹内容如下，现在尝试将这个文件夹的内容上传前面创建的 licyk&#x2F;test_model_1 模型库中，</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> upload licyk/test_model_1 . .<br><br><span class="hljs-comment"># 新版命令</span><br>hf upload licyk/test_model_1 . .<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_cli_to_upload_folder_to_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>huggingface-cli upload 指定了使用 HugginFace CLI 的上传功能。</p>
+<p>licyk&#x2F;test_model_1 指定了 HuggingFace 仓库 ID。</p>
+<p>第一个 . 指定的是要上传到 HuggingFace 的文件夹是什么，这里点就代表着是当前的文件夹，也就是要将当前文件夹中的内容全部上传，可以修改成其他路径。</p>
+<p>第二个 . 代表着要上传的文件保存在 HuggingFace 仓库中的哪个位置中，这里的 . 就代表着将文件上传到 HuggingFace 仓库中的根目录，可以修改成其他路径。</p>
+<p>上传完成后可以看到当前文件夹中的内容被上传到 HuggingFace 仓库中，并且之前上传的文件还保留着。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_cli_to_upload_folder_to_repo_result.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>如果想要上传单个文件，比如在将 E:\Softwares\stable-diffusion-webui\models\Lora\sdxl\style\ag31-fuzichoco_1-000032.safetensors 这个路径的文件上传到仓库中的 model 文件夹，则命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> upload licyk/test_model_1 E:\Softwares\stable<span class="hljs-literal">-diffusion-webui</span>\models\Lora\sdxl\style\ag31<span class="hljs-literal">-fuzichoco_1-000032</span>.safetensors model/ag31<span class="hljs-literal">-fuzichoco_1-000032</span>.safetensors<br><br><span class="hljs-comment"># 新版命令</span><br>hf upload licyk/test_model_1 E:\Softwares\stable<span class="hljs-literal">-diffusion-webui</span>\models\Lora\sdxl\style\ag31<span class="hljs-literal">-fuzichoco_1-000032</span>.safetensors model/ag31<span class="hljs-literal">-fuzichoco_1-000032</span>.safetensors<br></code></pre></td></tr></table></figure>
+
+<p>如果是上传一个文件夹，比如将 D:\Downloads\BaiduNetdiskDownload\lora 这个文件夹中的内容上传到仓库中的 model 文件夹，则命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> upload licyk/test_model_1 D:\Downloads\BaiduNetdiskDownload\lora model/lora<br><br><span class="hljs-comment"># 新版命令</span><br>hf upload licyk/test_model_1 D:\Downloads\BaiduNetdiskDownload\lora model/lora<br></code></pre></td></tr></table></figure>
+
+<p>现在是对 licyk&#x2F;test_model_1 这个模型仓库进行操作，但如果是对 licyk&#x2F;test_dataset_1 这个数据集仓库进行操作，此时就需要指定仓库的类型（前面的 licyk&#x2F;test_model_1 模型仓库不需要指定是因为 HuggingFace CLI 默认将仓库认为是模型仓库，所以不需要额外指定仓库类型）。</p>
+<p>现在要给 licyk&#x2F;test_dataset_1 这个数据集仓库上传一个文件夹到仓库中，此时的命令就需要使用 –repo-type 参数来指定（只要仓库类型不是模型仓库，而是数据集仓库或者在线运行空间仓库，就需要该参数进行指定，数据集仓库使用 –repo-type&#x3D;dataset，在线运行空间仓库使用 –repo-type&#x3D;space）。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> upload licyk/test_dataset_1 D:\Downloads\BaiduNetdiskWorkspace\rurudo_2 rurudo <span class="hljs-literal">--repo-type</span>=dataset<br><br><span class="hljs-comment"># 新版命令</span><br>hf upload licyk/test_dataset_1 D:\Downloads\BaiduNetdiskWorkspace\rurudo_2 rurudo <span class="hljs-literal">--repo-type</span>=dataset<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="使用-HuggingFace-CLI-下载文件"><a href="#使用-HuggingFace-CLI-下载文件" class="headerlink" title="使用 HuggingFace CLI 下载文件"></a>使用 HuggingFace CLI 下载文件</h3><p>现在将文件上传到 HuggingFace 仓库后，可以试着从 HuggingFace 仓库下载文件。</p>
+<p>比如将 licyk&#x2F;test_model_1 模型仓库中，在 model 文件夹中的 ag31-ixy_1-000032.safetensors 文件下载下来，下载到当前目录里的 test 文件夹，命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> download licyk/test_model_1 model/ag31<span class="hljs-literal">-ixy_1-000032</span>.safetensors <span class="hljs-literal">--local-dir</span>=./test<br><br><span class="hljs-comment"># 新版命令</span><br>hf download licyk/test_model_1 model/ag31<span class="hljs-literal">-ixy_1-000032</span>.safetensors <span class="hljs-literal">--local-dir</span>=./test<br></code></pre></td></tr></table></figure>
+
+<p>如果需要下载仓库中的多个文件，比如从 licyk&#x2F;test_model_1 模型仓库下载仓库根目录中的 terminal.ps1 和 model 文件夹中的 ag31-ixy_1-000032.safetensors，下载后放在当前目录的 test1 文件夹中，命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> download licyk/test_model_1 terminal.ps1 model/ag31<span class="hljs-literal">-ixy_1-000032</span>.safetensors <span class="hljs-literal">--local-dir</span>=./test1<br><br><span class="hljs-comment"># 新版命令</span><br>hf download licyk/test_model_1 terminal.ps1 model/ag31<span class="hljs-literal">-ixy_1-000032</span>.safetensors <span class="hljs-literal">--local-dir</span>=./test1<br></code></pre></td></tr></table></figure>
+
+<p>如果需要下载整个仓库，比如将 licyk&#x2F;test_dataset_1 这个数据集仓库下载到本地的 sd_dataset 文件夹，则命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> download licyk/test_dataset_1 <span class="hljs-literal">--local-dir</span>=./sd_dataset <span class="hljs-literal">--repo-type</span>=dataset<br><br><span class="hljs-comment"># 新版命令</span><br>hf download licyk/test_dataset_1 <span class="hljs-literal">--local-dir</span>=./sd_dataset <span class="hljs-literal">--repo-type</span>=dataset<br></code></pre></td></tr></table></figure>
+
+<p>如果是下载仓库中指定文件夹中的所有文件，比如将 licyk&#x2F;test_dataset_1 这个数据集仓库中 rurudo 文件夹的内容下载到本地的 dataset_1 文件夹，则命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> download licyk/test_dataset_1 <span class="hljs-literal">--local-dir</span>=./dataset_1 <span class="hljs-literal">--repo-type</span>=dataset <span class="hljs-literal">--include</span>=<span class="hljs-string">&quot;rurudo/*&quot;</span><br><br><span class="hljs-comment"># 新版命令</span><br>hf download licyk/test_dataset_1 <span class="hljs-literal">--local-dir</span>=./dataset_1 <span class="hljs-literal">--repo-type</span>=dataset <span class="hljs-literal">--include</span>=<span class="hljs-string">&quot;rurudo/*&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="使用-HuggingFace-CLI-删除文件"><a href="#使用-HuggingFace-CLI-删除文件" class="headerlink" title="使用 HuggingFace CLI 删除文件"></a>使用 HuggingFace CLI 删除文件</h3><p>有些在 HuggingFace 仓库中的文件需要删除时，可以使用 HuggingFace CLI 进行删除。</p>
+<p>比如从 licyk&#x2F;test_model_1 模型仓库删除 terminal.ps1 文件，命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> repo<span class="hljs-literal">-files</span> licyk/test_model_1 delete terminal.ps1<br><br><span class="hljs-comment"># 新版命令</span><br>hf repo<span class="hljs-literal">-files</span> delete licyk/test_model_1 terminal.ps1<br></code></pre></td></tr></table></figure>
+
+<p>如果需要删除多个文件，比如从 licyk&#x2F;test_dataset_1 数据集仓库删除 update_node.ps1 文件和 lora 文件夹，则命令可以这样写。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 旧版命令</span><br>huggingface<span class="hljs-literal">-cli</span> repo<span class="hljs-literal">-files</span> licyk/test_dataset_1 delete update_node.ps1 <span class="hljs-string">&quot;lora/&quot;</span> <span class="hljs-literal">--repo-type</span>=dataset<br><br><span class="hljs-comment"># 新版命令</span><br>hf repo<span class="hljs-literal">-files</span> delete licyk/test_dataset_1 update_node.ps1 <span class="hljs-string">&quot;lora/&quot;</span> <span class="hljs-literal">--repo-type</span>=dataset<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="使用-Git-管理文件"><a href="#使用-Git-管理文件" class="headerlink" title="使用 Git 管理文件"></a>使用 Git 管理文件</h2><p>HuggingFace 中仓库的文件使用了 Git 进行管理，所以支持使用 Git 来对仓库进行管理。</p>
+<h3 id="Git-环境配置"><a href="#Git-环境配置" class="headerlink" title="Git 环境配置"></a>Git 环境配置</h3><p>如果系统没有安装 Git，需要前往 <a target="_blank" rel="noopener" href="https://git-scm.com/downloads/win">https://git-scm.com/downloads/win</a> 下载 Git，点击 64-bit Git for Windows Setup 即可下载 Git 的安装包，双击打开后，一直点 Next，最后点 Install，等待 Git 安装完成。</p>
+<p>安装完成后右键桌面或者文件管理器空白处，在右键菜单选择在终端打开，此时将启动 PowerShell（默认情况下），在 PowerShell 中输入下面的命令查看是否安装成功。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git <span class="hljs-literal">--version</span><br></code></pre></td></tr></table></figure>
+
+<p>能够显示 Git 版本信息就说明 Git 安装成功。</p>
+<p>现在还需要配置一下 Git 的个人信息，使用下面的命令进行配置。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git config <span class="hljs-literal">--global</span> user.email <span class="hljs-string">&quot;youremail@example.com&quot;</span><br>git config <span class="hljs-literal">--global</span> user.name <span class="hljs-string">&quot;username&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>现在需要配置 SSH 密钥用于连接 HuggingFace 仓库，使用下面的命令生成 SSH 密钥。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> ed25519 <span class="hljs-literal">-C</span> <span class="hljs-string">&quot;youremail@example.com&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行该命令后将会提示进行一些操作，直接回车即可。</p>
+<p>运行结束后将会提示 Your public key has been saved in（您的公钥已经保存在…），后面的内容为公钥所在的路径，根据这个路径找到 id_rsa.pub 文件并打开，将里面的内容复制下来。</p>
+<p>回到 HuggingFace 官网，点击右上角的头像，再点击 Settings（设置）-&gt; SSH and GPG Keys（SSH 和 GPG 密钥），进入 SSH 密钥的配置界面。点击 Add SSH Key（添加 SSH 密钥）进入添加 SSH 密钥界面，Key name（密钥名字）随便填一个名字，在 SSH Public key（SSH 公钥）处将从 id_rsa.pub 文件复制过来的内容粘贴到此处，再点击 Add key（添加密钥）保存 SSH 密钥。</p>
+<p>现在使用下面的命令验证一下 SSH 密钥是否配置成功。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh <span class="hljs-literal">-T</span> git@hf.co<br></code></pre></td></tr></table></figure>
+
+<p>如果显示 welcome to Hugging Face（欢迎使用 HuggingFace）时则说明配置 SSH 密钥成功，现在尝试将 licyk&#x2F;test_dataset_1 数据集仓库下载下来。</p>
+<p>在 HuggingFace 这个页面打开 licyk&#x2F;test_dataset_1 数据集仓库页面，在右边可以看到三个点的图标，点击后可以看到 Clone Respository（克隆仓库）这个按钮，点击后在上方选择 SSH 就可以看到对应的下载命令。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/get_git_cmd.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>这里可以看到 HuggingFace 提供了 2 种下载仓库方式，前面的方式是直接下载仓库，并且大文件（LFS）也会被下载下来。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git lfs install<br>git clone git@hf.co:datasets/licyk/test_dataset_1<br></code></pre></td></tr></table></figure>
+
+<p>另一种方式是下载该仓库但不下载大文件（LFS），这样当仓库中有较多大文件时，可以加快仓库的下载速度。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">GIT_LFS_SKIP_SMUDGE=<span class="hljs-number">1</span> git clone git@hf.co:datasets/licyk/test_dataset_1<br></code></pre></td></tr></table></figure>
+
+<p>注意，HuggingFace 上提供的命令是在 Linux Shell &#x2F; Unix Shell &#x2F; MacOS Shell &#x2F; Windows Git Bash &#x2F; Windows MSYS2 中的环境中运行的，如果当前使用的是 PowerShell，需要将这个命令进行修改。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$Env:GIT_LFS_SKIP_SMUDGE</span>=<span class="hljs-number">1</span>; git clone git@hf.co:datasets/licyk/test_dataset_1; <span class="hljs-built_in">Remove-Item</span> <span class="hljs-literal">-Path</span> Env:GIT_LFS_SKIP_SMUDGE <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure>
+
+<p>第一次使用 SSH 链接下载仓库时将会提示 Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])?（确定想要继续连接吗 (yes&#x2F;no&#x2F;[fingerprint])?），此时输入 yes 后回车即可。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_clone_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>此时可以看到 licyk&#x2F;test_dataset_1 数据集仓库被下载下来，可以看到本地多了个 test_dataset_1 文件夹，此时可以在该文件夹中存放，管理文件。</p>
+<p>如果需要将仓库的更改同步到 HuggingFace 中，可以在仓库文件夹中打开终端，输入下面的命令同步更改。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git lfs install<br>git add <span class="hljs-literal">-A</span><br>git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;update&quot;</span><br>git push<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_push_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>如果遇到网络问题，需要手动设置 HTTP_PROXY 和 HTTPS_PROXY 环境变量，使终端环境能够使用代理。</p>
+<p>比如当前代理软件的代理地址为 <a href="http://127.0.0.1:10808，如果使用的终端为">http://127.0.0.1:10808，如果使用的终端为</a> Linux Shell &#x2F; Unix Shell &#x2F; MacOS Shell &#x2F; Windows Git Bash &#x2F; Windows MSYS2，则设置代理环境变量的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> HTTP_PROXY=<span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-built_in">export</span> HTTPS_PROXY=<span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果是在 PowerShell 中，则设置代理环境变量的命令如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$Env:HTTP_PROXY</span> = <span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-variable">$Env:HTTPS_PROXY</span> = <span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>设置后再重新运行上面的同步命令即可。</p>
+<h2 id="注册-ModelScope"><a href="#注册-ModelScope" class="headerlink" title="注册 ModelScope"></a>注册 ModelScope</h2><p>ModelScope 类似 HuggingFace，使用方法也比较类似。</p>
+<p>打开 <a target="_blank" rel="noopener" href="https://modelscope.cn/">https://modelscope.cn</a> 这个地址，点击右上角的<code>登陆/注册</code>按钮，如果需要快速注册一个账号，使用<code>短信登录</code>即可。注册成功后可以在右上角点击头像打开菜单。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/login_modelscope.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>这里可以创建一个模型仓库，点击头像打开菜单，选择<code>创建模型</code>进入模型创建设置页面。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/create_model_repo_on_modelscope.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>模型英文名称，Task 类型，AI 框架填写之后，点击下方的创建按钮即可创建模型仓库。</p>
+<h3 id="使用网页管理文件-1"><a href="#使用网页管理文件-1" class="headerlink" title="使用网页管理文件"></a>使用网页管理文件</h3><p>进入仓库后，在<code>模型文件</code>中可以看到仓库中的所有文件，支持下载，编辑和删除，点击<code>添加文件 -&gt; 上传文件</code>可以上传文件，但目前只支持上传单个文件，并且只能大小限制在 100 MB 以内。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_modelscope_website_upload_file.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>如果需要上传更大的文件需要使用其他方式。</p>
+<h2 id="使用-ModelScope-CLI-管理文件"><a href="#使用-ModelScope-CLI-管理文件" class="headerlink" title="使用 ModelScope CLI 管理文件"></a>使用 ModelScope CLI 管理文件</h2><p>ModelScope CLI 的时候方法和 HuggingFace CLI 的方法非常类似，并且可使用的管理功能比网页端更多。</p>
+<h3 id="配置-ModelScope-CLI"><a href="#配置-ModelScope-CLI" class="headerlink" title="配置 ModelScope CLI"></a>配置 ModelScope CLI</h3><p>在前面关于 HuggingFace CLI 的介绍中已经安装好了 Python，所以可以直接安装 ModelScope CLI。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pip install modelscope<br></code></pre></td></tr></table></figure>
+
+<p>安装好后输入下面的命令就可以看到 ModelScope CLI 可用的命令。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope <span class="hljs-literal">--help</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/get_modelscope_cli_help.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>使用 ModelScope CLI 管理个人的仓库需要 ModelScope Token 获取权限，此时回到 ModelScope 官网，点击<code>首页 -&gt; 访问令牌 -&gt; 新建 SDK 令牌</code>，此时将打开 ModelScope Token 创建界面，</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/configure_modelscope_token.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>令牌名称随意填写，然后点击<code>新建令牌</code>即可，再点击复制按钮复制 ModelScope Token，比如获取到的 ModelScope Token 为<code>ms_abcdefg</code></p>
+<p>回到 PowerShell 界面中，输入下面的命令登陆 ModelScope，在<code>--token</code>后面写上自己的 ModelScope Token。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope login <span class="hljs-literal">--token</span> ms_abcdefg<br></code></pre></td></tr></table></figure>
+
+<p>如果没有错误信息产生就说明登陆成功。</p>
+<h3 id="使用-ModelScope-CLI-上传文件"><a href="#使用-ModelScope-CLI-上传文件" class="headerlink" title="使用 ModelScope CLI 上传文件"></a>使用 ModelScope CLI 上传文件</h3><p>ModelScope CLI 上传文件的方式和 HuggingFace CLI 的上传方式一样，比如上传当前目录下的所有文件到 licyks&#x2F;tmp 模型仓库。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope upload licyks/tmp . .<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_modelscope_cli_to_upload_folder.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>将单个文件上传到 licyks&#x2F;tmp1 模型仓库的 model 文件夹。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope upload licyks/tmp1 E:\Softwares\stable<span class="hljs-literal">-diffusion-webui</span>\models\Lora\sdxl\style\a31_style_koni<span class="hljs-literal">-000010</span>.safetensors model/a31_style_koni<span class="hljs-literal">-000010</span>.safetensors<br></code></pre></td></tr></table></figure>
+
+<p>如果上传文件到数据集仓库，比如将当前文件夹中的所有东西上传到 licyks&#x2F;test1 数据集仓库中，需要使用<code>--repo-type</code>来指定。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope upload licyks/test1 . . <span class="hljs-literal">--repo-type</span>=dataset<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="使用-ModelScope-CLI-下载文件"><a href="#使用-ModelScope-CLI-下载文件" class="headerlink" title="使用 ModelScope CLI 下载文件"></a>使用 ModelScope CLI 下载文件</h3><p>将 licyks&#x2F;tmp1 模型仓库下载到本地的 test1 文件夹中。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope download licyks/tmp1 <span class="hljs-literal">--local_dir</span>=./test1<br></code></pre></td></tr></table></figure>
+
+<p>从 licyks&#x2F;tmp1 数据集仓库下载 test 文件夹中的所有文件到本地的 test_model 文件夹中。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope download licyks/tmp1 <span class="hljs-literal">--local_dir</span>=./test_model <span class="hljs-literal">--include</span> <span class="hljs-string">&quot;test/*&quot;</span> <span class="hljs-literal">--repo-type</span>=dataset<br></code></pre></td></tr></table></figure>
+
+<p>从 licyks&#x2F;tmp 模型仓库中下载 image.png 和 README.md 文件到本地的 img 文件夹中。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">modelscope download licyks/tmp image.png README.md <span class="hljs-literal">--local_dir</span>=./img<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="使用-Git-管理文件-1"><a href="#使用-Git-管理文件-1" class="headerlink" title="使用 Git 管理文件"></a>使用 Git 管理文件</h2><p>在之前关于 HuggingFace 的介绍中，已经安装了必要的 Git 环境，所以可以直接使用之前的环境进行操作。</p>
+<p>在 ModelScope 的<code>首页 -&gt; 我创建的</code>可以看到刚刚创建的模型仓库，点击进入刚刚创建的仓库，进入后点击<code>模型文件 -&gt; 下载模型</code>，在 Git下载的说明勾选<code>使用我的Token</code>，此时可以按照说明运行命令将仓库下载下来，并且使用之前介绍的方法进行管理。</p>
+<p><img src="/../img/use_huggingface_or_modelscope_to_save_file/use_git_cmd_to_download_modelscope_repo.png" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>可供参考的文档：</p>
+<p>HuggingFace：<a target="_blank" rel="noopener" href="https://huggingface.co/docs/huggingface_hub/guides/cli">https://huggingface.co/docs/huggingface_hub/guides/cli</a><br>ModelScope：<a target="_blank" rel="noopener" href="https://modelscope.cn/docs/home">https://modelscope.cn/docs/home</a><br>Git：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git/zh_HANS-CN">https://git-scm.com/docs/git/zh_HANS-CN</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 HuggingFace / ModelScope 保存和下载文件</div>
+      <div>https://licyk.netlify.app/2025/01/16/use-huggingface-or-modelscope-to-save-file/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/01/16/use-kaggle-to-training-sd-model/" title="使用 Kaggle 进行模型训练">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 Kaggle 进行模型训练</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/10/deploy-semenr/" title="记录 SemEnr 环境的配置">
+                        <span class="hidden-mobile">记录 SemEnr 环境的配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

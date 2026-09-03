@@ -1,0 +1,1227 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="训练 LoRA 模型时发现的一些好东西">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Stable Diffusion 模型训练中使用 debiased estimation loss">
+<meta property="og:url" content="https://licyk.netlify.app/2025/02/10/debiased_estimation_loss_in_stable_diffusion_model_training/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="训练 LoRA 模型时发现的一些好东西">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/current_loss.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/average_loss.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0528-20250209_180754_Illustrious-XL-v0.1_Restart.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0551-20250209_224323_Illustrious-XL-v0.1_Restart.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0554-20250209_234754_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0555-20250209_235039_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0556-20250209_235132_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0557-20250209_235312_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0558-20250209_235458_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0559-20250209_235945_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0560-20250210_000132_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0562-20250210_000548_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0169-20250222_102824_noobaiXLNAIXL_vPred10Version_Euler.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0170-20250222_104114_noobaiXLNAIXL_vPred10Version_Euler.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0174-20250222_113420_noobaiXLNAIXL_vPred10Version_Euler.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0176-20250222_123953_noobaiXLNAIXL_vPred10Version_Euler.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0177-20250222_132122_noobaiXLNAIXL_vPred10Version_Euler.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/current_loss_1.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/average_loss_1.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0188-20250224_174009_Illustrious-XL-v0.1_Restart.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0196-20250224_185440_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0195-20250224_185202_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0197-20250224_185659_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0198-20250224_185914_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0199-20250224_190310_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0201-20250224_191341_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0200-20250224_190720_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0194-20250224_184901_Illustrious-XL-v0.1_Restart.png">
+<meta property="og:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0202-20250224_191725_Illustrious-XL-v0.1_Restart.png">
+<meta property="article:published_time" content="2025-02-10T05:00:54.000Z">
+<meta property="article:modified_time" content="2025-05-15T12:29:06.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="stable diffusion">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licyk.netlify.app/img/debiased_estimation_loss_in_stable_diffusion_model_training/current_loss.png">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>在 Stable Diffusion 模型训练中使用 debiased estimation loss - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在 Stable Diffusion 模型训练中使用 debiased estimation loss"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-10 13:00" pubdate>
+          2025年2月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在 Stable Diffusion 模型训练中使用 debiased estimation loss</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年5月15日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>为了得到更好效果的 LoRA 模型，对着训练参数改了又改，再训练，测试，真的费时有费力啊，苦い。最近除了发现 Lokr 中 preset 对训练效果的影响外，还发现 debiased estimation loss 对训练效果的影响，就顺手记录一下吧。</p>
+<!--more-->
+
+
+<h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/">Kaggle</a>，免费提供算力，每周可以使用 30h 的 Tesla T4 x 2，永远滴神。部署训练环境的脚本用了 <a target="_blank" rel="noopener" href="https://github.com/licyk/sd-webui-all-in-one?tab=readme-ov-file#sd-scripts-kaggle-jupyter-notebook">SD Scripts Kaggle Jupyter NoteBook</a>，自己写的工具用来部署训练环境挺方便的，训练工具就是 <a target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">kohya-ss&#x2F;sd-scripts</a> 了。</p>
+<h2 id="训练参数"><a href="#训练参数" class="headerlink" title="训练参数"></a>训练参数</h2><p>为了对比启用 debiased estimation loss 前后的训练效果，使用 <a target="_blank" rel="noopener" href="https://danbooru.donmai.us/posts?tags=konya_karasue">konya_karasu</a> 的图集作为训练集，用了 <a target="_blank" rel="noopener" href="https://github.com/deepghs/waifuc">deepghs&#x2F;waifuc</a> 爬取图片并制作训练集，这个工具很方便的呢。</p>
+<h3 id="ill-xl-01-KonYa666-6"><a href="#ill-xl-01-KonYa666-6" class="headerlink" title="ill-xl-01-KonYa666_6"></a>ill-xl-01-KonYa666_6</h3><p>这是启用 debiased estimation loss 的训练参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs python">!python -m accelerate.commands.launch \<br>    --num_cpu_threads_per_process=<span class="hljs-number">1</span> \<br>    --multi_gpu \<br>    --num_processes=<span class="hljs-number">2</span> \<br>    <span class="hljs-string">&quot;&#123;SD_SCRIPTS_PATH&#125;/sdxl_train_network.py&quot;</span> \<br>    --pretrained_model_name_or_path=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/Illustrious-XL-v0.1.safetensors&quot;</span> \<br>    --vae=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/sdxl_fp16_fix_vae.safetensors&quot;</span> \<br>    --train_data_dir=<span class="hljs-string">&quot;&#123;INPUT_DATASET_PATH&#125;/konya_karasu&quot;</span> \<br>    --output_name=<span class="hljs-string">&quot;ill-xl-01-KonYa666_6&quot;</span> \<br>    --output_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/ill-xl-01-KonYa666_6&quot;</span> \<br>    --log_tracker_name=<span class="hljs-string">&quot;Illustrious-XL-v0.1_LoRA&quot;</span> \<br>    --prior_loss_weight=<span class="hljs-number">1</span> \<br>    --resolution=<span class="hljs-string">&quot;1024,1024&quot;</span> \<br>    --enable_bucket \<br>    --min_bucket_reso=<span class="hljs-number">256</span> \<br>    --max_bucket_reso=<span class="hljs-number">4096</span> \<br>    --bucket_reso_steps=<span class="hljs-number">64</span> \<br>    --save_model_as=<span class="hljs-string">&quot;safetensors&quot;</span> \<br>    --save_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --save_every_n_epochs=<span class="hljs-number">2</span> \<br>    --max_train_epochs=<span class="hljs-number">40</span> \<br>    --train_batch_size=<span class="hljs-number">6</span> \<br>    --gradient_checkpointing \<br>    --network_train_unet_only \<br>    --learning_rate=<span class="hljs-number">0.0001</span> \<br>    --unet_lr=<span class="hljs-number">0.0001</span> \<br>    --text_encoder_lr=<span class="hljs-number">0.00001</span> \<br>    --lr_scheduler=<span class="hljs-string">&quot;constant_with_warmup&quot;</span> \<br>    --lr_warmup_steps=<span class="hljs-number">100</span> \<br>    --optimizer_type=<span class="hljs-string">&quot;Lion8bit&quot;</span> \<br>    --network_module=<span class="hljs-string">&quot;lycoris.kohya&quot;</span> \<br>    --network_dim=<span class="hljs-number">100000</span> \<br>    --network_alpha=<span class="hljs-number">100000</span> \<br>    --network_args \<br>        conv_dim=<span class="hljs-number">100000</span> \<br>        conv_alpha=<span class="hljs-number">100000</span> \<br>        algo=lokr \<br>        dropout=<span class="hljs-number">0</span> \<br>        factor=<span class="hljs-number">8</span> \<br>        train_norm=<span class="hljs-literal">True</span> \<br>        preset=<span class="hljs-string">&quot;full&quot;</span> \<br>    --optimizer_args \<br>        weight_decay=<span class="hljs-number">0.05</span> \<br>        betas=<span class="hljs-string">&quot;0.9,0.95&quot;</span> \<br>    --log_with=<span class="hljs-string">&quot;&#123;LOG_MODULE&#125;&quot;</span> \<br>    --logging_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/logs&quot;</span> \<br>    --caption_extension=<span class="hljs-string">&quot;.txt&quot;</span> \<br>    --shuffle_caption \<br>    --keep_tokens=<span class="hljs-number">0</span> \<br>    --max_token_length=<span class="hljs-number">225</span> \<br>    --seed=<span class="hljs-number">1337</span> \<br>    --mixed_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --xformers \<br>    --cache_latents \<br>    --cache_latents_to_disk \<br>    --persistent_data_loader_workers \<br>    --debiased_estimation_loss \<br>    --full_fp16<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="ill-xl-01-KonYa666-7"><a href="#ill-xl-01-KonYa666-7" class="headerlink" title="ill-xl-01-KonYa666_7"></a>ill-xl-01-KonYa666_7</h3><p>在原来训练参数的基础上禁用了 debiased estimation loss。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs python">!python -m accelerate.commands.launch \<br>    --num_cpu_threads_per_process=<span class="hljs-number">1</span> \<br>    --multi_gpu \<br>    --num_processes=<span class="hljs-number">2</span> \<br>    <span class="hljs-string">&quot;&#123;SD_SCRIPTS_PATH&#125;/sdxl_train_network.py&quot;</span> \<br>    --pretrained_model_name_or_path=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/Illustrious-XL-v0.1.safetensors&quot;</span> \<br>    --vae=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/sdxl_fp16_fix_vae.safetensors&quot;</span> \<br>    --train_data_dir=<span class="hljs-string">&quot;&#123;INPUT_DATASET_PATH&#125;/konya_karasu&quot;</span> \<br>    --output_name=<span class="hljs-string">&quot;ill-xl-01-KonYa666_7&quot;</span> \<br>    --output_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/ill-xl-01-KonYa666_7&quot;</span> \<br>    --log_tracker_name=<span class="hljs-string">&quot;Illustrious-XL-v0.1_LoRA&quot;</span> \<br>    --prior_loss_weight=<span class="hljs-number">1</span> \<br>    --resolution=<span class="hljs-string">&quot;1024,1024&quot;</span> \<br>    --enable_bucket \<br>    --min_bucket_reso=<span class="hljs-number">256</span> \<br>    --max_bucket_reso=<span class="hljs-number">4096</span> \<br>    --bucket_reso_steps=<span class="hljs-number">64</span> \<br>    --save_model_as=<span class="hljs-string">&quot;safetensors&quot;</span> \<br>    --save_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --save_every_n_epochs=<span class="hljs-number">2</span> \<br>    --max_train_epochs=<span class="hljs-number">40</span> \<br>    --train_batch_size=<span class="hljs-number">6</span> \<br>    --gradient_checkpointing \<br>    --network_train_unet_only \<br>    --learning_rate=<span class="hljs-number">0.0001</span> \<br>    --unet_lr=<span class="hljs-number">0.0001</span> \<br>    --text_encoder_lr=<span class="hljs-number">0.00001</span> \<br>    --lr_scheduler=<span class="hljs-string">&quot;constant_with_warmup&quot;</span> \<br>    --lr_warmup_steps=<span class="hljs-number">100</span> \<br>    --optimizer_type=<span class="hljs-string">&quot;Lion8bit&quot;</span> \<br>    --network_module=<span class="hljs-string">&quot;lycoris.kohya&quot;</span> \<br>    --network_dim=<span class="hljs-number">100000</span> \<br>    --network_alpha=<span class="hljs-number">100000</span> \<br>    --network_args \<br>        conv_dim=<span class="hljs-number">100000</span> \<br>        conv_alpha=<span class="hljs-number">100000</span> \<br>        algo=lokr \<br>        dropout=<span class="hljs-number">0</span> \<br>        factor=<span class="hljs-number">8</span> \<br>        train_norm=<span class="hljs-literal">True</span> \<br>        preset=<span class="hljs-string">&quot;full&quot;</span> \<br>    --optimizer_args \<br>        weight_decay=<span class="hljs-number">0.05</span> \<br>        betas=<span class="hljs-string">&quot;0.9,0.95&quot;</span> \<br>    --log_with=<span class="hljs-string">&quot;&#123;LOG_MODULE&#125;&quot;</span> \<br>    --logging_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/logs&quot;</span> \<br>    --caption_extension=<span class="hljs-string">&quot;.txt&quot;</span> \<br>    --shuffle_caption \<br>    --keep_tokens=<span class="hljs-number">0</span> \<br>    --max_token_length=<span class="hljs-number">225</span> \<br>    --seed=<span class="hljs-number">1337</span> \<br>    --mixed_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --xformers \<br>    --cache_latents \<br>    --cache_latents_to_disk \<br>    --persistent_data_loader_workers \<br>    --full_fp16<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h2><p>启用 debiased estimation loss 前后的 Loss 差别还很大欸，下面是 2 个 Loss 曲线的对比。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/current_loss.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/average_loss.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>ill-xl-01-KonYa666_6 启用了 debiased estimation loss，相对于 ill-xl-01-KonYa666_7，Loss 曲线显得更加平稳，并且 Loss 值更低，收敛更快。</p>
+<h2 id="出图效果对比"><a href="#出图效果对比" class="headerlink" title="出图效果对比"></a>出图效果对比</h2><p>用 XYZ 图对比了不同 Epoch 下 LoRA 的效果。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0528-20250209_180754_Illustrious-XL-v0.1_Restart.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p>启用 debiased estimation loss 后学习速度很快，画风更加接近训练集，但似乎崩坏率有所提高，可能需要降低学习率吧。按照以前的经验来看，学习率偏高的时候肢体崩坏率会高一点。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0551-20250209_224323_Illustrious-XL-v0.1_Restart.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p>没有启用 debiased estimation loss 时学习的速度相对慢了一些，但看起来肢体更好了一点。</p>
+<p>在这 2 次训练中各挑出一个效果最好的进行测试吧。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0554-20250209_234754_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0555-20250209_235039_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0556-20250209_235132_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0557-20250209_235312_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0558-20250209_235458_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0559-20250209_235945_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0560-20250210_000132_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0562-20250210_000548_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>虽然在前面的 XYZ 测试中测试了不同的 Epoch，并且发现启用了 debiased estimation loss 后肢体崩坏率有一点点高，但通过这部分的 XYZ 图对比，似乎启用 debiased estimation loss 前后的肢体表现都差不多。</p>
+<p>画风表现方面，启用 debiased estimation loss 后画风学习得更好了，色彩看起来也更好。嗯…所以启用 debiased estimation loss 应该是更好的选择吧。</p>
+<h2 id="相关参考"><a href="#相关参考" class="headerlink" title="相关参考"></a>相关参考</h2><p>对了，debiased estimation loss 这个东西有个相关的论文可以去看看，论文里面的内容就不在这讲了。</p>
+<p>Arxiv：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2310.08442">[2310.08442] Unmasking Bias in Diffusion Model Training</a>。</p>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><p>一次偶然，我和朋友练了同一个画风 LoRA，发现朋友训练的 LoRA 模型效果居然比我训练的 LoRA 效果好（太强了，膜拜），就用朋友的训练集再进行训练，在朋友训练参数的基础上加上了 debiased estimation loss。</p>
+<p>ill-xl-10-zuu_2 使用了 debiased estimation loss 进行训练，zuustyle1 未使用 debiased estimation loss 进行训练，下面的图对比了一下效果。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0169-20250222_102824_noobaiXLNAIXL_vPred10Version_Euler.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0170-20250222_104114_noobaiXLNAIXL_vPred10Version_Euler.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0174-20250222_113420_noobaiXLNAIXL_vPred10Version_Euler.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0176-20250222_123953_noobaiXLNAIXL_vPred10Version_Euler.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0177-20250222_132122_noobaiXLNAIXL_vPred10Version_Euler.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p>之前认为肢体崩坏和学习率有关。嗯…想了想，一直使用高学习率可能会导致肢体崩坏率高一些吧，所以就把学习率优化器从 constant_with_warmup 换成了 cosine，修改后的训练参数如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs python">!python -m accelerate.commands.launch \<br>    --num_cpu_threads_per_process=<span class="hljs-number">1</span> \<br>    --multi_gpu \<br>    --num_processes=<span class="hljs-number">2</span> \<br>    <span class="hljs-string">&quot;&#123;SD_SCRIPTS_PATH&#125;/sdxl_train_network.py&quot;</span> \<br>    --pretrained_model_name_or_path=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/Illustrious-XL-v0.1.safetensors&quot;</span> \<br>    --vae=<span class="hljs-string">&quot;&#123;SD_MODEL_PATH&#125;/sdxl_fp16_fix_vae.safetensors&quot;</span> \<br>    --train_data_dir=<span class="hljs-string">&quot;&#123;INPUT_DATASET_PATH&#125;/konya_karasu&quot;</span> \<br>    --output_name=<span class="hljs-string">&quot;ill-xl-01-KonYa666_8&quot;</span> \<br>    --output_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/ill-xl-01-KonYa666_8&quot;</span> \<br>    --log_tracker_name=<span class="hljs-string">&quot;Illustrious-XL-v0.1_LoRA&quot;</span> \<br>    --prior_loss_weight=<span class="hljs-number">1</span> \<br>    --resolution=<span class="hljs-string">&quot;1024,1024&quot;</span> \<br>    --enable_bucket \<br>    --min_bucket_reso=<span class="hljs-number">256</span> \<br>    --max_bucket_reso=<span class="hljs-number">4096</span> \<br>    --bucket_reso_steps=<span class="hljs-number">64</span> \<br>    --save_model_as=<span class="hljs-string">&quot;safetensors&quot;</span> \<br>    --save_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --save_every_n_epochs=<span class="hljs-number">2</span> \<br>    --max_train_epochs=<span class="hljs-number">40</span> \<br>    --train_batch_size=<span class="hljs-number">6</span> \<br>    --gradient_checkpointing \<br>    --network_train_unet_only \<br>    --learning_rate=<span class="hljs-number">0.0001</span> \<br>    --unet_lr=<span class="hljs-number">0.0001</span> \<br>    --text_encoder_lr=<span class="hljs-number">0.00001</span> \<br>    --lr_scheduler=<span class="hljs-string">&quot;cosine&quot;</span> \<br>    --lr_warmup_steps=<span class="hljs-number">0</span> \<br>    --optimizer_type=<span class="hljs-string">&quot;Lion8bit&quot;</span> \<br>    --network_module=<span class="hljs-string">&quot;lycoris.kohya&quot;</span> \<br>    --network_dim=<span class="hljs-number">100000</span> \<br>    --network_alpha=<span class="hljs-number">100000</span> \<br>    --network_args \<br>        conv_dim=<span class="hljs-number">100000</span> \<br>        conv_alpha=<span class="hljs-number">100000</span> \<br>        algo=lokr \<br>        dropout=<span class="hljs-number">0</span> \<br>        factor=<span class="hljs-number">8</span> \<br>        train_norm=<span class="hljs-literal">True</span> \<br>        preset=<span class="hljs-string">&quot;full&quot;</span> \<br>    --optimizer_args \<br>        weight_decay=<span class="hljs-number">0.05</span> \<br>        betas=<span class="hljs-string">&quot;0.9,0.95&quot;</span> \<br>    --log_with=<span class="hljs-string">&quot;&#123;LOG_MODULE&#125;&quot;</span> \<br>    --logging_dir=<span class="hljs-string">&quot;&#123;OUTPUT_PATH&#125;/logs&quot;</span> \<br>    --caption_extension=<span class="hljs-string">&quot;.txt&quot;</span> \<br>    --shuffle_caption \<br>    --keep_tokens=<span class="hljs-number">0</span> \<br>    --max_token_length=<span class="hljs-number">225</span> \<br>    --seed=<span class="hljs-number">1337</span> \<br>    --mixed_precision=<span class="hljs-string">&quot;fp16&quot;</span> \<br>    --xformers \<br>    --cache_latents \<br>    --cache_latents_to_disk \<br>    --persistent_data_loader_workers \<br>    --debiased_estimation_loss \<br>    --full_fp16<br></code></pre></td></tr></table></figure>
+
+<p>下面是训练时 Loss 曲线的对比。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/current_loss_1.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/average_loss_1.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>ill-xl-01-KonYa666_8 和 ill-xl-01-KonYa666_6 的 Loss 曲线几乎一致欸，再看看 XYZ 图下不同 Epoch 的对比。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0188-20250224_174009_Illustrious-XL-v0.1_Restart.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p>相比于 ill-xl-01-KonYa666_6 和 ill-xl-01-KonYa666_7，ill-xl-01-KonYa666_8 有着比 ill-xl-01-KonYa666_6 更好的肢体，而且画风效果和 ill-xl-01-KonYa666_6 差不多，并且比 ill-xl-01-KonYa666_7 的画风更好。</p>
+<p>从里面挑出一个效果比较好的 Epoch 和前面的进行对比。</p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0196-20250224_185440_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0195-20250224_185202_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0197-20250224_185659_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0198-20250224_185914_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0199-20250224_190310_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0201-20250224_191341_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0200-20250224_190720_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0194-20250224_184901_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p><img src="/../img/debiased_estimation_loss_in_stable_diffusion_model_training/xyz_grid-0202-20250224_191725_Illustrious-XL-v0.1_Restart.png" srcset="/img/config/loading.gif" lazyload></p>
+<p>效果就自己看看吧。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/stable-diffusion/" class="print-no-link">#stable diffusion</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在 Stable Diffusion 模型训练中使用 debiased estimation loss</div>
+      <div>https://licyk.netlify.app/2025/02/10/debiased_estimation_loss_in_stable_diffusion_model_training/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/05/14/manage-github-repo-with-https-url/" title="使用 HTTPS 协议管理 Github 仓库">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 HTTPS 协议管理 Github 仓库</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/02/set-proxy-in-terminal/" title="在终端中快速设置代理">
+                        <span class="hidden-mobile">在终端中快速设置代理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
