@@ -1,0 +1,1483 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="命令真复杂喵">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 SSH 管理服务器的经验">
+<meta property="og:url" content="https://licyk.netlify.app/2025/09/19/ssh-usage-experience/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="命令真复杂喵">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-09-19T13:37:17.000Z">
+<meta property="article:modified_time" content="2025-12-19T11:41:17.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="macos">
+<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>使用 SSH 管理服务器的经验 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 SSH 管理服务器的经验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-09-19 21:37" pubdate>
+          2025年9月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 SSH 管理服务器的经验</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年12月19日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前几天朋友给了我服务器来跑一些东西，这下又有算力可以使用了喵，真的非常感谢朋友给予我的帮助。</p>
+<p>不过这次拿到的是装有 Linux 的服务器，相比于装有 Windows 的服务器，没有了图形化界面，在操作上麻烦了很多。不过对于接触过 Linux，还经常使用 Msys2 的本喵来说，操作 Linux 服务器并不是很难（要成为运维高手了喵）。</p>
+<p>下面就顺手记录一些遇到的问题和解决方法。</p>
+<h1 id="SSH-密钥配置"><a href="#SSH-密钥配置" class="headerlink" title="SSH 密钥配置"></a>SSH 密钥配置</h1><p>配置 SSH 密钥后就可以直接免密码连接服务器，但是想把平常使用的 SSH 密钥和服务器使用的密钥分开，这时候就需要生成多个密钥了。</p>
+<p>生成 SSH 密钥的命令是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519<br></code></pre></td></tr></table></figure>
+
+<p><code>-t</code>参数指定生成密钥的类型，可以指定的类型有<code>rsa</code>、<code>dsa</code>、<code>ecdsa</code>、<code>ed25519</code>。如果需要增加密钥长度来提升安全性，可以使用<code>-b</code>参数指定密钥长度。</p>
+<p>密钥生成后默认保存在<code>~/.ssh</code>目录，不同密钥类型对应的默认文件名如下：</p>
+<ul>
+<li>rsa：<code>id_rsa</code>、<code>id_rsa.pub</code></li>
+<li>dsa：<code>id_dsa</code>、<code>id_dsa.pub</code></li>
+<li>ecdsa：<code>id_ecdsa</code>、<code>id_ecdsa.pub</code></li>
+<li>ed25519：<code>id_ed25519</code>、<code>id_ed25519.pub</code></li>
+</ul>
+<p>后缀有<code>.pub</code>的为公钥，没有这个后缀名的就是私钥。公钥和私钥是成对存在的，相互匹配成功了才能解密成功而建立连接。公钥用在被连接端，而私钥用在连接发起端，私钥是千万不可以泄露出去的哦。</p>
+<p>当使用 SSH 连接服务器时，SSH 会尝试寻找与服务器端上的公钥相匹配的私钥，从那些默认的文件名进行寻找，匹配上就能连接，否则就报错。</p>
+<p>假如想自定义密钥文件的路径，可以使用<code>-f</code>参数指定，这样就可以多个同一协议的密钥共存了呢。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519 -f ~/.ssh/server1<br></code></pre></td></tr></table></figure>
+
+<p>不过自定义名称的密钥生成在<code>~/.ssh</code>这个路径，SSH 也不会去寻找这些自定义名称的密钥（太坑了喵），不过这个问题在使用 SSH 去连接服务器的部分讲讲怎么解决。</p>
+<p>有了密钥后，服务器端还要配置一下公钥，把<code>.pub</code>后缀的文件里的内容复制下来，</p>
+<p>把这个内容写在服务器端<code>~/.ssh/authorized_keys</code>中，还有服务器端也要配置一下 sshd，配置文件在<code>/etc/ssh/sshd_config</code>，要调的内容如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 加载其他 sshd 的配置文件</span><br><span class="hljs-attribute">Include</span> /etc/ssh/sshd_config.d/<span class="hljs-regexp">*.conf</span><br><br><span class="hljs-comment"># SSH 端口</span><br>Port <span class="hljs-number">22</span><br><br><span class="hljs-comment"># 控制 root 用户是否可以通过 SSH 远程登录</span><br>PermitRootLogin <span class="hljs-literal">no</span><br><br><span class="hljs-comment"># 控制是否允许使用密码认证登录, 禁止后需使用密钥验证</span><br>PasswordAuthentication <span class="hljs-literal">yes</span><br><br><span class="hljs-comment"># 控制是否允许空密码用户登录</span><br>PermitEmptyPasswords <span class="hljs-literal">no</span><br><br><span class="hljs-comment"># 控制是否使用 PAM 进行认证</span><br>UsePAM <span class="hljs-literal">yes</span><br><br><span class="hljs-comment"># 控制是否允许通过 SSH 转发 X11 图形界面</span><br>X11Forwarding <span class="hljs-literal">no</span><br><br><span class="hljs-comment"># 控制登录时是否显示 MOTD 信息</span><br>PrintMotd <span class="hljs-literal">no</span><br><br><span class="hljs-comment"># 控制允许客户端传递哪些环境变量到服务器</span><br>AcceptEnv LANG LC_*<br><br><span class="hljs-comment"># 配置 SFTP 子系统</span><br>Subsystem sftp /usr/lib/openssh/sftp-server<br></code></pre></td></tr></table></figure>
+
+<p>配置完 sshd 后重启 sshd 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/etc/init.d/ssh restart<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>一些参考教程：</p> <ul> <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ssh-keygen.html">ssh-keygen 命令，Linux ssh-keygen 命令详解：为ssh生成、管理和转换认证密钥 - Linux 命令搜索引擎</a></li> <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/sshd.html">sshd 命令，Linux sshd 命令详解：openssh软件套件中的服务器守护进程 - Linux 命令搜索引擎</a></li> </ul> 
+          </div>
+
+
+<h1 id="使用-SSH-密钥连接服务器"><a href="#使用-SSH-密钥连接服务器" class="headerlink" title="使用 SSH 密钥连接服务器"></a>使用 SSH 密钥连接服务器</h1><p>比如服务器的地址是<code>180.1.1.1</code>，用户名是<code>root</code>，SSH 端口是<code>22</code>，则 SSH 连接服务器的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -p 22 root@180.1.1.1<br></code></pre></td></tr></table></figure>
+
+<p>如果有额外要指定的 SSH 配置，比如要指定<code>PubkeyAuthentication=yes</code>和<code>IdentitiesOnly=yes</code>，就用<code>-o</code>参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -p 22 root@180.1.1.1 -o IdentitiesOnly=<span class="hljs-built_in">yes</span> -o PubkeyAuthentication=<span class="hljs-built_in">yes</span><br></code></pre></td></tr></table></figure>
+
+<p>如果有个配置好的密钥，但是名称不是 SSH 默认的密钥名称，可以使用<code>-i</code>参数去指定密钥文件（要指定私钥文件哦），比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -p 22 root@180.1.1.1 -o IdentitiesOnly=<span class="hljs-built_in">yes</span> -o PubkeyAuthentication=<span class="hljs-built_in">yes</span> -i ~/.ssh/server1<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>常用的 SSH 参数可以参考：<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ssh.html">ssh 命令，Linux ssh 命令详解：openssh套件中的客户端连接工具 - Linux 命令搜索引擎</a></p> 
+          </div>
+
+
+<h1 id="配置-SSH-设置文件"><a href="#配置-SSH-设置文件" class="headerlink" title="配置 SSH 设置文件"></a>配置 SSH 设置文件</h1><p>每次用 SSH 连接服务器要输入好多参数呢，怎么办呢，写一个自定义 SSH 配置就好了，把配置文件保存在<code>~/.ssh/config</code>里。</p>
+<p>比如写个叫<code>server1</code>的配置文件，连接服务器的命令是<code>ssh -p 22 root@180.1.1.1 -o IdentitiesOnly=yes -o PubkeyAuthentication=yes -i ~/.ssh/server1</code>，则命令写进配置文件中是这样的。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Host</span> server1<br>    HostName <span class="hljs-number">180.1.1.1</span><br>    Port <span class="hljs-number">22</span><br>    User root<br>    IdentitiesOnly <span class="hljs-literal">yes</span><br>    PubkeyAuthentication <span class="hljs-literal">yes</span><br>    IdentityFile ~/.ssh/server1<br></code></pre></td></tr></table></figure>
+
+<p>则 SSH 连接服务器的命令就简化成了这么简单的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh server1<br></code></pre></td></tr></table></figure>
+
+<p>当然在这个命令上仍然还能指定其他的参数呢，比如启用压缩数据，就加个<code>-C</code>参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -C server1<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="配置-SSH-的代理"><a href="#配置-SSH-的代理" class="headerlink" title="配置 SSH 的代理"></a>配置 SSH 的代理</h1><p>SSH 默认是不走代理的，即使代理软件开启了 TUN 模式也不会走代理，需要通过传递<code>ProxyCommand</code>参数来启用，<code>ProxyCommand</code>将调用代理软件去应用代理。常用的代理软件是 ncat，在 Linux 上自带，Windows 上需要手动安装 <a target="_blank" rel="noopener" href="https://nmap.org/download.html">Nmap</a>（Nmap 附带 ncat）。</p>
+<p>比如当前的代理地址是<code>127.0.0.1:10808</code>，代理协议是<code>socks5</code>，ncat 的安装路径在<code>D:/Nmap/ncat.exe</code>，则应用代理的命令长这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -o ProxyCommand=<span class="hljs-string">&quot;D:/Nmap/ncat.exe --proxy 127.0.0.1:10808 --proxy-type socks5 %h %p&quot;</span> server1<br></code></pre></td></tr></table></figure>
+
+<p>这个当然可以写在 SSH 的配置文件中。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Host</span> server1<br>    HostName <span class="hljs-number">180.1.1.1</span><br>    Port <span class="hljs-number">22</span><br>    User root<br>    IdentitiesOnly <span class="hljs-literal">yes</span><br>    PubkeyAuthentication <span class="hljs-literal">yes</span><br>    IdentityFile ~/.ssh/server1<br>    ProxyCommand D:/Nmap/ncat.exe --proxy <span class="hljs-number">127.0.0.1:10808</span> --proxy-type socks5 %h %p<br></code></pre></td></tr></table></figure>
+
+<p>不过不是很推荐把这个应用代理的参数写在文件里就是了，毕竟哪天代理软件换了，代理地址可能也会变，如果忘记改配置文件就连不上服务器了喵。</p>
+<h1 id="保持进程不被关闭"><a href="#保持进程不被关闭" class="headerlink" title="保持进程不被关闭"></a>保持进程不被关闭</h1><p>使用 SSH 连接上服务器后，如果突然中断连接，并且还有进程正在跑着，那断开连接后进程就会强制关闭了呢（有重要的进程被关掉就完了喵），这时候 <a target="_blank" rel="noopener" href="https://github.com/tmux/tmux">Tmux</a> 就派上用场了喵，而且还能同时打开多个终端呢。</p>
+<p>常用的 Tmux 快捷键如下：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prefix 键 (当按下<code>Prefix 键</code>并松开后才可以使用 Tmux 的快捷键，<code>Prefix 键</code>相当于快捷键激活键，防止误触)</td>
+<td><code>Ctrl + b</code></td>
+</tr>
+<tr>
+<td>创建新窗口</td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td>向左切换窗口</td>
+<td><code>p</code></td>
+</tr>
+<tr>
+<td>向右切换窗口</td>
+<td><code>n</code></td>
+</tr>
+<tr>
+<td>切换指定窗口</td>
+<td><code>0 ~ 9</code></td>
+</tr>
+<tr>
+<td>关闭窗口</td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td>划分左右的小窗口 (Pane)</td>
+<td><code>%</code></td>
+</tr>
+<tr>
+<td>划分上下的小窗口 (Pane)</td>
+<td><code>&quot;</code></td>
+</tr>
+<tr>
+<td>切换小窗口 (Pane)</td>
+<td><code>方向键</code></td>
+</tr>
+<tr>
+<td>切换指定小窗口 (Pane) (在按下<code>q</code>时，Tmux 会显示一个小窗口对应的数字)</td>
+<td><code>q + 数字</code></td>
+</tr>
+<tr>
+<td>最大化或最小化选中的小窗口</td>
+<td><code>z</code></td>
+</tr>
+<tr>
+<td>关闭选中的小窗口 (当一个大窗口里的最后一个小窗口被关闭时，大窗口也会被关闭)</td>
+<td><code>x</code></td>
+</tr>
+<tr>
+<td>查看 Tmux 所有窗口 (用<code>方向键</code>和<code>回车键</code>可以选择进入指定的大窗口)</td>
+<td><code>w</code></td>
+</tr>
+<tr>
+<td>退出当前 tmux 工作区 (会话) (此时 tmux 的工作区会被保留下来，保持运行)</td>
+<td><code>d</code></td>
+</tr>
+<tr>
+<td>进入命令行模式 (类似 Vim 进入命令行模式的方法，只不过 Tmux 要先按<code>Prefix 键</code>)</td>
+<td><code>:</code></td>
+</tr>
+<tr>
+<td>进入翻页模式 (退出翻页模式直接按<code>q</code>，未进入翻页模式前无法使用滚轮或者键盘上的方向键进行翻页查看)</td>
+<td><code>[</code></td>
+</tr>
+</tbody></table>
+<div class="note note-primary">
+            <p>快捷键使用为<code>Prefix 键 + 其他按键</code>，如创建新窗口为<code>Prefix 键 + c</code>，实际操作为先按下<code>Prefix 键</code>(Ctrl + b)，然后松开 <code>Prefix 键</code>，再按下<code>c</code>键。</p> 
+          </div>
+
+<p>常用的命令有这些：</p>
+<ul>
+<li>查看工作区列表：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tmux <span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>进入 Tmux 工作区 (如果有多个工作区的话，该指令会优先进入最后一个退出的工作区)：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tmux attach<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>进入指定的工作区:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tmux attach -t &lt;工作区对应数字&gt;<br>tmux attach -t &lt;工作区名称&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>创建新的工作区：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tmux                       <span class="hljs-comment"># 使用 Tmux 默认分配的工作区名称</span><br>tmux new -s &lt;工作区名称&gt;    <span class="hljs-comment"># 创建指定名称的工作区</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>关闭工作区：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tmux kill-session -t &lt;工作区数字&gt;<br>tmux kill-session -t &lt;工作区名称&gt;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>一个小小的技巧，把这个 Shell 代码保存到<code>.bashrc</code>&#x2F;<code>.bash_profile</code>&#x2F;<code>.zshrc</code>中（Shell 配置文件），然后使用<code>source</code>命令重新加载 Shell 配置文件：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-function"><span class="hljs-title">tmux_session</span></span>() &#123;<br>    tmux attach -t <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> || tmux new -s <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>  <p>这样就可以用<code>tmux_session &lt;工作区名称&gt;</code>打开新的或者进入之前已经创建的工作区了喵。</p> 
+          </div>
+
+<div class="note note-success">
+            <p>Tmux 可以参考的说明：</p> <ul> <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/tmux.html">tmux 命令，Linux tmux 命令详解：Tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权 - Linux 命令搜索引擎</a></li> <li><a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/wiki">Home · tmux&#x2F;tmux Wiki</a></li> </ul> 
+          </div>
+
+
+<h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><p>传输文件可以用<code>scp</code>命令来实现，这个命令类似<code>cp</code>命令，用法类似，也就是指定本地的路径和一个服务器的路径就行，服务器路径要加上服务器地址去指定，也就是<code>&lt;&lt;用户名&gt;@&lt;服务器地址&gt;&gt;:&lt;服务器的路径&gt;</code>。</p>
+<p>比如向刚刚的服务器传输<code>/home/User/1.sh</code>文件到服务器的<code>/root/test</code>路径，命令就这么写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp /home/User/1.sh root@180.1.1.1:/root/test<br><br><span class="hljs-comment"># 或者使用 SSH 配置文件中的服务器名</span><br>scp /home/User/1.sh server1:/root/test<br></code></pre></td></tr></table></figure>
+
+<p>如果是从服务器传输到本地就把这两个路径反过来就行了呢。传输的如果是文件夹，记得加上<code>-r</code>参数哦。</p>
+<p>除了<code>scp</code>命令，还有<code>sftp</code>呢，不过这个命令提供了交互式的文件传输环境，首先需要进入交互式环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp server1<br></code></pre></td></tr></table></figure>
+
+<p>接下来就能使用<code>sftp</code>进行文件传输了喵。常用的命令如下：</p>
+<ul>
+<li>文件和目录操作</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ls</code></td>
+<td>列出远程目录内容</td>
+</tr>
+<tr>
+<td><code>lls</code></td>
+<td>列出本地目录内容</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>显示远程当前目录</td>
+</tr>
+<tr>
+<td><code>lpwd</code></td>
+<td>显示本地当前目录</td>
+</tr>
+<tr>
+<td><code>cd &lt;远程路径&gt;</code></td>
+<td>切换远程目录</td>
+</tr>
+<tr>
+<td><code>lcd &lt;本地路径&gt;</code></td>
+<td>切换本地目录</td>
+</tr>
+</tbody></table>
+<ul>
+<li>文件传输命令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>get &lt;远程文件路径&gt;</code></td>
+<td>下载文件到本地</td>
+</tr>
+<tr>
+<td><code>get &lt;远程文件路径&gt; &lt;本地文件路径&gt;</code></td>
+<td>下载文件并重命名</td>
+</tr>
+<tr>
+<td><code>put &lt;本地文件路径&gt;</code></td>
+<td>上传文件到远程</td>
+</tr>
+<tr>
+<td><code>put &lt;本地文件路径&gt; &lt;远程文件路径&gt;</code></td>
+<td>上传文件并重命名</td>
+</tr>
+<tr>
+<td><code>get -r &lt;远程文件夹路径&gt;</code></td>
+<td>下载目录</td>
+</tr>
+<tr>
+<td><code>put -r &lt;本地文件夹路径&gt;</code></td>
+<td>上传目录</td>
+</tr>
+</tbody></table>
+<ul>
+<li>其他常用命令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mkdir &lt;远程文件夹路径&gt;</code></td>
+<td>在远程创建目录</td>
+</tr>
+<tr>
+<td><code>lmkdir &lt;本地文件夹路径&gt;</code></td>
+<td>在本地创建目录</td>
+</tr>
+<tr>
+<td><code>rm &lt;远程文件路径&gt;</code></td>
+<td>删除远程文件</td>
+</tr>
+<tr>
+<td><code>rmdir &lt;远程文件夹路径&gt;</code></td>
+<td>删除远程空目录</td>
+</tr>
+<tr>
+<td><code>rename &lt;远程文件路径&gt; &lt;新的远程文件路径&gt;</code></td>
+<td>重命名远程文件</td>
+</tr>
+<tr>
+<td><code>chmod &lt;模式&gt; &lt;远程文件路径&gt;</code></td>
+<td>更改远程文件权限</td>
+</tr>
+<tr>
+<td><code>chown &lt;用户名&gt;:&lt;用户组&gt; &lt;远程文件路径&gt;</code></td>
+<td>更改远程文件所有者</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>显示远程文件系统信息</td>
+</tr>
+<tr>
+<td><code>!command</code></td>
+<td>执行本地命令</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td><code>quit</code>&#x2F;<code>exit</code></td>
+<td>退出 SFTP</td>
+</tr>
+</tbody></table>
+<h1 id="使用-SSH-映射服务器上的服务到本地端口"><a href="#使用-SSH-映射服务器上的服务到本地端口" class="headerlink" title="使用 SSH 映射服务器上的服务到本地端口"></a>使用 SSH 映射服务器上的服务到本地端口</h1><p>假如在服务器的<code>7860</code>和<code>8188</code>分别开了两个服务，想从本地的<code>3000</code>和<code>4000</code>端口分别去访问这两个服务，这时候可以用这个 SSH 命令的<code>-L</code>参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -L 3000:localhost:7860 -L 4000:localhost:8188 server1<br></code></pre></td></tr></table></figure>
+
+<p>或者写在 SSH 配置也可以喵：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Host</span> server1<br>    <span class="hljs-attribute">HostName</span> <span class="hljs-number">180.1.1.1</span><br>    <span class="hljs-attribute">Port</span> <span class="hljs-number">22</span><br>    <span class="hljs-attribute">User</span> root<br>    <span class="hljs-attribute">IdentitiesOnly</span> yes<br>    <span class="hljs-attribute">PubkeyAuthentication</span> yes<br>    <span class="hljs-attribute">IdentityFile</span> ~/.ssh/server1<br>    <span class="hljs-attribute">ProxyCommand</span> D:/Nmap/ncat.exe --proxy <span class="hljs-number">127.0.0.1:10808</span> --proxy-type socks5 %h %p<br>    <span class="hljs-attribute">LocalForward</span> <span class="hljs-number">3000</span> localhost:<span class="hljs-number">7860</span><br>    <span class="hljs-attribute">LocalForward</span> <span class="hljs-number">4000</span> localhost:<span class="hljs-number">8188</span><br></code></pre></td></tr></table></figure>
+
+<p>然后使用<code>ssh server1</code>去连接服务器后也是同样的效果呢。连接成功后虽然还是想之前一样进入了服务器的终端，但是本地就可以通过<code>127.0.0.1:3000</code>和<code>127.0.0.1:4000</code>分别访问服务器的<code>7860</code>和<code>8188</code>端口上的服务了呢。</p>
+<p>如果需要优化一下速率，可以试试使用 ControlMaster 呢。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -o ControlMaster=auto -o ControlPath=~/.ssh/control-%r@%h:%p -o ControlPersist=5m -L 3000:localhost:7860 -L 4000:localhost:8188 server1<br></code></pre></td></tr></table></figure>
+
+<p>写在配置文件中是这样的：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Host</span> server1<br>    <span class="hljs-attribute">HostName</span> <span class="hljs-number">180.1.1.1</span><br>    <span class="hljs-attribute">Port</span> <span class="hljs-number">22</span><br>    <span class="hljs-attribute">User</span> root<br>    <span class="hljs-attribute">IdentitiesOnly</span> yes<br>    <span class="hljs-attribute">PubkeyAuthentication</span> yes<br>    <span class="hljs-attribute">IdentityFile</span> ~/.ssh/server1<br>    <span class="hljs-attribute">ProxyCommand</span> D:/Nmap/ncat.exe --proxy <span class="hljs-number">127.0.0.1:10808</span> --proxy-type socks5 %h %p<br>    <span class="hljs-attribute">ControlMaster</span> auto<br>    <span class="hljs-attribute">ControlPath</span> ~/.ssh/control-%r@%h:%p<br>    <span class="hljs-attribute">ControlPersist</span> <span class="hljs-number">5</span>m<br>    <span class="hljs-attribute">LocalForward</span> <span class="hljs-number">3000</span> localhost:<span class="hljs-number">7860</span><br>    <span class="hljs-attribute">LocalForward</span> <span class="hljs-number">4000</span> localhost:<span class="hljs-number">8188</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="其他的小工具"><a href="#其他的小工具" class="headerlink" title="其他的小工具"></a>其他的小工具</h1><p>在服务器上有些工具挺好用的呢。</p>
+<ul>
+<li>Zsh + Oh My Zsh</li>
+</ul>
+<p>装上后有了更好用的命令补全，打命令顺手多了喵，安装非常简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt install zsh git curl -y<br>sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li>uv</li>
+</ul>
+<p>uv 装 Python 软件包真的太快了，用法就看看这个吧：<a target="_blank" rel="noopener" href="https://docs.astral.sh/uv/">uv docs</a></p>
+<ul>
+<li>MicroMamba</li>
+</ul>
+<p>轻量级 Conda 管理器，装环境方便，以前有写过一篇安装方法，看这个配置 MicroMamba 就行：<a href="/2025/05/31/configure-micromamba">配置 MicroMamaba 包管理器 - licyk的小窝</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+        <a href="/tags/macos/" class="print-no-link">#macos</a>
+      
+        <a href="/tags/ssh/" class="print-no-link">#ssh</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 SSH 管理服务器的经验</div>
+      <div>https://licyk.netlify.app/2025/09/19/ssh-usage-experience/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年9月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/18/auto-execution-with-sitecustomize-and-pythonpath-in-python/" title="利用 sitecustomize 与 PYTHONPATH 在 Python 中实现自动执行代码">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用 sitecustomize 与 PYTHONPATH 在 Python 中实现自动执行代码</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/26/block-msys2-python/" title="屏蔽 Msys2 终端的 Python">
+                        <span class="hidden-mobile">屏蔽 Msys2 终端的 Python</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

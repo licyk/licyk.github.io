@@ -1,0 +1,1403 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录一下给 Hexo Fluid 主题接入 Waline 浏览量统计的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为 Hexo Fluid 接入 Waline 浏览量统计">
+<meta property="og:url" content="https://licyk.netlify.app/2026/05/29/add-waline-pageview-to-hexo-fluid/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="记录一下给 Hexo Fluid 主题接入 Waline 浏览量统计的方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-29T14:40:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T03:37:54.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>为 Hexo Fluid 接入 Waline 浏览量统计 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="为 Hexo Fluid 接入 Waline 浏览量统计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-29 22:40" pubdate>
+          2026年5月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          20k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          169 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">为 Hexo Fluid 接入 Waline 浏览量统计</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年5月30日 中午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想给博客加上浏览量统计，一开始想着这不是很简单嘛，找个统计服务接进去就好了。<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a> 主题本身已经支持 Busuanzi、LeanCloud、OpenKounter 等统计源，其中 LeanCloud 本来也是很多 Hexo 主题用来做浏览量统计的老方案。</p>
+<p>但看到 LeanCloud 的<a target="_blank" rel="noopener" href="https://docs.leancloud.cn/sdk/announcements/sunset-announcement">停服公告</a>后，就感觉这个方案不太适合继续用了。公告里提到，LeanCloud 从 2026 年 1 月 12 日开始停止新用户注册和创建新应用，正式停止服务时间是 2027 年 1 月 12 日，到时会关闭应用访问、数据读写、API 调用、控制台使用等面向公众的服务。</p>
+<p>啊这，浏览量统计这种东西虽然不是什么核心业务，但要是继续接 LeanCloud，后面迟早还得迁移一次，不如现在直接换掉。结果看了一圈发现，Fluid 暂时没有内置 Waline 浏览量统计。</p>
+<p>不过 Fluid 已经有人给 OpenKounter 做过类似接入了，可以参考这个 PR：<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/pull/1237">fluid-dev&#x2F;hexo-theme-fluid#1237</a>。Mintimate 那篇 OpenKounter 的文章里也有 Hexo 接入示例，看完后大概就知道应该往哪里下手了。</p>
+<p>这次要用的是 <a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a> 的浏览量统计功能。Waline 官方提供了 <code>pageviewCount</code>，可以根据页面 <code>path</code> 记录浏览量。用来做文章阅读量很合适，但它不直接提供真正的全站 PV&#x2F;UV 聚合统计，所以这里就用一个折中办法：</p>
+<ul>
+<li>文章浏览量：使用文章自己的 <code>window.location.pathname</code>。</li>
+<li>站点 PV：使用一个虚拟路径 <code>__site_pv</code>，每次访问页面都自增。</li>
+<li>站点 UV：使用一个虚拟路径 <code>__site_uv</code>，并用浏览器 <code>localStorage</code> 做 24 小时去重。</li>
+</ul>
+<div class="note note-warning">
+            <p>这种 UV 统计是浏览器级别的近似统计。清理浏览器数据、换浏览器、换设备都会被当成新访客。它不能等同于严格意义上的独立访客统计。</p> 
+          </div>
+
+<p>一开始我直接修改了 Fluid 主题源码，让 <code>post.meta.views.source</code> 和 <code>footer.statistics.source</code> 多一个 <code>waline</code> 分支。功能能跑，但看着 <code>themes/fluid</code> 里多出来的改动，总感觉以后更新主题时会给自己挖坑。</p>
+<p>所以最后还是换成了非侵入式方案：使用 Hexo 的 <code>scripts/</code> 自动加载机制和 Fluid 的 <code>theme_inject</code> 注入点，把 HTML 片段和统计脚本都放在站点侧。这样主题源码保持干净，以后更新 Fluid 时也不用盯着冲突发呆。</p>
+<!-- more -->
+
+<h1 id="准备-Waline-服务端"><a href="#准备-Waline-服务端" class="headerlink" title="准备 Waline 服务端"></a>准备 Waline 服务端</h1><p>需要先准备一个可以访问的 Waline 服务端。这个服务端地址也就是 Waline 文档里说的 <code>serverURL</code>。</p>
+<p>如果还没有部署 Waline，可以直接看官方的<a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/">快速上手</a>文档。按照文档完成服务端部署、数据库配置、重新部署后，在 Vercel 控制台里点击 <code>Visit</code> 访问到的地址，就是后面要填到配置里的 <code>server_url</code>。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-domain.vercel.app<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>这里用 <code>https://your-domain.vercel.app</code> 当占位示例，实际使用时要换成自己的 Waline <code>serverURL</code>。这个地址会被前端脚本读取，所以不能当成密钥来隐藏。</p> 
+          </div>
+
+<p>先别急着改代码，可以用浏览器或者 <code>curl</code> 测一下 Waline 的文章统计接口是否正常。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl <span class="hljs-string">&#x27;https://your-domain.vercel.app/api/article?path=__site_pv&amp;type=time&amp;lang=zh-CN&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>正常情况下会返回类似下面的内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;errno&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;errmsg&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>如果这里接口请求失败，那前端页面大概率也显示不出统计结果。先排查服务端部署、域名解析、HTTPS、CORS 这些地方，不然后面改半天代码也可能只是白忙活。</p> 
+          </div>
+
+<h1 id="使用-Netlify-部署-Waline-Server"><a href="#使用-Netlify-部署-Waline-Server" class="headerlink" title="使用 Netlify 部署 Waline Server"></a>使用 Netlify 部署 Waline Server</h1><p>Waline 快速上手默认是用 Vercel 部署 Server，数据库则用 Neon。但 Vercel 在国内某些地区可能会出现访问不稳定，甚至无法正常访问的问题。评论系统和浏览量统计都依赖 Waline Server，如果 Server 连不上，那前端再怎么写也没用。</p>
+<p>所以可以把 Waline Server 迁到 Netlify 上，同时继续使用 Vercel 那边已经创建好的 Neon 数据库。这样不用重新建库，也不用迁移数据，只是换一个 Server 入口。</p>
+<p>先按照 Waline 的 <a target="_blank" rel="noopener" href="https://waline.js.org/guide/deploy/netlify.html">Netlify 部署文档</a> 创建站点。部署完成后，进入 Netlify 的 <code>Functions</code> 页面，找到 <code>comment</code> 函数，里面的 <code>Endpoint</code> 就是 Waline Server 地址，例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-waline.netlify.app/.netlify/functions/comment<br></code></pre></td></tr></table></figure>
+
+<p>这个地址后面要填到 Fluid 配置里的 <code>server_url</code>。注意不要自己额外加 <code>/api</code>，脚本会自动请求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://your-waline.netlify.app/.netlify/functions/comment/api/article<br></code></pre></td></tr></table></figure>
+
+<p>接下来配置 Netlify 环境变量。因为数据库继续使用 Vercel 那边已经连接好的 Neon 数据库，所以要去 Vercel 项目的环境变量里找到 Neon 生成的数据库连接变量，把这些值复制到 Netlify，再填成 Waline 能识别的 <code>PG_*</code> 变量名。</p>
+<p>这里不是把左边直接填成右边的字符串，而是按下面的关系复制“值”：</p>
+<table>
+<thead>
+<tr>
+<th>Netlify 中新增的变量名</th>
+<th>变量值来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>PG_DB</code></td>
+<td>复制 Vercel 项目中 Neon 数据库环境变量 <code>PGDATABASE</code> 的值</td>
+</tr>
+<tr>
+<td><code>PG_HOST</code></td>
+<td>复制 Vercel 项目中 Neon 数据库环境变量 <code>PGHOST</code> 的值</td>
+</tr>
+<tr>
+<td><code>PG_USER</code></td>
+<td>复制 Vercel 项目中 Neon 数据库环境变量 <code>PGUSER</code> 的值</td>
+</tr>
+<tr>
+<td><code>PG_PASSWORD</code></td>
+<td>复制 Vercel 项目中 Neon 数据库环境变量 <code>PGPASSWORD</code> 的值</td>
+</tr>
+<tr>
+<td><code>PG_SSL</code></td>
+<td>直接填 <code>true</code></td>
+</tr>
+</tbody></table>
+<p>比如 Vercel 项目的 Neon 数据库环境变量里是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">PGDATABASE=neondb<br></code></pre></td></tr></table></figure>
+
+<p>那么 Netlify 里应该新增：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">PG_DB=neondb<br></code></pre></td></tr></table></figure>
+
+<p><code>PG_PORT</code> 不用额外设置，保持默认就行。<code>PG_SSL=true</code> 这里很关键，Neon 的 PostgreSQL 连接需要 SSL。如果没开，前端请求 Waline 时可能会看到类似这样的错误：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">connection is insecure (try using `sslmode=require`)<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>下面这些不是跑通浏览量统计的必填项。只有在需要限制可调用域名，或者 Waline 自动识别出来的站点地址、Server 地址不正确时，再按需设置。</p> <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">SITE_URL=https://your-blog.example.com<br>SERVER_URL=https://your-waline.netlify.app/.netlify/functions/comment<br>SECURE_DOMAINS=localhost:4000,your-blog.example.com<br></code></pre></td></tr></table></figure>  <p><code>SECURE_DOMAINS</code> 里不要写 <code>http://</code> 或 <code>https://</code>。本地调试要加 <code>localhost:4000</code>，部署后再加自己的正式博客域名。</p> <p>如果只是先验证 Netlify Server 能不能连上 Neon，配置前面的 <code>PG_DB</code>、<code>PG_HOST</code>、<code>PG_USER</code>、<code>PG_PASSWORD</code>、<code>PG_SSL</code> 就够了。</p> 
+          </div>
+
+<div class="note note-warning">
+            <p>Netlify 修改环境变量后不会立刻影响已经部署好的函数。需要进入 <code>Deploys</code>，手动 <code>Trigger deploy</code> 重新部署一次。</p> 
+          </div>
+
+<p>重新部署完成后，可以先测试接口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl <span class="hljs-string">&#x27;https://your-waline.netlify.app/.netlify/functions/comment/api/article?path=__site_pv&amp;type=time&amp;lang=zh-CN&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>能返回正常 JSON 后，再把 <code>_config.fluid.yml</code> 里的 Waline 服务端地址改成 Netlify 的 Endpoint。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">web_analytics:</span><br>  <span class="hljs-attr">waline:</span><br>    <span class="hljs-attr">server_url:</span> <span class="hljs-string">https://your-waline.netlify.app/.netlify/functions/comment</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="配置-Fluid"><a href="#配置-Fluid" class="headerlink" title="配置 Fluid"></a>配置 Fluid</h1><p>先打开 <code>_config.fluid.yml</code>，在 <code>web_analytics</code> 下面加上 Waline 浏览量相关配置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">web_analytics:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">follow_dnt:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-attr">waline:</span><br>    <span class="hljs-comment"># Waline 服务端地址，留空时不加载统计</span><br>    <span class="hljs-attr">server_url:</span> <span class="hljs-string">https://your-domain.vercel.app</span><br>    <span class="hljs-comment"># 统计页面时使用的路径</span><br>    <span class="hljs-attr">path:</span> <span class="hljs-string">window.location.pathname</span><br>    <span class="hljs-comment"># 如果部署后只想统计线上访问，可以设为 true</span><br>    <span class="hljs-attr">ignore_local:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment"># 用于近似站点 PV 的虚拟路径</span><br>    <span class="hljs-attr">site_pv_path:</span> <span class="hljs-string">__site_pv</span><br>    <span class="hljs-comment"># 用于近似站点 UV 的虚拟路径</span><br>    <span class="hljs-attr">site_uv_path:</span> <span class="hljs-string">__site_uv</span><br>    <span class="hljs-comment"># UV 去重窗口，单位毫秒，86400000 是 24 小时</span><br>    <span class="hljs-attr">uv_duration:</span> <span class="hljs-number">86400000</span><br>    <span class="hljs-comment"># 是否显示页脚站点 PV/UV</span><br>    <span class="hljs-attr">site_stats:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>然后把文章浏览量功能打开，并把来源写成 <code>waline</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">meta:</span><br>    <span class="hljs-attr">views:</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;waline&quot;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>这里要注意一下，Fluid 原生并不认识 <code>source: &quot;waline&quot;</code>。所以这个配置不是让 Fluid 自己处理 Waline，而是给后面站点侧注入脚本当开关用。</p> 
+          </div>
+
+<p>页脚的原生统计建议关闭，避免生成一个空的原生统计块。页脚 Waline 统计会由后面的注入脚本追加进去。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">footer:</span><br>  <span class="hljs-attr">statistics:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;leancloud&quot;</span><br>    <span class="hljs-attr">pv_format:</span> <span class="hljs-string">&quot;总访问量 &#123;&#125; 次&quot;</span><br>    <span class="hljs-attr">uv_format:</span> <span class="hljs-string">&quot;总访客数 &#123;&#125; 人&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>最后把前端统计脚本加到 <code>custom_js</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">/js/waline-pageview.js</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p><code>custom_js</code> 的路径相对 <code>source</code> 目录，所以 <code>/js/waline-pageview.js</code> 对应的是 <code>source/js/waline-pageview.js</code>。</p> 
+          </div>
+
+<p>配置改完后，对应的 <code>git diff</code> 大概是下面这样，可以用来快速核对有没有漏掉关键配置。嗯，比只看一大段 YAML 直观多了。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-comment">diff --git a/_config.fluid.yml b/_config.fluid.yml</span><br><span class="hljs-comment">--- a/_config.fluid.yml</span><br><span class="hljs-comment">+++ b/_config.fluid.yml</span><br>@@<br> custom_js:<br><span class="hljs-addition">+- /js/waline-pageview.js</span><br>@@<br> web_analytics:<br>   enable: true<br>   follow_dnt: true<br>@@<br><span class="hljs-addition">+  waline:</span><br><span class="hljs-addition">+    # Waline 服务端地址，留空时不加载统计</span><br><span class="hljs-addition">+    server_url: https://your-domain.vercel.app</span><br><span class="hljs-addition">+    # 统计页面时使用的路径</span><br><span class="hljs-addition">+    path: window.location.pathname</span><br><span class="hljs-addition">+    # 如果部署后只想统计线上访问，可以设为 true</span><br><span class="hljs-addition">+    ignore_local: false</span><br><span class="hljs-addition">+    # 用于近似站点 PV 的虚拟路径</span><br><span class="hljs-addition">+    site_pv_path: __site_pv</span><br><span class="hljs-addition">+    # 用于近似站点 UV 的虚拟路径</span><br><span class="hljs-addition">+    site_uv_path: __site_uv</span><br><span class="hljs-addition">+    # UV 去重窗口，单位毫秒，86400000 是 24 小时</span><br><span class="hljs-addition">+    uv_duration: 86400000</span><br><span class="hljs-addition">+    # 是否显示页脚站点 PV/UV</span><br><span class="hljs-addition">+    site_stats: true</span><br>@@<br> footer:<br>   statistics:<br><span class="hljs-deletion">-    enable: true</span><br><span class="hljs-deletion">-    source: &quot;leancloud&quot;</span><br><span class="hljs-addition">+    # 原生页脚统计关闭，Waline 页脚统计由 scripts/waline-pageview-inject.js 注入</span><br><span class="hljs-addition">+    enable: false</span><br><span class="hljs-addition">+    source: &quot;leancloud&quot;</span><br>     pv_format: &quot;总访问量 &#123;&#125; 次&quot;<br>     uv_format: &quot;总访客数 &#123;&#125; 人&quot;<br>@@<br> post:<br>   meta:<br>     views:<br><span class="hljs-deletion">-      enable: false</span><br><span class="hljs-deletion">-      source: &quot;busuanzi&quot;</span><br><span class="hljs-addition">+      enable: true</span><br><span class="hljs-addition">+      source: &quot;waline&quot;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>这个 diff 是配置思路示例，不一定和你的 <code>_config.fluid.yml</code> 行号完全一致。如果你的博客原本没有开启 <code>web_analytics.enable</code>，还需要把它改成 <code>true</code>。</p> 
+          </div>
+
+<h1 id="迁移-LeanCloud-历史浏览量"><a href="#迁移-LeanCloud-历史浏览量" class="headerlink" title="迁移 LeanCloud 历史浏览量"></a>迁移 LeanCloud 历史浏览量</h1><p>如果之前已经用 Fluid 的 LeanCloud 浏览量统计跑了一段时间，那直接切到 Waline 后，历史浏览量不会自动过去。呜，这就有点难受了，毕竟旧数据丢了总觉得怪怪的。</p>
+<p>先看一下 Fluid 原来的 LeanCloud 统计逻辑，它用的是 LeanCloud 里的 <code>Counter</code> Class，主要字段是：</p>
+<ul>
+<li><code>target</code>：统计目标。文章浏览量就是文章路径，比如 <code>/2024/06/14/example/</code>。</li>
+<li><code>time</code>：访问次数。</li>
+</ul>
+<p>另外，Fluid 原生页脚统计会用两个固定的 <code>target</code>：</p>
+<ul>
+<li><code>site-pv</code>：站点 PV。</li>
+<li><code>site-uv</code>：站点 UV。</li>
+</ul>
+<p>而 Waline 的浏览量数据会写到数据库里的 <code>wl_counter</code> 表，核心字段是：</p>
+<ul>
+<li><code>url</code>：统计目标，对应 LeanCloud 的 <code>target</code>。</li>
+<li><code>time</code>：访问次数，对应 LeanCloud 的 <code>time</code>。</li>
+</ul>
+<p>所以迁移思路就很简单了：从 LeanCloud 导出 <code>Counter</code> 数据，把里面的 <code>target</code> 和 <code>time</code> 转成 Waline 数据库里的 <code>url</code> 和 <code>time</code>。</p>
+<div class="note note-warning">
+            <p>下面的迁移方法默认 Waline 使用官方快速上手里常见的 Neon &#x2F; PostgreSQL 部署方式，并且表名前缀还是默认的 <code>wl_</code>。如果你用的是 MySQL、SQLite 或者改过 Waline 数据表前缀，需要按自己的数据库改一下 SQL。</p> 
+          </div>
+
+<h2 id="从-LeanCloud-导出-Counter"><a href="#从-LeanCloud-导出-Counter" class="headerlink" title="从 LeanCloud 导出 Counter"></a>从 LeanCloud 导出 Counter</h2><p>在 LeanCloud 控制台里打开之前用于浏览量统计的应用，进入数据存储，找到 <code>Counter</code> Class，然后导出数据。</p>
+<p>Mintimate 那篇 OpenKounter 的文章在“数据迁移”部分也提到了类似思路：先从 LeanCloud 控制台下载原始数据，再导入到新的统计服务里。OpenKounter 有自己的导入入口，但 Waline 浏览量统计没有专门给 Fluid <code>Counter</code> 准备的导入按钮，所以这里需要自己转换一下。</p>
+<p>导出的数据大概会包含这些字段：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;objectId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;xxxx&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/2024/06/14/example/&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">123</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;createdAt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2024-06-14T12:00:00.000Z&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;updatedAt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-05-29T12:00:00.000Z&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;objectId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yyyy&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;site-pv&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4567</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>不同导出方式拿到的 JSON 外层结构可能不太一样，有的直接是数组，有的可能包在 <code>results</code> 里。下面这个转换脚本做了一点兼容。</p>
+<div class="note note-info">
+            <p>如果导出的 <code>Counter</code> 里只有 <code>site-pv</code> 和 <code>site-uv</code>，没有文章路径，那就只能迁移页脚的全站 PV&#x2F;UV。文章阅读量没有出现在导出数据里，自然也没法从 LeanCloud 迁过去。</p> <p>LeanCloud 里偶尔可能出现多个相同 <code>target</code> 的记录，比如并发初始化时创建了重复的 <code>site-pv</code>。所以脚本会按 Waline 的 <code>url</code> 合并求和，最后每个 URL 只生成一条 SQL。</p> 
+          </div>
+
+<h2 id="转换成-Waline-SQL"><a href="#转换成-Waline-SQL" class="headerlink" title="转换成 Waline SQL"></a>转换成 Waline SQL</h2><p>新建一个临时脚本，比如 <code>leancloud-counter-to-waline-sql.js</code>。这个脚本只是迁移时用一下，不要放进博客根目录的 <code>scripts/</code> 里，不然 Hexo 构建时会把它当插件加载。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">&#x27;use strict&#x27;</span>;<br><br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><br><span class="hljs-keyword">const</span> inputFile = process.<span class="hljs-property">argv</span>[<span class="hljs-number">2</span>];<br><br><span class="hljs-keyword">if</span> (!inputFile) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;用法: node leancloud-counter-to-waline-sql.js Counter.json &gt; waline-counter.sql&#x27;</span>);<br>  process.<span class="hljs-title function_">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-keyword">const</span> input = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(fs.<span class="hljs-title function_">readFileSync</span>(inputFile, <span class="hljs-string">&#x27;utf8&#x27;</span>));<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getRows</span>(<span class="hljs-params">data</span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(data)) <span class="hljs-keyword">return</span> data;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(data.<span class="hljs-property">results</span>)) <span class="hljs-keyword">return</span> data.<span class="hljs-property">results</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(data.<span class="hljs-property">Counter</span>)) <span class="hljs-keyword">return</span> data.<span class="hljs-property">Counter</span>;<br><br>  <span class="hljs-keyword">const</span> arrayValue = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">values</span>(data).<span class="hljs-title function_">find</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-property">isArray</span>);<br>  <span class="hljs-keyword">return</span> arrayValue || [];<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getValue</span>(<span class="hljs-params">row, key</span>) &#123;<br>  <span class="hljs-keyword">return</span> row[key] ?? (row.<span class="hljs-property">_serverData</span> &amp;&amp; row.<span class="hljs-property">_serverData</span>[key]);<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">toWalineURL</span>(<span class="hljs-params">target</span>) &#123;<br>  <span class="hljs-keyword">if</span> (target === <span class="hljs-string">&#x27;site-pv&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;__site_pv&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (target === <span class="hljs-string">&#x27;site-uv&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;__site_uv&#x27;</span>;<br>  <span class="hljs-keyword">return</span> target;<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">sqlString</span>(<span class="hljs-params">value</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x27;&quot;</span> + <span class="hljs-title class_">String</span>(value).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&#x27;/g</span>, <span class="hljs-string">&quot;&#x27;&#x27;&quot;</span>) + <span class="hljs-string">&quot;&#x27;&quot;</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> counter = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> row <span class="hljs-keyword">of</span> <span class="hljs-title function_">getRows</span>(input)) &#123;<br>  <span class="hljs-keyword">const</span> target = <span class="hljs-title function_">getValue</span>(row, <span class="hljs-string">&#x27;target&#x27;</span>);<br>  <span class="hljs-keyword">const</span> time = <span class="hljs-title class_">Number</span>(<span class="hljs-title function_">getValue</span>(row, <span class="hljs-string">&#x27;time&#x27;</span>) || <span class="hljs-number">0</span>);<br><br>  <span class="hljs-keyword">if</span> (!target) <span class="hljs-keyword">continue</span>;<br><br>  <span class="hljs-keyword">const</span> url = <span class="hljs-title function_">toWalineURL</span>(target);<br>  counter.<span class="hljs-title function_">set</span>(url, (counter.<span class="hljs-title function_">get</span>(url) || <span class="hljs-number">0</span>) + time);<br>&#125;<br><br><span class="hljs-keyword">const</span> rows = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(counter, <span class="hljs-function">(<span class="hljs-params">[url, time]</span>) =&gt;</span> (&#123; url, time &#125;));<br><span class="hljs-keyword">const</span> urls = rows.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">row</span>) =&gt;</span> <span class="hljs-title function_">sqlString</span>(row.<span class="hljs-property">url</span>));<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;BEGIN;&#x27;</span>);<br><br><span class="hljs-keyword">if</span> (urls.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;DELETE FROM wl_counter WHERE url IN (&#x27;</span> + urls.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;, &#x27;</span>) + <span class="hljs-string">&#x27;);&#x27;</span>);<br>&#125;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> row <span class="hljs-keyword">of</span> rows) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>    <span class="hljs-string">&#x27;INSERT INTO wl_counter (url, time, createdAt, updatedAt) VALUES (&#x27;</span> +<br>      <span class="hljs-title function_">sqlString</span>(row.<span class="hljs-property">url</span>) +<br>      <span class="hljs-string">&#x27;, &#x27;</span> +<br>      row.<span class="hljs-property">time</span> +<br>      <span class="hljs-string">&#x27;, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);&#x27;</span><br>  );<br>&#125;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;COMMIT;&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>然后运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">node leancloud-counter-to-waline-sql.js Counter.json &gt; waline-counter.sql<br></code></pre></td></tr></table></figure>
+
+<p>这样会生成一个 <code>waline-counter.sql</code> 文件。里面会先删除同名 <code>url</code> 的旧记录，再插入从 LeanCloud 转换来的数据。即使 LeanCloud 导出的 <code>Counter</code> 里有重复 <code>target</code>，也会先合并后再导入。</p>
+<div class="note note-info">
+            <p>上面的脚本会把 LeanCloud 的 <code>site-pv</code> 转成本文配置里的 <code>__site_pv</code>，把 <code>site-uv</code> 转成 <code>__site_uv</code>。如果你不想转换，也可以把 <code>_config.fluid.yml</code> 里的 <code>site_pv_path</code> 和 <code>site_uv_path</code> 改成 <code>site-pv</code>、<code>site-uv</code>。</p> 
+          </div>
+
+<h2 id="导入到-Waline-数据库"><a href="#导入到-Waline-数据库" class="headerlink" title="导入到 Waline 数据库"></a>导入到 Waline 数据库</h2><p>如果你用的是 Waline 快速上手里的 Neon，可以进入 Neon 控制台，打开 SQL Editor，把生成的 <code>waline-counter.sql</code> 粘进去运行。</p>
+<p>导入完成后，可以用 SQL 查一下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> url, <span class="hljs-type">time</span> <span class="hljs-keyword">FROM</span> wl_counter <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-type">time</span> <span class="hljs-keyword">DESC</span> LIMIT <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p>再打开博客页面，文章浏览量和页脚 PV&#x2F;UV 应该就会从迁移后的数字继续往上加了。</p>
+<div class="note note-warning">
+            <p>导入前最好先备份 Waline 数据库，尤其是已经上线跑了一段时间的站点。<code>DELETE FROM wl_counter WHERE url IN (...)</code> 只会删除脚本里出现的路径，但手滑导错数据库还是很麻烦。</p> 
+          </div>
+
+<p>如果你要迁移的是评论数据，不是浏览量数据，那就不要用上面的 <code>Counter</code> 转换脚本了。Waline 官方有“从 Valine 迁移”和“数据迁移助手”，那个更适合处理 LeanCloud 里 Valine 风格的评论数据。</p>
+<h1 id="修改后的目录结构"><a href="#修改后的目录结构" class="headerlink" title="修改后的目录结构"></a>修改后的目录结构</h1><p>配置文件改完后，还需要新增几个文件。最后的目录结构大概是这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs text">blog/<br>├── _config.fluid.yml<br>├── scripts/<br>│   └── waline-pageview-inject.js<br>└── source/<br>    ├── _inject/<br>    │   ├── waline-footer-statistics.ejs<br>    │   └── waline-post-views.ejs<br>    └── js/<br>        └── waline-pageview.js<br></code></pre></td></tr></table></figure>
+
+<p>这几个目录不是随便放的，作用不太一样：</p>
+<ul>
+<li><code>scripts/waline-pageview-inject.js</code> 是 Hexo 构建时运行的脚本，用来告诉 Fluid 要把哪些 EJS 片段塞到页面里。</li>
+<li><code>source/_inject/*.ejs</code> 是给 Fluid 注入用的模板片段。放在 <code>source/_inject</code> 里，是为了和普通文章、图片、前端脚本分开。</li>
+<li><code>source/js/waline-pageview.js</code> 是浏览器里运行的前端脚本，要通过 <code>custom_js</code> 生成到站点里，所以要放在 <code>source</code> 下面。</li>
+</ul>
+<div class="note note-warning">
+            <p>不要把 <code>waline-pageview.js</code> 也放进 <code>scripts/</code> 里。<code>scripts/</code> 目录下的文件会被 Hexo 当成构建脚本执行，而不是作为前端静态资源发布出去。放错地方的话，浏览器就访问不到这个文件了。</p> 
+          </div>
+
+<h1 id="注入-Fluid-页面位置"><a href="#注入-Fluid-页面位置" class="headerlink" title="注入 Fluid 页面位置"></a>注入 Fluid 页面位置</h1><p>在博客根目录新建 <code>scripts/waline-pageview-inject.js</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/* global hexo */</span><br><span class="hljs-meta"></span><br><span class="hljs-meta">&#x27;use strict&#x27;</span>;<br><br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><br>hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">filter</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) &#123;<br>  injects.<span class="hljs-property">postMetaTop</span>.<span class="hljs-title function_">file</span>(<br>    <span class="hljs-string">&#x27;waline-post-views&#x27;</span>,<br>    path.<span class="hljs-title function_">join</span>(hexo.<span class="hljs-property">base_dir</span>, <span class="hljs-string">&#x27;source/_inject/waline-post-views.ejs&#x27;</span>),<br>    &#123;&#125;,<br>    &#123;&#125;,<br>    <span class="hljs-number">1</span><br>  );<br><br>  injects.<span class="hljs-property">footer</span>.<span class="hljs-title function_">file</span>(<br>    <span class="hljs-string">&#x27;waline-footer-statistics&#x27;</span>,<br>    path.<span class="hljs-title function_">join</span>(hexo.<span class="hljs-property">base_dir</span>, <span class="hljs-string">&#x27;source/_inject/waline-footer-statistics.ejs&#x27;</span>),<br>    &#123;&#125;,<br>    &#123;&#125;,<br>    <span class="hljs-number">1</span><br>  );<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>这个文件的作用很简单：在 Hexo 构建时告诉 Fluid，把我们自己的 EJS 片段注入到 <code>postMetaTop</code> 和 <code>footer</code> 这两个位置。</p>
+<div class="note note-info">
+            <p>Hexo 会自动加载博客根目录 <code>scripts/</code> 下的 JS 文件。这是 Hexo 官方支持的扩展方式，不需要额外在 <code>package.json</code> 中注册。</p> 
+          </div>
+
+<h1 id="注入文章浏览量"><a href="#注入文章浏览量" class="headerlink" title="注入文章浏览量"></a>注入文章浏览量</h1><p>新建 <code>source/_inject/waline-post-views.ejs</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;%<br>const walineAnalytics = theme.web_analytics &amp;&amp; theme.web_analytics.waline ? theme.web_analytics.waline : &#123;&#125;;<br>const viewsTexts = (theme.post.meta.views.format || __(&#x27;post.meta.views&#x27;)).split(&#x27;&#123;&#125;&#x27;);<br>%&gt;<br>&lt;% if (walineAnalytics.server_url &amp;&amp; theme.post.meta.views.enable &amp;&amp; theme.post.meta.views.source === &#x27;waline&#x27; &amp;&amp; viewsTexts.length &gt;= 2) &#123; %&gt;<br>  &lt;div class=&quot;mt-1&quot;&gt;<br>    &lt;span id=&quot;waline-page-views-container&quot; class=&quot;post-meta&quot; style=&quot;display: none&quot;&gt;<br>      &lt;i class=&quot;iconfont icon-eye&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;<br>      &lt;%- viewsTexts[0] %&gt;&lt;span class=&quot;waline-pageview-count&quot;&gt;&lt;/span&gt;&lt;%- viewsTexts[1] %&gt;<br>    &lt;/span&gt;<br>  &lt;/div&gt;<br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>这里做了几个判断，免得配置没开时还硬往页面里塞东西：</p>
+<ul>
+<li><code>server_url</code> 为空时不渲染。</li>
+<li><code>post.meta.views.enable</code> 必须为 <code>true</code>。</li>
+<li><code>post.meta.views.source</code> 必须为 <code>waline</code>。</li>
+<li>浏览量格式中必须包含 <code>&#123;&#125;</code> 占位符。</li>
+</ul>
+<div class="note note-warning">
+            <p>这是注入到 <code>postMetaTop</code> 的追加内容，不修改 Fluid 原来的 <code>meta-top.ejs</code>。所以它比侵入式修改更好维护，但布局上可能不会和原生分支完全一样。如果看着有点偏，可以通过外层 <code>mt-1</code> 或自定义 CSS 微调。</p> 
+          </div>
+
+<h1 id="注入页脚-PV-UV"><a href="#注入页脚-PV-UV" class="headerlink" title="注入页脚 PV&#x2F;UV"></a>注入页脚 PV&#x2F;UV</h1><p>新建 <code>source/_inject/waline-footer-statistics.ejs</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;%<br>const walineAnalytics = theme.web_analytics &amp;&amp; theme.web_analytics.waline ? theme.web_analytics.waline : &#123;&#125;;<br>const pvTexts = (theme.footer.statistics.pv_format || __(&#x27;footer.pv&#x27;)).split(&#x27;&#123;&#125;&#x27;);<br>const uvTexts = (theme.footer.statistics.uv_format || __(&#x27;footer.uv&#x27;)).split(&#x27;&#123;&#125;&#x27;);<br>const showSiteStats = walineAnalytics.server_url &amp;&amp; walineAnalytics.site_stats !== false;<br>%&gt;<br>&lt;% if (showSiteStats &amp;&amp; (pvTexts.length &gt;= 2 || uvTexts.length &gt;= 2)) &#123; %&gt;<br>  &lt;div id=&quot;waline-footer-statistics&quot; class=&quot;statistics&quot;&gt;<br>    &lt;% if (pvTexts.length &gt;= 2) &#123; %&gt;<br>      &lt;span id=&quot;waline-site-pv-container&quot; style=&quot;display: none&quot;&gt;<br>        &lt;%- pvTexts[0] %&gt;<br>        &lt;span class=&quot;waline-site-pv-count&quot; data-path=&quot;&lt;%= walineAnalytics.site_pv_path || &#x27;__site_pv&#x27; %&gt;&quot;&gt;&lt;/span&gt;<br>        &lt;%- pvTexts[1] %&gt;<br>      &lt;/span&gt;<br>    &lt;% &#125; %&gt;<br>    &lt;% if (uvTexts.length &gt;= 2) &#123; %&gt;<br>      &lt;span id=&quot;waline-site-uv-container&quot; style=&quot;display: none&quot;&gt;<br>        &lt;%- uvTexts[0] %&gt;<br>        &lt;span class=&quot;waline-site-uv-count&quot; data-path=&quot;&lt;%= walineAnalytics.site_uv_path || &#x27;__site_uv&#x27; %&gt;&quot;&gt;&lt;/span&gt;<br>        &lt;%- uvTexts[1] %&gt;<br>      &lt;/span&gt;<br>    &lt;% &#125; %&gt;<br>  &lt;/div&gt;<br>  &lt;script&gt;<br>    (function() &#123;<br>      var stats = document.getElementById(&#x27;waline-footer-statistics&#x27;);<br>      var footerInner = document.querySelector(&#x27;footer &gt; .footer-inner&#x27;);<br>      if (stats &amp;&amp; footerInner) &#123;<br>        footerInner.appendChild(stats);<br>      &#125;<br>    &#125;)();<br>  &lt;/script&gt;<br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>这里有一个小细节：注入点 <code>footer</code> 在 Fluid 原生 <code>.footer-inner</code> 后面。如果直接输出一个新的 <code>.footer-inner</code>，字号和间距会和原主题不太一样，看起来就会有点怪。</p>
+<p>所以这里先输出统计块，再用一小段脚本把它移动到原生 <code>.footer-inner</code> 里面，让它复用 Fluid 原来的 <code>.statistics</code> 样式。这样最后显示出来的效果会更像主题自带的页脚统计。</p>
+<div class="note note-warning">
+            <p>如果你以后换主题，或者 Fluid 修改了页脚结构，需要检查 <code>footer &gt; .footer-inner</code> 这个选择器是否还存在。</p> 
+          </div>
+
+<h1 id="编写前端统计脚本"><a href="#编写前端统计脚本" class="headerlink" title="编写前端统计脚本"></a>编写前端统计脚本</h1><p>新建 <code>source/js/waline-pageview.js</code>。</p>
+<p>这里没有直接动态导入 Waline 官方的 <code>pageview.js</code>，而是直接调用 Waline 服务端的 <code>/api/article</code> 接口。原因是有些浏览器或网络环境会拦截从 CDN 动态导入 ESM 模块，控制台里可能会出现类似 CORS 或模块来源不允许的错误。</p>
+<p>既然最后都是请求 Waline 的文章统计接口，那就直接请求接口吧，这样还能少依赖一个外部 JS 文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/* global CONFIG, Fluid */</span><br><br>(<span class="hljs-keyword">function</span>(<span class="hljs-params"><span class="hljs-variable language_">window</span>, <span class="hljs-variable language_">document</span></span>) &#123;<br>  <span class="hljs-string">&#x27;use strict&#x27;</span>;<br><br>  <span class="hljs-keyword">var</span> analytics = (<span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span> &amp;&amp; <span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span>.<span class="hljs-property">waline</span>) || &#123;&#125;;<br>  <span class="hljs-keyword">var</span> serverURL = analytics.<span class="hljs-property">server_url</span> || analytics.<span class="hljs-property">serverURL</span> || <span class="hljs-string">&#x27;&#x27;</span>;<br><br>  <span class="hljs-keyword">if</span> (!serverURL) &#123;<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">normalizeServerURL</span>(<span class="hljs-params">url</span>) &#123;<br>    <span class="hljs-keyword">var</span> normalized = <span class="hljs-title class_">String</span>(url || <span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\/$/u</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^(https?:)?\/\//</span>.<span class="hljs-title function_">test</span>(normalized) ? normalized : <span class="hljs-string">&#x27;https://&#x27;</span> + normalized;<br>  &#125;<br><br>  <span class="hljs-keyword">var</span> apiURL = <span class="hljs-title function_">normalizeServerURL</span>(serverURL).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\/?$/</span>, <span class="hljs-string">&#x27;/&#x27;</span>) + <span class="hljs-string">&#x27;api/&#x27;</span>;<br>  <span class="hljs-keyword">var</span> headers = &#123; <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span> &#125;;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">validHost</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (analytics.<span class="hljs-property">ignore_local</span>) &#123;<br>      <span class="hljs-keyword">var</span> hostname = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">hostname</span>;<br>      <span class="hljs-keyword">if</span> (hostname === <span class="hljs-string">&#x27;localhost&#x27;</span> || hostname === <span class="hljs-string">&#x27;127.0.0.1&#x27;</span> || hostname === <span class="hljs-string">&#x27;::1&#x27;</span> || hostname === <span class="hljs-string">&#x27;[::1]&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">getPath</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> pathConfig = analytics.<span class="hljs-property">path</span> || <span class="hljs-string">&#x27;window.location.pathname&#x27;</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">eval</span>(pathConfig);<br>    &#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;Waline pageview: invalid path config, fallback to window.location.pathname&#x27;</span>);<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">normalizePath</span>(<span class="hljs-params">path</span>) &#123;<br>    <span class="hljs-keyword">var</span> normalized = <span class="hljs-title class_">String</span>(path || <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\/*(index.html)?$/</span>, <span class="hljs-string">&#x27;/&#x27;</span>);<br>    <span class="hljs-keyword">try</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">decodeURI</span>(normalized);<br>    &#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>      <span class="hljs-keyword">return</span> normalized;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">unwrapResponse</span>(<span class="hljs-params">data, label</span>) &#123;<br>    <span class="hljs-keyword">if</span> (data &amp;&amp; <span class="hljs-keyword">typeof</span> data === <span class="hljs-string">&#x27;object&#x27;</span> &amp;&amp; data.<span class="hljs-property">errno</span>) &#123;<br>      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TypeError</span>(label + <span class="hljs-string">&#x27; failed with &#x27;</span> + data.<span class="hljs-property">errno</span> + <span class="hljs-string">&#x27;: &#x27;</span> + data.<span class="hljs-property">errmsg</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> data &amp;&amp; data.<span class="hljs-property">data</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">getCounter</span>(<span class="hljs-params">path</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(<br>      apiURL + <span class="hljs-string">&#x27;article?path=&#x27;</span> + <span class="hljs-built_in">encodeURIComponent</span>(path) + <span class="hljs-string">&#x27;&amp;type=time&amp;lang=&#x27;</span> + <span class="hljs-built_in">encodeURIComponent</span>(analytics.<span class="hljs-property">lang</span> || navigator.<span class="hljs-property">language</span>)<br>    )<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resp</span>) &#123;<br>        <span class="hljs-keyword">return</span> resp.<span class="hljs-title function_">json</span>();<br>      &#125;)<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">unwrapResponse</span>(data, <span class="hljs-string">&#x27;Get counter&#x27;</span>);<br>      &#125;);<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">incrementCounter</span>(<span class="hljs-params">path</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(apiURL + <span class="hljs-string">&#x27;article?lang=&#x27;</span> + <span class="hljs-built_in">encodeURIComponent</span>(analytics.<span class="hljs-property">lang</span> || navigator.<span class="hljs-property">language</span>), &#123;<br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>      <span class="hljs-attr">headers</span>: headers,<br>      <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;<br>        <span class="hljs-attr">path</span>: path,<br>        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;time&#x27;</span>,<br>        <span class="hljs-attr">action</span>: <span class="hljs-string">&#x27;inc&#x27;</span><br>      &#125;)<br>    &#125;)<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resp</span>) &#123;<br>        <span class="hljs-keyword">return</span> resp.<span class="hljs-title function_">json</span>();<br>      &#125;)<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">unwrapResponse</span>(data, <span class="hljs-string">&#x27;Update counter&#x27;</span>);<br>      &#125;);<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">getTime</span>(<span class="hljs-params">data</span>) &#123;<br>    <span class="hljs-keyword">var</span> item = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(data) ? data[<span class="hljs-number">0</span>] : data;<br>    <span class="hljs-keyword">return</span> item &amp;&amp; <span class="hljs-keyword">typeof</span> item.<span class="hljs-property">time</span> === <span class="hljs-string">&#x27;number&#x27;</span> ? item.<span class="hljs-property">time</span> : <span class="hljs-literal">null</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">renderCount</span>(<span class="hljs-params">selector, data, containerSelector</span>) &#123;<br>    <span class="hljs-keyword">var</span> time = <span class="hljs-title function_">getTime</span>(data);<br>    <span class="hljs-keyword">if</span> (time === <span class="hljs-literal">null</span>) &#123;<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(selector).<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">ele</span>) &#123;<br>      ele.<span class="hljs-property">innerText</span> = time.<span class="hljs-title function_">toString</span>();<br>    &#125;);<br><br>    <span class="hljs-keyword">var</span> container = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(containerSelector);<br>    <span class="hljs-keyword">if</span> (container) &#123;<br>      container.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;inline&#x27;</span>;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">validUV</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> key = <span class="hljs-string">&#x27;Waline_Site_UV_Flag&#x27;</span>;<br>    <span class="hljs-keyword">var</span> now = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>();<br>    <span class="hljs-keyword">var</span> duration = <span class="hljs-built_in">parseInt</span>(analytics.<span class="hljs-property">uv_duration</span>, <span class="hljs-number">10</span>) || <span class="hljs-number">86400000</span>;<br><br>    <span class="hljs-keyword">try</span> &#123;<br>      <span class="hljs-keyword">var</span> flag = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(key);<br>      <span class="hljs-keyword">if</span> (flag &amp;&amp; now - <span class="hljs-built_in">parseInt</span>(flag, <span class="hljs-number">10</span>) &lt;= duration) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>      &#125;<br>      <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(key, now.<span class="hljs-title function_">toString</span>());<br>    &#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;Waline pageview: localStorage is not available&#x27;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">updateCount</span>(<span class="hljs-params">selector, path, update, containerSelector</span>) &#123;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(selector)) &#123;<br>      <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">var</span> request = update ? <span class="hljs-title function_">incrementCounter</span>(path) : <span class="hljs-title function_">getCounter</span>(path);<br>    request<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) &#123;<br>        <span class="hljs-title function_">renderCount</span>(selector, data, containerSelector);<br>      &#125;)<br>      .<span class="hljs-title function_">catch</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Waline pageview error:&#x27;</span>, error);<br>      &#125;);<br>  &#125;<br><br>  <span class="hljs-keyword">var</span> dnt = <span class="hljs-variable language_">window</span>.<span class="hljs-property">Fluid</span> &amp;&amp; <span class="hljs-title class_">Fluid</span>.<span class="hljs-property">ctx</span> &amp;&amp; <span class="hljs-title class_">Fluid</span>.<span class="hljs-property">ctx</span>.<span class="hljs-property">dnt</span>;<br>  <span class="hljs-keyword">var</span> enableIncr = <span class="hljs-variable constant_">CONFIG</span>.<span class="hljs-property">web_analytics</span>.<span class="hljs-property">enable</span> &amp;&amp; !dnt &amp;&amp; <span class="hljs-title function_">validHost</span>();<br>  <span class="hljs-keyword">var</span> pagePath = <span class="hljs-title function_">normalizePath</span>(<span class="hljs-title function_">getPath</span>());<br>  <span class="hljs-keyword">var</span> sitePVPath = analytics.<span class="hljs-property">site_pv_path</span> || <span class="hljs-string">&#x27;__site_pv&#x27;</span>;<br>  <span class="hljs-keyword">var</span> siteUVPath = analytics.<span class="hljs-property">site_uv_path</span> || <span class="hljs-string">&#x27;__site_uv&#x27;</span>;<br><br>  <span class="hljs-title function_">updateCount</span>(<span class="hljs-string">&#x27;.waline-pageview-count&#x27;</span>, pagePath, enableIncr, <span class="hljs-string">&#x27;#waline-page-views-container&#x27;</span>);<br>  <span class="hljs-title function_">updateCount</span>(<span class="hljs-string">&#x27;.waline-site-pv-count&#x27;</span>, sitePVPath, enableIncr, <span class="hljs-string">&#x27;#waline-site-pv-container&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.waline-site-uv-count&#x27;</span>)) &#123;<br>    <span class="hljs-title function_">updateCount</span>(<span class="hljs-string">&#x27;.waline-site-uv-count&#x27;</span>, siteUVPath, enableIncr &amp;&amp; <span class="hljs-title function_">validUV</span>(), <span class="hljs-string">&#x27;#waline-site-uv-container&#x27;</span>);<br>  &#125;<br>&#125;)(<span class="hljs-variable language_">window</span>, <span class="hljs-variable language_">document</span>);<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>如果只想查询浏览量而不自增，可以把 <code>_config.fluid.yml</code> 中 <code>web_analytics.enable</code> 设置为 <code>false</code>。这样脚本仍然会读取数值，但不会提交自增请求。</p> 
+          </div>
+
+<h1 id="构建与检查"><a href="#构建与检查" class="headerlink" title="构建与检查"></a>构建与检查</h1><p>完成后运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>如果构建成功，可以在生成的 HTML 中搜索下面这些关键字，确认节点和前端脚本都已经进页面了。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">waline-pageview-count<br>waline-site-pv-count<br>waline-site-uv-count<br>/js/waline-pageview.js<br></code></pre></td></tr></table></figure>
+
+<p>也可以打开浏览器开发者工具，检查是否请求了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://你的-waline-服务端/api/article<br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>如果页脚没有显示统计信息，优先看浏览器控制台和网络请求。常见原因是 <code>server_url</code> 填错、Waline 服务端不可访问、接口 CORS 配置异常，或者统计节点还没拿到数据所以保持 <code>display: none</code>。</p> 
+          </div>
+
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="为什么不用直接修改-Fluid-源码？"><a href="#为什么不用直接修改-Fluid-源码？" class="headerlink" title="为什么不用直接修改 Fluid 源码？"></a>为什么不用直接修改 Fluid 源码？</h2><p>直接修改 <code>fluid/layout/_partials/post/meta-top.ejs</code> 和 <code>fluid/layout/_partials/footer/statistics.ejs</code> 可以做得更像原生功能，但后续更新 Fluid 时容易产生冲突。</p>
+<p>非侵入式方案把逻辑放到博客根目录：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">scripts/waline-pageview-inject.js<br>source/_inject/waline-post-views.ejs<br>source/_inject/waline-footer-statistics.ejs<br>source/js/waline-pageview.js<br></code></pre></td></tr></table></figure>
+
+<p>这样主题源码保持干净，维护成本更低。</p>
+<h2 id="为什么-scripts-waline-pageview-inject-js-放在根目录？"><a href="#为什么-scripts-waline-pageview-inject-js-放在根目录？" class="headerlink" title="为什么 scripts/waline-pageview-inject.js 放在根目录？"></a>为什么 <code>scripts/waline-pageview-inject.js</code> 放在根目录？</h2><p>这是 Hexo 官方支持的脚本扩展机制。把 JS 文件放到博客根目录的 <code>scripts/</code> 中，Hexo 初始化时会自动加载它。</p>
+<h2 id="theme-inject-是-Hexo-原生的吗？"><a href="#theme-inject-是-Hexo-原生的吗？" class="headerlink" title="theme_inject 是 Hexo 原生的吗？"></a><code>theme_inject</code> 是 Hexo 原生的吗？</h2><p>不是。<code>theme_inject</code> 是 Fluid 主题内部实现的注入机制。Fluid 的源码中可以看到它会执行 <code>hexo.execFilterSync(&#39;theme_inject&#39;, injects)</code>，并提供 <code>postMetaTop</code>、<code>footer</code> 等注入点。</p>
+<h2 id="为什么不用-Waline-官方的-pageview-js？"><a href="#为什么不用-Waline-官方的-pageview-js？" class="headerlink" title="为什么不用 Waline 官方的 pageview.js？"></a>为什么不用 Waline 官方的 <code>pageview.js</code>？</h2><p>Waline 官方 <code>pageview.js</code> 是可用的，但在某些环境中从 CDN 动态导入 ESM 模块可能遇到 CORS 或浏览器策略拦截。这里直接调用 Waline 服务端 API，可以少依赖一个外部 JS 文件。</p>
+<h2 id="全站-PV-UV-准确吗？"><a href="#全站-PV-UV-准确吗？" class="headerlink" title="全站 PV&#x2F;UV 准确吗？"></a>全站 PV&#x2F;UV 准确吗？</h2><p>PV 是一个虚拟路径 <code>__site_pv</code> 的访问次数，每次页面加载都会增加，适合作为站点总访问量的近似值。</p>
+<p>UV 是虚拟路径 <code>__site_uv</code> 加本地 <code>localStorage</code> 去重，只能做到浏览器级别的近似 UV。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.leancloud.cn/sdk/announcements/sunset-announcement">LeanCloud：关于停止对外提供服务的通知</a></li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started/">Waline 快速上手</a></li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/guide/deploy/netlify.html">Waline Netlify 部署</a></li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/reference/server/env.html">Waline 服务端环境变量</a></li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/guide/database.html">Waline 多数据库服务支持</a></li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/guide/features/pageview.html">Waline 浏览量统计官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://unpkg.com/@waline/client@3.1.3/dist/pageview.js">Waline <code>pageview.js</code> 源码（unpkg）</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/plugins">Hexo 插件与 scripts 目录官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/api/helper">Hexo Helper 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://fluid.ist/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE">Fluid 覆盖配置文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/pull/1237">Fluid PR：适配 OpenKounter</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mintimate.cn/2026/02/14/openKounter/#Hexo-%E6%8E%A5%E5%85%A5%E7%A4%BA%E4%BE%8B">Mintimate：OpenKounter 介绍与 Hexo 接入示例</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/advanced-settings/injects">NexT Injects 文档</a></li>
+</ul>
+<p>此外，Fluid 当前主题源码里也能看到注入机制的实现：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/scripts/events/lib/injects.js"><code>fluid/scripts/events/lib/injects.js</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/scripts/filters/default-injects.js"><code>fluid/scripts/filters/default-injects.js</code></a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>为 Hexo Fluid 接入 Waline 浏览量统计</div>
+      <div>https://licyk.netlify.app/2026/05/29/add-waline-pageview-to-hexo-fluid/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/06/05/add-umami-pageview-to-hexo-fluid/" title="为 Hexo Fluid 接入 Umami 浏览量统计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">为 Hexo Fluid 接入 Umami 浏览量统计</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/20/how-to-manage-mouse-cursors-between-windows-and-linux/" title="Windows / Linux 鼠标指针格式互转，安装与管理工具">
+                        <span class="hidden-mobile">Windows / Linux 鼠标指针格式互转，安装与管理工具</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

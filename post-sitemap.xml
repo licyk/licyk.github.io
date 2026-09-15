@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://licyk.netlify.app/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/10/05/my-sd-model-list/</loc>
+        <lastmod>2026-06-21T15:18:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/pc-use-experience/</loc>
+        <lastmod>2026-06-20T04:28:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/06/26/how-to-deploy-hexo/</loc>
+        <lastmod>2026-06-08T16:34:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2026/06/09/add-giscus-comment-to-hexo-fluid/</loc>
+        <lastmod>2026-06-08T16:25:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2026/06/05/add-umami-pageview-to-hexo-fluid/</loc>
+        <lastmod>2026-06-08T10:34:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2026/05/29/add-waline-pageview-to-hexo-fluid/</loc>
+        <lastmod>2026-05-30T03:37:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2026/01/20/how-to-manage-mouse-cursors-between-windows-and-linux/</loc>
+        <lastmod>2026-05-30T03:37:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/05/31/configure-micromamba/</loc>
+        <lastmod>2026-04-01T08:10:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/06/26/block-msys2-python/</loc>
+        <lastmod>2026-04-01T08:10:03.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/04/12/sd-tag-collection/</loc>
+        <lastmod>2026-03-25T14:30:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/01/16/use-kaggle-to-training-sd-model/</loc>
+        <lastmod>2026-03-25T11:09:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/02/02/set-proxy-in-terminal/</loc>
+        <lastmod>2026-01-24T15:33:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/09/19/ssh-usage-experience/</loc>
+        <lastmod>2025-12-19T11:41:17.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/12/18/auto-execution-with-sitecustomize-and-pythonpath-in-python/</loc>
+        <lastmod>2025-12-18T15:31:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/05/14/manage-github-repo-with-https-url/</loc>
+        <lastmod>2025-10-16T10:00:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/01/16/use-huggingface-or-modelscope-to-save-file/</loc>
+        <lastmod>2025-08-25T03:59:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/07/28/artist-tag-style-collection/</loc>
+        <lastmod>2025-05-31T12:52:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/search-tools/</loc>
+        <lastmod>2025-05-18T02:33:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2025/02/10/debiased_estimation_loss_in_stable_diffusion_model_training/</loc>
+        <lastmod>2025-05-15T12:29:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/10/01/merge-lora-to-stable-diffusion-model/</loc>
+        <lastmod>2025-05-15T12:29:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/05/21/resolve-git-conflict/</loc>
+        <lastmod>2025-05-15T12:29:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/how-to-use-github-action-to-deploy-hexo/</loc>
+        <lastmod>2025-04-23T12:32:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/11/18/how-to-use-github-action-to-sync-repo/</loc>
+        <lastmod>2025-04-23T12:32:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/09/01/add-multi-remote-on-git-repo/</loc>
+        <lastmod>2024-11-26T07:48:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/03/06/how-to-use-cloudflare-worker-and-pages-services-to-proxy/</loc>
+        <lastmod>2024-11-26T07:48:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/06/14/upload-single-file-to-modelscope/</loc>
+        <lastmod>2024-11-26T07:48:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/11/10/deploy-semenr/</loc>
+        <lastmod>2024-11-10T16:02:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/12/23/learn-sd-note/</loc>
+        <lastmod>2024-10-01T00:57:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2024/09/20/note-1/</loc>
+        <lastmod>2024-09-19T17:04:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/15/linux-software/</loc>
+        <lastmod>2024-06-24T17:58:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/14/android-software/</loc>
+        <lastmod>2024-06-20T02:08:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/14/windows-software/</loc>
+        <lastmod>2024-06-20T02:08:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/windows-activate/</loc>
+        <lastmod>2024-06-18T14:19:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/windows-optimize/</loc>
+        <lastmod>2024-06-07T02:06:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/10/01/how-to-sign-up-zero-trust/</loc>
+        <lastmod>2024-03-09T06:52:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/11/04/ai-tools-collection/</loc>
+        <lastmod>2023-12-26T15:21:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/11/04/self-learning/</loc>
+        <lastmod>2023-12-26T15:21:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/18/personal-software-download-page/</loc>
+        <lastmod>2023-12-26T15:11:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/cinnamon-optimize/</loc>
+        <lastmod>2023-12-20T09:04:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/13/hexo-deploy/</loc>
+        <lastmod>2023-11-18T09:16:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://licyk.netlify.app/2023/07/17/web-tools/</loc>
+        <lastmod>2023-11-12T13:08:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

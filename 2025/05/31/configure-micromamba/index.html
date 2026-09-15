@@ -1,0 +1,1214 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MicroMamba，快，轻量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置 MicroMamaba 包管理器">
+<meta property="og:url" content="https://licyk.netlify.app/2025/05/31/configure-micromamba/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="MicroMamba，快，轻量">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-31T03:36:54.000Z">
+<meta property="article:modified_time" content="2026-04-01T08:10:54.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>配置 MicroMamaba 包管理器 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="配置 MicroMamaba 包管理器"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-31 11:36" pubdate>
+          2025年5月31日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          55 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">配置 MicroMamaba 包管理器</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年4月1日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了配置某些项目的运行环境，有时不得不使用 Conda 进行环境配置，比如 <a target="_blank" rel="noopener" href="https://www.anaconda.com/">AnaConda</a>。</p>
+<p>但是 <a target="_blank" rel="noopener" href="https://www.anaconda.com/">AnaConda</a> 重，太重了，配置环境还很慢，还有另一个选择就是 <a target="_blank" rel="noopener" href="https://docs.conda.io/projects/conda/en/stable/index.html">Miniconda</a>，但也就比 <a target="_blank" rel="noopener" href="https://www.anaconda.com/">AnaConda</a> 轻量的一些。</p>
+<p>不过现在有了更好的选择，那就是 <a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/index.html">MicroMamba</a>，本体非常小，不依赖 Python 环境运行，并且安装环境的速度还很快呢。下面就讲讲这个工具怎么安装吧。</p>
+<div class="note note-info">
+            <p>下面将演示在不同的系统和终端安装 MicroMamba，计划安装在 Windows 系统上的<code>D:/micromamba</code>路径，在 Linux 上的<code>~/micromamba</code>路径。</p> <p>嗯…可能下载 MicroMamba 的时候会出现下载失败的问题，那就配置一下终端代理就好了，参考一下《<a href="/2025/02/02/set-proxy-in-terminal">在终端中快速设置代理</a> 》这篇文章吧。</p> 
+          </div>
+
+
+<h1 id="创建-MicroMamba-的文件夹"><a href="#创建-MicroMamba-的文件夹" class="headerlink" title="创建 MicroMamba 的文件夹"></a>创建 MicroMamba 的文件夹</h1><p>MicroMamba 虽然只有一个文件，但总有一个地方来放它，所以就建个路径来放它吧。</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><ul>
+<li>PowerShell</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Force</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;D:/micromamba&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Msys2 &#x2F; Git Bash</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">&quot;D:/micromamba&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/micromamba<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="下载-MicroMamba"><a href="#下载-MicroMamba" class="headerlink" title="下载 MicroMamba"></a>下载 MicroMamba</h1><p>有了放置 MicroMamba 的路径，接下来就需要下载 MicroMamba 了。</p>
+<h2 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h2><ul>
+<li>PowerShell</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Invoke-WebRequest</span> <span class="hljs-string">&quot;https://github.com/mamba-org/micromamba-releases/releases/download/2.1.1-0/micromamba-win-64&quot;</span> <span class="hljs-literal">-OutFile</span> <span class="hljs-string">&quot;D:/micromamba/micromamba.exe&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Msys2 &#x2F; Git Bash</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -L <span class="hljs-string">&quot;https://github.com/mamba-org/micromamba-releases/releases/download/2.1.1-0/micromamba-win-64&quot;</span> -o <span class="hljs-string">&quot;D:/micromamba/micromamba.exe&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -L <span class="hljs-string">&quot;https://github.com/mamba-org/micromamba-releases/releases/download/2.1.1-0/micromamba-linux-64&quot;</span> -o ~/micromamba/micromamba<br><span class="hljs-built_in">chmod</span> +x ~/micromamba/micromamba<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="初始化-MicroMamba-目录"><a href="#初始化-MicroMamba-目录" class="headerlink" title="初始化 MicroMamba 目录"></a>初始化 MicroMamba 目录</h1><p>MicroMamba 下载下来后，还不可以直接使用呢，需要初始化一下它的路径。</p>
+<h2 id="Windows-2"><a href="#Windows-2" class="headerlink" title="Windows"></a>Windows</h2><ul>
+<li>PowerShell</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&amp; <span class="hljs-string">&quot;D:/micromamba/micromamba.exe&quot;</span> shell init <span class="hljs-literal">--shell</span> powershell <span class="hljs-literal">--root-prefix</span> <span class="hljs-string">&quot;D:/micromamba&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Git Bash</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot;D:/micromamba/micromamba&quot;</span> shell init --shell bash --root-prefix <span class="hljs-string">&quot;D:/micromamba&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Msys2</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot;D:/micromamba/micromamba&quot;</span> shell init --root-prefix <span class="hljs-string">&quot;D:/micromamba&quot;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>Msys2 相比 Git Bash 来说比较特殊欸，需要进行额外的配置修改，因为 Msys2 的<code>HOME</code>环境变量设置的路径为 Msys2 自己的家路径，而不是像 Git Bash 一样设置为 Windows 的用户路径，这就导致 MicroMamba 在 Windows 的用户路径生成的 Shell 配置文件无法被 Msys2 识别到。</p> <p>如果在 Msys2 中使用 Zsh 终端，可能会出现<code>zsh: parse error near ^M&#39;</code>，这是因为 Zsh 并不能正确的处理 CRLF 换行符（唉，曾经被这问题困扰了好久呢），导致无法正常初始化 MicroMamba 的环境，需要进行换行符转换和命令重写。</p> <p>那根据这两个问题，解决方法就是这样吧：</p> <p>找到 Shell 的配置文件路径（下面这条命令适用于 Bash &#x2F; Zsh，如果是其他终端就自行查找配置文件在哪吧）。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(cygpath -w <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/.<span class="hljs-variable">$&#123;SHELL#/usr/bin/&#125;</span>rc&quot;</span>)</span>&quot;</span><br></code></pre></td></tr></table></figure>  <p>运行命令后会显示配置文件的所在路径，打开这个配置文件，将下面的内容复制进这个配置文件并保存。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># &gt;&gt;&gt; mamba initialize &gt;&gt;&gt;</span><br><span class="hljs-comment"># !! Contents within this block are managed by &#x27;mamba init&#x27; !!</span><br><span class="hljs-built_in">export</span> MAMBA_EXE=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.local/bin/micromamba.exe&quot;</span>;<br><span class="hljs-built_in">export</span> MAMBA_ROOT_PREFIX=<span class="hljs-string">&quot;/d/Softwares/MicroMamba&quot;</span>;<br><span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SHELL##*/&#125;</span>&quot;</span> <span class="hljs-keyword">in</span><br>    zsh)<br>        <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>&quot;</span> shell hook --shell bash --root-prefix <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_ROOT_PREFIX&#125;</span>&quot;</span> | dos2unix)</span>&quot;</span><br><br>        <span class="hljs-function"><span class="hljs-title">__mamba_exe</span></span>() &#123;<br>            <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span><br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-title">__mamba_hashr</span></span>() &#123;<br>            <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;ZSH_VERSION:+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">rehash</span><br>            <span class="hljs-keyword">elif</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;POSH_VERSION:+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>                :  <span class="hljs-comment"># pass</span><br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-built_in">hash</span> -r<br>            <span class="hljs-keyword">fi</span><br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-title">__mamba_xctivate</span></span>() &#123;<br>            <span class="hljs-built_in">local</span> ask_mamba<br>            ask_mamba=<span class="hljs-string">&quot;<span class="hljs-subst">$(PS1=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PS1:-&#125;</span>&quot;</span> __mamba_exe shell <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span> --shell bash | dos2unix)</span>&quot;</span> || <span class="hljs-built_in">return</span><br>            <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;ask_mamba&#125;</span>&quot;</span><br>            __mamba_hashr<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-title">__mamba_wrap</span></span>() &#123;<br>            <span class="hljs-built_in">local</span> cmd=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;1-__missing__&#125;</span>&quot;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;cmd&#125;</span>&quot;</span> <span class="hljs-keyword">in</span><br>                activate|reactivate|deactivate)<br>                    __mamba_xctivate <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span><br>                    ;;<br>                install|update|upgrade|remove|uninstall)<br>                    __mamba_exe <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span> || <span class="hljs-built_in">return</span><br>                    __mamba_xctivate reactivate<br>                    ;;<br>                self-update)<br>                    __mamba_exe <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span> || <span class="hljs-built_in">return</span><br><br>                    <span class="hljs-comment"># remove leftover backup file on Windows</span><br>                    <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>.bkup&quot;</span> ]; <span class="hljs-keyword">then</span><br>                        <span class="hljs-built_in">rm</span> -f <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>.bkup&quot;</span><br>                    <span class="hljs-keyword">fi</span><br>                    ;;<br>                *)<br>                    __mamba_exe <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span><br>                    ;;<br>            <span class="hljs-keyword">esac</span><br>        &#125;<br><br>        <span class="hljs-comment"># We need to define a function with the same name as the executable to be called by the user.</span><br>        <span class="hljs-comment"># There is no way to register it dynamically without relying on hacks or eval.</span><br>        __exe_name=<span class="hljs-string">&quot;<span class="hljs-subst">$(basename <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>&quot;</span>)</span>&quot;</span><br>        __exe_name=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;__exe_name%.*&#125;</span>&quot;</span><br>        <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;__exe_name&#125;</span>&quot;</span> == <span class="hljs-string">&quot;micromamba&quot;</span> ]]; <span class="hljs-keyword">then</span><br>            <span class="hljs-function"><span class="hljs-title">micromamba</span></span>() &#123; __mamba_wrap <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span>; &#125;<br>        <span class="hljs-keyword">elif</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;__exe_name&#125;</span>&quot;</span> == <span class="hljs-string">&quot;mamba&quot;</span> ]]; <span class="hljs-keyword">then</span><br>            <span class="hljs-function"><span class="hljs-title">mamba</span></span>() &#123; __mamba_wrap <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;@&#125;</span>&quot;</span>; &#125;<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Error unknow MAMBA_EXE: \&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>\&quot;, filename must be mamba o2&quot;</span><br>        <span class="hljs-keyword">fi</span><br><br><br>        <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;CONDA_SHLVL+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>            <span class="hljs-built_in">export</span> CONDA_SHLVL=0<br>            <span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_ROOT_PREFIX&#125;</span>/condabin:<span class="hljs-variable">$&#123;PATH&#125;</span>&quot;</span><br><br>            <span class="hljs-comment"># We&#x27;re not allowing PS1 to be unbound. It must at least be set.</span><br>            <span class="hljs-comment"># However, we&#x27;re not exporting it, which can cause problems when starting a second shell</span><br>            <span class="hljs-comment"># via a first shell (i.e. starting zsh from bash).</span><br>            <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PS1+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>                PS1=<br>            <span class="hljs-keyword">fi</span><br>        <span class="hljs-keyword">fi</span><br><br>        <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;ZSH_VERSION:+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>        <span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v compinit &gt; /dev/null; <span class="hljs-keyword">then</span><br>            <span class="hljs-built_in">autoload</span> -U +X compinit &amp;&amp; <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;ZSH_DISABLE_COMPFIX-&#125;</span>&quot;</span> = <span class="hljs-literal">true</span> ]]; <span class="hljs-keyword">then</span><br>            compinit -u<br>            <span class="hljs-keyword">else</span><br>            compinit<br>            <span class="hljs-keyword">fi</span><br>        <span class="hljs-keyword">fi</span><br>        <span class="hljs-built_in">autoload</span> -U +X bashcompinit &amp;&amp; bashcompinit<br><br>        <span class="hljs-function"><span class="hljs-title">_umamba_zsh_completions</span></span>()<br>        &#123;<br>            COMPREPLY=($(__mamba_exe completer <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;(@s: :)<span class="hljs-variable">$&#123;(@s: :)COMP_LINE&#125;</span>:1&#125;</span>&quot;</span>))<br>        &#125;<br><br>        complete -o default -F _umamba_zsh_completions micromamba<br>        <span class="hljs-keyword">fi</span><br>        <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;BASH_VERSION:+x&#125;</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>        <span class="hljs-function"><span class="hljs-title">_umamba_bash_completions</span></span>()<br>        &#123;<br>            COMPREPLY=($(__mamba_exe completer <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;COMP_WORDS[@]:1&#125;</span>&quot;</span>))<br>        &#125;<br>        complete -o default -F _umamba_bash_completions micromamba<br>        <span class="hljs-keyword">fi</span><br>        ;;<br>    *)<br>        <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_EXE&#125;</span>&quot;</span> shell hook --shell bash --root-prefix <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MAMBA_ROOT_PREFIX&#125;</span>&quot;</span>)</span>&quot;</span><br>        ;;<br><span class="hljs-keyword">esac</span><br><span class="hljs-comment"># &lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</span><br></code></pre></td></tr></table></figure> 
+          </div>
+
+
+<h2 id="Linux-2"><a href="#Linux-2" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/micromamba/micromamba shell init --root-prefix ~/micromamba<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="配置-MicroMamba-的镜像源"><a href="#配置-MicroMamba-的镜像源" class="headerlink" title="配置 MicroMamba 的镜像源"></a>配置 MicroMamba 的镜像源</h1><p>下面是一个比较的通用的配置，在 Windows 上和 Linux 上基本覆盖常用的镜像源，如果需要其他的源就自己在这个基础上修改吧。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">channels:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">defaults</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">conda-forge</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pytorch</span><br><span class="hljs-attr">default_channels:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="hljs-attr">custom_channels:</span><br>  <span class="hljs-attr">conda-forge:</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br>  <span class="hljs-attr">pytorch:</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="hljs-attr">channel_priority:</span> <span class="hljs-string">strict</span><br><span class="hljs-attr">show_channel_urls:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Windows-3"><a href="#Windows-3" class="headerlink" title="Windows"></a>Windows</h2><p>在<code>C:/User/&lt;你的用户名&gt;</code>这个位置创建<code>.condarc</code>文件，把上面的配置文件复制进去并保存吧。</p>
+<h2 id="Linux-3"><a href="#Linux-3" class="headerlink" title="Linux"></a>Linux</h2><p>运行一下<code>realpath ~</code>这个命令，查看家路径在哪，然后在家路径中创建<code>.condarc</code>文件，把上面的配置文件复制进去并保存吧。</p>
+<h1 id="重启终端"><a href="#重启终端" class="headerlink" title="重启终端"></a>重启终端</h1><p>重新打开终端，运行下面的命令检查一下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">micromamba --version<br></code></pre></td></tr></table></figure>
+
+<p>如果能够显示版本号就说明安装成功了呢。</p>
+<h1 id="MicroMamba-的配置文件路径"><a href="#MicroMamba-的配置文件路径" class="headerlink" title="MicroMamba 的配置文件路径"></a>MicroMamba 的配置文件路径</h1><p>MicroMamba 的文件主要就在这几个地方吧。</p>
+<ul>
+<li><code>&lt;用户路径&gt;/.condarc</code></li>
+<li><code>&lt;用户路径&gt;/.conda</code></li>
+<li><code>&lt;MicroMamba 安装的路径&gt;</code></li>
+<li>Shell 的配置文件中<code>mamba initialize</code>的部分</li>
+</ul>
+<p>知道这几个地方后，如果需要修改配置或者卸载 MicroMamba 就很简单了。</p>
+<h1 id="使用-MicroMamba"><a href="#使用-MicroMamba" class="headerlink" title="使用 MicroMamba"></a>使用 MicroMamba</h1><p>MicroMamba 的命令大部分是兼容 conda 的命令的，比如<code>conda create -n py311 python=3.11</code>这个 Conda 命令在 MicroMamba 上就是<code>micromamba create -n py311 python=3.11</code>，也就是简单的把<code>conda</code>换成<code>micromamba</code>就行了呢，非常简单。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>配置 MicroMamaba 包管理器</div>
+      <div>https://licyk.netlify.app/2025/05/31/configure-micromamba/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/26/block-msys2-python/" title="屏蔽 Msys2 终端的 Python">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">屏蔽 Msys2 终端的 Python</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/14/manage-github-repo-with-https-url/" title="使用 HTTPS 协议管理 Github 仓库">
+                        <span class="hidden-mobile">使用 HTTPS 协议管理 Github 仓库</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1213 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="小小代理，处处是坑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在终端中快速设置代理">
+<meta property="og:url" content="https://licyk.netlify.app/2025/02/02/set-proxy-in-terminal/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="小小代理，处处是坑。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://licyk.netlify.app/img/set_proxy_in_terminal/126295446_p1.png">
+<meta property="article:published_time" content="2025-02-02T13:37:17.000Z">
+<meta property="article:modified_time" content="2026-01-24T15:33:06.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="macos">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licyk.netlify.app/img/set_proxy_in_terminal/126295446_p1.png">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>在终端中快速设置代理 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在终端中快速设置代理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-02 21:37" pubdate>
+          2025年2月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          87 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在终端中快速设置代理</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年1月24日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>平常使用代理去访问 Github，Google 之类的网站时，只需要在代理软件中启用系统代理就行，这很简单的嘛。</p>
+<p>但在终端中，使用 Git 命令去下载 Github 项目或者访问其他需要代理的网站时，啊咧，怎么访问失败了，明明在代理软件中开了系统代理，怎么会访问不了呢，怎么会是呢？</p>
+<p>其实代理软件设置系统代理后，只有主动使用系统代理的软件，比如浏览器等，才能吃到代理，正常访问 Github 之类的网站。但一些有自己代理设置的软件，比如终端，并不会主动使用代理，所以就出现开启系统代理后仍然访问不了的问题。</p>
+<p>如果代理软件有虚拟网卡模式，或者 TUN 模式，打开后就能简单解决这个问题。</p>
+<div class="note note-info">
+            <p>虚拟网卡模式和 TUN 模式可以模拟一张网卡，使所有流量都经过代理软件，这样即使软件不使用系统代理，软件也会走代理。</p> <p>在代理软件中，还有个全局模式，但实际上并不能让不使用系统代理的软件走代理。嗯？难道全局模式是假的吗？</p> <p>其实不假，只是全局模式作用和通常想的不一样。</p> <p>全局模式是指走代理软件的流量全部走代理服务器，如果改成绕过国内则是走代理软件的流量中，一部分仍然直连，一部分走代理服务器。而虚拟网卡模式和 TUN 模式是调整代理软件在系统中的作用范围，禁用时，只有部分的软件走代理软件，启用时，所有的软件都要走代理软件。</p> <p>听到这，应该知道虚拟网卡模式和 TUN 模式为什么能解决上面的问题了吧。嗯…还是听不懂嘛，没关系，能访问 Google 的话可以自己查找关于代理软件的 TUN 模式的文档哦，还可以去问问 ChatGPT。这东西讲起来内容有些多，就不在这细讲了。</p> 
+          </div>
+
+<p>似乎，开了 TUN 模式后，所有软件都会走代理软件了（不知道是错觉还是真的，网络延迟还变高了呢，可能是流量要多经过一次代理软件的虚拟网卡，增加了处理时间了）。但自己只想让终端使用代理，不如换个方式，调整终端的代理设置吧。</p>
+<p>终端里通常使用 HTTP_PROXY 和 HTTPS_PROXY 环境变量来配置代理，将变量的值设置为代理服务器的值就行，再设置 NO_PROXY 环境变量来避免奇奇怪怪的问题。比如从代理软件中知道代理服务器地址是 <a target="_blank" rel="noopener" href="http://127.0.0.1:10808/">http://127.0.0.1:10808</a> ，则在不同终端中设置代理的命令如下。</p>
+<ul>
+<li>PowerShell</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$Env:HTTP_PROXY</span> = <span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-variable">$Env:HTTPS_PROXY</span> = <span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-variable">$Env:NO_PROXY</span> = <span class="hljs-string">&quot;localhost,127.0.0.1,::1&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>MSYS2 &#x2F; Git Bash &#x2F; Linux Shell &#x2F; Unix Shell</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> HTTP_PROXY=<span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-built_in">export</span> HTTPS_PROXY=<span class="hljs-string">&quot;http://127.0.0.1:10808&quot;</span><br><span class="hljs-built_in">export</span> NO_PROXY=<span class="hljs-string">&quot;localhost,127.0.0.1,::1&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>CMD</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bat"><span class="hljs-built_in">set</span> HTTP_PROXY=http://<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">10808</span><br><span class="hljs-built_in">set</span> HTTPS_PROXY=http://<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">10808</span><br><span class="hljs-built_in">set</span> NO_PROXY=localhost,<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>,::<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>但是命令设置的环境变量只是临时环境变量，呜，好麻烦啊。唔…终端好像能编写函数，像命令一样调用…诶？！编写一个函数来做这种事不就好了嘛。这里就用 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a> 来编写函数吧。</p>
+<ul>
+<li>PowerShell</li>
+</ul>
+<p>PowerShell 是 Windows 系统里比较常用的终端，下面就先打开 PowerShell，把下面的命令复制进 PowerShell 后回车运行一下。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>([System.Environment]::GetFolderPath(&quot;</span>MyDocuments<span class="hljs-string">&quot;))\WindowsPowerShell&quot;</span><br><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> File <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>([System.Environment]::GetFolderPath(&quot;</span>MyDocuments<span class="hljs-string">&quot;))\WindowsPowerShell\Microsoft.PowerShell_profile.ps1&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行后将在 C:\User\YourUserName\Documents\WindowsPowerShell 这个路径创建一个 Microsoft.PowerShell_profile.ps1 文件，这是 PowerShell 的配置文件，可以在里面编写函数。</p>
+<p>呀，差点忘了要解锁 PowerShell 运行脚本的限制了，再运行一下下面的命令吧。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-ExecutionPolicy</span> Unrestricted <span class="hljs-literal">-Scope</span> CurrentUser<br></code></pre></td></tr></table></figure>
+
+<p>接下来找到那个目录，用 Visual Studio Code 打开吧，把下面的代码复制进去吧。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">global</span>:<span class="hljs-title">Set-Proxy</span></span> &#123; <span class="hljs-comment"># 设置代理</span><br>    <span class="hljs-keyword">param</span> (<br>        <span class="hljs-variable">$proxy_value</span><br>    )<br><br>    <span class="hljs-keyword">if</span> ([<span class="hljs-built_in">string</span>]::IsNullOrEmpty(<span class="hljs-variable">$proxy_value</span>)) &#123;<br>        <span class="hljs-variable">$internet_setting</span> = <span class="hljs-built_in">Get-ItemProperty</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot;</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable">$internet_setting</span>.ProxyEnable <span class="hljs-operator">-ne</span> <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;未启用系统代理&quot;</span><br>            <span class="hljs-keyword">return</span><br>        &#125;<br><br>        <span class="hljs-comment"># 提取代理地址</span><br>        <span class="hljs-variable">$proxy_addr</span> = <span class="hljs-variable">$</span>(<span class="hljs-variable">$internet_setting</span>.ProxyServer)<br>        <span class="hljs-keyword">if</span> ((<span class="hljs-variable">$proxy_addr</span> <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;http=(.*?);&quot;</span>) <span class="hljs-operator">-or</span> (<span class="hljs-variable">$proxy_addr</span> <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;https=(.*?);&quot;</span>)) &#123;<br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-variable">$matches</span>[<span class="hljs-number">1</span>]<br>            <span class="hljs-comment"># 去除 http / https 前缀</span><br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-variable">$proxy_value</span>.ToString().Replace(<span class="hljs-string">&quot;http://&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).Replace(<span class="hljs-string">&quot;https://&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-string">&quot;http://<span class="hljs-variable">$</span>&#123;proxy_value&#125;&quot;</span><br>        &#125; <span class="hljs-keyword">elseif</span> (<span class="hljs-variable">$proxy_addr</span> <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;socks=(.*)&quot;</span>) &#123;<br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-variable">$matches</span>[<span class="hljs-number">1</span>]<br>            <span class="hljs-comment"># 去除 socks 前缀</span><br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-variable">$proxy_value</span>.ToString().Replace(<span class="hljs-string">&quot;http://&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).Replace(<span class="hljs-string">&quot;https://&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-string">&quot;socks://<span class="hljs-variable">$</span>&#123;proxy_value&#125;&quot;</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-variable">$proxy_value</span> = <span class="hljs-string">&quot;http://<span class="hljs-variable">$</span>&#123;proxy_addr&#125;&quot;</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-variable">$Env:NO_PROXY</span> = <span class="hljs-string">&quot;localhost,127.0.0.1,::1&quot;</span><br>    <span class="hljs-variable">$Env:HTTP_PROXY</span> = <span class="hljs-variable">$proxy_value</span><br>    <span class="hljs-variable">$Env:HTTPS_PROXY</span> = <span class="hljs-variable">$proxy_value</span><br>    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;设置代理完成, 代理地址: <span class="hljs-variable">$Env:HTTP_PROXY</span>&quot;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">global</span>:<span class="hljs-title">Unset-Proxy</span></span> &#123; <span class="hljs-comment"># 清除代理</span><br>    <span class="hljs-keyword">if</span> ([<span class="hljs-built_in">string</span>]::IsNullOrEmpty(<span class="hljs-variable">$Env:HTTP_PROXY</span>)) &#123;<br>        <span class="hljs-built_in">Remove-Item</span> <span class="hljs-literal">-Path</span> Env:HTTP_PROXY <span class="hljs-literal">-Force</span><br>    &#125;<br>    <span class="hljs-keyword">if</span> ([<span class="hljs-built_in">string</span>]::IsNullOrEmpty(<span class="hljs-variable">$Env:HTTPS_PROXY</span>)) &#123;<br>        <span class="hljs-built_in">Remove-Item</span> <span class="hljs-literal">-Path</span> Env:HTTPS_PROXY <span class="hljs-literal">-Force</span><br>    &#125;<br>    <span class="hljs-built_in">Write-Host</span> <span class="hljs-string">&quot;清除代理完成&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>复制进去后保存一下就行了。等等，PowerShell 的配置文件需要特殊的文件编码来保存哦。在 Visual Studio Code 里按下 Ctrl + Shift + P，顶上就打开 Visual Studio Code 的功能查找，在上面输入 Change File Encoding，可以看到<strong>更改文件编码</strong>这个选项，选择一下，再选一下<strong>通过编码保存</strong>，在编码列表里选择 UTF-8 with BOM，大功告成。</p>
+<p>现在再重新打开 PowerShell 就可以用上刚刚编写的函数，输入 Set-Proxy 后，终端就配置好代理了，再试试之前的命令去访问 Github 什么的，网络问题都消失了，好神奇，好方便。</p>
+<p>嗯… Set-Proxy 这个命令是自动读取系统代理来设置代理的，如果我知道代理地址，比如 <a target="_blank" rel="noopener" href="http://127.0.0.1:10808/">http://127.0.0.1:10808</a> ，想设置成这个呢？这也是可以的哦。只要 Set-Proxy <a target="_blank" rel="noopener" href="http://127.0.0.1:10808/">http://127.0.0.1:10808</a> 就行了呢。</p>
+<p>不想使用代理了，想清除刚刚设置的代理，该怎么办呢？很简单，把 PowerShell 重新打开就好了嘛，但是…这样有些麻烦。没关系，刚刚编写的函数里就有一个快速清除代理的函数，运行一下 Unset-Proxy 就好了。</p>
+<ul>
+<li>MSYS2 &#x2F; Git Bash &#x2F; Linux Shell &#x2F; Unix Shell</li>
+</ul>
+<p>有时使用的终端不是 PowerShell，而是这几个，也可以像 PowerShell 一样编写函数呢。打开终端后，用命令新建一个 sh 文件来编写函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/custom_cmd.sh&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行后会在 &#x2F;home&#x2F;YourUserName 这个路径新建一个 custom_cmd.sh 文件（这里要注意一下，MSYS2 &#x2F; Git Bash 的 home 目录是在安装这个终端的路径中的哦），用 Visual Studio Code 打开这个文件吧，把下面的函数粘贴进去。</p>
+<div class="note note-info">
+            <p>在 MSYS2 &#x2F; Git Bash 中可以通过 cygpath 命令查看 home 目录对应的 Windows 真实路径，用法是<code>cygpath -w &quot;&lt;要查看的路径&gt;&quot;</code>，比如查看 home 目录的真实路径：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cygpath -w <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure> 
+          </div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-function"><span class="hljs-title">get_windows_system_proxy_config_code</span></span>() &#123; <span class="hljs-comment"># 获取 Windows 系统代理地址的 PowerShell 代码</span><br>    <span class="hljs-built_in">cat</span>&lt;&lt;<span class="hljs-string">EOF</span><br><span class="hljs-string"># 读取注册表配置</span><br><span class="hljs-string">\$internet_setting = Get-ItemProperty -Path &quot;HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot;</span><br><span class="hljs-string">\$proxy_addr = \$(\$internet_setting.ProxyServer)</span><br><span class="hljs-string"></span><br><span class="hljs-string"># 提取代理地址</span><br><span class="hljs-string">if ((\$proxy_addr -match &quot;http=(.*?);&quot;) -or (\$proxy_addr -match &quot;https=(.*?);&quot;)) &#123;</span><br><span class="hljs-string">    \$proxy_value = \$matches[1]</span><br><span class="hljs-string">    # 去除 http / https 前缀</span><br><span class="hljs-string">    \$proxy_value = \$proxy_value.ToString().Replace(&quot;http://&quot;, &quot;&quot;).Replace(&quot;https://&quot;, &quot;&quot;)</span><br><span class="hljs-string">    \$proxy_value = &quot;http://\$&#123;proxy_value&#125;&quot;</span><br><span class="hljs-string">&#125; elseif (\$proxy_addr -match &quot;socks=(.*)&quot;) &#123;</span><br><span class="hljs-string">    \$proxy_value = \$matches[1]</span><br><span class="hljs-string">    # 去除 socks 前缀</span><br><span class="hljs-string">    \$proxy_value = \$proxy_value.ToString().Replace(&quot;http://&quot;, &quot;&quot;).Replace(&quot;https://&quot;, &quot;&quot;)</span><br><span class="hljs-string">    \$proxy_value = &quot;socks://\$&#123;proxy_value&#125;&quot;</span><br><span class="hljs-string">&#125; else &#123;</span><br><span class="hljs-string">    \$proxy_value = &quot;http://\$&#123;proxy_addr&#125;&quot;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">if (\$internet_setting.ProxyEnable -eq 1) &#123;</span><br><span class="hljs-string">    Write-Host \$proxy_value</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">EOF</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">get_system_proxy_address</span></span>() &#123; <span class="hljs-comment"># 获取系统代理地址</span><br>    <span class="hljs-built_in">local</span> gsettings_proxy_status<br>    <span class="hljs-built_in">local</span> gsettings_http_host<br>    <span class="hljs-built_in">local</span> gsettings_http_port<br>    <span class="hljs-built_in">local</span> gsettings_http_proxy_config<br>    <span class="hljs-built_in">local</span> gsettings_socks_host<br>    <span class="hljs-built_in">local</span> gsettings_socks_port<br>    <span class="hljs-built_in">local</span> gsettings_socks_proxy_config<br>    <span class="hljs-built_in">local</span> kde_proxy_status<br>    <span class="hljs-built_in">local</span> kde_http_proxy_config<br>    <span class="hljs-built_in">local</span> kde_socks_proxy_config<br>    <span class="hljs-built_in">local</span> windows_proxy_config<br>    <span class="hljs-built_in">local</span> macos_proxy_config<br><br>    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;OSTYPE&#125;</span>&quot;</span> == <span class="hljs-string">&quot;msys&quot;</span>* ]] || [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;OSTYPE&#125;</span>&quot;</span> == <span class="hljs-string">&quot;cygwin&quot;</span>* ]]; <span class="hljs-keyword">then</span><br>        windows_proxy_config=$(powershell -NoProfile -c <span class="hljs-string">&quot;<span class="hljs-subst">$(get_windows_system_proxy_config_code)</span>&quot;</span> 2&gt; /dev/null)<br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;windows_proxy_config&#125;</span>&quot;</span><br>    <span class="hljs-keyword">elif</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;OSTYPE&#125;</span>&quot;</span> == <span class="hljs-string">&quot;linux&quot;</span>* ]]; <span class="hljs-keyword">then</span><br>        <span class="hljs-comment"># 获取代理设置状态</span><br>        gsettings_proxy_status=$(gsettings get org.gnome.system.proxy mode 2&gt; /dev/null | sed <span class="hljs-string">&quot;s/&#x27;//g&quot;</span>) <span class="hljs-comment"># Gnome</span><br>        kde_proxy_status=$(<span class="hljs-built_in">cat</span> ~/.config/kioslaverc 2&gt; /dev/null | grep <span class="hljs-string">&quot;ProxyType&quot;</span> | awk -F <span class="hljs-string">&#x27;ProxyType=&#x27;</span> <span class="hljs-string">&#x27;&#123;print $NF&#125;&#x27;</span>) <span class="hljs-comment"># KDE</span><br><br>        <span class="hljs-comment"># 判断代理设置</span><br>        <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_proxy_status&#125;</span>&quot;</span> == <span class="hljs-string">&quot;manual&quot;</span> ]]; <span class="hljs-keyword">then</span><br>            gsettings_http_host=$(gsettings get org.gnome.system.proxy.http host 2&gt; /dev/null | sed <span class="hljs-string">&quot;s/&#x27;//g&quot;</span>)<br>            gsettings_http_port=$(gsettings get org.gnome.system.proxy.http port 2&gt; /dev/null)<br>            gsettings_socks_host=$(gsettings get org.gnome.system.proxy.socks host 2&gt; /dev/null | sed <span class="hljs-string">&quot;s/&#x27;//g&quot;</span>)<br>            gsettings_socks_port=$(gsettings get org.gnome.system.proxy.socks port 2&gt; /dev/null)<br>            gsettings_http_proxy_config=<span class="hljs-string">&quot;http://<span class="hljs-variable">$&#123;gsettings_http_host&#125;</span>:<span class="hljs-variable">$&#123;gsettings_http_port&#125;</span>&quot;</span><br>            gsettings_socks_proxy_config=<span class="hljs-string">&quot;socks://<span class="hljs-variable">$&#123;gsettings_socks_host&#125;</span>:<span class="hljs-variable">$&#123;gsettings_socks_port&#125;</span>&quot;</span><br><br>            <span class="hljs-keyword">if</span> [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_http_host&#125;</span>&quot;</span> ]] &amp;&amp; [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_http_port&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_http_proxy_config&#125;</span>&quot;</span><br>            <span class="hljs-keyword">elif</span> [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_socks_host&#125;</span>&quot;</span> ]] &amp;&amp; [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_socks_port&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;gsettings_socks_proxy_config&#125;</span>&quot;</span><br>            <span class="hljs-keyword">fi</span><br>        <span class="hljs-keyword">elif</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;kde_proxy_status&#125;</span>&quot;</span> == 1 ]]; <span class="hljs-keyword">then</span><br>            kde_http_proxy_config=$(<span class="hljs-built_in">cat</span> ~/.config/kioslaverc 2&gt; /dev/null |\<br>                grep <span class="hljs-string">&quot;httpProxy=&quot;</span> |\<br>                awk -F <span class="hljs-string">&#x27;httpProxy=&#x27;</span> <span class="hljs-string">&#x27;&#123;gsub(/ /, &quot;:&quot;); print $NF&#125;&#x27;</span> \<br>            )<br>            kde_socks_proxy_config=$(<span class="hljs-built_in">cat</span> ~/.config/kioslaverc 2&gt; /dev/null |\<br>                grep <span class="hljs-string">&quot;socksProxy=&quot;</span> |\<br>                awk -F <span class="hljs-string">&#x27;socksProxy=&#x27;</span> <span class="hljs-string">&#x27;&#123;gsub(/ /, &quot;:&quot;); print $NF&#125;&#x27;</span> \<br>            )<br><br>            <span class="hljs-keyword">if</span> [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;kde_http_proxy_config&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;kde_http_proxy_config&#125;</span>&quot;</span><br>            <span class="hljs-keyword">elif</span> [[ ! -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;kde_socks_proxy_config&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;kde_socks_proxy_config&#125;</span>&quot;</span><br>            <span class="hljs-keyword">fi</span><br>        <span class="hljs-keyword">fi</span><br>    <span class="hljs-keyword">elif</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;OSTYPE&#125;</span>&quot;</span> == <span class="hljs-string">&quot;darwin&quot;</span>* ]]; <span class="hljs-keyword">then</span><br>        macos_proxy_config=$(scutil --proxy 2&gt; /dev/null | awk <span class="hljs-string">&#x27; \</span><br><span class="hljs-string">            /HTTPEnable/ &#123; http_enabled = $3; &#125; \</span><br><span class="hljs-string">            /HTTPProxy/ &#123; http_server = $3; &#125; \</span><br><span class="hljs-string">            /HTTPPort/ &#123; http_port = $3; &#125; \</span><br><span class="hljs-string">            /SOCKSEnable/ &#123; socks_enabled = $3; &#125; \</span><br><span class="hljs-string">            /SOCKSProxy/ &#123; socks_server = $3; &#125; \</span><br><span class="hljs-string">            /SOCKSPort/ &#123; socks_port = $3; &#125; \</span><br><span class="hljs-string">            END &#123; \</span><br><span class="hljs-string">                if (http_enabled == &quot;1&quot;) &#123; \</span><br><span class="hljs-string">                    print &quot;http://&quot; http_server &quot;:&quot; http_port; \</span><br><span class="hljs-string">                &#125; else if (socks_enabled == &quot;1&quot;) &#123; \</span><br><span class="hljs-string">                    print &quot;socks://&quot; socks_server &quot;:&quot; socks_port; \</span><br><span class="hljs-string">                &#125; \</span><br><span class="hljs-string">            &#125;&#x27;</span> \<br>        )<br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;macos_proxy_config&#125;</span>&quot;</span><br>    <span class="hljs-keyword">fi</span><br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-title">set_proxy</span></span>() &#123; <span class="hljs-comment"># 设置代理功能</span><br>    <span class="hljs-built_in">local</span> proxy_value<br><br>    <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;$*&quot;</span> ]]; <span class="hljs-keyword">then</span><br>        proxy_value=$(get_system_proxy_address)<br>        <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;proxy_value&#125;</span>&quot;</span> ]]; <span class="hljs-keyword">then</span><br>            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;未启用系统代理&quot;</span><br>            <span class="hljs-built_in">return</span> 1<br>        <span class="hljs-keyword">fi</span><br>    <span class="hljs-keyword">else</span><br>        proxy_value=<span class="hljs-variable">$@</span><br>    <span class="hljs-keyword">fi</span><br><br>    <span class="hljs-built_in">export</span> NO_PROXY=<span class="hljs-string">&quot;localhost,127.0.0.1,::1&quot;</span><br>    <span class="hljs-built_in">export</span> HTTP_PROXY=<span class="hljs-variable">$proxy_value</span><br>    <span class="hljs-built_in">export</span> HTTPS_PROXY=<span class="hljs-variable">$proxy_value</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;设置代理完成, 代理地址: <span class="hljs-variable">$&#123;proxy_value&#125;</span>&quot;</span><br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-title">unset_proxy</span></span>() &#123; <span class="hljs-comment"># 取消代理功能</span><br>    <span class="hljs-built_in">unset</span> HTTP_PROXY<br>    <span class="hljs-built_in">unset</span> HTTPS_PROXY<br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;清除代理完成&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>粘贴后保存一下就行，这里就不需要特意去修改文件保存编码了。Visual Studio Code 默认使用的 UTF-8 来保存文件编码，使用这个编码就行了，这和 PowerShell 有些区别哦。</p>
+<p>此时需要知道此时的终端用的是 Bash，Zsh 或者是其他的终端解释器，就用下面的命令去查看吧。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SHELL#/usr/bin/&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果显示的是 bash，则配置文件是 .bashrc；如果显示的是 zsh，则配置文件是 .zshrc，显示的是其他的话就自己在 Google 上查找吧，应该都能查到的。一般配置文件都在 &#x2F;home&#x2F;YourUserName 这个路径里，没找到对应的配置文件就自己创建一个吧。</p>
+<p>然后打开这个配置文件，在配置文件里写下初始化刚刚编写函数的文件的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">. <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/custom_cmd.sh&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>保存一下，再重启一下终端，此时就可以像 PowerShell 一样中设置代理了，用法和在 PowerShell 中的一样，只不过… Set-Proxy 要替换成 set_proxy，Unset-Proxy 要替换成 unset_proxy，其他的就和 PowerShell 中的一样了。</p>
+<p>嗯…总感觉少了点什么…</p>
+<p>啊咧，怎么没有在 CMD 中的教程呢？啊哈哈，CMD 我不怎么用，就不教怎么弄了（其实我也不会弄，诶嘿），把在 PowerShell 中的方法扔给 ChatGPT 或者 DeepSeek 这些 AI，让 AI 改成 CMD 上能用的就行了。</p>
+<p>听说有些软件只吃 ALL_PROXY 这个环境变量，嗯…我到现在还没遇到那种软件呢，不过遇上的话就把上面的函数改改就行了，应该很简单的吧，而且还有 AI 可以帮你改呢。</p>
+<hr>
+<p>这首歌好听，就顺手推荐一下了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1305367563&auto=0&height=66"></iframe>
+
+<p><strong>砂糖和盐最好了~</strong></p>
+<p><img src="/../img/set_proxy_in_terminal/126295446_p1.png" srcset="/img/config/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="category-chain-item">经验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+        <a href="/tags/macos/" class="print-no-link">#macos</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在终端中快速设置代理</div>
+      <div>https://licyk.netlify.app/2025/02/02/set-proxy-in-terminal/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/10/debiased_estimation_loss_in_stable_diffusion_model_training/" title="在 Stable Diffusion 模型训练中使用 debiased estimation loss">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">在 Stable Diffusion 模型训练中使用 debiased estimation loss</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/16/use-kaggle-to-training-sd-model/" title="使用 Kaggle 进行模型训练">
+                        <span class="hidden-mobile">使用 Kaggle 进行模型训练</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
