@@ -1,0 +1,1296 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="安装 WebUI、管理扩展、检查环境，再让 Agent 帮忙处理实例维护，介绍一下 Hanafubuki 能做些什么。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hanafubuki：把 WebUI 的安装和管理放到一起">
+<meta property="og:url" content="https://licyk.netlify.app/2026/09/29/hanafubuki-introduction/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="安装 WebUI、管理扩展、检查环境，再让 Agent 帮忙处理实例维护，介绍一下 Hanafubuki 能做些什么。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/hanafubuki_home_page.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/create_instances_1.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/create_instances_2.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/scan_exists_instance_1.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/scan_exists_instance_2.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/scan_exists_instance_3.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/environment_check.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/extensions_manager.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/extension_market.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/switch_extension_version.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/launch_args_editor.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/snapshot.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/agent_install_extension.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/agent_update_extension_1.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/agent_update_extension_2.jpg">
+<meta property="og:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/agent_get_instance_info.jpg">
+<meta property="article:published_time" content="2026-09-29T15:49:44.000Z">
+<meta property="article:modified_time" content="2026-09-29T16:52:44.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="comfyui">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="macos">
+<meta property="article:tag" content="stable diffusion">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licyk.netlify.app/img/hanafubuki-introduction/hanafubuki_home_page.jpg">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>Hanafubuki：把 WebUI 的安装和管理放到一起 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hanafubuki：把 WebUI 的安装和管理放到一起"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-29 23:49" pubdate>
+          2026年9月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hanafubuki：把 WebUI 的安装和管理放到一起</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年9月30日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a target="_blank" rel="noopener" href="https://hanafubuki.netlify.app/">Hanafubuki</a> 是一个用来安装、启动和管理 AI 创作 WebUI 的桌面软件。常见的 Stable Diffusion WebUI、ComfyUI，还有训练模型和生成语音的工具，都可以放到这里管理。除了安装和启动，也能管理它们的运行环境、扩展、模型和版本，还可以让 Agent 帮忙处理实例里的事情。</p>
+<p>毕竟装好 WebUI 只是开始。今天装个节点，明天更新一下依赖，后天突然就启动不了了。明明只是想生成几张图，最后却在研究 Python 环境，嗯，有点熟悉了。</p>
+<p>如果电脑里还放了好几个 WebUI，事情就更麻烦了。这份用什么 Python，那份装了哪些扩展，上次能用的是哪个版本？总不能每次都从翻文件夹开始吧。</p>
+<p>Hanafubuki 就是把这些安装和维护操作放到一起，让每个 WebUI 有自己的环境，也有统一的管理入口。下面就介绍一下它能做些什么。</p>
+<p><img src="/../img/hanafubuki-introduction/hanafubuki_home_page.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<!-- more -->
+
+
+<h1 id="可以安装哪些-WebUI？"><a href="#可以安装哪些-WebUI？" class="headerlink" title="可以安装哪些 WebUI？"></a>可以安装哪些 WebUI？</h1><p>先看看支持的工具吧。在“添加实例”页面中，目前有下面六类安装入口。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stable Diffusion WebUI</td>
+<td>图像生成，包含原版以及多个衍生版本</td>
+</tr>
+<tr>
+<td>ComfyUI</td>
+<td>通过节点搭建生成工作流</td>
+</tr>
+<tr>
+<td>InvokeAI</td>
+<td>图像生成与画布创作</td>
+</tr>
+<tr>
+<td>Fooocus</td>
+<td>较简化的图像生成流程</td>
+</tr>
+<tr>
+<td>SD Trainer</td>
+<td>模型和 LoRA 训练</td>
+</tr>
+<tr>
+<td>Qwen TTS WebUI</td>
+<td>文本转语音</td>
+</tr>
+</tbody></table>
+<p>Stable Diffusion WebUI 这一项下面还可以选择 Forge、reForge、Forge Classic、Forge Neo、SD.Next 等变体。训练工具也有 SD Trainer、SD Trainer Next、Kohya GUI 等预设，具体可选项以安装页面加载出来的列表为准。</p>
+<p>所以除了生成图片，也可以在这里准备训练和语音合成的环境，不用再给每一种工具单独找一套安装方法。</p>
+<p>选择类型后，给实例起个名字，确认安装位置，就可以开始安装了。Python、WebUI 本体和依赖会按所选方案准备，想自己选择 Python 版本、PyTorch 构建或分支的话，也有高级选项可以调整。不清楚该选什么，就先保留默认值吧。</p>
+<p><img src="/../img/hanafubuki-introduction/create_instances_1.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/create_instances_2.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="一个不够？那就多装几个"><a href="#一个不够？那就多装几个" class="headerlink" title="一个不够？那就多装几个"></a>一个不够？那就多装几个</h1><p>在 Hanafubuki 里，一份 WebUI 和它的环境称为一个“实例”。新安装的实例有自己的 Python 和 WebUI 目录，同一个软件也可以创建多份实例。</p>
+<p>比如平时用 ComfyUI 生成图片，已经配好了一套能正常运行的工作流。这时候看到一个新节点，想试试，但又担心它把原来的依赖弄坏，那就另外装一份 ComfyUI 吧。</p>
+<p>一份叫“ComfyUI 日常”，保留平时使用的节点和版本；另一份叫“ComfyUI 测试”，专门拿来尝试新节点。它们使用各自的 Python 环境，在测试实例里安装依赖，不需要改动日常实例的那一份。</p>
+<p>首页可以查看和打开这些实例，启动后也可以直接在 Hanafubuki 的工作区里使用 WebUI。想用自己常用的浏览器，也有在外部浏览器中打开的入口。</p>
+<p>这样就不用对着几个名字差不多的文件夹，猜哪个才是平时用的了。</p>
+<h2 id="已经装好的也能用吗？"><a href="#已经装好的也能用吗？" class="headerlink" title="已经装好的也能用吗？"></a>已经装好的也能用吗？</h2><p>可以，不一定要重新安装。</p>
+<p>如果知道现有 WebUI 和 Python 的位置，可以选择“导入现有实例”，让 Hanafubuki 使用原来的路径。如果目录太多，或者不确定在哪里，也可以通过“扫描系统”查找已有 WebUI。</p>
+<p>扫描到完整环境时可以直接接入；只有 WebUI 代码、缺少所需 Python 环境时，则还需要补装。导入只是接入管理，不会自动复制出一份隔离的测试环境，后续更新扩展、切换版本等操作仍然会作用于原来的文件。</p>
+<p><img src="/../img/hanafubuki-introduction/scan_exists_instance_1.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/scan_exists_instance_2.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/scan_exists_instance_3.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="环境又出问题了？先检查一下"><a href="#环境又出问题了？先检查一下" class="headerlink" title="环境又出问题了？先检查一下"></a>环境又出问题了？先检查一下</h1><p>WebUI 的环境问题确实挺烦的。缺个包还能照着错误信息装一下，遇到几个节点要求不同版本的依赖，就不知道该听谁的了。</p>
+<p>Hanafubuki 的启动流程会检查 PyTorch 兼容性；开启环境检查后，还会执行对应 WebUI 的检查流程。比如核对依赖是否完整，发现缺失依赖时进行安装，以及处理已有修复规则覆盖的一些环境问题。</p>
+<p>也就是说，遇到能够识别的问题，可以在启动前先处理一遍，不必每次都手动打开终端补依赖。</p>
+<h2 id="节点之间打架怎么办？"><a href="#节点之间打架怎么办？" class="headerlink" title="节点之间打架怎么办？"></a>节点之间打架怎么办？</h2><p>拿 ComfyUI 来说，不同自定义节点可能依赖同一个 Python 包，却要求互不兼容的版本。只把最后报错的那个包升级一下，不一定能解决问题，可能转头又把另一个节点弄坏了。</p>
+<p>Hanafubuki 会在启用环境检查时分析 ComfyUI 的依赖冲突，并在需要时让你选择处理方式：停用冲突组件后继续安装、依次安装依赖、跳过，或者取消启动。</p>
+<p>比如刚在测试实例里装了几个新节点，启动时发现它们的依赖要求冲突，就可以先看清楚冲突来自哪里，再决定保留哪些节点。依次安装也不代表冲突一定消失，最后还是要看实际启动和工作流运行的结果。</p>
+<div class="note note-info">
+            <p>自动检查和修复针对的是已有规则能够识别的问题。模型不兼容、扩展本身的代码错误等情况，仍可能需要继续排查。环境检查没有通过时，可以查看任务输出，后面介绍的 Agent 也能帮忙分析。</p> 
+          </div>
+
+<p><img src="/../img/hanafubuki-introduction/environment_check.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="扩展也可以一起管"><a href="#扩展也可以一起管" class="headerlink" title="扩展也可以一起管"></a>扩展也可以一起管</h1><p>WebUI 用久了，扩展和节点通常会越装越多。想更新、停用或者退回某个版本时，能在一个列表里处理就方便多了。</p>
+<p>Hanafubuki 提供扩展市场，可以搜索当前索引中的扩展并安装。已经知道仓库地址的话，也可以从 Git URL 安装，不用自己找到扩展目录再运行克隆命令。</p>
+<p>安装完成后，在本地扩展列表里就能进行后续管理。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启用和停用</td>
+<td>暂时不用某个扩展，或者排查它是否导致启动失败</td>
+</tr>
+<tr>
+<td>更新和全部更新</td>
+<td>获取扩展的新版本</td>
+</tr>
+<tr>
+<td>切换分支或提交</td>
+<td>使用指定版本的 Git 扩展</td>
+</tr>
+<tr>
+<td>切换 Registry 版本</td>
+<td>为支持 Registry 的 ComfyUI 节点选择发布版本</td>
+</tr>
+<tr>
+<td>卸载</td>
+<td>移除不再需要的扩展</td>
+</tr>
+</tbody></table>
+<p>这些操作会根据当前 WebUI 和扩展来源显示，并不是每种扩展都有相同的按钮。修改启停状态后，通常需要重新启动 WebUI 才会生效。</p>
+<p>比如一个节点更新后让原来的工作流报错，可以先停用它确认问题，再考虑切换版本。至少不用一上来就把整个 ComfyUI 删除重装了。</p>
+<p><img src="/../img/hanafubuki-introduction/extensions_manager.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/extension_market.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/switch_extension_version.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="模型、版本和启动参数，也整理一下"><a href="#模型、版本和启动参数，也整理一下" class="headerlink" title="模型、版本和启动参数，也整理一下"></a>模型、版本和启动参数，也整理一下</h1><p>除了扩展，日常要维护的东西还有不少，Hanafubuki 也提供了对应的入口。</p>
+<h2 id="模型文件放在哪里？"><a href="#模型文件放在哪里？" class="headerlink" title="模型文件放在哪里？"></a>模型文件放在哪里？</h2><p>对于使用目录保存模型的 WebUI，可以在模型页浏览目录、导入本地文件、从链接下载模型，以及复制、移动、重命名和删除文件。支持内置模型库的实例，还可以从预设列表中查找并安装模型。</p>
+<p>InvokeAI 的模型管理方式不太一样，Hanafubuki 会提供对应的 Registry 管理入口，用来安装、导入或移除模型。</p>
+<p>这里管理的是当前实例的模型位置，整理时还是要选对目录。不过不用每次先去文件管理器里翻到 models 文件夹，确实省了一步。</p>
+<h2 id="更新或换个版本"><a href="#更新或换个版本" class="headerlink" title="更新或换个版本"></a>更新或换个版本</h2><p>WebUI 的版本页可以查看当前分支和提交，更新代码，或者切换到指定版本。支持变体的实例，还可以切换预设仓库和分支。</p>
+<p>PyTorch 也有对应的管理页面，可以查看当前状态并选择需要的构建。想换版本时，先看看当前实例实际使用的是什么，再决定怎么改。</p>
+<p>不过版本切换会影响代码和环境，不能保证原来的扩展在新版本下一定兼容。有未提交的修改时先保存，比较大的调整也可以先放到测试实例里试试。</p>
+<h2 id="启动参数不用只靠手写"><a href="#启动参数不用只靠手写" class="headerlink" title="启动参数不用只靠手写"></a>启动参数不用只靠手写</h2><p>想改端口、调整监听方式，或者打开某个 WebUI 支持的选项，可以在“启动”页配置。</p>
+<p>已经熟悉参数写法的话，可以直接编辑原始参数字符串；不想记参数，就打开结构化编辑器，从当前 WebUI 实际提供的参数里选择。配置按实例保存，不用给每个启动脚本分别做一份笔记。</p>
+<p>修改后重新启动才会生效。遇到不兼容参数时，启动流程会提示处理，不用等着进程退出后再去猜是哪一项写错了。</p>
+<p><img src="/../img/hanafubuki-introduction/launch_args_editor.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="更新之前，先留个快照吧"><a href="#更新之前，先留个快照吧" class="headerlink" title="更新之前，先留个快照吧"></a>更新之前，先留个快照吧</h1><p>更新前还能正常使用，更新后却启动不了了，这时候就很想知道：刚才到底改了哪些东西？</p>
+<p>Hanafubuki 可以为实例创建环境快照，记录 WebUI 类型、Core 提交、Python 软件包和扩展状态。准备更新 WebUI 或调整一批节点前，先保存一份，后面就有可以参考和恢复的环境记录。</p>
+<p>恢复时也不是点一下就直接开始。软件会先展示恢复预览，列出代码仓库、软件包和扩展有哪些变化，再根据选择处理额外的软件包、扩展和 Git 修改。</p>
+<p>比如测试实例装了一批新节点后环境乱了，可以先看看恢复到之前快照会移除什么、改回什么，确认后再执行。恢复完成后，还要启动 WebUI 检查一下。</p>
+<div class="note note-info">
+            <p>环境快照不是整个实例目录的完整备份。模型、生成图片、任意用户文件和未提交代码的完整内容，仍需要另外保存，不能指望靠环境快照全部找回来。</p> 
+          </div>
+
+<p><img src="/../img/hanafubuki-introduction/snapshot.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="懒得自己查？让-Agent-帮忙看看"><a href="#懒得自己查？让-Agent-帮忙看看" class="headerlink" title="懒得自己查？让 Agent 帮忙看看"></a>懒得自己查？让 Agent 帮忙看看</h1><p>如果环境检查后还是有问题，接下来通常就是看日志、查依赖，再决定怎么处理。错误信息一长，看着也头疼，那能不能让 AI 帮忙看看？</p>
+<p>Hanafubuki 内置了 Agent，可以结合实例信息、文件和任务输出进行分析，还能通过工具操作实例。先在“设置 → Agent”里配置模型服务和默认模型，就可以开始使用了。</p>
+<h2 id="不只是分析报错"><a href="#不只是分析报错" class="headerlink" title="不只是分析报错"></a>不只是分析报错</h2><p>Agent 还可以调用实例管理工具，处理创建和导入实例、启动和停止、安装扩展、切换版本、下载模型、创建快照以及修改启动配置等事情。</p>
+<p>比如下面这些请求：</p>
+<p><img src="/../img/hanafubuki-introduction/agent_install_extension.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/agent_update_extension_1.jpg" srcset="/img/config/loading.gif" lazyload><br><img src="/../img/hanafubuki-introduction/agent_update_extension_2.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<p>实例名、目标和允许做的事情写清楚一些，Agent 就更容易找到正确的对象。工具调用过程可以展开查看，命令、参数和输出都有记录，不用只看最后一句“完成了”。</p>
+<div class="note note-info">
+            <p>Agent 需要连接已配置的模型服务，具体能力取决于模型和当前实例支持的工具。操作受权限模式和审批控制，可以选择手动审批或自动审查等方式；涉及修改时先核对目标，修复后也要检查实际运行结果。</p> 
+          </div>
+
+<p>如果还想扩展 Agent 的能力，也可以接入 MCP 工具，或者安装 Skills，把特定任务的处理方法提供给它。平时只用来管理 WebUI 的话，先从查看实例、分析日志和管理扩展开始就够了。</p>
+<p><img src="/../img/hanafubuki-introduction/agent_get_instance_info.jpg" srcset="/img/config/loading.gif" lazyload></p>
+<h1 id="还有一些方便的小功能"><a href="#还有一些方便的小功能" class="headerlink" title="还有一些方便的小功能"></a>还有一些方便的小功能</h1><p>前面说的是主要功能，另外还有几项日常可能会用到。</p>
+<p><strong>镜像和代理。</strong> 安装 WebUI 会下载代码、Python 包和模型，某个来源访问不顺畅时就容易卡住。Hanafubuki 提供自动选择镜像，也可以手动配置 PyPI、GitHub、Hugging Face 等来源，并设置网络代理，不用分别找每个安装脚本的配置位置。</p>
+<p><strong>任务和实例终端。</strong> 安装、更新等操作的进度和输出可以在任务中心查看。需要自己运行命令时，可以打开实例终端，使用对应的受管环境。排查问题时先确认当前实例，就不容易把依赖装到另一份 Python 里。</p>
+<p><strong>诊断信息收集。</strong> 需要向维护者反馈问题时，可以收集实例的环境、配置和任务输出等信息。诊断包用于辅助排查，本身不会修复环境；分享之前记得检查里面的日志和配置，去掉不准备公开的内容。</p>
+<h1 id="从哪里下载？"><a href="#从哪里下载？" class="headerlink" title="从哪里下载？"></a>从哪里下载？</h1><p>官网：<a target="_blank" rel="noopener" href="https://hanafubuki.netlify.app/">Hanafubuki</a></p>
+<p>下载页：<a target="_blank" rel="noopener" href="https://hanafubuki.netlify.app/download">下载 Hanafubuki</a></p>
+<p>Hanafubuki 提供 Windows、macOS 和 Linux 版本，可以选择安装包，也可以使用便携版 Launcher。</p>
+<p>长期在一台电脑上使用，选安装包就行；希望应用和数据放在同一个位置，可以选择便携版 Launcher。它会下载并准备应用本体，便携数据放在程序旁的 <code>.hanafubuki-launcher</code> 目录中。自己指定到外部位置的 WebUI 和模型，仍要另外管理。</p>
+<p>第一次打开后，等运行环境准备完成，再点击“添加实例”，选择全新安装、导入已有实例，或者扫描系统中的 WebUI。没有特殊需求的话先用默认安装选项，装好后就可以继续启动了。</p>
+<p>更详细的安装和操作方法可以看<a target="_blank" rel="noopener" href="https://hanafubuki.netlify.app/docs/installation">官方文档</a>。桌面应用支持某个平台，不代表每个 WebUI 和 PyTorch 构建都适合该平台，安装时仍以实际可用选项为准。</p>
+<p>如果电脑里已经放了好几个 WebUI，或者不想每次出问题都从找 Python 开始，可以试试看。把环境整理好，接下来就去做想做的图、训练想训练的模型吧。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="category-chain-item">软件</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+        <a href="/tags/macos/" class="print-no-link">#macos</a>
+      
+        <a href="/tags/stable-diffusion/" class="print-no-link">#stable diffusion</a>
+      
+        <a href="/tags/comfyui/" class="print-no-link">#comfyui</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hanafubuki：把 WebUI 的安装和管理放到一起</div>
+      <div>https://licyk.netlify.app/2026/09/29/hanafubuki-introduction/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/06/09/add-giscus-comment-to-hexo-fluid/" title="为 Hexo Fluid 接入 Giscus 评论系统">
+                        <span class="hidden-mobile">为 Hexo Fluid 接入 Giscus 评论系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

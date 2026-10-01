@@ -1,0 +1,1174 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录一下解决 Msys2 某些坑的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="屏蔽 Msys2 终端的 Python">
+<meta property="og:url" content="https://licyk.netlify.app/2025/06/26/block-msys2-python/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="记录一下解决 Msys2 某些坑的方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-26T15:02:03.000Z">
+<meta property="article:modified_time" content="2026-04-01T08:10:03.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>屏蔽 Msys2 终端的 Python - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="屏蔽 Msys2 终端的 Python"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-26 23:02" pubdate>
+          2025年6月26日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">屏蔽 Msys2 终端的 Python</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年4月1日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Msys2 虽说好用，终端体验类似 Linux 终端，而且有个 pacman 包管理器方便装许多软件包，但总有一些坑在里面，比如 Msys2 中的 Python 调用优先级比原 Windows 系统中安装的 Python 优先级高（被这问题恶心的好久）。下面就介绍一种方法解决这个问题吧。</p>
+<h1 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h1><p>先来看看 Msys2 中的 Python 是在哪里坑的。一开始我在系统中安装了一个 Python 3.11，在 Msys2 终端中可以调用这个 Python。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python --version<br>Python 3.11.8<br></code></pre></td></tr></table></figure>
+
+<p>这没什么问题，能正常调用已经安装的 Python 3.11。但在某一天为了使用 Hexo，用 pacman 命令安装了 NodeJS。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S mingw-w64-ucrt-x86_64-nodejs<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后就去配置 Hexo 的东西了，但在安装 NodeJS 的过程中，pacman 把 Python 3.12 安装上了（不是很懂为什么 Python 要作为 NodeJS 的依赖）。</p>
+<p>直到某一天我使用 Python 时就发现了不对劲，就用命令看了下 Python 版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python --version<br>Python 3.12.11<br></code></pre></td></tr></table></figure>
+
+<p>欸，我不是安装的 Python 3.11 吗，怎么变成 Python 3.12 了？想了想，用<code>which python</code>命令看了下 Python 调用的路径，发现居然在<code>/ucrt64/bin/python</code>。</p>
+<p>怎么会是呢，Msys2 怎么多给我整了个别的 Python，于是就用 pacman 查了一下，果然多了一个 Python。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pacman -Q | grep python<br>mingw-w64-ucrt-x86_64-python 3.12.11-1<br>mingw-w64-ucrt-x86_64-python-packaging 25.0-1<br></code></pre></td></tr></table></figure>
+
+<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>既然多装了 Python，那卸载掉就好了嘛，呃…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pacman -R mingw-w64-ucrt-x86_64-python<br>正在检查依赖关系...<br>错误：无法准备事务处理 (无法满足依赖关系)<br>:: 删除 mingw-w64-ucrt-x86_64-python 破坏依赖 <span class="hljs-string">&#x27;mingw-w64-ucrt-x86_64-python&#x27;</span> （mingw-w64-ucrt-x86_64-gdb 需要）<br>:: 删除 mingw-w64-ucrt-x86_64-python 破坏依赖 <span class="hljs-string">&#x27;mingw-w64-ucrt-x86_64-python&#x27;</span> （mingw-w64-ucrt-x86_64-glib2 需要）<br>:: 删除 mingw-w64-ucrt-x86_64-python 破坏依赖 <span class="hljs-string">&#x27;mingw-w64-ucrt-x86_64-python&#x27;</span> （mingw-w64-ucrt-x86_64-nodejs 需要）<br>:: 删除 mingw-w64-ucrt-x86_64-python 破坏依赖 <span class="hljs-string">&#x27;mingw-w64-ucrt-x86_64-python&#x27;</span> （mingw-w64-ucrt-x86_64-python-packaging 需要）<br></code></pre></td></tr></table></figure>
+
+<p>诶诶，卸不掉了。</p>
+<p>按照 Shell 查找可执行文件的方式，会在 PATH 环境变量中按顺序查找 PATH 中的路径，找到可执行文件后立即执行，所以把系统中安装的 Python 3.11 的路径置于 PATH 环境变量内的最前面就行了吧，这个方法可以。</p>
+<p>哦，另有一个办法，既然 Shell 可能会去找 Msys2 的 Python 可执行文件，那把可执行文件改个名让 Shell 找不到就好了嘛，这样问题就解决了。</p>
+<h1 id="给可执行文件改个名吧"><a href="#给可执行文件改个名吧" class="headerlink" title="给可执行文件改个名吧"></a>给可执行文件改个名吧</h1><p>写个自动执行的函数，把 Msys2 的 Python 找到，再重新命名，这样就不会再调用那 Msys2 的 Python 了。</p>
+<p>打开终端后，用命令新建一个 sh 文件来编写函数吧。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/custom_cmd.sh&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行后会在 &#x2F;home&#x2F;YourUserName 这个路径新建一个 custom_cmd.sh 文件（这里要注意一下，Msys2 的 home 目录是在安装这个终端的路径中的哦），用 Visual Studio Code 打开这个文件吧，把下面的函数粘贴进去。</p>
+<div class="note note-info">
+            <ol> <li>在 Msys2 中可以通过 cygpath 命令查看 home 目录对应的 Windows 真实路径，用法是<code>cygpath -w &quot;&lt;要查看的路径&gt;&quot;</code>，比如查看 home 目录的真实路径：</li> </ol> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cygpath -w <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>  <ol start="2"> <li>下面的函数我只在 Bash 和 Zsh 上测试过，如果 Msys2 用的是其他终端就不知道能不能用了，不能用的话用 AI 修一下就好了吧。</li> </ol> 
+          </div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 处理 Msys2 的 Python 二进制文件</span><br><span class="hljs-function"><span class="hljs-title">process_msys2_python_bin</span></span>() &#123;<br>    <span class="hljs-built_in">local</span> msys2_type_list=(<span class="hljs-string">&quot;clang64&quot;</span> <span class="hljs-string">&quot;clangarm64&quot;</span> <span class="hljs-string">&quot;mingw32&quot;</span> <span class="hljs-string">&quot;mingw64&quot;</span> <span class="hljs-string">&quot;ucrt64&quot;</span> <span class="hljs-string">&quot;usr&quot;</span>)<br>    <span class="hljs-built_in">local</span> python_module_type_list=(<span class="hljs-string">&quot;python&quot;</span> <span class="hljs-string">&quot;pip&quot;</span> <span class="hljs-string">&quot;pythonw&quot;</span>)<br>    <span class="hljs-built_in">local</span> process_type=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;*-block&#125;</span>&quot;</span><br>    <span class="hljs-built_in">local</span> search_prefix<br>    <span class="hljs-built_in">local</span> zsh_options<br><br>    <span class="hljs-comment"># 终端类型不是 Msys2 / MinGW / CygWin 时中断运行</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;OSTYPE&#125;</span>&quot;</span> <span class="hljs-keyword">in</span><br>        msys*|cygwin*|mingw*)<br>            ;;<br>        *)<br>            <span class="hljs-built_in">return</span> 1<br>            ;;<br>    <span class="hljs-keyword">esac</span><br><br>    <span class="hljs-comment"># 根据处理类型设置查找关键字</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;process_type&#125;</span>&quot;</span> <span class="hljs-keyword">in</span><br>        block)<br>            search_prefix=<span class="hljs-string">&quot;exe&quot;</span><br>            ;;<br>        restore)<br>            search_prefix=<span class="hljs-string">&quot;exe.bak&quot;</span><br>            ;;<br>        *)<br>            <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;未知操作类型&quot;</span><br>            <span class="hljs-built_in">return</span> 1<br>            ;;<br>    <span class="hljs-keyword">esac</span><br><br>    <span class="hljs-comment"># 在 Zsh 中屏蔽匹配不到文件的错误</span><br>    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SHELL##*/&#125;</span>&quot;</span> == <span class="hljs-string">&quot;zsh&quot;</span> ]]; <span class="hljs-keyword">then</span><br>        zsh_options=($(<span class="hljs-built_in">setopt</span>))<br>        <span class="hljs-built_in">setopt</span> NULL_GLOB<br>    <span class="hljs-keyword">fi</span><br><br>    <span class="hljs-comment"># 搜索可执行文件路径</span><br>    <span class="hljs-keyword">for</span> bin_type <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;msys2_type_list[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">for</span> python_module_type <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;python_module_type_list[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span><br>            <span class="hljs-keyword">for</span> bin_path <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;/<span class="hljs-variable">$&#123;bin_type&#125;</span>/bin/<span class="hljs-variable">$&#123;python_module_type&#125;</span>&quot;</span>*.<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;search_prefix&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span><br>                <span class="hljs-comment"># 跳过不是文件的匹配值</span><br>                [[ ! -f <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;bin_path&#125;</span>&quot;</span> ]] &amp;&amp; <span class="hljs-built_in">continue</span><br><br>                <span class="hljs-comment"># 重命名文件名后缀</span><br>                <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;process_type&#125;</span>&quot;</span> <span class="hljs-keyword">in</span><br>                    block)<br>                        <span class="hljs-built_in">mv</span> -f <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;bin_path&#125;</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;bin_path&#125;</span>.bak&quot;</span><br>                        ;;<br>                    restore)<br>                        <span class="hljs-built_in">mv</span> -f <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;bin_path&#125;</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;bin_path%.bak&#125;</span>&quot;</span><br>                        ;;<br>                <span class="hljs-keyword">esac</span><br>            <span class="hljs-keyword">done</span><br>        <span class="hljs-keyword">done</span><br>    <span class="hljs-keyword">done</span><br><br>    <span class="hljs-comment"># 恢复 Zsh 的原有配置</span><br>    <span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SHELL##*/&#125;</span>&quot;</span> == <span class="hljs-string">&quot;zsh&quot;</span> ]]; <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">unsetopt</span> NULL_GLOB<br>        <span class="hljs-built_in">setopt</span> <span class="hljs-variable">$&#123;zsh_options&#125;</span> 2&gt; /dev/null<br>    <span class="hljs-keyword">fi</span><br>&#125;<br><br><br><span class="hljs-comment"># 屏蔽 Msys2 的 Python 二进制文件</span><br><span class="hljs-function"><span class="hljs-title">block_msys2_python_bin</span></span>() &#123;<br>    process_msys2_python_bin block<br>&#125;<br><br><br><span class="hljs-comment"># 恢复 Msys2 的 Python 二进制文件</span><br><span class="hljs-function"><span class="hljs-title">restore_msys2_python_bin</span></span>() &#123;<br>    process_msys2_python_bin restore<br>&#125;<br><br><br>block_msys2_python_bin <span class="hljs-comment"># 直接调用命令, 这样在每次启动终端时都会运行这个命令, 将 Msys2 的 Python 屏蔽</span><br></code></pre></td></tr></table></figure>
+
+<p>粘贴后保存一下就行了。此时需要知道此时的终端用的是 Bash，Zsh 或者是其他的终端解释器，就用下面的命令去查看吧。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;SHELL##*/&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果显示的是 bash，则配置文件是 .bashrc；如果显示的是 zsh，则配置文件是 .zshrc，显示的是其他的话就自己在 Google 上查找吧，应该都能查到的。一般配置文件都在 &#x2F;home&#x2F;YourUserName 这个路径里，没找到对应的配置文件就自己创建一个吧。</p>
+<p>然后打开这个配置文件，在配置文件里写下初始化刚刚编写函数的文件的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">. <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;HOME&#125;</span>/custom_cmd.sh&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>保存一下，再重启一下终端。现在再试试检查 Python 是不是能调用系统中已安装的了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ python --version<br>Python 3.11.8<br></code></pre></td></tr></table></figure>
+
+<p>这下正常了呢。如果想要恢复 Msys2 的 Python，运行一下<code>restore_msys2_python_bin</code>命令就行了（不过下次启动终端时 custom_cmd.sh 会被执行一次，里面的<code>block_msys2_python_bin</code>命令就会运行，把 Msys2 的 Python 屏蔽了），运行<code>block_msys2_python_bin</code>就可以再次屏蔽。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>屏蔽 Msys2 终端的 Python</div>
+      <div>https://licyk.netlify.app/2025/06/26/block-msys2-python/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/09/19/ssh-usage-experience/" title="使用 SSH 管理服务器的经验">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 SSH 管理服务器的经验</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/31/configure-micromamba/" title="配置 MicroMamaba 包管理器">
+                        <span class="hidden-mobile">配置 MicroMamaba 包管理器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

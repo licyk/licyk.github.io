@@ -1,0 +1,1175 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/config/favicon.png">
+  <link rel="icon" href="/img/config/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#66afef">
+  <meta name="author" content="licyk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Windows 鼠标指针轻松转换为 Linux 鼠标指针，还包安装和设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ani2xcur 使用教程">
+<meta property="og:url" content="https://licyk.netlify.app/2026/03/25/ani2xcur-tutor/index.html">
+<meta property="og:site_name" content="licyk的小窝">
+<meta property="og:description" content="Windows 鼠标指针轻松转换为 Linux 鼠标指针，还包安装和设置">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-25T11:30:06.000Z">
+<meta property="article:modified_time" content="2026-05-20T14:50:06.000Z">
+<meta property="article:author" content="licyk">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="鼠标指针">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="google-site-verification" content="yZo06LTPQG7nctMwi80E6kCtD8lRF1FOa65Urpdsc1w" />
+  
+  <title>Ani2xcur 使用教程 - licyk的小窝</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_5174900_hx0kzk08bx5.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"licyk.netlify.app","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":30,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/config/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"006ae77e924b11b775c7a321b89cbdc2","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"McVn7EAU2PejD5Y78Yp0oVzw-gzGzoHsz","app_key":"JiPLdIay1LynZr2W0FaCYCN9","server_url":"https://mcvn7eau.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":"https://licyk-umami.netlify.app/script.js","website_id":"e9bd9698-fb3d-4725-b3c0-001be1c24570","domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":"usCfZGvi8X9aHXNIrs2bgsB/hJWGW6sHaYC1iOK9DvMnRqzGdmZbN1qVYlz9jfx2R9TieJ/mipoRWL/DXv2VLIKVSCZHMx1GXdCJhAz20uVGn7YxkGuJm+z4ufPQmk2R8xug+4xfRYIXc/KyEnWjGFWQfzl7YawDMpHt2Psu+8chxOBxjIBHe+dcDK+yDUIizBZG0Blk3IoWf+J7ny+4eBSpW1pWNtqatzG3eDJX8w1GJGz6Mk21obE9ftLq5Jk0peSDxJOrVKUb+JTSX0xcXW5VcbJXkGkhzCAviLXDHKRRxBjdMpagx3utj5dwd+KctYKwD6uuPuNGjzdOftk/RbgNQG81Y8pcLQuTe8SYJ3L70hcDCzeP656vTOWtUoM7qcX4","api_server":"https://licyk-umami.netlify.app"}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?006ae77e924b11b775c7a321b89cbdc2";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        let umami = document.createElement('script');
+        umami.async = true;
+        umami.src = "https://licyk-umami.netlify.app/script.js";
+        umami.setAttribute("data-website-id", "e9bd9698-fb3d-4725-b3c0-001be1c24570");
+        umami.setAttribute("data-domains", "");
+        document.head.appendChild(umami);
+      }
+    </script>
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="licyk的小窝" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="licyk的小窝" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>licyk的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://afdian.com/a/licyk" target="_self">
+                <i class="iconfont icon-aifadian-line"></i>
+                <span>爱发电</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark-fill""></i>
+                <span>工具</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tools/" target="_self">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/t" target="_self">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/bangumis/" target="_self">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss2.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="https://afdian.com/a/licyk" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-aifadian-line"></i>
+                  <span>爱发电</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-bookmark-fill""></i>
+              <span>工具</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tools/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-code"></i>
+                    <span>工具合集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/t" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-briefcase"></i>
+                    <span>网页工具集</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/bangumis/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-books"></i>
+                    <span>追番</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/rss2.xml" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/config/post.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ani2xcur 使用教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        licyk
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-25 19:30" pubdate>
+          2026年3月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          68 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="umami-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="umami-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ani2xcur 使用教程</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年5月20日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在 Windows 中有许多好看的鼠标指针主题，但 Windows 鼠标指针主题的格式并不兼容 Linux，想要在 Linux 中使用就头疼了。</p>
+<p>一开始发现 <a target="_blank" rel="noopener" href="https://github.com/quantum5/win2xcur">quantum5&#x2F;win2xcur</a> 这个 Github 项目可以把 Windows 的鼠标指针转换为 Linux 的鼠标指针，不过转换后还是要一个个改成对应的指针名字，好麻烦啊。实在忍受不了就写了 <a target="_blank" rel="noopener" href="https://github.com/licyk/ani2xcur">Ani2xcur</a> 这个简单的工具来转换 Windows 的鼠标指针（虽然那个项目在转换上有些问题）。</p>
+<p>时隔两年半，把 Ani2xcur 重写了。<a target="_blank" rel="noopener" href="https://github.com/licyk/ani2xcur-cli">Ani2xcur CLI</a> 不仅支持将 Windows 鼠标指针转换为 Linux 鼠标指针，还可以将 Linux 鼠标指针转换为 Windows 的鼠标指针。除了支持转换鼠标指针格式，Ani2xcur CLI 还可以为 Windows &#x2F; Linux 系统安装鼠标指针，并且设置要使用的鼠标指针主题；可以列出 Windows &#x2F; Linux 系统中已经安装的鼠标指针主题，能够删除或者从系统中导出鼠标指针主题，是非常方便和强大的工具呢。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装!"></a>安装!</h1><p>这么方便和强大的工具，安装也很简单。首先确认已经安装了 Python 3.10+，然后在终端中输入下面的命令就可以安装了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install ani2xcur<br></code></pre></td></tr></table></figure>
+
+<p>安装好后可以使用<code>--help</code>参数查看 Ani2xcur CLI 的使用方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ani2xcur --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<p>如果能显示 Ani2xcur CLI 的帮助信息就说明安装成功。</p>
+<h1 id="怎么转换呢"><a href="#怎么转换呢" class="headerlink" title="怎么转换呢?"></a>怎么转换呢?</h1><p>转换鼠标指针用到的是 ani2xcur convert 命令，下面讲讲 Windows 和 Linux 中怎么进行转换。</p>
+<h2 id="Windows-移植到-Linux"><a href="#Windows-移植到-Linux" class="headerlink" title="Windows 移植到 Linux"></a>Windows 移植到 Linux</h2><p>假设现在有 3 个 Windows 鼠标指针主题包在 ~&#x2F;Downloads 目录，一个鼠标指针主题包存在网上，可以用链接下载。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 下面是每个鼠标指针的目录结构, 都保存在 ~/Downloads 目录中</span><br><br><br><span class="hljs-comment"># 小只芋周年庆鼠标指针</span><br>小只芋周年庆鼠标指针<br>├── AutoSetup.inf<br>├── 帮助<span class="hljs-string">.ani</span><br>├ <span class="hljs-string">...</span><br>├── 小只芋<span class="hljs-string">.exe</span><br>└── 正常<span class="hljs-string">.ani</span><br><br><span class="hljs-comment"># 呜米鼠标指针主题</span><br>狼崽<br>├── 18+<span class="hljs-string">.ani</span><br>├── AutoSetup.inf<br>├── dai.ani<br>├ <span class="hljs-string">...</span><br>└── zhayan.ani<br><br><span class="hljs-comment"># 咩栗鼠标指针主题</span><br>咩咩<br>├── bashi.ani<br>├ <span class="hljs-string">...</span><br>├── wink.ani<br>├── woniu.ani<br>├── yangtuo.ani<br>└── 右键安装<span class="hljs-string">.inf</span><br><br><span class="hljs-comment"># 星奈铃鼠标指针主题, 是压缩包的格式</span><br>https:<span class="hljs-string">//github.com/licyk/cursors-archive/raw/refs/heads/main/windows/Purple.7z</span><br><span class="hljs-comment"># 压缩包里的内容长这样:</span><br><span class="hljs-comment"># Blue</span><br><span class="hljs-comment"># ├── alternativo.ani</span><br><span class="hljs-comment"># ├── ayuda.ani</span><br><span class="hljs-comment"># ├── Instalador.inf</span><br><span class="hljs-comment"># ├ ...</span><br><span class="hljs-comment"># └── vertical.ani</span><br></code></pre></td></tr></table></figure>
+
+<p>然后在 ~&#x2F;Downloads 目录中打开终端，下面是转换这些鼠标指针要用到的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看参数使用方法可以用这个命令: ani2xcur convert win2x --help</span><br><br><span class="hljs-comment"># 用相对路径指定鼠标指针主题文件目录, 转换完成后将保存到原鼠标指针主题文件所在目录</span><br>ani2xcur convert win2x 小只芋周年庆鼠标指针<br><br><span class="hljs-comment"># 用绝对路径指定鼠标指针主题文件目录, 指定到目录中的 INF 配置, 并且指定导出路径</span><br>ani2xcur convert win2x ~/Downloads/狼崽/AutoSetup.inf --output-path ~/Documents/Cursors<br><br><span class="hljs-comment"># 指定鼠标指针主题文件目录的指针文件, 并且转换完成后直接安装到 Linux 系统中</span><br>ani2xcur convert win2x 咩咩/wink.ani --install<br><br><span class="hljs-comment"># 从链接中下载鼠标指针主题文件</span><br>ani2xcur convert win2x https://github.com/licyk/cursors-archive/raw/refs/heads/main/windows/Purple.7z<br></code></pre></td></tr></table></figure>
+
+<p>转换是真的很方便了呢。</p>
+<h2 id="Linux-移植到-Windows"><a href="#Linux-移植到-Windows" class="headerlink" title="Linux 移植到 Windows"></a>Linux 移植到 Windows</h2><p>现在有 2 个 Linux 鼠标指针在 D:&#x2F;Cursors 目录中，目录结构大概长这样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># KDE Breeze 鼠标指针</span><br>breeze_cursors<br>├── cursors<br>│   ├── 00000000000000020006000e7e9ffc3f -&gt; progress<br>│   ├ ...<br>│   ├── text<br>│   ├── top_left_arrow -&gt; default<br>│   ├── top_left_corner<br>│   ├── top_right_corner<br>│   ├── top_side<br>│   ├── up-arrow<br>│   ├── v_double_arrow -&gt; size_ver<br>│   ├── vertical-text<br>│   ├── <span class="hljs-built_in">wait</span><br>│   ├── watch -&gt; <span class="hljs-built_in">wait</span><br>│   ├── xterm -&gt; text<br>│   ├── zoom-in<br>│   └── zoom-out<br>└── index.theme<br><br><span class="hljs-comment"># Bibata 鼠标指针</span><br>Bibata-Modern-Ice<br>├── cursors<br>│   ├── ul_angle<br>│   ├── up-arrow -&gt; sb_up_arrow<br>│   ├── ur_angle<br>│   ├── v_double_arrow -&gt; sb_v_double_arrow<br>│   ├ ...<br>│   ├── vertical-text<br>│   ├── <span class="hljs-built_in">wait</span><br>│   ├── watch -&gt; <span class="hljs-built_in">wait</span><br>│   ├── X_cursor<br>│   ├── xterm<br>│   ├── zoom-in<br>│   └── zoom-out<br>├── cursor.theme<br>└── index.theme<br><br>在 D:/Cursors 目录中打开终端，下面是转换这些鼠标指针要用到的命令。<br><br><span class="hljs-comment"># 查看参数使用方法可以用这个命令: ani2xcur convert x2win --help</span><br><br><span class="hljs-comment"># 指定鼠标指针文件中的 index.theme 文件, 转换完成后导出到 D:/Downloads 目录中，并且转换完成后立即安装到 Windows 系统中</span><br>ani2xcur convert x2win breeze_cursors/index.theme --output-path D:/Downloads --install<br><br><span class="hljs-comment"># 只指定到鼠标指针文件夹也可以, 转换完成后将鼠标指针文件打包成压缩包</span><br>ani2xcur convert x2win Bibata-Modern-Ice --compress<br></code></pre></td></tr></table></figure>
+
+<p>Ani2xcur CLI 不仅可以将 Windows 的鼠标指针移植到 Linux，还可以将 Linux 的鼠标指针移植到 Windows。</p>
+<h1 id="能管理鼠标指针"><a href="#能管理鼠标指针" class="headerlink" title="能管理鼠标指针?"></a>能管理鼠标指针?</h1><p>Ani2xcur CLI 不仅仅是鼠标指针转换工具，还提供管理 Windows &#x2F; Linux 系统中的鼠标指针文件，包括安装，查看，卸载，导出。</p>
+<p>支持的管理功能可以用下面的命令进行查看。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ani2xcur cursor --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="安装鼠标指针到系统中"><a href="#安装鼠标指针到系统中" class="headerlink" title="安装鼠标指针到系统中"></a>安装鼠标指针到系统中</h2><p>还是拿上面例子提到的鼠标指针来举例吧，安装鼠标指针到 Windows &#x2F; Linux 系统中的命令是这样的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在 Windows 中安装鼠标指针, 上面例子中的鼠标指针都放在 D:/Cursors 目录中</span><br>ani2xcur cursor install 小只芋周年庆鼠标指针<br><br>ani2xcur cursor install D:/Cursors/狼崽/AutoSetup.inf<br><br>ani2xcur cursor install 咩咩/wink.ani<br><br>ani2xcur cursor install https://github.com/licyk/cursors-archive/raw/refs/heads/main/windows/Purple.7z<br><br><br><span class="hljs-comment"># 在 Linux 中安装鼠标指针, 上面例子中的鼠标指针都放在 ~/Downloads 目录中</span><br>ani2xcur cursor install breeze_cursors/index.theme<br><br>ani2xcur cursor install Bibata-Modern-Ice<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="列出系统中已经安装的鼠标指针和查看当前使用的鼠标指针"><a href="#列出系统中已经安装的鼠标指针和查看当前使用的鼠标指针" class="headerlink" title="列出系统中已经安装的鼠标指针和查看当前使用的鼠标指针"></a>列出系统中已经安装的鼠标指针和查看当前使用的鼠标指针</h2><p>在 Windows &#x2F; Linux 中查看鼠标指针的命令也很简单。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 列出系统中已经安装的鼠标指针</span><br><span class="hljs-comment"># 运行后会显示当前安装在系统中的鼠标指针名称和路径</span><br>ani2xcur cursor list<br><br><span class="hljs-comment"># 查看当前使用的鼠标指针</span><br><span class="hljs-comment"># 运行后会显示当前使用的鼠标指针名称和鼠标指针大小</span><br>ani2xcur cursor status<br><br>运行后的输出结果如下。<br><br><span class="hljs-comment"># Linux 中的</span><br>[Ani2xcur]-|20:38:16|-INFO: 获取 Linux 系统中已安装的鼠标指针列表<br>╭─────────────────────────┬──────┬──────────────────────────────────────────╮<br>│ 鼠标指针名称            │ 数量 │ 安装路径                                 │<br>├─────────────────────────┼──────┼──────────────────────────────────────────┤<br>│ Blue                    │ 145  │ /home/licyk/.icons/Blue                  │<br>│ 狼崽                    │ 145  │ /home/licyk/.icons/狼崽                  │<br>│ 咩咩                    │ 145  │ /home/licyk/.icons/咩咩                  │<br>│ Adwaita                 │ 59   │ /usr/share/icons/Adwaita                 │<br>│ Bibata-Modern-Classic   │ 145  │ /usr/share/icons/Bibata-Modern-Classic   │<br>│ Bibata-Modern-Ice       │ 145  │ /usr/share/icons/Bibata-Modern-Ice       │<br>│ Bibata-Original-Classic │ 145  │ /usr/share/icons/Bibata-Original-Classic │<br>│ Bibata-Original-Ice     │ 145  │ /usr/share/icons/Bibata-Original-Ice     │<br>│ DMZ-Black               │ 88   │ /usr/share/icons/DMZ-Black               │<br>│ DMZ-White               │ 88   │ /usr/share/icons/DMZ-White               │<br>│ GoogleDot-Black         │ 146  │ /usr/share/icons/GoogleDot-Black         │<br>│ GoogleDot-White         │ 146  │ /usr/share/icons/GoogleDot-White         │<br>│ XCursor-Pro-Dark        │ 146  │ /usr/share/icons/XCursor-Pro-Dark        │<br>│ XCursor-Pro-Light       │ 146  │ /usr/share/icons/XCursor-Pro-Light       │<br>│ Yaru                    │ 296  │ /usr/share/icons/Yaru                    │<br>│ Breeze_Snow             │ 115  │ /usr/share/icons/Breeze_Snow             │<br>│ breeze_cursors          │ 115  │ /usr/share/icons/breeze_cursors          │<br>│ umy-cursor              │ 145  │ /usr/share/icons/umy-cursor              │<br>╰─────────────────────────┴──────┴──────────────────────────────────────────╯<br>[Ani2xcur]-|20:38:50|-INFO: 获取 Linux 系统的鼠标指针状态<br>╭────────────┬──────────────┬──────────────╮<br>│ 平台       │ 鼠标指针主题 │ 鼠标指针大小 │<br>├────────────┼──────────────┼──────────────┤<br>│ Cinnamon   │ <span class="hljs-string">&#x27;狼崽&#x27;</span>       │ 24           │<br>│ Gnome      │ <span class="hljs-string">&#x27;狼崽&#x27;</span>       │ 24           │<br>│ GTK 2.0    │ 狼崽         │ None         │<br>│ GTK 3.0    │ 狼崽         │ None         │<br>│ GTK 4.0    │ 狼崽         │ None         │<br>│ KDE        │ 狼崽         │ None         │<br>│ LXQT       │ 狼崽         │ None         │<br>│ Mate       │ None         │ None         │<br>│ X.Org      │ 狼崽         │ None         │<br>│ XDG        │ None,None    │ None         │<br>│ Xfce       │ None         │ None         │<br>│ X Settings │ 狼崽         │ None         │<br>╰────────────┴──────────────┴──────────────╯<br><br><span class="hljs-comment"># Windows 中的</span><br>[Ani2xcur]-|20:38:04|-INFO: 获取 Windows 系统中已安装的鼠标指针列表<br>╭────────────────────────────────────────┬──────┬─────────────────────────────────────────────╮<br>│ 鼠标指针名称                           │ 数量 │ 安装路径                                    │<br>├────────────────────────────────────────┼──────┼─────────────────────────────────────────────┤<br>│ Windows 11                             │ 13   │ C:\Windows\cursors                          │<br>│ STMCS 503 BTR Ahoge (Nijika)           │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 601 Genshin Furina               │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 101 Standard                     │ 15   │ C:\Windows\Cursors\STMC                     │<br>│ STMCS 102 Standard (White)             │ 15   │ C:\Windows\Cursors\STMC                     │<br>│ STMCS 107 Standard (Left Handed)       │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 301 Genshin                      │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 302 Genshin (Elements)           │ 15   │ C:\Windows\Cursors\STMC                     │<br>│ STMCS 307 Genshin (Left Handed)        │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 401 Genshin Nahida               │ 15   │ C:\Windows\Cursors\STMC                     │<br>│ STMCS 407 Genshin Nahida (Left Handed) │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 501 BTR Ahoge                    │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 502 BTR Ahoge (Bocchi)           │ 15   │ C:\Windows\Cursors\STMC                     │<br>│ STMCS 507 BTR Ahoge (Left Handed)      │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ STMCS 607 Genshin Furina (Left Handed) │ 15   │ C:\WINDOWS\Cursors\STMC                     │<br>│ Purple                                 │ 15   │ C:\Windows\Cursors\Purple                   │<br>│ 花园Serena光标                         │ 15   │ C:\Windows\Cursors\花园Serena光标           │<br>│ 神楽七奈                               │ 12   │ C:\Windows\Cursors\神楽七奈                 │<br>│ 小只芋                                 │ 15   │ C:\Users\licyk\AppData\Local\Cursors\小只芋 │<br>│ 69                                     │ 15   │ C:\WINDOWS\Cursors\69                       │<br>│ DMZ (Black)                            │ 15   │ C:\Windows\Cursors\DMZ (Black)              │<br>│ Breeze                                 │ 17   │ C:\Windows\Cursors\Breeze                   │<br>│ Bibata-Modern-Ice                      │ 17   │ C:\Windows\Cursors\Bibata-Modern-Ice        │<br>│ 咩咩                                   │ 15   │ C:\Windows\Cursors\merry                    │<br>│ Blue                                   │ 15   │ C:\Windows\Cursors\Blue                     │<br>╰────────────────────────────────────────┴──────┴─────────────────────────────────────────────╯<br>[Ani2xcur]-|20:38:42|-INFO: 获取 Windows 系统的鼠标指针状态<br>╭─────────┬──────────────┬──────────────╮<br>│ 平台    │ 鼠标指针主题 │ 鼠标指针大小 │<br>├─────────┼──────────────┼──────────────┤<br>│ Windows │ 咩咩         │ 1            │<br>╰─────────┴──────────────┴──────────────╯<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="设置鼠标指针主题和大小"><a href="#设置鼠标指针主题和大小" class="headerlink" title="设置鼠标指针主题和大小"></a>设置鼠标指针主题和大小</h2><p>上面的命令可以看到系统中已经安装的鼠标指针，此时可以使用这个命令设置要使用的鼠标指针。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 比如设置成&#x27;咩咩&#x27;这个鼠标指针</span><br>ani2xcur cursor <span class="hljs-built_in">set</span> theme 咩咩<br><br>设置鼠标指针大小（可能设置后并不能立即生效，需要重启系统）。<br><br><span class="hljs-comment"># 在 Linux 中推荐的大小为 16 ~ 96</span><br>ani2xcur cursor <span class="hljs-built_in">set</span> size 24<br><br><span class="hljs-comment"># 在 Windows 中推荐的大小为 1 ~ 15</span><br>ani2xcur cursor <span class="hljs-built_in">set</span> size 1<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="导出鼠标指针"><a href="#导出鼠标指针" class="headerlink" title="导出鼠标指针"></a>导出鼠标指针</h2><p>如果想要把 Windows &#x2F; Linux 系统中已经安装的鼠标指针导出，想要分享给其他人，就可以使用下面的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 比如将 Linux 系统中的 &#x27;Bibata-Modern-Ice&#x27; 鼠标指针导出到 ~/Downloads 目录</span><br>ani2xcur cursor <span class="hljs-built_in">export</span> Bibata-Modern-Ice ~/Downloads<br><br><span class="hljs-comment"># 将 Windows 系统中的 &#x27;Purple&#x27; 鼠标指针导出到 D:/Cursors 目录</span><br>ani2xcur cursor <span class="hljs-built_in">export</span> Purple D:/Cursors<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="卸载鼠标指针"><a href="#卸载鼠标指针" class="headerlink" title="卸载鼠标指针"></a>卸载鼠标指针</h2><p>如果不想要某个鼠标指针了，可以用下面的命令去卸载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 比如将系统中的 &#x27;Breeze&#x27; 鼠标指针卸载</span><br>ani2xcur cursor uninstall Breeze<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="还有其他功能"><a href="#还有其他功能" class="headerlink" title="还有其他功能?"></a>还有其他功能?</h1><p>Ani2xcur CLI 除了提供上面的鼠标指针转换和管理功能，还提供了下面几个功能。</p>
+<h2 id="安装和卸载-ImageMagick"><a href="#安装和卸载-ImageMagick" class="headerlink" title="安装和卸载 ImageMagick"></a>安装和卸载 ImageMagick</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装 ImageMagick</span><br>ani2xcur imagemagick install<br><br><span class="hljs-comment"># 卸载 ImageMagick</span><br>ani2xcur imagemagick uninstall<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="更新-Ani2xcur-CLI"><a href="#更新-Ani2xcur-CLI" class="headerlink" title="更新 Ani2xcur CLI"></a>更新 Ani2xcur CLI</h2><p>Ani2xcur CLI 会不定期发布新版本用于新增和修复功能，可以使用下面的命令进行更新。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ani2xcur update<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="显示-Ani2xcul-CLI-使用的环境变量"><a href="#显示-Ani2xcul-CLI-使用的环境变量" class="headerlink" title="显示 Ani2xcul CLI 使用的环境变量"></a>显示 Ani2xcul CLI 使用的环境变量</h2><p>用来调试的，一般用不着。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ani2xcur <span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="显示-Ani2xcur-CLI-版本信息"><a href="#显示-Ani2xcur-CLI-版本信息" class="headerlink" title="显示 Ani2xcur CLI 版本信息"></a>显示 Ani2xcur CLI 版本信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ani2xcur version<br></code></pre></td></tr></table></figure>
+
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p>Github：<a target="_blank" rel="noopener" href="https://github.com/licyk/ani2xcur-cli">https://github.com/licyk/ani2xcur-cli</a><br>Gitee：<a target="_blank" rel="noopener" href="https://gitee.com/licyk/ani2xcur-cli">https://gitee.com/licyk/ani2xcur-cli</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
+      
+        <a href="/tags/%E9%BC%A0%E6%A0%87%E6%8C%87%E9%92%88/" class="print-no-link">#鼠标指针</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ani2xcur 使用教程</div>
+      <div>https://licyk.netlify.app/2026/03/25/ani2xcur-tutor/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>licyk</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"licyk/licyk.github.io","repo-id":"MDEwOlJlcG9zaXRvcnkzMjYzMzY5ODM=","category":"Comment","category-id":"DIC_kwDOE3OB184CcA16","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN","data-strict":1};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="umami-site-pv-container" style="display: none">
+        总访问量 
+        <span id="umami-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="umami-site-uv-container" style="display: none">
+        总访客数 
+        <span id="umami-site-uv"></span>
+         人
+      </span>
+    
+    
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/umami-view.js" ></script>
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+<script src="/js/mouse_firework_load.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
